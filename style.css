@@ -5,229 +5,210 @@
 }
 
 body {
-    font-family: "Georgia", serif;
-    background: #fff8f8;
-    color: #4a2c32;
+    font-family: 'Georgia', serif;
+    background: #fff5f7;
+    color: #4a2c35;
+    text-align: center;
     line-height: 1.7;
 }
 
-.container {
-    width: 90%;
-    max-width: 900px;
-    margin: auto;
-    text-align: center;
+section {
+    padding: 40px 20px;
 }
 
 
-section,
-.capa {
-    padding: 70px 0;
-}
-
+/* Capa */
 
 .capa {
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+}
+
+.capa img {
+    width: 90%;
+    max-width: 400px;
+    border-radius: 20px;
+    margin-bottom: 25px;
 }
 
 
 h1 {
-    font-size: 2rem;
-    margin-bottom: 25px;
+    font-size: 32px;
+    margin-bottom: 20px;
 }
-
 
 h2 {
-    font-size: 1.7rem;
-    margin-bottom: 25px;
-}
-
-
-p {
-    font-size: 1.05rem;
+    font-size: 28px;
     margin-bottom: 20px;
 }
 
 
-img {
-    width: 100%;
-    max-width: 400px;
-    border-radius: 25px;
-    margin: 20px auto;
-    display: block;
+p {
+    max-width: 700px;
+    margin: 15px auto;
+    font-size: 18px;
 }
 
 
-.foto-capa {
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-}
+/* Blocos */
 
-.video {
-    width: 100%;
-    max-width: 550px;
-    border-radius: 25px;
+.bloco {
+    background: rgba(255,255,255,0.7);
     margin: 25px auto;
-    display: block;
-}
-
-
-/* Carta aberta */
-
-.carta {
-    background: #ffffff;
-    padding: 35px;
     border-radius: 25px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-    text-align: left;
+    max-width: 850px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 }
 
 
-.carta p {
-    margin-bottom: 25px;
+/* Imagens */
+
+.bloco img {
+    width: 85%;
+    max-width: 450px;
+    border-radius: 20px;
+    margin: 20px auto;
+}
+
+
+/* Vídeos */
+
+video {
+    width: 90%;
+    max-width: 600px;
+    border-radius: 20px;
+    margin: 20px auto;
+}
+
+
+/* Áudios */
+
+audio {
+    width: 90%;
+    margin: 10px auto 25px;
 }
 
 
 /* Botões */
 
 button {
-    background: #8b3a4a;
+    background: #d96c8a;
     color: white;
     border: none;
-    padding: 15px 40px;
+    padding: 15px 35px;
     border-radius: 30px;
-    font-size: 1rem;
+    font-size: 18px;
     cursor: pointer;
-    transition: 0.4s;
+    margin-top: 20px;
 }
 
-
 button:hover {
-    transform: scale(1.05);
-    opacity: 0.9;
+    opacity: 0.8;
+}
+
+/* Carta */
+
+.carta {
+    text-align: left;
+    padding: 35px 25px;
+    background: #fffafa;
+}
+
+.carta h2 {
+    text-align: center;
+}
+
+.carta p {
+    font-size: 17px;
+    margin-bottom: 22px;
 }
 
 
 /* Contador */
 
 #contador {
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 20px;
-    font-size: 1.3rem;
-    font-weight: bold;
-    margin: 30px auto;
-    max-width: 500px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-}
-
-
-/* Versículo */
-
-.versiculo {
-    background: #ffffff;
-    font-style: italic;
-}
-
-
-/* Última tela */
-
-#final {
-    min-height: 80vh;
     display: flex;
-    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 30px auto;
+}
+
+#contador div {
+    background: #ffffff;
+    width: 90px;
+    height: 90px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+#contador span {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#contador small {
+    font-size: 14px;
 }
 
 
-#final h2 {
-    font-size: 2.5rem;
+/* Surpresa */
+
+.surpresa {
+    padding: 50px 20px;
 }
 
 
-/* Vídeo final escondido */
+/* Vídeo final */
 
-.oculto {
-    display: none;
-}
-
-
-/* Rodapé */
-
-footer {
-    padding: 30px;
-    text-align: center;
-    font-size: 0.9rem;
-}
-
-.capa .container,
-section .container {
-    animation: aparecer 1.2s ease;
+#videoFinal {
+    animation: aparecer 1.5s ease;
 }
 
 
 @keyframes aparecer {
-
     from {
         opacity: 0;
-        transform: translateY(25px);
+        transform: translateY(30px);
     }
 
     to {
         opacity: 1;
         transform: translateY(0);
     }
-
 }
 
 
-/* Efeito suave para rolagem */
-
-html {
-    scroll-behavior: smooth;
-}
-
-
-/* Tela final com destaque */
-
-#final {
-    background: #1c1c1c;
-    color: white;
-    text-align: center;
-}
-
-
-/* Responsividade para celular */
+/* Responsivo para celular */
 
 @media (max-width: 600px) {
 
     h1 {
-        font-size: 1.6rem;
+        font-size: 26px;
     }
-
 
     h2 {
-        font-size: 1.4rem;
+        font-size: 24px;
     }
-
 
     p {
-        font-size: 1rem;
+        font-size: 16px;
+        padding: 0 10px;
     }
 
-
-    .carta {
-        padding: 20px;
-        border-radius: 18px;
+    #contador div {
+        width: 75px;
+        height: 75px;
     }
 
-
-    button {
-        padding: 12px 30px;
-    }
-
-
-    #final h2 {
-        font-size: 2rem;
+    #contador span {
+        font-size: 22px;
     }
 
 }
