@@ -1,1 +1,180 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+body {
+    font-family: "Georgia", serif;
+    background: #fff8f8;
+    color: #4a2c32;
+    line-height: 1.7;
+}
+
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+}
+
+
+/* Cabeçalho */
+
+.inicio {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 40px 0;
+}
+
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+}
+
+h2 {
+    font-size: 1.7rem;
+    margin-bottom: 25px;
+}
+
+
+p {
+    font-size: 1.05rem;
+    margin-bottom: 20px;
+}
+
+
+/* Fotos */
+
+img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 20px;
+    margin: 20px auto;
+    display: block;
+}
+
+
+/* Vídeos */
+
+.video {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 20px;
+    margin: 20px auto;
+}
+
+
+/* Áudio */
+
+audio {
+    width: 90%;
+    margin: 20px 0;
+}
+
+
+/* Seções */
+
+section {
+    padding: 70px 0;
+}
+
+
+/* Carta */
+
+.carta {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    text-align: left;
+}
+
+
+.carta p {
+    margin-bottom: 25px;
+}
+
+
+/* Contador */
+
+#contador {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin: 30px 0;
+}
+
+
+/* Botões */
+
+button {
+    background: #8b3a4a;
+    color: white;
+    border: none;
+    padding: 14px 35px;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+
+button:hover {
+    transform: scale(1.05);
+}
+
+
+/* Versículo */
+
+.versiculo {
+    background: #fff;
+    font-style: italic;
+}
+
+
+/* Tela final */
+
+.final {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+}
+
+
+.final h2 {
+    font-size: 2.5rem;
+}
+
+
+/* Rodapé */
+
+footer {
+    padding: 25px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+
+/* Celular */
+
+@media (max-width: 600px) {
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .carta {
+        padding: 20px;
+    }
+
+}
