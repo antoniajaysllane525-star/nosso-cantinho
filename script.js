@@ -1,8 +1,7 @@
 function entrar() {
-    window.scrollTo({
-        top: window.innerHeight,
-        behavior: "smooth"
-    });
+  document.querySelector(".bloco").scrollIntoView({
+    behavior: "smooth"
+  });
 }
 
 
