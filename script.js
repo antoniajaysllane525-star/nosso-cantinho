@@ -8,7 +8,7 @@ function entrar() {
 // Contador desde 01/03/2026
 function atualizarContador() {
 
-    const inicio = new Date("2026-03-01T00:00:00");
+    const inicio = new Date("2026-05-09T00:00:00");
     const agora = new Date();
 
     let diferenca = agora - inicio;
