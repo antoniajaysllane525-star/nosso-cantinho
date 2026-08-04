@@ -1,97 +1,295 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Nosso Cantinho 🫀</title>
-
+    <title>Nosso Cantinho ❤️</title>
     <link rel="stylesheet" href="style.css">
-
 </head>
-
 
 <body>
 
-
     <!-- Capa -->
+    <section class="capa">
+        <img src="fotos/imagem/capa.jpg" alt="Nossa foto favorita">
 
-    <header class="capa">
+        <h1>❤️ Bem-vindo ao nosso cantinho</h1>
 
-        <div class="container">
+        <p>
+            Fiz esse lugar pensando em nós, na nossa história e em todos
+            os momentos que ainda vamos viver juntos.
+        </p>
 
-            <h1>❤️ Bem-vindo ao nosso cantinho</h1>
+        <p>
+            Cada detalhe foi preparado com muito carinho para guardar
+            um pedacinho do que somos.
+        </p>
 
-
-            <img src="imagens/capa.jpg"
-                 alt="Nossa foto"
-                 class="foto-capa">
-
-
-            <p>
-                Bem-vindo ao nosso cantinho. ❤️
-            </p>
-
-
-            <p>
-                Se você está lendo isso, é porque encontrou
-                um pedacinho do meu coração.
-            </p>
+        <button onclick="entrar()">Entrar</button>
+    </section>
 
 
-            <p>
-                Passei um tempinho preparando tudo isso,
-                pensando em cada detalhe, porque queria criar
-                um lugar só nosso.
-            </p>
+    <!-- Nossos momentos -->
+    <section class="bloco">
+        <h2>🎥 Nossos momentos</h2>
 
+        <video controls>
+            <source src="videos/momentos.mp4" type="video/mp4">
+            Seu navegador não suporta vídeo.
+        </video>
 
-            <p>
-                Um lugar para você voltar sempre que sentir
-                saudade de nós e lembrar de tudo o que vivemos.
-            </p>
-
-
-            <p>
-                Espero que você goste. ❤️
-            </p>
-
-
-            <button onclick="entrar()">
-                Entrar
-            </button>
-
-
-        </div>
-
-    </header>
-
+        <p>
+            Alguns momentos passam rápido, mas ficam guardados para sempre.
+            Esses são alguns pedacinhos da nossa história.
+        </p>
+    </section>
 
 
     <!-- Pulseira -->
+    <section class="bloco">
+        <h2>🧿 Nossa pulseira</h2>
+
+        <img src="fotos/imagem/pulseira.jpg" alt="Pulseira de 7 nós">
+
+        <p>
+            Um símbolo do carinho, da proteção e da conexão que construímos.
+        </p>
+    </section>
 
 
-    <section id="pulseira">
+    <!-- Alianças -->
+    <section class="bloco">
+        <h2>💍 Nosso compromisso</h2>
 
-        <div class="container">
+        <img src="fotos/imagem/aliancas.jpg" alt="Nossas alianças">
 
-
-            <h2>🫀 Nossa pulseira</h2>
-
-
-            <img src="imagens/pulseira.jpg"
-                 alt="Pulseira de 7 nós">
-
-
-            <p>
-                Quem olha vê só uma pulseira.
-                Eu olho e lembro de nós.
-            </p>
+        <p>
+            Você foi a escolha mais linda que eu fiz.
+        </p>
+    </section>
 
 
-        </div>
+    <!-- Músicas -->
+    <section class="bloco">
+        <h2>🎵 Nossa música</h2>
 
+        <p>
+            Algumas músicas carregam sentimentos que palavras não conseguem explicar.
+        </p>
+
+        <p>
+            Então dá o play e deixa esse momento ter a nossa trilha sonora.
+        </p>
+
+        <h3>🎵 Outrora — ANAVITÓRIA</h3>
+        <audio controls>
+            <source src="musicas/outrora.mp3" type="audio/mpeg">
+        </audio>
+
+
+        <h3>🎵 Amor Sem Fim — Grupo Revelação</h3>
+        <audio controls>
+            <source src="musicas/amor-sem-fim.mp3" type="audio/mpeg">
+        </audio>
 
     </section>
+
+    <!-- Nosso tempo juntos -->
+    <section class="bloco">
+        <h2>⏳ Nosso tempo juntos</h2>
+
+        <p>
+            Nossa história começou em 01 de março de 2026.
+        </p>
+
+        <div id="contador">
+            <div>
+                <span id="meses">0</span>
+                <small>Meses</small>
+            </div>
+
+            <div>
+                <span id="dias">0</span>
+                <small>Dias</small>
+            </div>
+
+            <div>
+                <span id="horas">0</span>
+                <small>Horas</small>
+            </div>
+
+            <div>
+                <span id="minutos">0</span>
+                <small>Minutos</small>
+            </div>
+
+            <div>
+                <span id="segundos">0</span>
+                <small>Segundos</small>
+            </div>
+        </div>
+
+        <p>
+            E que esse tempo continue aumentando com muitos momentos nossos.
+        </p>
+    </section>
+
+
+    <!-- Carta -->
+    <section class="bloco carta">
+
+        <h2>💌 Carta aberta para o amor da minha vida</h2>
+
+        <p>Meu amor,</p>
+
+        <p>
+            8 de setembro é um dia especial, porque é o dia em que a sua vida começou.
+            E eu queria aproveitar essa data para te lembrar o quanto você se tornou
+            importante para mim e o quanto sou feliz por ter você fazendo parte da minha história.
+        </p>
+
+        <p>
+            Às vezes eu penso em como tudo começou e ainda acho bonito imaginar que um simples
+            olhar poderia ser o começo de algo tão importante. Naquele momento eu não sabia
+            o que Deus estava preparando, mas hoje eu vejo que aquele encontro mudou muita
+            coisa dentro de mim.
+        </p>
+
+        <p>
+            Depois que você chegou, minha vida ficou mais leve.
+            <strong>Nazareno Lima</strong>, você me transformou de uma forma que talvez nem perceba.
+            Não foi por grandes coisas, mas pelo seu jeito, pelo cuidado, pela paciência,
+            pelas conversas, pelas risadas e pela forma como você conseguiu conquistar um espaço em mim.
+        </p>
+
+        <p>
+            Eu nunca imaginei que alguém pudesse tocar tanto o meu coração de uma maneira tão bonita.
+            Com você, tudo aconteceu de um jeito natural. Antes mesmo de existir um pedido oficial,
+            eu já sabia da minha resposta. Eu já tinha escolhido você.
+        </p>
+
+        <p>
+            Você me mostrou que o amor também está nos detalhes: em estar presente, em cuidar,
+            em ouvir, em dividir momentos simples e fazer eles se tornarem especiais.
+        </p>
+
+        <p>
+            Obrigada por ser meu companheiro, por segurar minha mão nos momentos difíceis,
+            por me acolher e por me fazer sentir tão amada. Obrigada por tudo que você é
+            e por tudo que você representa para mim.
+        </p>
+
+        <p>
+            Nesse novo ciclo da sua vida, eu desejo que você nunca esqueça o quanto é especial.
+            Que seus sonhos se realizem, que você continue sendo essa pessoa incrível
+            e que nunca faltem motivos para sorrir.
+        </p>
+
+        <p>
+            Eu espero continuar vivendo nossa história ao seu lado, comemorando nossas conquistas,
+            enfrentando os desafios e criando novas lembranças.
+        </p>
+
+        <p>
+            Eu amo te amar.
+        </p>
+
+        <p>
+            E mesmo te amando tanto, sinto que ainda nem te amo tudo,
+            porque todos os dias eu descubro novos motivos para amar você ainda mais.
+        </p>
+
+        <p>
+            Eu amo amar você. ❤️
+        </p>
+
+        <p>
+            Feliz aniversário, meu amor.
+        </p>
+
+        <p>
+            Com todo o meu coração,
+        </p>
+
+        <p>
+            <strong>Sua Lanaj.</strong>
+        </p>
+
+    </section>
+
+
+    <!-- Bênção -->
+    <section class="bloco">
+
+        <h2>🙏 Nossa bênção</h2>
+
+        <p>
+            Que Deus continue cuidando da nossa história, guiando nossos passos
+            e abençoando tudo aquilo que estamos construindo.
+        </p>
+
+        <p>
+            “Consagre ao Senhor tudo o que você faz,
+            e os seus planos serão bem-sucedidos.”
+        </p>
+
+        <p>
+            Provérbios 16:3
+        </p>
+
+    </section>
+
+
+    <!-- Surpresa -->
+    <section class="bloco surpresa">
+
+        <h2>🎁 Uma última surpresa...</h2>
+
+        <p>
+            Se você chegou até aqui, espero que tenha sentido um pouco
+            do carinho que coloquei em cada detalhe.
+        </p>
+
+        <p>
+            Mas ainda falta uma última lembrança...
+        </p>
+
+        <button onclick="mostrarVideo()">
+            Clique aqui
+        </button>
+
+    </section>
+
+
+    <!-- Vídeo final -->
+    <section class="bloco" id="videoFinal" style="display:none;">
+
+        <h2>🎥 Para o amor da minha vida</h2>
+
+        <p>
+            Para o amor da minha vida. ❤️
+        </p>
+
+        <video controls>
+            <source src="videos/final.mp4" type="video/mp4">
+        </video>
+
+        <p>
+            Eu te vivo. 🫀
+        </p>
+
+        <p>
+            Obrigada por viver essa história comigo.
+        </p>
+
+        <p>
+            Que venham muitos capítulos ao seu lado.
+        </p>
+
+    </section>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
