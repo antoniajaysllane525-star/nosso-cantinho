@@ -1,33 +1,44 @@
-// =========================
-// CONTADOR
-// =========================
+// ===== CONTADOR =====
 
 function atualizarContador() {
 
-    const dataInicial = new Date(2026, 4, 9, 0, 0, 0);
+    const inicio = new Date(2026, 4, 9, 0, 0, 0);
     const agora = new Date();
 
-    const diferenca = agora - dataInicial;
+    let anos = agora.getFullYear() - inicio.getFullYear();
+    let meses = agora.getMonth() - inicio.getMonth();
+
+    if (meses < 0) {
+        anos--;
+        meses += 12;
+    }
+
+    const totalMeses = anos * 12 + meses;
+
+    let dataBase = new Date(inicio);
+    dataBase.setMonth(dataBase.getMonth() + totalMeses);
+
+    let diferenca = agora - dataBase;
 
     const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
-    const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+    diferenca %= (1000 * 60 * 60 * 24);
+
+    const horas = Math.floor(diferenca / (1000 * 60 * 60));
+    diferenca %= (1000 * 60 * 60);
+
+    const minutos = Math.floor(diferenca / (1000 * 60));
+
     const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
 
-    const contador = document.getElementById("contador");
-
-    if (contador) {
-        contador.innerHTML =
-            dias + " dias<br>" +
-            horas + " horas • " +
-            minutos + " minutos • " +
-            segundos + " segundos ❤️";
-    }
+    document.getElementById("meses").textContent = totalMeses;
+    document.getElementById("dias").textContent = dias;
+    document.getElementById("horas").textContent = horas;
+    document.getElementById("minutos").textContent = minutos;
+    document.getElementById("segundos").textContent = segundos;
 }
 
-setInterval(atualizarContador, 1000);
 atualizarContador();
-
+setInterval(atualizarContador, 1000);
 
 // =========================
 // QUIZ
