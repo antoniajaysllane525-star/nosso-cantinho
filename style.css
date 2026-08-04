@@ -802,3 +802,30 @@ blockquote{
 
 
 }
+
+/* Correção da rolagem da carta */
+
+html,
+body{
+
+    height:auto;
+
+    min-height:100%;
+
+    overflow-x:hidden;
+
+    overflow-y:auto;
+
+}
+
+
+.bloco,
+.carta{
+
+    height:auto;
+
+    min-height:auto;
+
+    overflow:visible;
+
+}
