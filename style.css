@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Georgia&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800&display=swap');
 
 
 * {
@@ -162,7 +162,7 @@ button:hover {
     font-size:42px;
     font-weight:bold;
     color:#5a3928;
-    font-family:"Cormorant Garamond", serif;
+    font-family:"Playfair Display", serif;
 }
 
 .caixa-tempo small{
