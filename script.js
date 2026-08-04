@@ -17,6 +17,9 @@ function entrar(){
         capa.style.display = "none";
 
 
+        document.body.style.overflowY = "auto";
+
+
         video.scrollIntoView({
 
             behavior:"smooth"
