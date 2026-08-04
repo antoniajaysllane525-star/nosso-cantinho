@@ -146,6 +146,22 @@
 
         </section>
 
+       <!-- NOSSOS MOMENTOS -->
+    <section class="card" id="inicio">
+
+        <h2>🎥 Nossos momentos</h2>
+
+        <video controls>
+            <source src="videos/videos/momentos1.mp4" type="video/mp4">
+            Seu navegador não suporta vídeo.
+        </video>
+
+        <p>
+            Alguns momentos passam rápido, mas ficam guardados
+            para sempre.
+        </p>
+
+    </section>
     
  <!-- NOSSA MÚSICA -->
         <section class="card">
@@ -274,225 +290,42 @@
 </section>
 
     
-       <!-- QUIZ -->
+      <!-- QUIZ -->
 <section class="card">
 
     <h2>🧩 Quanto você conhece nossa história? ❤️</h2>
 
-    <div class="quiz">
+    <div id="quiz">
 
-
-        <div class="pergunta">
-            <p>1. Qual foi o dia do nosso primeiro beijo?</p>
-
-            <label>
-                <input type="radio" name="q1" value="errado">
-                22 de fevereiro de 2026
-            </label>
-
-            <label>
-                <input type="radio" name="q1" value="certo">
-                01 de março de 2026
-            </label>
-
-            <label>
-                <input type="radio" name="q1" value="errado">
-                10 de maio de 2026
-            </label>
+        <div class="progresso">
+            <span id="numeroPergunta">Pergunta 1 de 10</span>
+            <div class="barra">
+                <div id="barraProgresso"></div>
+            </div>
         </div>
 
+        <div id="pergunta"></div>
 
-        <div class="pergunta">
-            <p>2. Qual símbolo representa nossa união?</p>
+        <div id="alternativas"></div>
 
-            <label>
-                <input type="radio" name="q2" value="certo">
-                Pulseira dos 7 nós
-            </label>
+        <div class="botoesQuiz">
 
-            <label>
-                <input type="radio" name="q2" value="errado">
-                Um colar
-            </label>
+            <button id="btnAnterior" onclick="anteriorPergunta()" disabled>
+                ⬅️ Anterior
+            </button>
 
-            <label>
-                <input type="radio" name="q2" value="errado">
-                Uma flor
-            </label>
+            <button id="btnProximo" onclick="proximaPergunta()">
+                Próxima ➡️
+            </button>
+
         </div>
 
-
-        <div class="pergunta">
-            <p>3. Qual é o time do coração dele?</p>
-
-            <label>
-                <input type="radio" name="q3" value="certo">
-                Corinthians
-            </label>
-
-            <label>
-                <input type="radio" name="q3" value="errado">
-                Flamengo
-            </label>
-
-            <label>
-                <input type="radio" name="q3" value="errado">
-                Palmeiras
-            </label>
-        </div>
-
-
-        <div class="pergunta">
-            <p>4. Qual característica dele eu mais admiro?</p>
-
-            <label>
-                <input type="radio" name="q4" value="certo">
-                O jeito cuidadoso e o coração bondoso
-            </label>
-
-            <label>
-                <input type="radio" name="q4" value="errado">
-                O jeito bravo
-            </label>
-
-            <label>
-                <input type="radio" name="q4" value="errado">
-                A vontade de competir
-            </label>
-        </div>
-
-
-        <div class="pergunta">
-            <p>5. Qual apelido carinhoso faz parte da nossa história?</p>
-
-            <label>
-                <input type="radio" name="q5" value="certo">
-                Coração
-            </label>
-
-            <label>
-                <input type="radio" name="q5" value="errado">
-                Amorzinho
-            </label>
-
-            <label>
-                <input type="radio" name="q5" value="errado">
-                Neném
-            </label>
-        </div>
-
-
-        <div class="pergunta">
-            <p>6. Qual é a cor favorita dele?</p>
-
-            <label>
-                <input type="radio" name="q6" value="certo">
-                Preto
-            </label>
-
-            <label>
-                <input type="radio" name="q6" value="errado">
-                Azul
-            </label>
-
-            <label>
-                <input type="radio" name="q6" value="errado">
-                Vermelho
-            </label>
-        </div>
-
-
-        <div class="pergunta">
-            <p>7. Em qual dia ele pediu a sua mão?</p>
-
-            <label>
-                <input type="radio" name="q7" value="certo">
-                10 de maio de 2026
-            </label>
-
-            <label>
-                <input type="radio" name="q7" value="errado">
-                12 de junho de 2026
-            </label>
-
-            <label>
-                <input type="radio" name="q7" value="errado">
-                08 de setembro de 2026
-            </label>
-        </div>
-
-
-        <div class="pergunta">
-            <p>8. Qual é o mês do aniversário dele?</p>
-
-            <label>
-                <input type="radio" name="q8" value="certo">
-                Setembro
-            </label>
-
-            <label>
-                <input type="radio" name="q8" value="errado">
-                Março
-            </label>
-
-            <label>
-                <input type="radio" name="q8" value="errado">
-                Dezembro
-            </label>
-        </div>
-
-
-        <div class="pergunta">
-            <p>9. O que mais representa os momentos juntos?</p>
-
-            <label>
-                <input type="radio" name="q9" value="certo">
-                Os pequenos detalhes e momentos simples
-            </label>
-
-            <label>
-                <input type="radio" name="q9" value="errado">
-                Apenas presentes
-            </label>
-
-            <label>
-                <input type="radio" name="q9" value="errado">
-                Apenas viagens
-            </label>
-        </div>
-
-
-        <div class="pergunta">
-            <p>10. Qual foi a maior escolha da minha vida?</p>
-
-            <label>
-                <input type="radio" name="q10" value="certo">
-                Escolher você ❤️
-            </label>
-
-            <label>
-                <input type="radio" name="q10" value="errado">
-                Ganhar um presente
-            </label>
-
-            <label>
-                <input type="radio" name="q10" value="errado">
-                Fazer uma surpresa
-            </label>
-        </div>
-
-
-        <button onclick="verResultado()">
-            Ver resultado
-        </button>
-
-
-        <p id="resultado"></p>
-
+        <div id="resultadoQuiz" style="display:none;"></div>
 
     </div>
 
 </section>
+       
         
         <!-- SURPRESA FINAL -->
         <section class="card">
