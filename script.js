@@ -1,118 +1,55 @@
-// ===============================
-// NOSSO CANTINHO ❤️
-// script.js - Parte 1
-// ===============================
-
-// -------------------------------
-// BOTÃO ENTRAR
-// -------------------------------
-
 function entrar() {
-
-    document.getElementById("entrada").style.display = "none";
-
-    document.getElementById("conteudo").style.display = "block";
-
     window.scrollTo({
-        top: 0,
+        top: window.innerHeight,
         behavior: "smooth"
     });
-
 }
 
-// -------------------------------
-// CONTADOR
-// Data: 09/05/2026
-// -------------------------------
 
-const dataInicial = new Date("2026-05-09T00:00:00");
-
+// Contador desde 01/03/2026
 function atualizarContador() {
 
+    const inicio = new Date("2026-03-01T00:00:00");
     const agora = new Date();
 
-    let anos = agora.getFullYear() - dataInicial.getFullYear();
-    let meses = agora.getMonth() - dataInicial.getMonth();
-    let dias = agora.getDate() - dataInicial.getDate();
+    let diferenca = agora - inicio;
 
-    if (dias < 0) {
+    const segundosTotal = Math.floor(diferenca / 1000);
 
-        meses--;
+    const segundos = segundosTotal % 60;
+    const minutosTotal = Math.floor(segundosTotal / 60);
 
-        const ultimoDiaMes = new Date(
-            agora.getFullYear(),
-            agora.getMonth(),
+    const minutos = minutosTotal % 60;
+    const horasTotal = Math.floor(minutosTotal / 60);
 
-            // ===============================
-// QUIZ + SURPRESA FINAL
-// script.js - Parte 2
-// ===============================
+    const horas = horasTotal % 24;
+    const diasTotal = Math.floor(horasTotal / 24);
 
-function corrigirQuiz() {
+    const dias = diasTotal % 30;
+    const meses = Math.floor(diasTotal / 30);
 
-    let pontos = 0;
 
-    const respostas = [
-        "q1", "q2", "q3", "q4", "q5",
-        "q6", "q7", "q8", "q9", "q10"
-    ];
-
-    respostas.forEach(function(pergunta) {
-
-        const marcada = document.querySelector(
-            'input[name="' + pergunta + '"]:checked'
-        );
-
-        if (marcada && marcada.value === "1") {
-            pontos++;
-        }
-
-    });
-
-    const resultado = document.getElementById("resultado");
-
-    if (pontos === 10) {
-
-        resultado.innerHTML = `
-            <h3>🎉 Parabéns! ❤️</h3>
-
-            <p>
-            Você acertou tudo!
-            </p>
-
-            <p>
-            Mas a maior resposta da minha vida foi ter escolhido você.
-            </p>
-
-            <p>
-            Você ganhou um xerooo! 💌
-            </p>
-        `;
-
-    } else {
-
-        resultado.innerHTML = `
-            <h3>❤️</h3>
-
-            <p>
-            Mesmo errando algumas respostas,
-            você continua sendo o meu acerto favorito.
-            </p>
-        `;
-
-    }
-
+    document.getElementById("meses").innerHTML = meses;
+    document.getElementById("dias").innerHTML = dias;
+    document.getElementById("horas").innerHTML = horas;
+    document.getElementById("minutos").innerHTML = minutos;
+    document.getElementById("segundos").innerHTML = segundos;
 }
 
-// ===============================
-// SURPRESA FINAL
-// ===============================
 
-function mostrarSurpresa() {
+setInterval(atualizarContador, 1000);
 
-    document.getElementById("surpresa").style.display = "block";
+atualizarContador();
 
-    document.getElementById("surpresa").scrollIntoView({
+
+// Mostrar vídeo final
+function mostrarVideo() {
+
+    const video = document.getElementById("videoFinal");
+
+    video.style.display = "block";
+
+    video.scrollIntoView({
         behavior: "smooth"
     });
 
