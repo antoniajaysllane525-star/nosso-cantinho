@@ -1,295 +1,353 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nosso Cantinho ❤️</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Capa -->
-    <section class="capa">
-        <img src="fotos/imagem/capa.jpg" alt="Nossa foto favorita">
+<!-- =================== TELA DE ENTRADA =================== -->
 
-        <h1>❤️ Bem-vindo ao nosso cantinho</h1>
+<section id="entrada" class="card">
 
-        <p>
-            Fiz esse lugar pensando em nós, na nossa história e em todos
-            os momentos que ainda vamos viver juntos.
-        </p>
+    <h1>❤️ Nosso Cantinho</h1>
 
-        <p>
-            Cada detalhe foi preparado com muito carinho para guardar
-            um pedacinho do que somos.
-        </p>
+    <h2>❤️ Bem-vindo ao nosso cantinho</h2>
 
-        <button onclick="entrar()">Entrar</button>
-    </section>
+    <img src="fotos/imagens/capa.jpg" alt="Nossa capa" class="imagem-capa">
 
+    <p>
+        Fiz esse lugar pensando em nós, na nossa história e em todos os momentos que ainda vamos viver juntos.
+    </p>
 
-    <!-- Nossos momentos -->
-    <section class="bloco">
-        <h2>🎥 Nossos momentos</h2>
+    <p>
+        Cada detalhe foi preparado com muito carinho para guardar um pedacinho do que somos.
+    </p>
 
-        <video controls>
-            <source src="videos/momentos.mp4" type="video/mp4">
-            Seu navegador não suporta vídeo.
-        </video>
+    <button onclick="entrar()">
+        Entrar ❤️
+    </button>
 
-        <p>
-            Alguns momentos passam rápido, mas ficam guardados para sempre.
-            Esses são alguns pedacinhos da nossa história.
-        </p>
-    </section>
+</section>
 
+<div id="conteudo" style="display:none;">
 
-    <!-- Pulseira -->
-    <section class="bloco">
-        <h2>🧿 Nossa pulseira</h2>
+<!-- =================== NOSSOS MOMENTOS =================== -->
 
-        <img src="fotos/imagem/pulseira.jpg" alt="Pulseira de 7 nós">
+<section class="card">
 
-        <p>
-            Um símbolo do carinho, da proteção e da conexão que construímos.
-        </p>
-    </section>
+    <h2>🎥 Nossos momentos</h2>
 
+    <video controls>
+        <source src="videos/momentos1.mp4" type="video/mp4">
+    </video>
 
-    <!-- Alianças -->
-    <section class="bloco">
-        <h2>💍 Nosso compromisso</h2>
+    <p>
+        Alguns momentos passam rápido, mas ficam guardados para sempre.
+    </p>
 
-        <img src="fotos/imagem/aliancas.jpg" alt="Nossas alianças">
+</section>
 
-        <p>
-            Você foi a escolha mais linda que eu fiz.
-        </p>
-    </section>
+<!-- =================== MÚSICA DA CARTA =================== -->
 
+<section class="card">
 
-    <!-- Músicas -->
-    <section class="bloco">
-        <h2>🎵 Nossa música</h2>
+    <h2>🎵 Dá o play enquanto você lê...</h2>
 
-        <p>
-            Algumas músicas carregam sentimentos que palavras não conseguem explicar.
-        </p>
+    <audio controls>
+        <source src="musicas/musica1.mp3" type="audio/mpeg">
+    </audio>
 
-        <p>
-            Então dá o play e deixa esse momento ter a nossa trilha sonora.
-        </p>
+</section>
 
-        <h3>🎵 Outrora — ANAVITÓRIA</h3>
-        <audio controls>
-            <source src="musicas/outrora.mp3" type="audio/mpeg">
-        </audio>
+<!-- =================== CARTA =================== -->
 
+<section class="card">
 
-        <h3>🎵 Amor Sem Fim — Grupo Revelação</h3>
-        <audio controls>
-            <source src="musicas/amor-sem-fim.mp3" type="audio/mpeg">
-        </audio>
+<h2>💌 Carta aberta para o amor da minha vida</h2>
 
-    </section>
+<p><strong>Meu amor,</strong></p>
 
-    <!-- Nosso tempo juntos -->
-    <section class="bloco">
-        <h2>⏳ Nosso tempo juntos</h2>
+<p>
+Eu nem sei por onde começar, porque existem sentimentos que parecem grandes demais para caber em palavras.
+O dia 8 de setembro merece ser celebrado de uma forma especial, porque foi quando Deus deu início à vida de alguém que, anos depois, se tornaria tão importante para mim.
+</p>
 
-        <p>
-            Nossa história começou em 01 de março de 2026.
-        </p>
+<p>
+Sou muito grata pela resposta daquela oração que fiz em uma madrugada, quando pedi a Deus alguém com um coração puro e bonito.
+Hoje eu sei que a resposta era você, Nazareno Lima.
+</p>
 
-        <div id="contador">
-            <div>
-                <span id="meses">0</span>
-                <small>Meses</small>
-            </div>
+<p><strong>Eu amo estar com você.</strong></p>
 
-            <div>
-                <span id="dias">0</span>
-                <small>Dias</small>
-            </div>
+<p>
+Você me conquistou pelo seu olhar sincero, pelo seu jeito amoroso, pela sua paciência, pelas conversas e pelas risadas bobas.
+Você me mostrou que o amor está na presença, no cuidado e na capacidade de transformar momentos simples em lembranças inesquecíveis.
+</p>
 
-            <div>
-                <span id="horas">0</span>
-                <small>Horas</small>
-            </div>
+<p><strong>Eu amo amar você.</strong></p>
 
-            <div>
-                <span id="minutos">0</span>
-                <small>Minutos</small>
-            </div>
+<p>
+A forma como você deixa os meus dias mais leves, como o seu jeito me acalma e como, até nos momentos mais simples, você consegue fazer o meu coração sorrir.
+</p>
 
-            <div>
-                <span id="segundos">0</span>
-                <small>Segundos</small>
-            </div>
+<p><strong>Eu amo tudo em você.</strong></p>
+
+<p>
+É uma dádiva sentir o seu cheirinho, fazer cafuné no seu cabelinho liso, me perder nos seus olhinhos puxados quando você sorri, receber os seus abraços, ganhar um beijo na testa e sentir o seu corpo junto ao meu.
+São esses pequenos momentos que fazem o meu coração pulsar mais forte.
+</p>
+
+<p><strong>Eu amo a sua vida.</strong></p>
+
+<p>
+Admiro a pessoa que você é e me sinto muito feliz por ter encontrado alguém que posso chamar de coração fora do meu peito.
+Obrigada por cuidar de mim, por me fazer sentir tão amada e por ser esse homem gentil, bondoso e incrível.
+</p>
+
+<p><strong>Eu amo te amar.</strong></p>
+
+<p>
+Você é o significado mais bonito da palavra amor.
+</p>
+
+<p>
+E, mesmo te amando tanto, sinto que ainda nem te amo tudo, porque todos os dias descubro novos motivos para amar você ainda mais.
+</p>
+
+<p>
+Feliz vida e seja feliz.
+</p>
+
+<p>
+Sua,<br>
+Lanaj ❤️
+</p>
+
+<p>
+Um xero.
+</p>
+
+</section>
+
+    <!-- =================== NOSSA MÚSICA =================== -->
+
+<section class="card">
+
+    <h2>🎵 Nossa música</h2>
+
+    <p>
+        Algumas músicas carregam sentimentos que palavras não conseguem explicar.
+    </p>
+
+    <p>
+        Então dá o play e deixa esse momento ter a nossa trilha sonora.
+    </p>
+
+    <h3>🎵 Outrora — ANAVITÓRIA</h3>
+
+    <audio controls>
+        <source src="musicas/musica2.mp3" type="audio/mpeg">
+    </audio>
+
+    <br><br>
+
+    <h3>🎵 Amor Sem Fim — Grupo Revelação</h3>
+
+    <audio controls>
+        <source src="musicas/musica3.mp3" type="audio/mpeg">
+    </audio>
+
+</section>
+
+<!-- =================== AMULETO =================== -->
+
+<section class="card">
+
+    <h2>🪬 Nosso amuleto</h2>
+
+    <img src="fotos/imagens/pulseira.jpg" alt="Pulseira dos 7 nós" class="imagem">
+
+    <p>
+        Sete nós, um só propósito: que o nosso amor continue sendo fortalecido, a nossa união protegida e toda inveja e todo mau-olhado sejam afastados da nossa vida.
+    </p>
+
+</section>
+
+<!-- =================== COMPROMISSO =================== -->
+
+<section class="card">
+
+    <h2>💍 Nosso compromisso</h2>
+
+    <img src="fotos/imagens/aliança.jpeg" alt="Alianças" class="imagem">
+
+    <p>
+        Você foi a escolha mais linda que o meu coração já fez.
+    </p>
+
+</section>
+
+<!-- =================== BÊNÇÃO =================== -->
+
+<section class="card">
+
+    <h2>🙏 Nossa bênção</h2>
+
+    <img src="fotos/imagens/benção.jpg" alt="Nossa bênção" class="imagem">
+
+    <p>
+        Que Deus continue cuidando da nossa história, guiando nossos passos e abençoando tudo aquilo que estamos construindo.
+    </p>
+
+    <blockquote>
+        "Consagre ao Senhor tudo o que você faz, e os seus planos serão bem-sucedidos."
+    </blockquote>
+
+    <strong>Provérbios 16:3</strong>
+
+</section>
+
+<!-- =================== CONTADOR =================== -->
+
+<section class="card">
+
+    <h2>⏳ Nosso tempo juntos</h2>
+
+    <p>
+        Estamos juntos desde <strong>09/05/2026</strong>... ❤️
+    </p>
+
+    <div id="contador">
+
+        <div class="tempo">
+            <span id="meses">0</span>
+            <small>Meses</small>
         </div>
 
-        <p>
-            E que esse tempo continue aumentando com muitos momentos nossos.
-        </p>
-    </section>
+        <div class="tempo">
+            <span id="dias">0</span>
+            <small>Dias</small>
+        </div>
 
+        <div class="tempo">
+            <span id="horas">0</span>
+            <small>Horas</small>
+        </div>
 
-    <!-- Carta -->
-    <section class="bloco carta">
+        <div class="tempo">
+            <span id="minutos">0</span>
+            <small>Minutos</small>
+        </div>
 
-        <h2>💌 Carta aberta para o amor da minha vida</h2>
+        <div class="tempo">
+            <span id="segundos">0</span>
+            <small>Segundos</small>
+        </div>
 
-        <p>Meu amor,</p>
+    </div>
 
-        <p>
-            8 de setembro é um dia especial, porque é o dia em que a sua vida começou.
-            E eu queria aproveitar essa data para te lembrar o quanto você se tornou
-            importante para mim e o quanto sou feliz por ter você fazendo parte da minha história.
-        </p>
+    <p>
+        Que esse tempo continue aumentando para que eu possa continuar te amando a cada batida do meu coração.
+    </p>
 
-        <p>
-            Às vezes eu penso em como tudo começou e ainda acho bonito imaginar que um simples
-            olhar poderia ser o começo de algo tão importante. Naquele momento eu não sabia
-            o que Deus estava preparando, mas hoje eu vejo que aquele encontro mudou muita
-            coisa dentro de mim.
-        </p>
+</section>
 
-        <p>
-            Depois que você chegou, minha vida ficou mais leve.
-            <strong>Nazareno Lima</strong>, você me transformou de uma forma que talvez nem perceba.
-            Não foi por grandes coisas, mas pelo seu jeito, pelo cuidado, pela paciência,
-            pelas conversas, pelas risadas e pela forma como você conseguiu conquistar um espaço em mim.
-        </p>
+<!-- =================== QUIZ =================== -->
 
-        <p>
-            Eu nunca imaginei que alguém pudesse tocar tanto o meu coração de uma maneira tão bonita.
-            Com você, tudo aconteceu de um jeito natural. Antes mesmo de existir um pedido oficial,
-            eu já sabia da minha resposta. Eu já tinha escolhido você.
-        </p>
+<section class="card">
 
-        <p>
-            Você me mostrou que o amor também está nos detalhes: em estar presente, em cuidar,
-            em ouvir, em dividir momentos simples e fazer eles se tornarem especiais.
-        </p>
+    <h2>🧩 Quanto você conhece nossa história? ❤️</h2>
 
-        <p>
-            Obrigada por ser meu companheiro, por segurar minha mão nos momentos difíceis,
-            por me acolher e por me fazer sentir tão amada. Obrigada por tudo que você é
-            e por tudo que você representa para mim.
-        </p>
+    <form id="quiz">
 
-        <p>
-            Nesse novo ciclo da sua vida, eu desejo que você nunca esqueça o quanto é especial.
-            Que seus sonhos se realizem, que você continue sendo essa pessoa incrível
-            e que nunca faltem motivos para sorrir.
-        </p>
+        <!-- Pergunta 1 -->
+        <div class="pergunta">
+            <p><strong>1. Qual foi o dia do nosso primeiro beijo?</strong></p>
 
-        <p>
-            Eu espero continuar vivendo nossa história ao seu lado, comemorando nossas conquistas,
-            enfrentando os desafios e criando novas lembranças.
-        </p>
+            <label><input type="radio" name="q1"> A) 22 de fevereiro de 2026</label><br>
+            <label><input type="radio" name="q1" value="1"> B) 01 de março de 2026</label><br>
+            <label><input type="radio" name="q1"> C) 11 de abril de 2026</label><br>
+            <label><input type="radio" name="q1"> D) 08 de março de 2026</label>
+        </div>
 
-        <p>
-            Eu amo te amar.
-        </p>
+        <!-- Pergunta 2 -->
+        <div class="pergunta">
+            <p><strong>2. Qual presente se tornou um símbolo do nosso amor?</strong></p>
 
-        <p>
-            E mesmo te amando tanto, sinto que ainda nem te amo tudo,
-            porque todos os dias eu descubro novos motivos para amar você ainda mais.
-        </p>
+            <label><input type="radio" name="q2" value="1"> A) Uma pulseira dos 7 nós</label><br>
+            <label><input type="radio" name="q2"> B) Uma camisa de time</label><br>
+            <label><input type="radio" name="q2"> C) Um chaveiro</label>
+        </div>
 
-        <p>
-            Eu amo amar você. ❤️
-        </p>
+        <!-- Pergunta 3 -->
+        <div class="pergunta">
+            <p><strong>3. Qual time mora no seu coração?</strong></p>
 
-        <p>
-            Feliz aniversário, meu amor.
-        </p>
+            <label><input type="radio" name="q3"> A) Palmeiras</label><br>
+            <label><input type="radio" name="q3" value="1"> B) Corinthians</label><br>
+            <label><input type="radio" name="q3"> C) Flamengo</label><br>
+            <label><input type="radio" name="q3"> D) São Paulo</label>
+        </div>
 
-        <p>
-            Com todo o meu coração,
-        </p>
+        <!-- As perguntas 4 até a 10 seguem o mesmo padrão -->
 
-        <p>
-            <strong>Sua Lanaj.</strong>
-        </p>
+        <br>
 
-    </section>
-
-
-    <!-- Bênção -->
-    <section class="bloco">
-
-        <h2>🙏 Nossa bênção</h2>
-
-        <p>
-            Que Deus continue cuidando da nossa história, guiando nossos passos
-            e abençoando tudo aquilo que estamos construindo.
-        </p>
-
-        <p>
-            “Consagre ao Senhor tudo o que você faz,
-            e os seus planos serão bem-sucedidos.”
-        </p>
-
-        <p>
-            Provérbios 16:3
-        </p>
-
-    </section>
-
-
-    <!-- Surpresa -->
-    <section class="bloco surpresa">
-
-        <h2>🎁 Uma última surpresa...</h2>
-
-        <p>
-            Se você chegou até aqui, espero que tenha sentido um pouco
-            do carinho que coloquei em cada detalhe.
-        </p>
-
-        <p>
-            Mas ainda falta uma última lembrança...
-        </p>
-
-        <button onclick="mostrarVideo()">
-            Clique aqui
+        <button type="button" onclick="corrigirQuiz()">
+            Ver resultado ❤️
         </button>
 
-    </section>
+        <p id="resultado"></p>
 
+    </form>
 
-    <!-- Vídeo final -->
-    <section class="bloco" id="videoFinal" style="display:none;">
+</section>
 
-        <h2>🎥 Para o amor da minha vida</h2>
+<!-- =================== SURPRESA FINAL =================== -->
 
-        <p>
-            Para o amor da minha vida. ❤️
-        </p>
+<section class="card">
 
-        <video controls>
-            <source src="videos/final.mp4" type="video/mp4">
-        </video>
+    <button onclick="mostrarSurpresa()">
+        🎁 Clique aqui
+    </button>
 
-        <p>
-            Eu te vivo. 🫀
-        </p>
+</section>
 
-        <p>
-            Obrigada por viver essa história comigo.
-        </p>
+<div id="surpresa" style="display:none;">
 
-        <p>
-            Que venham muitos capítulos ao seu lado.
-        </p>
+<section class="card">
 
-    </section>
+    <h2>🎥 Para o amor da minha vida</h2>
 
+    <video controls>
 
-    <script src="script.js"></script>
+        <source src="videos/video2.mp4.mp4" type="video/mp4">
+
+    </video>
+
+    <h2>🫀 Eu te vivo</h2>
+
+    <p>
+        Obrigada por fazer parte da minha história.
+    </p>
+
+    <p>
+        Cada tempo, cada minuto e cada segundo ao seu lado valem uma vida inteira.
+    </p>
+
+</section>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
 </html>
