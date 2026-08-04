@@ -829,3 +829,9 @@ body{
     overflow:visible;
 
 }
+
+body{
+
+    overflow-y:hidden;
+
+}
