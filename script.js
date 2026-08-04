@@ -6,9 +6,8 @@
 function entrar(){
 
     const capa = document.getElementById("capa");
-    const intro = document.getElementById("intro");
+    const video = document.getElementById("inicio-video");
 
-    // Esconde a capa suavemente
 
     capa.classList.add("esconder");
 
@@ -18,29 +17,11 @@ function entrar(){
         capa.style.display = "none";
 
 
-        // Mostra a tela preta
+        video.scrollIntoView({
 
-        intro.style.display = "flex";
+            behavior:"smooth"
 
-
-        // Depois da mensagem,
-        // volta para o conteúdo
-
-        setTimeout(()=>{
-
-            intro.style.display = "none";
-
-
-            window.scrollTo({
-
-                top: window.innerHeight,
-
-                behavior:"smooth"
-
-            });
-
-
-        },5000);
+        });
 
 
     },1500);
