@@ -1,189 +1,214 @@
-/* =======================================
-   Nosso Cantinho ❤️
-   style.css - Parte 1
-======================================= */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html{
-    scroll-behavior:smooth;
+body {
+    font-family: 'Georgia', serif;
+    background: #fff5f7;
+    color: #4a2c35;
+    text-align: center;
+    line-height: 1.7;
 }
 
-body{
-    font-family:Georgia, serif;
-    background:#f8f5f2;
-    color:#4b2f2f;
-    line-height:1.8;
-    padding:30px 15px;
+section {
+    padding: 40px 20px;
 }
 
-/* ===========================
-   CARDS
-=========================== */
 
-.card{
-    max-width:900px;
-    margin:40px auto;
-    background:#ffffff;
-    border-radius:22px;
-    padding:45px;
-    box-shadow:0 8px 25px rgba(0,0,0,.08);
-    text-align:center;
+/* Capa */
+
+.capa {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-/* ===========================
-   TÍTULOS
-=========================== */
-
-h1{
-    font-size:48px;
-    color:#5a2d2d;
-    margin-bottom:15px;
+.capa img {
+    width: 90%;
+    max-width: 400px;
+    border-radius: 20px;
+    margin-bottom: 25px;
 }
 
-h2{
-    font-size:36px;
-    color:#5a2d2d;
-    margin-bottom:25px;
+
+h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
 }
 
-h3{
-    font-size:28px;
-    color:#5a2d2d;
-    margin:20px 0;
+h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
 }
 
-/* ===========================
-   PARÁGRAFOS
-=========================== */
 
-p{
-    font-size:22px;
-    margin:18px 0;
+p {
+    max-width: 700px;
+    margin: 15px auto;
+    font-size: 18px;
 }
 
-/* ===========================
-   IMAGENS
-=========================== */
 
-.imagem-capa,
-.imagem{
-    width:100%;
-    border-radius:18px;
-    margin:25px 0;
-    display:block;
+/* Blocos */
+
+.bloco {
+    background: rgba(255,255,255,0.7);
+    margin: 25px auto;
+    border-radius: 25px;
+    max-width: 850px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 }
 
-.imagem-capa{
-    max-height:520px;
-    object-fit:cover;
+
+/* Imagens */
+
+.bloco img {
+    width: 85%;
+    max-width: 450px;
+    border-radius: 20px;
+    margin: 20px auto;
 }
 
-/* ===========================
-   VÍDEOS
-=========================== */
 
-video{
-    width:100%;
-    border-radius:18px;
-    margin:20px 0;
+/* Vídeos */
+
+video {
+    width: 90%;
+    max-width: 600px;
+    border-radius: 20px;
+    margin: 20px auto;
 }
 
-/* ===========================
-   ÁUDIO
-=========================== */
 
-audio{
-    width:100%;
-    margin:20px 0;
+/* Áudios */
+
+audio {
+    width: 90%;
+    margin: 10px auto 25px;
 }
 
-/* ===========================
-   BOTÕES
-=========================== */
 
-button{
-    margin-top:25px;
-    padding:15px 35px;
-    border:none;
-    border-radius:40px;
-    background:#8b5e5e;
-    color:#fff;
-    font-size:20px;
-    cursor:pointer;
-    transition:.3s;
+/* Botões */
+
+button {
+    background: #d96c8a;
+    color: white;
+    border: none;
+    padding: 15px 35px;
+    border-radius: 30px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 20px;
 }
 
-button:hover{
-    background:#6f4747;
-    transform:scale(1.05);
+button:hover {
+    opacity: 0.8;
 }
 
-/* ===========================
-   CARTA
-=========================== */
+/* Carta */
 
-.carta{
-    text-align:left;
+.carta {
+    text-align: left;
+    padding: 35px 25px;
+    background: #fffafa;
 }
 
-.carta p{
-    text-align:justify;
-    margin-bottom:18px;
+.carta h2 {
+    text-align: center;
 }
 
-blockquote{
-    font
-
-    /* =======================================
-   style.css - Parte 2
-======================================= */
-
-/* ===========================
-   CONTADOR
-=========================== */
-
-#contador{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:20px;
-    margin:35px 0;
+.carta p {
+    font-size: 17px;
+    margin-bottom: 22px;
 }
 
-.tempo{
-    width:120px;
-    height:120px;
-    background:#ffffff;
-    border-radius:20px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    box-shadow:0 6px 18px rgba(0,0,0,.08);
+
+/* Contador */
+
+#contador {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 30px auto;
 }
 
-.tempo span{
-    font-size:42px;
-    font-weight:bold;
-    color:#5a2d2d;
+#contador div {
+    background: #ffffff;
+    width: 90px;
+    height: 90px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
-.tempo small{
-    margin-top:8px;
-    font-size:18px;
-    color:#777;
+#contador span {
+    font-size: 28px;
+    font-weight: bold;
 }
 
-/* ===========================
-   QUIZ
-=========================== */
+#contador small {
+    font-size: 14px;
+}
 
-#quiz{
-    text-align:left;
-    margin-top:30
+
+/* Surpresa */
+
+.surpresa {
+    padding: 50px 20px;
+}
+
+
+/* Vídeo final */
+
+#videoFinal {
+    animation: aparecer 1.5s ease;
+}
+
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Responsivo para celular */
+
+@media (max-width: 600px) {
+
+    h1 {
+        font-size: 26px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 16px;
+        padding: 0 10px;
+    }
+
+    #contador div {
+        width: 75px;
+        height: 75px;
+    }
+
+    #contador span {
+        font-size: 22px;
+    }
+
+}
