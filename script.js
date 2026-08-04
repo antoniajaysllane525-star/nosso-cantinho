@@ -37,52 +37,243 @@ setInterval(atualizarContador, 1000);
 atualizarContador();
 
 // =========================
-// QUIZ
+// QUIZ INTERATIVO
 // =========================
 
-function verResultado() {
+const perguntas = [
+{
+pergunta: "1. Qual foi o dia do nosso primeiro beijo?",
+alternativas: [
+"22 de fevereiro de 2026",
+"01 de março de 2026",
+"11 de abril de 2026",
+"08 de março de 2026"
+],
+correta: 1
+},
 
-    let acertos = 0;
+{
+pergunta: "2. Qual presente se tornou um símbolo da nossa união?",
+alternativas: [
+"Uma pulseira dos 7 nós",
+"Uma camisa de time",
+"Um chaveiro"
+],
+correta: 0
+},
 
-    const perguntas = [
-        "q1", "q2", "q3", "q4", "q5",
-        "q6", "q7", "q8", "q9", "q10"
-    ];
+{
+pergunta: "3. Qual time mora no seu coração?",
+alternativas: [
+"Palmeiras",
+"Corinthians",
+"Flamengo"
+],
+correta: 1
+},
 
-    perguntas.forEach(function(pergunta) {
+{
+pergunta: "4. Qual apelido foi o primeiro que usei para demonstrar que você era especial para mim?",
+alternativas: [
+"Amor",
+"Coração",
+"Mozão",
+"Vida"
+],
+correta: 1
+},
 
-        const resposta = document.querySelector(
-            'input[name="' + pergunta + '"]:checked'
-        );
+{
+pergunta: "5. Qual é a nossa cor favorita em comum?",
+alternativas: [
+"Azul",
+"Preto",
+"Vermelho"
+],
+correta: 1
+},
 
-        if (resposta && resposta.value === "certo") {
-            acertos++;
+{
+pergunta: "6. Se fôssemos a um restaurante, qual suco você pediria sem me perguntar?",
+alternativas: [
+"Acerola",
+"Maracujá",
+"Cajá",
+"Goiaba"
+],
+correta: 2
+},
+
+{
+pergunta: "7. Se fosse para me fazer feliz com um lanchinho, o que você escolheria para mim?",
+alternativas: [
+"Pipoca",
+"Salgadinho",
+"Petisco",
+"Biscoito"
+],
+correta: 0
+},
+
+{
+pergunta: "8. Qual foi o primeiro presente que eu te dei?",
+alternativas: [
+"Par de meias",
+"Chaveiro",
+"Pulseira dos 7 nós",
+"Camisa"
+],
+correta: 1
+},
+
+{
+pergunta: "9. Complete a frase: 'Você é o meu...'",
+alternativas: [
+"Melhor amigo",
+"Coração fora do meu peito",
+"Maior sonho",
+"Companheiro de aventuras"
+],
+correta: 1
+},
+
+{
+pergunta: "10. O que eu sempre digo que amo em você?",
+alternativas: [
+"Seu cheirinho",
+"Seu cabelinho liso",
+"Seus olhinhos puxados",
+"Todas as alternativas"
+],
+correta: 3
+}
+];
+
+let perguntaAtual = 0;
+let respostas = [];
+
+function carregarPergunta() {
+
+    const pergunta = perguntas[perguntaAtual];
+
+    document.getElementById("numeroPergunta").textContent =
+        `Pergunta ${perguntaAtual + 1} de ${perguntas.length}`;
+
+    document.getElementById("barraProgresso").style.width =
+        `${((perguntaAtual + 1) / perguntas.length) * 100}%`;
+
+    document.getElementById("pergunta").textContent = pergunta.pergunta;
+
+    const alternativas = document.getElementById("alternativas");
+    alternativas.innerHTML = "";
+
+    pergunta.alternativas.forEach((texto, indice) => {
+
+        const botao = document.createElement("button");
+
+        botao.className = "opcao";
+        botao.textContent = texto;
+
+        if (respostas[perguntaAtual] === indice) {
+            botao.classList.add("selecionada");
         }
+
+        botao.onclick = function () {
+
+            respostas[perguntaAtual] = indice;
+
+            carregarPergunta();
+
+        };
+
+        alternativas.appendChild(botao);
 
     });
 
-    const resultado = document.getElementById("resultado");
+    document.getElementById("btnAnterior").disabled =
+        perguntaAtual === 0;
 
-    if (!resultado) return;
+    document.getElementById("btnProximo").textContent =
+        perguntaAtual === perguntas.length - 1
+            ? "Finalizar ❤️"
+            : "Próxima ➜";
+}
 
-    if (acertos === 10) {
+function anteriorPergunta() {
 
-        resultado.innerHTML =
-            "🎉 Parabéns! ❤️<br><br>" +
-            "Você acertou tudo!<br>" +
-            "Mas a maior resposta da minha vida foi ter escolhido você.<br><br>" +
-            "Você ganhou um xerooo! 💌";
+    if (perguntaAtual > 0) {
 
-    } else {
+        perguntaAtual--;
 
-        resultado.innerHTML =
-            "Você acertou " + acertos + " de 10 perguntas. ❤️<br><br>" +
-            "Mesmo errando algumas respostas, você continua sendo o meu acerto favorito.";
+        carregarPergunta();
 
     }
 
 }
 
+function proximaPergunta() {
+
+    if (respostas[perguntaAtual] == null) {
+
+        alert("Escolha uma alternativa antes de continuar. ❤️");
+        return;
+
+    }
+
+    if (perguntaAtual < perguntas.length - 1) {
+
+        perguntaAtual++;
+
+        carregarPergunta();
+
+    } else {
+
+        mostrarResultado();
+
+    }
+
+}
+
+function mostrarResultado() {
+
+    let acertos = 0;
+
+    perguntas.forEach((pergunta, indice) => {
+
+        if (respostas[indice] === pergunta.correta) {
+            acertos++;
+        }
+
+    });
+
+    document.getElementById("pergunta").style.display = "none";
+    document.getElementById("alternativas").style.display = "none";
+    document.querySelector(".botoesQuiz").style.display = "none";
+    document.querySelector(".progresso").style.display = "none";
+
+    const resultado = document.getElementById("resultadoQuiz");
+
+    resultado.style.display = "block";
+
+    if (acertos === perguntas.length) {
+
+        resultado.innerHTML =
+            "<h3>🎉 Parabéns! ❤️</h3>" +
+            "<p>Você acertou tudo!</p>" +
+            "<p>Mas a maior resposta da minha vida foi ter escolhido você.</p>" +
+            "<p><strong>Você ganhou um xerooo! 💌</strong></p>";
+
+    } else {
+
+        resultado.innerHTML =
+            `<h3>❤️ Você acertou ${acertos} de ${perguntas.length}.</h3>
+             <p>Mesmo errando algumas respostas, você continua sendo o meu acerto favorito.</p>`;
+
+    }
+
+}
+
+carregarPergunta();
 
 // =========================
 // BOTÃO ENTRAR
