@@ -1,202 +1,284 @@
-function entrar() {
-  document.querySelector(".bloco").scrollIntoView({
-    behavior: "smooth"
-  });
+// ===============================
+// ENTRADA DO SITE
+// Capa desaparece e mostra a mensagem inicial
+// ===============================
+
+function entrar(){
+
+    const capa = document.getElementById("capa");
+    const intro = document.getElementById("intro");
+
+    // Esconde a capa suavemente
+
+    capa.classList.add("esconder");
+
+
+    setTimeout(()=>{
+
+        capa.style.display = "none";
+
+
+        // Mostra a tela preta
+
+        intro.style.display = "flex";
+
+
+        // Depois da mensagem,
+        // volta para o conteúdo
+
+        setTimeout(()=>{
+
+            intro.style.display = "none";
+
+
+            window.scrollTo({
+
+                top: window.innerHeight,
+
+                behavior:"smooth"
+
+            });
+
+
+        },5000);
+
+
+    },1500);
+
 }
 
 // ===============================
-// CONFIGURAÇÕES
+// REVELAÇÃO DA FOTO
+// Quebra-cabeça 5x5
 // ===============================
 
 const foto = document.getElementById("foto");
-const container = document.getElementById("foto-container");
 const coracao = document.getElementById("coracao");
-const particulas = document.getElementById("particulas");
 
-const linhas = 5;
-const colunas = 5;
+if(foto){
+
+    const linhas = 5;
+    const colunas = 5;
+
+    let pecas = [];
 
 
-// ===============================
-// CRIA OS 25 PEDAÇOS
-// ===============================
+    // Criar os pedaços da foto
 
-let pecas = [];
+    for(let linha = 0; linha < linhas; linha++){
 
-for (let y = 0; y < linhas; y++) {
+        for(let coluna = 0; coluna < colunas; coluna++){
 
-    for (let x = 0; x < colunas; x++) {
 
-        const div = document.createElement("div");
+            const peca = document.createElement("div");
 
-        div.className = "pedaco";
+            peca.classList.add("pedaco");
 
-        div.style.backgroundPosition =
-            `${x * 25}% ${y * 25}%`;
 
-        pecas.push(div);
+            peca.style.backgroundPosition =
+            `${coluna * 25}% ${linha * 25}%`;
+
+
+            pecas.push(peca);
+
+        }
 
     }
 
-}
 
 
-// ===============================
-// EMBARALHA A ORDEM
-// ===============================
+    // Misturar a ordem das peças
 
-pecas.sort(() => Math.random() - 0.5);
+    pecas.sort(()=> Math.random() - 0.5);
 
 
-// ===============================
-// ADICIONA NO HTML
-// ===============================
 
-pecas.forEach(p => foto.appendChild(p));
+    // Colocar no site
 
+    pecas.forEach(peca => {
 
-// ===============================
-// ANIMA CADA PEDAÇO
-// ===============================
+        foto.appendChild(peca);
 
-pecas.forEach((p, i) => {
-
-    setTimeout(() => {
-
-        p.style.animation =
-            "revelar .9s ease forwards";
-
-    }, i * 220);
-
-});
+    });
 
 
-// ===============================
-// BRILHO + ZOOM
-// ===============================
 
-setTimeout(() => {
+    // Revelar uma por uma
 
-    container.classList.add("final");
-
-}, pecas.length * 220 + 800);
+    pecas.forEach((peca, index)=>{
 
 
-// ===============================
-// CORAÇÃO
-// ===============================
-
-setTimeout(() => {
-
-    coracao.style.animation =
-        "amor 2s ease forwards";
-
-}, pecas.length * 220 + 1500);
+        setTimeout(()=>{
 
 
-// ===============================
-// PARTÍCULAS
-// ===============================
+            peca.style.animation =
+            "revelar 0.9s ease forwards";
 
-for (let i = 0; i < 40; i++) {
 
-    const estrela = document.createElement("div");
+        }, index * 180);
 
-    estrela.style.position = "absolute";
-    estrela.style.width = "4px";
-    estrela.style.height = "4px";
-    estrela.style.borderRadius = "50%";
-    estrela.style.background = "white";
 
-    estrela.style.left = Math.random() * 100 + "%";
-    estrela.style.top = Math.random() * 100 + "%";
 
-    estrela.style.opacity = Math.random();
+    });
 
-    estrela.style.animation =
-        `piscar ${2 + Math.random() * 4}s infinite`;
 
-    particulas.appendChild(estrela);
+
+    // Final da montagem
+
+    setTimeout(()=>{
+
+
+        foto.classList.add("final");
+
+
+    }, pecas.length * 180 + 800);
+
+
+
+    // Coração aparecendo
+
+    setTimeout(()=>{
+
+
+        if(coracao){
+
+            coracao.style.animation =
+            "amor 2s ease forwards";
+
+        }
+
+
+    }, pecas.length * 180 + 1500);
+
+
 
 }
 
-
 // ===============================
-// ANIMAÇÃO DAS PARTÍCULAS
+// CONTADOR
+// Desde 09/05/2026
 // ===============================
 
-const style = document.createElement("style");
-
-style.innerHTML = `
-
-@keyframes piscar{
-
-0%{
-opacity:.2;
-transform:scale(.5);
-}
-
-50%{
-opacity:1;
-transform:scale(1.5);
-}
-
-100%{
-opacity:.2;
-transform:scale(.5);
-}
-
-}
-
-`;
-
-document.head.appendChild(style);
-
-// Contador desde 01/03/2026
-function atualizarContador() {
+function atualizarContador(){
 
     const inicio = new Date("2026-05-09T00:00:00");
     const agora = new Date();
 
+
     let diferenca = agora - inicio;
 
-    const segundosTotal = Math.floor(diferenca / 1000);
 
-    const segundos = segundosTotal % 60;
-    const minutosTotal = Math.floor(segundosTotal / 60);
+    const segundos = Math.floor(diferenca / 1000);
 
-    const minutos = minutosTotal % 60;
-    const horasTotal = Math.floor(minutosTotal / 60);
+    const minutos = Math.floor(segundos / 60);
 
-    const horas = horasTotal % 24;
-    const diasTotal = Math.floor(horasTotal / 24);
+    const horas = Math.floor(minutos / 60);
 
-    const dias = diasTotal % 30;
-    const meses = Math.floor(diasTotal / 30);
+    const dias = Math.floor(horas / 24);
+
+
+    const meses = Math.floor(dias / 30);
 
 
     document.getElementById("meses").innerHTML = meses;
-    document.getElementById("dias").innerHTML = dias;
-    document.getElementById("horas").innerHTML = horas;
-    document.getElementById("minutos").innerHTML = minutos;
-    document.getElementById("segundos").innerHTML = segundos;
+
+    document.getElementById("dias").innerHTML = dias % 30;
+
+    document.getElementById("horas").innerHTML = horas % 24;
+
+    document.getElementById("minutos").innerHTML = minutos % 60;
+
+    document.getElementById("segundos").innerHTML = segundos % 60;
+
 }
 
 
-setInterval(atualizarContador, 1000);
+setInterval(atualizarContador,1000);
 
 atualizarContador();
 
 
-// Mostrar vídeo final
-function mostrarVideo() {
+
+// ===============================
+// QUIZ
+// ===============================
+
+let pontos = 0;
+
+
+function resposta(botao,certa){
+
+
+    if(certa){
+
+        botao.style.background = "#8bc34a";
+
+        pontos++;
+
+    }else{
+
+        botao.style.background = "#e57373";
+
+    }
+
+
+    botao.disabled = true;
+
+
+}
+
+
+
+function finalizarQuiz(){
+
+
+    if(pontos >= 4){
+
+        alert(
+        "Você acertou tudo! ❤️\n\n" +
+        "Mas a maior resposta da minha vida foi ter escolhido você."
+        );
+
+
+    }else{
+
+
+        alert(
+        "Você acertou " + pontos +
+        " perguntas. ❤️\n\n" +
+        "Mas continua sendo a minha melhor escolha."
+        );
+
+
+    }
+
+
+}
+
+
+
+// ===============================
+// SURPRESA FINAL
+// ===============================
+
+function mostrarVideo(){
+
 
     const video = document.getElementById("videoFinal");
 
-    video.style.display = "block";
 
-    video.scrollIntoView({
-        behavior: "smooth"
-    });
+    if(video){
+
+        video.style.display="block";
+
+
+        video.scrollIntoView({
+
+            behavior:"smooth"
+
+        });
+
+    }
+
 
 }
