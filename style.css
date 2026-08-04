@@ -1,568 +1,214 @@
-<!-- Quiz -->
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-<section class="bloco quiz">
+body {
+    font-family: 'Georgia', serif;
+    background: #fff5f7;
+    color: #4a2c35;
+    text-align: center;
+    line-height: 1.7;
+}
 
-<h2>🧩 Quanto você conhece nossa história? ❤️</h2>
-
-
-<div class="pergunta">
-
-<p><strong>1. Qual foi o dia do nosso primeiro beijo?</strong></p>
-
-<button onclick="resposta(this,false)">A) 22 de fevereiro de 2026</button>
-<button onclick="resposta(this,true)">B) 01 de março de 2026 ❤️</button>
-<button onclick="resposta(this,false)">C) 11 de abril de 2026</button>
-<button onclick="resposta(this,false)">D) 08 de março de 2026</button>
-
-</div>
-
-
-<div class="pergunta">
-
-<p><strong>2. Qual presente se tornou um símbolo do nosso amor?</strong></p>
-
-<button onclick="resposta(this,true)">A) Uma pulseira dos 7 nós ❤️</button>
-<button onclick="resposta(this,false)">B) Uma camisa de time</button>
-<button onclick="resposta(this,false)">C) Um chaveiro</button>
-
-</div>
-
-
-<div class="pergunta">
-
-<p><strong>3. Qual time mora no seu coração?</strong></p>
-
-<button onclick="resposta(this,false)">A) Palmeiras</button>
-<button onclick="resposta(this,true)">B) Corinthians ❤️</button>
-<button onclick="resposta(this,false)">C) Flamengo</button>
-
-</div>
-
-
-<div class="pergunta">
-
-<p><strong>4. Qual foi a primeira forma que encontrei de demonstrar que você era especial para mim?</strong></p>
-
-<button onclick="resposta(this,false)">A) Amor</button>
-<button onclick="resposta(this,true)">B) Coração ❤️</button>
-<button onclick="resposta(this,false)">C) Mozão</button>
-<button onclick="resposta(this,false)">D) Vida</button>
-
-</div>
-
-
-<div class="pergunta">
-
-<p><strong>5. Qual é a nossa cor favorita em comum?</strong></p>
-
-<button onclick="resposta(this,false)">A) Azul</button>
-<button onclick="resposta(this,true)">B) Preto ❤️</button>
-<button onclick="resposta(this,false)">C) Vermelho</button>
-
-</div>
-
-
-<div class="pergunta">
-
-<p><strong>6. Se fôssemos a um restaurante, qual suco você pediria sem me perguntar?</strong></p>
-
-<button onclick="resposta(this,false)">A) Acerola</button>
-<button onclick="resposta(this,false)">B) Maracujá</button>
-<button onclick="resposta(this,true)">C) Cajá ❤️</button>
-<button onclick="resposta(this,false)">D) Goiaba</button>
-
-</div>
-
-
-<div class="pergunta">
-
-<p><strong>7. Se fosse para me fazer feliz com um lanchinho, o que você escolheria para mim?</strong></p>
-
-<button onclick="resposta(this,true)">A) Pipoca ❤️</button>
-<button onclick="resposta(this,false)">B) Salgadinho</button>
-<button onclick="resposta(this,false)">C) Petisco</button>
-<button onclick="resposta(this,false)">D) Biscoito</button>
-
-</div>
-
-
-<div class="pergunta">
-
-<p><strong>8. Qual foi o primeiro presente que eu te dei?</strong></p>
-
-<button onclick="resposta(this,false)">A) Par de meias</button>
-<button onclick="resposta(this,true)">B) Chaveiro ❤️</button>
-<button onclick="resposta(this,false)">C) Pulseira</button>
-<button onclick="resposta(this,false)">D) Camisa</button>
-
-</div>
-
-
-<div class="pergunta">
-
-<p><strong>9. Complete a frase: "Você é o meu..."</strong></p>
-
-<button onclick="resposta(this,false)">A) Melhor amigo</button>
-<button onclick="resposta(this,true)">B) Coração fora do meu peito ❤️</button>
-<button onclick="resposta(this,false)">C) Maior sonho</button>
-<button onclick="resposta(this,false)">D) Companheiro de aventuras</button>
-
-</div>
-
-
-<div class="pergunta">
-
-<p><strong>10. O que eu sempre digo que amo em você?</strong></p>
-
-<button onclick="resposta(this,false)">A) Seu cheirinho</button>
-<button onclick="resposta(this,false)">B) Seu cabelinho liso</button>
-<button onclick="resposta(this,false)">C) Seus olhinhos puxados</button>
-<button onclick="resposta(this,true)">D) Todas as alternativas ❤️</button>
-
-</div>
-
-
-<button onclick="finalizarQuiz()">
-Ver resultado ❤️
-</button>
-
-
-</section>
-
-/* ===============================
-   CARTA
-================================ */
-
-
-.carta{
-
-    text-align:left;
-
-    align-items:flex-start;
-
+section {
+    padding: 40px 20px;
 }
 
 
-.carta h2{
+/* Capa */
 
-    width:100%;
+.capa {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
-    text-align:center;
-
+.capa img {
+    width: 90%;
+    max-width: 400px;
+    border-radius: 20px;
+    margin-bottom: 25px;
 }
 
 
-.carta p{
+h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
 
-    font-size:18px;
-
-    line-height:1.9;
-
-    margin:20px 0;
-
+h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
 }
 
 
-
-.assinatura{
-
-    width:100%;
-
-    text-align:right;
-
-    margin-top:40px;
-
-    font-size:20px;
-
+p {
+    max-width: 700px;
+    margin: 15px auto;
+    font-size: 18px;
 }
 
 
+/* Blocos */
 
-/* ===============================
-   REVELAÇÃO DA FOTO
-================================ */
-
-
-#tela{
-
-    width:100%;
-
-    min-height:600px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    position:relative;
-
-    overflow:hidden;
-
+.bloco {
+    background: rgba(255,255,255,0.7);
+    margin: 25px auto;
+    border-radius: 25px;
+    max-width: 850px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 }
 
 
+/* Imagens */
 
-#foto-container{
-
-    width:300px;
-
-    height:400px;
-
-    position:relative;
-
-    overflow:hidden;
-
-    border-radius:25px;
-
+.bloco img {
+    width: 85%;
+    max-width: 450px;
+    border-radius: 20px;
+    margin: 20px auto;
 }
 
 
+/* Vídeos */
 
-#foto{
-
-    width:100%;
-
-    height:100%;
-
-    background-image:url("fotos/imagem/coracionl.jpg");
-
-    background-size:cover;
-
-    background-position:center;
-
+video {
+    width: 90%;
+    max-width: 600px;
+    border-radius: 20px;
+    margin: 20px auto;
 }
 
 
+/* Áudios */
 
-/* pedaços da imagem */
-
-.pedaco{
-
-    position:absolute;
-
-    background-image:url("fotos/imagem/coracionl.jpg");
-
-    background-size:300px 400px;
-
-    opacity:0;
-
-    animation:montarFoto 1s forwards;
-
+audio {
+    width: 90%;
+    margin: 10px auto 25px;
 }
 
 
+/* Botões */
 
-/* animação dos pedaços */
+button {
+    background: #d96c8a;
+    color: white;
+    border: none;
+    padding: 15px 35px;
+    border-radius: 30px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 20px;
+}
 
-@keyframes montarFoto{
+button:hover {
+    opacity: 0.8;
+}
 
+/* Carta */
 
-0%{
+.carta {
+    text-align: left;
+    padding: 35px 25px;
+    background: #fffafa;
+}
 
-    opacity:0;
+.carta h2 {
+    text-align: center;
+}
 
-    transform:
-
-    translateY(-80px)
-
-    rotate(10deg);
-
+.carta p {
+    font-size: 17px;
+    margin-bottom: 22px;
 }
 
 
-100%{
+/* Contador */
 
-    opacity:1;
+#contador {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 30px auto;
+}
 
-    transform:
+#contador div {
+    background: #ffffff;
+    width: 90px;
+    height: 90px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
 
-    translateY(0)
+#contador span {
+    font-size: 28px;
+    font-weight: bold;
+}
 
-    rotate(0);
-
+#contador small {
+    font-size: 14px;
 }
 
 
+/* Surpresa */
+
+.surpresa {
+    padding: 50px 20px;
 }
 
 
+/* Vídeo final */
 
-/* coração final */
-
-
-#coracao{
-
-    font-size:70px;
-
-    margin-top:30px;
-
-    opacity:0;
-
-    animation:aparecerCoracao 2s forwards;
-
-    animation-delay:3s;
-
+#videoFinal {
+    animation: aparecer 1.5s ease;
 }
 
 
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
 
-@keyframes aparecerCoracao{
-
-
-from{
-
-    opacity:0;
-
-    transform:scale(0);
-
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 
-to{
-
-    opacity:1;
-
-    transform:scale(1);
-
-}
-
-
-}
-
-/* ===============================
-   CONTADOR
-================================ */
-
-
-#contador{
-
-    display:flex;
-
-    justify-content:center;
-
-    flex-wrap:wrap;
-
-    gap:15px;
-
-    margin:35px 0;
-
-}
-
-
-
-#contador div{
-
-    background:#1a1a1a;
-
-    border-radius:20px;
-
-    padding:20px;
-
-    min-width:90px;
-
-}
-
-
-
-#contador span{
-
-    display:block;
-
-    font-size:32px;
-
-    font-weight:bold;
-
-}
-
-
-
-#contador small{
-
-    font-size:14px;
-
-}
-
-
-
-
-
-/* ===============================
-   QUIZ
-================================ */
-
-
-.quiz{
-
-    text-align:center;
-
-}
-
-
-
-.pergunta{
-
-    width:100%;
-
-    max-width:600px;
-
-    background:#151515;
-
-    padding:25px;
-
-    margin:20px 0;
-
-    border-radius:25px;
-
-}
-
-
-
-.pergunta p{
-
-    font-size:18px;
-
-    margin-bottom:20px;
-
-}
-
-
-
-.pergunta button{
-
-    width:90%;
-
-    max-width:450px;
-
-    margin:8px auto;
-
-    display:block;
-
-    background:#222;
-
-    border:1px solid #555;
-
-}
-
-
-
-.pergunta button:hover{
-
-    background:#b11226;
-
-}
-
-
-
-
-
-/* ===============================
-   SURPRESA FINAL
-================================ */
-
-
-.surpresa{
-
-    text-align:center;
-
-}
-
-
-
-#videoFinal{
-
-    text-align:center;
-
-}
-
-
-
-
-
-/* ===============================
-   CITAÇÃO BÍBLICA
-================================ */
-
-
-blockquote{
-
-    margin-top:30px;
-
-    padding:25px;
-
-    border-left:4px solid #b11226;
-
-    font-style:italic;
-
-    line-height:1.8;
-
-}
-
-
-
-
-
-/* ===============================
-   RESPONSIVO CELULAR
-================================ */
-
-
-@media(max-width:600px){
-
-
-
-.capa h1{
-
-    font-size:26px;
-
-}
-
-
-
-.bloco h2{
-
-    font-size:25px;
-
-}
-
-
-
-.bloco p{
-
-    font-size:16px;
-
-}
-
-
-
-#contador div{
-
-    min-width:70px;
-
-    padding:15px;
-
-}
-
-
-
-#contador span{
-
-    font-size:25px;
-
-}
-
-
-
-#foto-container{
-
-    width:260px;
-
-    height:350px;
-
-}
-
-
+/* Responsivo para celular */
+
+@media (max-width: 600px) {
+
+    h1 {
+        font-size: 26px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 16px;
+        padding: 0 10px;
+    }
+
+    #contador div {
+        width: 75px;
+        height: 75px;
+    }
+
+    #contador span {
+        font-size: 22px;
+    }
 
 }
