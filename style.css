@@ -1,134 +1,6 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Georgia', serif;
-    background: #fff5f7;
-    color: #4a2c35;
-    text-align: center;
-    line-height: 1.7;
-}
-
-section {
-    padding: 40px 20px;
-}
-
-
-/* Capa */
-
-.capa {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.capa img {
-    width: 90%;
-    max-width: 400px;
-    border-radius: 20px;
-    margin-bottom: 25px;
-}
-
-
-h1 {
-    font-size: 32px;
-    margin-bottom: 20px;
-}
-
-h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-}
-
-
-p {
-    max-width: 700px;
-    margin: 15px auto;
-    font-size: 18px;
-}
-
-
-/* Blocos */
-
-.bloco {
-    background: rgba(255,255,255,0.7);
-    margin: 25px auto;
-    border-radius: 25px;
-    max-width: 850px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-}
-
-
-/* Imagens */
-
-.bloco img {
-    width: 85%;
-    max-width: 450px;
-    border-radius: 20px;
-    margin: 20px auto;
-}
-
-
-/* Vídeos */
-
-video {
-    width: 90%;
-    max-width: 600px;
-    border-radius: 20px;
-    margin: 20px auto;
-}
-
-
-/* Áudios */
-
-audio {
-    width: 90%;
-    margin: 10px auto 25px;
-}
-
-
-/* Botões */
-
-button {
-    background: #d96c8a;
-    color: white;
-    border: none;
-    padding: 15px 35px;
-    border-radius: 30px;
-    font-size: 18px;
-    cursor: pointer;
-    margin-top: 20px;
-}
-
-button:hover {
-    opacity: 0.8;
-}
-
-/* Carta */
-
-.carta {
-    text-align: left;
-    padding: 35px 25px;
-    background: #fffafa;
-}
-
-.carta h2 {
-    text-align: center;
-}
-
-.carta p {
-    font-size: 17px;
-    margin-bottom: 22px;
-}
-
-/* ===========================
-   RESET
-=========================== */
+/* ===============================
+   CONFIGURAÇÃO GERAL
+================================ */
 
 *{
     margin:0;
@@ -136,26 +8,303 @@ button:hover {
     box-sizing:border-box;
 }
 
+
 body{
 
-    background:#000;
-    overflow:hidden;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: 'Georgia', serif;
+
+    background:#0d0d0d;
+
+    color:white;
+
+    line-height:1.7;
 
 }
 
 
-/* ===========================
-   TELA
-=========================== */
+/* ===============================
+   CAPA
+================================ */
+
+.capa{
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:20px;
+
+    transition:1.5s ease;
+
+}
+
+
+.capa img{
+
+    width:90%;
+
+    max-width:450px;
+
+    border-radius:25px;
+
+    margin-bottom:25px;
+
+}
+
+
+
+.capa h1{
+
+    font-size:32px;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.capa p{
+
+    max-width:450px;
+
+    font-size:18px;
+
+    margin-bottom:25px;
+
+}
+
+
+/* Botão */
+
+button{
+
+    background:#b11226;
+
+    color:white;
+
+    border:none;
+
+    padding:14px 30px;
+
+    border-radius:30px;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+
+button:hover{
+
+    transform:scale(1.05);
+
+}
+
+
+/* ===============================
+   EFEITO AO ENTRAR
+================================ */
+
+.capa.esconder{
+
+    opacity:0;
+
+    transform:scale(1.05);
+
+}
+
+
+
+/* ===============================
+   BLOCOS
+================================ */
+
+.bloco{
+
+    max-width:800px;
+
+    margin:50px auto;
+
+    padding:25px;
+
+    text-align:center;
+
+}
+
+
+
+.bloco h2{
+
+    font-size:28px;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.bloco p{
+
+    margin:15px 0;
+
+}
+
+
+/* ===============================
+   IMAGENS E VÍDEOS
+================================ */
+
+
+.bloco img,
+video{
+
+    width:90%;
+
+    max-width:600px;
+
+    border-radius:20px;
+
+    margin:20px auto;
+
+}
+
+
+
+audio{
+
+    width:90%;
+
+    max-width:500px;
+
+    margin:15px;
+
+}
+
+
+
+/* ===============================
+   ASSINATURA DA CARTA
+================================ */
+
+
+.assinatura{
+
+    margin-top:40px;
+
+    text-align:right;
+
+    font-size:20px;
+
+}
+
+/* ===============================
+   TELA PRETA DE INTRODUÇÃO
+================================ */
+
+#intro{
+
+    width:100%;
+
+    height:100vh;
+
+    background:#000;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+}
+
+
+#intro p{
+
+    color:white;
+
+    font-size:25px;
+
+    max-width:500px;
+
+    padding:20px;
+
+    opacity:0;
+
+    animation:textoIntro 5s ease forwards;
+
+}
+
+
+
+@keyframes textoIntro{
+
+
+0%{
+
+    opacity:0;
+
+    transform:translateY(30px);
+
+}
+
+
+30%{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+
+70%{
+
+    opacity:1;
+
+}
+
+
+100%{
+
+    opacity:0;
+
+    transform:translateY(-30px);
+
+}
+
+}
+
+
+
+/* ===============================
+   REVELAÇÃO DA FOTO
+================================ */
+
 
 #tela{
 
-    width:100vw;
-    height:100vh;
+    width:100%;
+
+    min-height:600px;
 
     display:flex;
+
     justify-content:center;
+
     align-items:center;
 
     position:relative;
@@ -163,207 +312,200 @@ body{
 }
 
 
-/* ===========================
-   PARTÍCULAS
-=========================== */
-
-#particulas{
-
-    position:absolute;
-    width:100%;
-    height:100%;
-    overflow:hidden;
-
-}
-
-
-/* ===========================
-   FOTO
-=========================== */
 
 #foto-container{
 
     width:420px;
+
     height:560px;
 
     border-radius:20px;
 
     overflow:hidden;
 
-    position:relative;
-
     box-shadow:
-    0 0 35px rgba(255,255,255,.15);
+
+    0 0 30px rgba(255,255,255,.2);
 
 }
+
 
 
 #foto{
 
     width:100%;
+
     height:100%;
 
     display:grid;
 
     grid-template-columns:repeat(5,1fr);
+
     grid-template-rows:repeat(5,1fr);
 
 }
 
 
-/* ===========================
-   QUADRADOS
-=========================== */
 
 .pedaco{
+
 
     background-image:url("imagem/coracionl.jpg");
 
     background-size:500% 500%;
+
+
+    opacity:0;
+
+
+    transform:
+
+    translateY(40px)
+
+    rotate(8deg)
+
+    scale(.75);
+
+
+    filter:blur(10px);
+
+
+}
+
+
+
+@keyframes revelar{
+
+
+0%{
 
     opacity:0;
 
     transform:
 
     translateY(40px)
+
     rotate(8deg)
+
     scale(.75);
 
-    filter:
-
-    blur(10px);
+    filter:blur(10px);
 
 }
 
 
-
-/* ===========================
-   ANIMAÇÃO
-=========================== */
-
-@keyframes revelar{
-
-0%{
-
-opacity:0;
-
-transform:
-
-translateY(40px)
-rotate(8deg)
-scale(.75);
-
-filter:blur(10px);
-
-}
-
-60%{
-
-opacity:1;
-
-}
 
 100%{
 
-opacity:1;
 
-transform:
+    opacity:1;
 
-translateY(0)
-rotate(0)
-scale(1);
 
-filter:blur(0);
+    transform:
+
+    translateY(0)
+
+    rotate(0)
+
+    scale(1);
+
+
+    filter:blur(0);
 
 }
 
+
 }
 
 
 
-/* ===========================
-   FOTO COMPLETA
-=========================== */
+/* ===============================
+   BRILHO FINAL DA FOTO
+================================ */
 
-@keyframes brilho{
+
+#foto.final{
+
+    animation:
+
+    brilhoFoto 3s ease,
+
+    zoomFoto 3s ease;
+
+}
+
+
+
+@keyframes brilhoFoto{
+
 
 0%{
 
-box-shadow:
-0 0 20px rgba(255,255,255,.10);
+    box-shadow:0 0 20px rgba(255,255,255,.2);
 
 }
+
 
 50%{
 
-box-shadow:
-
-0 0 80px rgba(255,255,255,.45);
+    box-shadow:0 0 80px rgba(255,255,255,.6);
 
 }
+
 
 100%{
 
-box-shadow:
-
-0 0 25px rgba(255,255,255,.18);
-
-}
+    box-shadow:0 0 30px rgba(255,255,255,.3);
 
 }
 
 
+}
 
-@keyframes zoom{
+
+
+@keyframes zoomFoto{
+
 
 0%{
 
-transform:scale(1);
+    transform:scale(1);
 
 }
+
 
 50%{
 
-transform:scale(1.05);
+    transform:scale(1.05);
 
 }
+
 
 100%{
 
-transform:scale(1);
+    transform:scale(1);
 
 }
 
-}
-
-
-
-.final{
-
-animation:
-
-brilho 2.5s ease,
-zoom 2.5s ease;
 
 }
 
 
 
-/* ===========================
-   CORAÇÃO
-=========================== */
+/* ===============================
+   CORAÇÃO FINAL
+================================ */
+
 
 #coracao{
 
-position:absolute;
+    position:absolute;
 
-font-size:80px;
+    font-size:90px;
 
-opacity:0;
+    opacity:0;
 
-transform:scale(0);
-
-pointer-events:none;
+    transform:scale(0);
 
 }
 
@@ -371,120 +513,292 @@ pointer-events:none;
 
 @keyframes amor{
 
+
 0%{
 
-opacity:0;
+    opacity:0;
 
-transform:scale(0);
+    transform:scale(0);
 
 }
+
+
 
 40%{
 
-opacity:1;
+    opacity:1;
 
-transform:scale(1.4);
+    transform:scale(1.5);
 
 }
+
+
 
 70%{
 
-transform:scale(1);
+    transform:scale(1);
 
 }
+
+
 
 100%{
 
-opacity:0;
+    opacity:0;
 
-transform:scale(.5);
-
-}
+    transform:scale(.5);
 
 }
 
-/* Contador */
 
-#contador {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin: 30px auto;
 }
 
-#contador div {
-    background: #ffffff;
-    width: 90px;
-    height: 90px;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-}
+/* ===============================
+   CONTADOR
+================================ */
 
-#contador span {
-    font-size: 28px;
-    font-weight: bold;
-}
+#contador{
 
-#contador small {
-    font-size: 14px;
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+    margin:30px 0;
+
 }
 
 
-/* Surpresa */
 
-.surpresa {
-    padding: 50px 20px;
+#contador div{
+
+    background:#1c1c1c;
+
+    padding:20px;
+
+    min-width:90px;
+
+    border-radius:20px;
+
+    box-shadow:
+
+    0 0 15px rgba(255,255,255,.1);
+
 }
 
 
-/* Vídeo final */
 
-#videoFinal {
-    animation: aparecer 1.5s ease;
+#contador span{
+
+    display:block;
+
+    font-size:30px;
+
+    font-weight:bold;
+
 }
 
 
-@keyframes aparecer {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+#contador small{
+
+    font-size:14px;
+
 }
 
 
-/* Responsivo para celular */
 
-@media (max-width: 600px) {
+/* ===============================
+   QUIZ
+================================ */
 
-    h1 {
-        font-size: 26px;
-    }
 
-    h2 {
-        font-size: 24px;
-    }
+.quiz{
 
-    p {
-        font-size: 16px;
-        padding: 0 10px;
-    }
+    display:flex;
 
-    #contador div {
-        width: 75px;
-        height: 75px;
-    }
+    flex-direction:column;
 
-    #contador span {
-        font-size: 22px;
-    }
+    gap:25px;
+
+}
+
+
+
+.pergunta{
+
+    background:#171717;
+
+    padding:20px;
+
+    border-radius:20px;
+
+}
+
+
+
+.pergunta button{
+
+    display:block;
+
+    width:90%;
+
+    margin:10px auto;
+
+    background:#2b2b2b;
+
+}
+
+
+
+.pergunta button:hover{
+
+    background:#b11226;
+
+}
+
+
+
+/* ===============================
+   SURPRESA FINAL
+================================ */
+
+
+.surpresa{
+
+    text-align:center;
+
+}
+
+
+
+.surpresa button{
+
+    margin-top:20px;
+
+}
+
+
+
+/* ===============================
+   VÍDEO FINAL
+================================ */
+
+
+#videoFinal{
+
+    animation:aparecerVideo 1.5s ease;
+
+}
+
+
+
+@keyframes aparecerVideo{
+
+
+from{
+
+    opacity:0;
+
+    transform:translateY(40px);
+
+}
+
+
+to{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+
+}
+
+
+
+/* ===============================
+   CITAÇÃO
+================================ */
+
+
+blockquote{
+
+    margin:30px auto;
+
+    padding:20px;
+
+    border-left:3px solid white;
+
+    max-width:600px;
+
+    font-style:italic;
+
+}
+
+
+
+/* ===============================
+   RESPONSIVO CELULAR
+================================ */
+
+
+@media(max-width:600px){
+
+
+.capa h1{
+
+    font-size:26px;
+
+}
+
+
+
+.bloco h2{
+
+    font-size:24px;
+
+}
+
+
+
+#foto-container{
+
+    width:320px;
+
+    height:430px;
+
+}
+
+
+
+#intro p{
+
+    font-size:20px;
+
+}
+
+
+
+#contador div{
+
+    min-width:75px;
+
+    padding:15px;
+
+}
+
+
+
+#contador span{
+
+    font-size:24px;
+
+}
+
 
 }
