@@ -1,214 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Georgia&display=swap');
+
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+
 body {
-    font-family: 'Georgia', serif;
-    background: #fff5f7;
-    color: #4a2c35;
-    text-align: center;
+    background: #f8f0e6;
+    font-family: Georgia, serif;
+    color: #4b3328;
     line-height: 1.7;
 }
 
-section {
-    padding: 40px 20px;
-}
 
-
-/* Capa */
-
-.capa {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.capa img {
+.container {
     width: 90%;
-    max-width: 400px;
-    border-radius: 20px;
-    margin-bottom: 25px;
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+
+.card {
+    background: #ffffff;
+    border-radius: 28px;
+    padding: 35px 30px;
+    margin-bottom: 35px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+
+h1,
+h2 {
+    font-family: "Cormorant Garamond", serif;
+    color: #5a3928;
+    margin-bottom: 20px;
 }
 
 
 h1 {
-    font-size: 32px;
-    margin-bottom: 20px;
+    font-size: 45px;
 }
 
+
 h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
+    font-size: 32px;
+}
+
+
+h3 {
+    color: #6b4632;
+    margin: 25px 0 10px;
+    font-size: 22px;
 }
 
 
 p {
-    max-width: 700px;
-    margin: 15px auto;
     font-size: 18px;
+    margin-bottom: 18px;
 }
 
 
-/* Blocos */
-
-.bloco {
-    background: rgba(255,255,255,0.7);
-    margin: 25px auto;
+img {
+    width: 100%;
+    max-width: 650px;
     border-radius: 25px;
-    max-width: 850px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-}
-
-
-/* Imagens */
-
-.bloco img {
-    width: 85%;
-    max-width: 450px;
-    border-radius: 20px;
     margin: 20px auto;
+    display: block;
 }
 
-
-/* Vídeos */
 
 video {
-    width: 90%;
-    max-width: 600px;
-    border-radius: 20px;
+    width: 100%;
+    max-width: 700px;
+    border-radius: 25px;
     margin: 20px auto;
+    display: block;
 }
 
-
-/* Áudios */
 
 audio {
-    width: 90%;
-    margin: 10px auto 25px;
+    width: 100%;
+    margin: 15px 0;
 }
 
-
-/* Botões */
 
 button {
-    background: #d96c8a;
+    background: #7b5038;
     color: white;
     border: none;
-    padding: 15px 35px;
+    padding: 14px 35px;
     border-radius: 30px;
-    font-size: 18px;
+    font-size: 17px;
     cursor: pointer;
-    margin-top: 20px;
+    transition: 0.3s;
 }
+
 
 button:hover {
-    opacity: 0.8;
+    transform: scale(1.05);
 }
 
-/* Carta */
+/* CARTA */
 
 .carta {
+    background: #fffaf5;
+    border-radius: 25px;
+    padding: 30px;
     text-align: left;
-    padding: 35px 25px;
-    background: #fffafa;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.03);
 }
 
-.carta h2 {
-    text-align: center;
-}
 
 .carta p {
-    font-size: 17px;
+    font-size: 19px;
     margin-bottom: 22px;
 }
 
 
-/* Contador */
+/* IMAGENS DOS SÍMBOLOS */
+
+.card img {
+    object-fit: cover;
+}
+
+
+/* CONTADOR */
 
 #contador {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin: 30px auto;
-}
-
-#contador div {
-    background: #ffffff;
-    width: 90px;
-    height: 90px;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-}
-
-#contador span {
-    font-size: 28px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 30px;
     font-weight: bold;
-}
-
-#contador small {
-    font-size: 14px;
-}
-
-
-/* Surpresa */
-
-.surpresa {
-    padding: 50px 20px;
+    color: #7b5038;
+    margin: 25px 0;
+    padding: 20px;
+    background: #fff8f0;
+    border-radius: 20px;
 }
 
 
-/* Vídeo final */
+/* QUIZ */
 
-#videoFinal {
-    animation: aparecer 1.5s ease;
+.quiz {
+    text-align: left;
 }
 
 
-@keyframes aparecer {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.pergunta {
+    background: #fffaf5;
+    padding: 25px;
+    border-radius: 22px;
+    margin-bottom: 25px;
 }
 
 
-/* Responsivo para celular */
-
-@media (max-width: 600px) {
-
-    h1 {
-        font-size: 26px;
-    }
-
-    h2 {
-        font-size: 24px;
-    }
-
-    p {
-        font-size: 16px;
-        padding: 0 10px;
-    }
-
-    #contador div {
-        width: 75px;
-        height: 75px;
-    }
-
-    #contador span {
-        font-size: 22px;
-    }
-
+.pergunta p {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #5a3928;
 }
+
+
+label {
+    display: block;
+    background: white;
+    padding: 12px 15px;
+    margin: 10px 0;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 17px;
+    transition: 0.3s;
+}
+
+
+label:hover {
+    transform: translateX(5px);
+}
+
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+
+/* RESULTADO DO QUIZ */
+
+#resultado {
+    margin-top: 25px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 26px;
+    font-weight: bold;
+    color: #7b5038;
+}
+
+
+/* SURPRESA */
+
+#surpresa {
+    margin-top: 25px;
+    font-size: 22px;
+    font-family: "Cormorant Garamond", serif;
+    color: #5a3928;
+}
+
+
+/* ANIMAÇÃO SUAVE DOS CARDS */
+
+.card {
+    animation: aparecer 1s ease;
+}
+
+
+@keyframes aparecer
