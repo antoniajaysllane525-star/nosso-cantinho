@@ -1,4 +1,4 @@
-/* CARTA */
+// CARTA
 
 .carta {
     background: #fffaf5;
@@ -15,28 +15,36 @@
 }
 
 
-/* IMAGENS DOS SÍMBOLOS */
+// IMAGENS DOS SÍMBOLOS
 
 .card img {
     object-fit: cover;
 }
 
 
-/* CONTADOR */
+// CONTADOR
 
-#contador {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 30px;
-    font-weight: bold;
-    color: #7b5038;
-    margin: 25px 0;
-    padding: 20px;
-    background: #fff8f0;
-    border-radius: 20px;
+function atualizarContador() {
+
+    const dataInicial = new Date(2026, 4, 9, 0, 0, 0);
+    const agora = new Date();
+
+    const diferenca = agora - dataInicial;
+
+    const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+    const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+
+    document.getElementById("contador").innerHTML =
+        `${dias} dias<br>${horas} horas • ${minutos} minutos • ${segundos} segundos ❤️`;
 }
 
+setInterval(atualizarContador, 1000);
+atualizarContador();
 
-/* QUIZ */
+
+// QUIZ 
 
 .quiz {
     text-align: left;
@@ -81,7 +89,7 @@ input[type="radio"] {
 }
 
 
-/* RESULTADO DO QUIZ */
+// RESULTADO DO QUIZ 
 
 #resultado {
     margin-top: 25px;
@@ -92,7 +100,7 @@ input[type="radio"] {
 }
 
 
-/* SURPRESA */
+// SURPRESA 
 
 #surpresa {
     margin-top: 25px;
@@ -102,7 +110,7 @@ input[type="radio"] {
 }
 
 
-/* ANIMAÇÃO SUAVE DOS CARDS */
+// ANIMAÇÃO SUAVE DOS CARDS 
 
 .card {
     animation: aparecer 1s ease;
@@ -167,7 +175,7 @@ function verResultado() {
 
 }
 
-// BOTÃO ENTRAR NO CANTINHO ❤️
+// BOTÃO ENTRAR NO CANTINHO 
 
 function entrarNoCantinho() {
 
