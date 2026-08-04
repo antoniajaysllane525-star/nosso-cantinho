@@ -201,61 +201,96 @@ button:hover {
 
 }
 
-/* QUIZ */
+/* =========================
+   QUIZ INTERATIVO
+========================= */
 
-.quiz {
-    text-align: left;
+#quiz{
+    max-width:700px;
+    margin:0 auto;
 }
 
-
-.pergunta {
-    background: #fffaf5;
-    padding: 25px;
-    border-radius: 22px;
-    margin-bottom: 25px;
+.progresso{
+    margin-bottom:30px;
 }
 
-
-.pergunta p {
-    font-family: "Comorant Garamond", serif;
-    font-size: 24px;
-    font-weight: bold;
-    color: #5a3928;
+#numeroPergunta{
+    display:block;
+    text-align:center;
+    font-size:18px;
+    color:#7b5038;
+    margin-bottom:12px;
+    font-weight:bold;
 }
 
-
-label {
-    display: block;
-    background: white;
-    padding: 12px 15px;
-    margin: 10px 0;
-    border-radius: 15px;
-    cursor: pointer;
-    font-size: 17px;
-    transition: 0.3s;
+.barra{
+    width:100%;
+    height:10px;
+    background:#ead9cb;
+    border-radius:20px;
+    overflow:hidden;
 }
 
-
-label:hover {
-    transform: translateX(5px);
+#barraProgresso{
+    width:10%;
+    height:100%;
+    background:#8b5e3c;
+    transition:.4s;
 }
 
-
-input[type="radio"] {
-    margin-right: 10px;
+#pergunta{
+    font-family:"Cormorant Garamond", serif;
+    font-size:30px;
+    color:#5a3928;
+    text-align:center;
+    margin:40px 0 30px;
+    font-weight:600;
 }
 
-
-/* RESULTADO DO QUIZ */
-
-#resultado {
-    margin-top: 25px;
-    font-family: "Comorant Garamond", serif;
-    font-size: 26px;
-    font-weight: bold;
-    color: #7b5038;
+#alternativas{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
 }
 
+.opcao{
+    background:#fff;
+    border:2px solid #ead9cb;
+    border-radius:18px;
+    padding:18px;
+    cursor:pointer;
+    transition:.3s;
+    font-size:18px;
+}
+
+.opcao:hover{
+    background:#f8efe7;
+    transform:translateY(-2px);
+}
+
+.opcao.selecionada{
+    background:#8b5e3c;
+    color:#fff;
+    border-color:#8b5e3c;
+}
+
+.botoesQuiz{
+    display:flex;
+    justify-content:space-between;
+    margin-top:35px;
+}
+
+.botoesQuiz button{
+    min-width:140px;
+}
+
+#resultadoQuiz{
+    text-align:center;
+    margin-top:35px;
+    font-size:24px;
+    color:#5a3928;
+    line-height:1.8;
+}
 
 /* SURPRESA */
 
