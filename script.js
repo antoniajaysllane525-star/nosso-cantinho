@@ -2,43 +2,39 @@
 
 function atualizarContador() {
 
-    const inicio = new Date(2026, 4, 9, 0, 0, 0);
+    const inicio = new Date(2026, 4, 9, 0, 0, 0); 
     const agora = new Date();
 
     let anos = agora.getFullYear() - inicio.getFullYear();
     let meses = agora.getMonth() - inicio.getMonth();
+    let dias = agora.getDate() - inicio.getDate();
+
+    if (dias < 0) {
+        meses--;
+        const ultimoMes = new Date(agora.getFullYear(), agora.getMonth(), 0).getDate();
+        dias += ultimoMes;
+    }
 
     if (meses < 0) {
         anos--;
         meses += 12;
     }
 
-    const totalMeses = anos * 12 + meses;
+    const diferenca = agora - inicio;
 
-    let dataBase = new Date(inicio);
-    dataBase.setMonth(dataBase.getMonth() + totalMeses);
+    const horas = Math.floor((diferenca / (1000 * 60 * 60)) % 24);
+    const minutos = Math.floor((diferenca / (1000 * 60)) % 60);
+    const segundos = Math.floor((diferenca / 1000) % 60);
 
-    let diferenca = agora - dataBase;
-
-    const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
-    diferenca %= (1000 * 60 * 60 * 24);
-
-    const horas = Math.floor(diferenca / (1000 * 60 * 60));
-    diferenca %= (1000 * 60 * 60);
-
-    const minutos = Math.floor(diferenca / (1000 * 60));
-
-    const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
-
-    document.getElementById("meses").textContent = totalMeses;
-    document.getElementById("dias").textContent = dias;
-    document.getElementById("horas").textContent = horas;
-    document.getElementById("minutos").textContent = minutos;
-    document.getElementById("segundos").textContent = segundos;
+    document.getElementById("meses").innerHTML = (anos * 12) + meses;
+    document.getElementById("dias").innerHTML = dias;
+    document.getElementById("horas").innerHTML = horas;
+    document.getElementById("minutos").innerHTML = minutos;
+    document.getElementById("segundos").innerHTML = segundos;
 }
 
-atualizarContador();
 setInterval(atualizarContador, 1000);
+atualizarContador();
 
 // =========================
 // QUIZ
