@@ -10,7 +10,7 @@
 
 body {
     background: #f8f0e6;
-    font-family: Georgia, serif;
+    font-family: "Playfair Display", serif;
     color: #4b3328;
     line-height: 1.7;
 }
@@ -35,7 +35,7 @@ body {
 
 h1,
 h2 {
-    font-family: "Cormorant Garamond", serif;
+    font-family: "Playfair Display", serif;
     color: #5a3928;
     margin-bottom: 20px;
 }
@@ -217,7 +217,7 @@ button:hover {
 
 
 .pergunta p {
-    font-family: "Cormorant Garamond", serif;
+    font-family: "Playfair Display", serif;
     font-size: 24px;
     font-weight: bold;
     color: #5a3928;
@@ -250,7 +250,7 @@ input[type="radio"] {
 
 #resultado {
     margin-top: 25px;
-    font-family: "Cormorant Garamond", serif;
+    font-family: "Playfair Display", serif;
     font-size: 26px;
     font-weight: bold;
     color: #7b5038;
@@ -262,7 +262,7 @@ input[type="radio"] {
 #surpresa {
     margin-top: 25px;
     font-size: 22px;
-    font-family: "Cormorant Garamond", serif;
+    font-family: "Playfair Display", serif;
     color: #5a3928;
 }
 
