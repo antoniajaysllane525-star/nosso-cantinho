@@ -388,7 +388,7 @@ function mostrarResultado() {
 
     resultado.innerHTML = `
 
-    <h2>❤️ Renovação concluída!</h2>
+    <h2>🎉 Renovação concluída!</h2>
 
     <p>
     Você acertou ${acertos} de ${perguntas.length} perguntas.
@@ -400,7 +400,7 @@ function mostrarResultado() {
 
     <p>
     O maior acerto da nossa história foi ter encontrado um ao outro.
-    ❤️
+    
     </p>
 
     `;
