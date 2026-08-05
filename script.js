@@ -8,28 +8,23 @@ function verificarSenha() {
         .getElementById("senha")
         .value
         .trim()
-        .toLowerCase()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "");
+        .toLowerCase();
 
     if (senha === "coracao") {
 
         document.getElementById("login").style.display = "none";
 
-        document.getElementById("site").style.display = "block";
+        document.getElementById("contrato").style.display = "block";
 
-        window.scrollTo({
-            top: 0,
+        document.getElementById("contrato").scrollIntoView({
             behavior: "smooth"
         });
 
     } else {
 
-        alert("Senha incorreta.");
+        alert("Senha incorreta. ❤️");
 
         document.getElementById("senha").value = "";
-
-        document.getElementById("senha").focus();
 
     }
 
