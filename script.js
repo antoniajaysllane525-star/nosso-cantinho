@@ -41,7 +41,7 @@ function assinarContrato(){
     const aceite = document.getElementById("aceiteContrato").checked;
 
     if(nome === "" || !aceite){
-        alert("Assine o contrato para continuar ❤️");
+        alert("Assine o contrato para continuar ");
         return;
     }
 
