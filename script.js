@@ -405,7 +405,12 @@ function mostrarResultado() {
 
     `;
 
+ document.getElementById("certificado").style.display = "block";
 
+document.getElementById("certificado").scrollIntoView({
+    behavior: "smooth"
+});
+    
 }
 
 
