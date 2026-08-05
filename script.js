@@ -235,37 +235,31 @@ let respostas = [];
 
 function carregarPergunta() {
 
-    const pergunta = perguntas[perguntaAtual];
-
-    document.getElementById("numeroPergunta").textContent =
-        `Pergunta ${perguntaAtual + 1} de ${perguntas.length}`;
-
-    document.getElementById("barraProgresso").style.width =
-        `${((perguntaAtual + 1) / perguntas.length) * 100}%`;
-
-    document.getElementById("pergunta").textContent = pergunta.pergunta;
-
     const alternativas = document.getElementById("alternativas");
-    alternativas.innerHTML = "";
 
-    pergunta.alternativas.forEach((texto, indice) => {
+alternativas.innerHTML = "";
 
-        const botao = document.createElement("button");
+pergunta.alternativas.forEach((texto, indice) => {
 
-        botao.className = "opcao";
-        botao.textContent = texto;
+    const botao = document.createElement("button");
 
-        if (respostas[perguntaAtual] === indice) {
-            botao.classList.add("selecionada");
-        }
+    botao.className = "opcao";
 
-        botao.onclick = function () {
+    botao.textContent = texto;
 
-            respostas[perguntaAtual] = indice;
 
-            carregarPergunta();
+    botao.onclick = function () {
 
-        };
+        respostas[perguntaAtual] = indice;
+
+        carregarPergunta();
+
+    };
+
+
+    alternativas.appendChild(botao);
+
+});
 
         alternativas.appendChild(botao);
 
