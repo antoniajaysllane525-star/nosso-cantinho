@@ -32,8 +32,11 @@ function verificarSenha() {
 
 function assinarContrato(){
 
-    const nome = document.getElementById("nomeContrato").value;
-    const aceite = document.getElementById("aceiteContrato").checked;
+    function assinarContrato(){
+
+    alert("Cheguei na função do contrato!");
+
+}
 
     if(nome === "" || !aceite){
         alert("Assine o contrato para continuar");
