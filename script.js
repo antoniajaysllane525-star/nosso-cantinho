@@ -22,7 +22,7 @@ function verificarSenha() {
 
     } else {
 
-        alert("Senha incorreta. ");
+        alert("Senha incorreta.");
 
         document.getElementById("senha").value = "";
 
