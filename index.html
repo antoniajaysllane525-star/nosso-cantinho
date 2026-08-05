@@ -165,40 +165,54 @@ CONTEÚDO DO SITE
 ========================= -->
 
 <div id="conteudoSite" style="display:none;">
- 
-    <!-- =========================
-PRIMEIRA MÚSICA
+
+<!-- =========================
+BEM-VINDO AO NOSSO CANTINHO
 ========================= -->
 
 <section class="card">
 
-    <h2>🎵 Dá o play enquanto você lê...</h2>
+    <h2>❤️ Bem-vindo ao nosso cantinho</h2>
 
-    <h3>
-        🎧 Olhos Castanhos — Luísa Sonza
-    </h3>
+    <img src="fotos/imagens/capa.jpg" alt="Nós dois">
+
+    <p>
+        Depois de assinar o contrato, acho justo te mostrar o motivo de tudo isso.
+    </p>
+
+    <p>
+        Aqui guardei um pouco da nossa história, dos nossos momentos e de tudo aquilo que faz você ser a minha pessoa favorita.
+    </p>
+
+</section>
+
+
+<!-- =========================
+UMA TRILHA PARA ESSE MOMENTO
+========================= -->
+
+<section class="card">
+
+    <h2>🎵 Uma trilha para esse momento</h2>
+
+    <h3>🎧 Olhos Castanhos — Luísa Sonza</h3>
 
     <audio controls>
-
         <source src="musicas/olhos-castanhos.mp3" type="audio/mpeg">
-
         Seu navegador não suporta áudio.
-
     </audio>
 
 </section>
     
-        <!-- CARTA ABERTA -->
-        <section class="card">
+    <!-- =========================
+CARTA ABERTA
+========================= -->
+
+<section class="card">
 
     <h2>💌 Carta aberta para o amor da minha vida</h2>
 
-    <p><strong>Meu a
-            <source src="musicas/olhos-castanhos.mp3" type="audio/mpeg">
-            Seu navegador não suporta áudio.
-        </audio>
-
-    </section>mor,</strong></p>
+    <p><strong>Meu amor,</strong></p>
 
     <p>
         Eu nem sei por onde começar, porque existem sentimentos que parecem grandes demais para caber em palavras.
@@ -215,7 +229,6 @@ PRIMEIRA MÚSICA
     <p>
         Você me conquistou pelo seu olhar sincero, pelo seu jeito amoroso, pela sua paciência, pelas nossas conversas e pelas risadas bobas.
         Eu não sabia o que era viver um amor bonito até conhecer a forma como você me ama, através dos seus detalhes, das suas atitudes e do tempo que dedica a mim.
-        Com você, aprendi que o amor mora nas pequenas coisas.
     </p>
 
     <p><strong>Eu amo amar você.</strong></p>
@@ -246,6 +259,15 @@ PRIMEIRA MÚSICA
     </p>
 
     <p>
+        Feliz aniversário, meu amor.
+        Que Deus continue iluminando a sua vida, fortalecendo os seus passos e permitindo que eu esteja ao seu lado para viver muitos capítulos dessa história.
+    </p>
+
+    <p>
+        Obrigada por ser a melhor escolha que o meu coração já fez.
+    </p>
+
+    <p>
         <strong>Feliz a vida e seja feliz.</strong>
     </p>
 
@@ -258,7 +280,7 @@ PRIMEIRA MÚSICA
 
     <p><em>Um xero.</em></p>
 
-        </section>
+</section>
 
        <!-- NOSSOS MOMENTOS -->
     <section class="card" id="inicio">
@@ -403,19 +425,34 @@ PRIMEIRA MÚSICA
 
 </section>
 
-    
-      <!-- QUIZ -->
+      <!-- =========================
+QUIZ - RENOVAÇÃO DE CONTRATO
+========================= -->
+
 <section class="card">
 
-    <h2>🧩 Quanto você conhece nossa história? </h2>
+    <h2>🧩 Renovação de contrato</h2>
+
+    <p>
+        Antes de concluirmos este contrato, falta apenas uma última etapa.
+    </p>
+
+    <p>
+        Responda às perguntas abaixo e prove que você conhece a nossa história. ❤️
+    </p>
 
     <div id="quiz">
 
         <div class="progresso">
-            <span id="numeroPergunta">Pergunta 1 de 10</span>
+
+            <span id="numeroPergunta">
+                Pergunta 1 de 10
+            </span>
+
             <div class="barra">
                 <div id="barraProgresso"></div>
             </div>
+
         </div>
 
         <div id="pergunta"></div>
@@ -424,8 +461,12 @@ PRIMEIRA MÚSICA
 
         <div class="botoesQuiz">
 
+            <button id="btnAnterior" onclick="anteriorPergunta()">
+                ⬅ Anterior
+            </button>
+
             <button id="btnProximo" onclick="proximaPergunta()">
-                Próxima ➡️
+                Próxima ➡
             </button>
 
         </div>
