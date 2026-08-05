@@ -43,7 +43,7 @@ function assinarContrato(){
         return;
     }
 
-    document.getElementById("contrato").style.display = "none";
+    document.getElementById("contrato").style.display = "block";
 
     document.getElementById("contratoAssinado").style.display = "block";
 
