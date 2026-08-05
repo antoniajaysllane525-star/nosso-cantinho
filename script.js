@@ -35,6 +35,25 @@ function verificarSenha() {
 
 }
 
+function assinarContrato(){
+
+    const nome = document.getElementById("nomeContrato").value;
+    const aceite = document.getElementById("aceiteContrato").checked;
+
+    if(nome === "" || !aceite){
+        alert("Assine o contrato para continuar ❤️");
+        return;
+    }
+
+    document.getElementById("contratoAssinado").style.display = "block";
+
+    document.getElementById("contratoAssinado")
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
 // ===== CONTADOR =====
 
 function atualizarContador() {
