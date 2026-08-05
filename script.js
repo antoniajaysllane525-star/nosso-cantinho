@@ -271,8 +271,8 @@ function carregarPergunta() {
 
     });
 
-    document.getElementById("btnAnterior").disabled =
-        perguntaAtual === 0;
+    document.getElementById("btnAnterior").style.display =
+    perguntaAtual === 0 ? "none" : "inline-block";
 
     document.getElementById("btnProximo").textContent =
         perguntaAtual === perguntas.length - 1
