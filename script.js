@@ -195,7 +195,7 @@ function carregarPergunta() {
 
     document.getElementById("btnProximo").textContent =
         perguntaAtual === perguntas.length - 1
-            ? "Finalizar ❤️"
+            ? "Finalizar "
             : "Próxima ➜";
 }
 
@@ -215,7 +215,7 @@ function proximaPergunta() {
 
     if (respostas[perguntaAtual] == null) {
 
-        alert("Escolha uma alternativa antes de continuar. ❤️");
+        alert("Escolha uma alternativa antes de continuar. ");
         return;
 
     }
@@ -293,21 +293,21 @@ function entrarNoCantinho() {
 
 }
 
-
 // =========================
 // SURPRESA FINAL
 // =========================
 
-function mostrarSurpresa() {
+function mostrarVideo() {
 
-    const surpresa = document.getElementById("surpresa");
+    const video = document.getElementById("videoFinal");
 
-    if (surpresa) {
+    if (video) {
 
-        surpresa.innerHTML =
-            "❤️ Meu maior presente é poder viver tudo isso ao seu lado.<br><br>" +
-            "Obrigada por ser meu companheiro, por cuidar de mim e por fazer parte da minha história.<br><br>" +
-            "Eu te amo infinitamente. 💌";
+        video.style.display = "block";
+
+        video.scrollIntoView({
+            behavior: "smooth"
+        });
 
     }
 
