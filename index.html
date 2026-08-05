@@ -1,55 +1,90 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Nosso Cantinho ❤️</title>
 
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-<main class="container">
 
-    <!-- CAPA -->
+<!-- TELA DE ACESSO -->
+
+<div id="login">
+
     <section class="card capa">
 
-        <h1> Nosso Cantinho</h1>
+        <h1>❤️ Nosso Cantinho</h1>
 
-        <img src="fotos/imagens/capa.jpg" alt="Nossa foto">
+        <p>🚨 <strong>Atenção!</strong></p>
 
-        <h2>🚨 Atenção!</h2>
+        <p>
+            Você acaba de acessar um lugar cheio de lembranças,
+            carinho e um pouquinho de breguice também. ❤️
+        </p>
 
-    <p>
-        Você acaba de acessar um lugar cheio de lembranças,
-        carinho e um pouquinho de breguice também. ❤️
-    </p>
+        <p>
+            <strong>Proibido abandonar o percurso antes do final.</strong>
+            A última surpresa vale a pena. 🤭
+        </p>
 
-    <p>
-        <strong>Proibido abandonar o percurso antes do final.</strong>
-        A última surpresa vale a pena. 🤭
-    </p>
+        <p>
+            🔒 Para continuar, digite a senha de acesso:
+        </p>
 
-    <p>🔒 Para continuar, digite a senha de acesso:</p>
+        <input 
+            type="password" 
+            id="senha" 
+            placeholder="Nossa senha...">
 
-    <input
-        type="password"
-        id="senha"
-        placeholder="Digite a senha">
+        <br><br>
 
-    <br><br>
-
-    <button onclick="verificarSenha()">
-        Entrar ❤️
-    </button>
-
-</section>
+        <button onclick="verificarSenha()">
+            Entrar ❤️
+        </button>
 
     </section>
 
+</div>
+
+
+
+<!-- CONTEÚDO DO SITE -->
+
+<div id="site" style="display:none;">
+
+
+<main class="container">
+
+
+<!-- CAPA -->
+
+<section class="card capa">
+
+    <h1>❤️ Nosso Cantinho</h1>
+
+    <img src="fotos/imagens/capa.jpg" alt="Nossa foto">
+
+    <h2>Bem-vindo ao nosso cantinho ❤️</h2>
+
+    <p>
+        Fiz esse lugar pensando em nós, na nossa história e
+        em todos os momentos que ainda vamos viver juntos.
+    </p>
+
+    <p>
+        Cada detalhe foi preparado com muito carinho para
+        guardar um pedacinho do que somos.
+    </p>
+
+</section>
 
     <!-- MÚSICA DA CARTA -->
     <section class="card">
@@ -65,7 +100,7 @@
 
     </section>
 
-       
+    
         <!-- CARTA ABERTA -->
         <section class="card">
 
