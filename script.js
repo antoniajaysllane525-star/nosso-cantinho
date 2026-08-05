@@ -4,33 +4,23 @@
 
 function verificarSenha() {
 
-    const senha = document
-        .getElementById("senha")
-        .value
-        .trim()
-        .toLowerCase();
+    const senhaDigitada = document.getElementById("senha").value.trim().toLowerCase();
 
-    if (senha === "coracao") {
+    if (senhaDigitada === "coracao") {
+
+        alert("Senha correta!");
 
         document.getElementById("login").style.display = "none";
 
         document.getElementById("contrato").style.display = "block";
 
-        document.getElementById("contrato").scrollIntoView({
-            behavior: "smooth"
-        });
-
     } else {
 
         alert("Senha incorreta.");
 
-        document.getElementById("senha").value = "";
-
     }
 
 }
-
-
 
 function assinarContrato() {
 
@@ -63,8 +53,6 @@ function assinarContrato() {
     });
 
 }
-
-
 
 function continuarSite() {
 
