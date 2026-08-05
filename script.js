@@ -22,7 +22,7 @@ function verificarSenha() {
 
     } else {
 
-        alert("Senha incorreta. ❤️");
+        alert("Senha incorreta. ");
 
         document.getElementById("senha").value = "";
 
@@ -36,15 +36,29 @@ function assinarContrato(){
     const aceite = document.getElementById("aceiteContrato").checked;
 
     if(nome === "" || !aceite){
-        alert("Assine o contrato para continuar ");
+        alert("Assine o contrato para continuar");
         return;
     }
 
+    document.getElementById("contrato").style.display = "none";
+
     document.getElementById("contratoAssinado").style.display = "block";
 
-    document.getElementById("contratoAssinado")
-    .scrollIntoView({
-        behavior:"smooth"
+    document.getElementById("contratoAssinado").scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+
+function continuarSite(){
+
+    document.getElementById("contratoAssinado").style.display = "none";
+
+    document.getElementById("inicioSite").style.display = "block";
+
+    document.getElementById("inicioSite").scrollIntoView({
+        behavior: "smooth"
     });
 
 }
