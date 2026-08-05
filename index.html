@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
@@ -12,10 +12,13 @@
 
 </head>
 
+
 <body>
 
 
-<!-- TELA DE ACESSO -->
+<!-- =========================
+TELA DE ACESSO
+========================= -->
 
 <div id="login">
 
@@ -45,123 +48,218 @@
             Para continuar, informe a senha de acesso:
         </p>
 
+
         <input 
             type="password" 
             id="senha" 
             placeholder="Digite a senha">
 
+
         <br><br>
 
+
         <button onclick="verificarSenha()">
-            Entrar 
+            Entrar
         </button>
+
 
     </section>
 
 </div>
 
-    <!-- CONTRATO DO NOSSO CANTINHO -->
+
+
+<!-- =========================
+CONTRATO DO NOSSO CANTINHO
+========================= -->
 
 <section class="card contrato" id="contrato" style="display:none;">
 
+
     <h2>📄 Contrato do Nosso Cantinho</h2>
 
-    <p><strong>Partes envolvidas:</strong><br>
-    ♾️ Lanaj & Nazareno</p>
 
     <p>
-    Pelo presente contrato, fica registrado que este espaço foi criado
-    para guardar momentos, lembranças e pequenos detalhes da nossa história.
+        <strong>Partes envolvidas:</strong><br>
+        ♾️ Lanaj & Nazareno
     </p>
 
-    <p><strong>Termos do contrato:</strong></p>
-
-    <p>
-    ☑️ Reviver nossos momentos juntos.<br>
-    ☑️ Guardar com carinho cada lembrança.<br>
-    ☑️ Aceitar doses de carinho e um pouco de breguice de casal.<br>
-    ☑️ Continuar fazendo parte dessa história.
-    </p>
 
     <p>
-    <strong>Cláusula principal:</strong><br>
-    Este contrato não possui data de validade e permanece ativo enquanto existirem motivos para sorrir juntos.
+        Pelo presente contrato, fica registrado que este espaço foi criado
+        para guardar momentos, lembranças e pequenos detalhes da nossa história.
     </p>
 
-    <p>
-    <strong>Status:</strong><br>
-    Aguardando assinatura. ✍️
-    </p>
 
     <p>
-    <strong>Assinatura do contratante:</strong>
+        <strong>Termos do contrato:</strong>
     </p>
+
+
+    <p>
+        ☑️ Reviver nossos momentos juntos.<br>
+        ☑️ Guardar com carinho cada lembrança.<br>
+        ☑️ Aceitar doses de carinho e um pouco de breguice de casal.<br>
+        ☑️ Continuar fazendo parte dessa história.
+    </p>
+
+
+    <p>
+        <strong>Cláusula principal:</strong><br>
+        Este contrato não possui data de validade e permanece ativo enquanto existirem motivos para sorrir juntos.
+    </p>
+
+
+    <p>
+        <strong>Status:</strong><br>
+        Aguardando assinatura. ✍️
+    </p>
+
+
+    <p>
+        <strong>Assinatura do contratante:</strong>
+    </p>
+
 
     <input 
-    type="text" 
-    id="nomeContrato" 
-    placeholder="Digite seu nome">
+        type="text" 
+        id="nomeContrato" 
+        placeholder="Digite seu nome">
+
 
     <br><br>
+
 
     <label>
-    <input type="checkbox" id="aceiteContrato">
-    Li e aceito os termos deste contrato.
+
+        <input 
+            type="checkbox" 
+            id="aceiteContrato">
+
+        Li e aceito os termos deste contrato.
+
     </label>
+
 
     <br><br>
 
+
     <button onclick="assinarContrato()">
-        Assinar contrato e continuar 
+        Assinar contrato e continuar
     </button>
+
 
 </section>
 
-<!-- CONTRATO ASSINADO -->
+<!-- =========================
+CONTRATO ASSINADO
+========================= -->
 
 <section class="card" id="contratoAssinado" style="display:none;">
 
+
     <h2>✅ Contrato assinado com sucesso!</h2>
 
-    <img src="fotos/imagens/contrato.jpg" alt="Contrato do Nosso Cantinho">
+
+    <img 
+        src="fotos/imagens/contrato.jpg" 
+        alt="Contrato do Nosso Cantinho">
+
 
     <br><br>
 
+
     <button onclick="continuarSite()">
-        Acesso liberado 
+        Acesso liberado ❤️
     </button>
+
 
 </section>
 
 
-<!-- ABERTURA DO SITE -->
+
+<!-- =========================
+ABERTURA DO SITE
+========================= -->
 
 <div id="inicioSite" style="display:none;">
 
+
     <section class="card">
+
 
         <h2>Bem-vindo ao nosso cantinho ❤️</h2>
 
-        <img src="fotos/imagens/capa.jpg" alt="Nosso Cantinho">
+
+        <img 
+            src="fotos/imagens/capa.jpg" 
+            alt="Nosso Cantinho">
+
 
         <p>
-        Mais do que um site, esse cartão guarda um pouco dos nossos momentos,
-        das nossas lembranças e de tudo aquilo que faz parte da nossa história.
+            Mais do que um site, esse cartão guarda um pouco dos nossos momentos,
+            das nossas lembranças e de tudo aquilo que faz parte da nossa história.
         </p>
+
 
     </section>
 
+
 </div>
 
-    <!-- MÚSICA DA CARTA -->
-    <section class="card">
 
-        <h2>🎵 Dá o play enquanto você lê...</h2>
 
-        <h3>🎧 Olhos Castanhos — Luísa Sonza</h3>
+<!-- =========================
+NOSSOS MOMENTOS
+========================= -->
 
-        <audio controls>
+<section class="card">
 
+
+    <h2>🎥 Nossos momentos</h2>
+
+
+    <p>
+        Alguns momentos passam rápido, mas ficam guardados para sempre.
+    </p>
+
+
+    <video controls width="100%">
+
+        <source src="videos/momentos1.mp4" type="video/mp4">
+
+        Seu navegador não suporta vídeo.
+
+    </video>
+
+
+</section>
+
+    <!-- =========================
+PRIMEIRA MÚSICA
+========================= -->
+
+<section class="card">
+
+
+    <h2>🎵 Dá o play enquanto você lê...</h2>
+
+
+    <h3>
+        🎧 Olhos Castanhos — Luísa Sonza
+    </h3>
+
+
+    <audio controls>
+
+        <source src="musicas/olhos-castanhos.mp3" type="audio/mpeg">
+
+        Seu navegador não suporta áudio.
+
+    </audio>
+
+
+</section>
     
         <!-- CARTA ABERTA -->
         <section class="card">
