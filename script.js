@@ -258,10 +258,10 @@ function mostrarResultado() {
     if (acertos === perguntas.length) {
 
         resultado.innerHTML =
-            "<h3>🎉 Parabéns! ❤️</h3>" +
+            "<h3>🎉 Parabéns!</h3>" +
             "<p>Você acertou tudo!</p>" +
-            "<p>Mas a maior resposta da minha vida foi ter escolhido você.</p>" +
-            "<p><strong>Você ganhou um xerooo! 💌</strong></p>";
+            "<p>Contrato de namorado renovado: Aprovado! ✅.</p>" +
+            "<p><strong>Benefício liberado: 1 (um) xero nos zóios.😘 </strong></p>";
 
     } else {
 
