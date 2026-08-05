@@ -438,7 +438,28 @@ function entrarNoCantinho() {
 }
 
 // =========================
-// SURPRESA FINAL
+// MOSTRAR SURPRESA FINAL
+// =========================
+
+function mostrarSurpresa() {
+
+    const surpresa = document.getElementById("surpresaFinal");
+
+    if (surpresa) {
+
+        surpresa.style.display = "block";
+
+        surpresa.scrollIntoView({
+            behavior: "smooth"
+        });
+
+    }
+
+}
+
+
+// =========================
+// SURPRESA FINAL - VÍDEO
 // =========================
 
 function mostrarVideo() {
