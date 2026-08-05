@@ -4,11 +4,11 @@
 
 function verificarSenha() {
 
-    const senhaDigitada = document.getElementById("senha").value.trim().toLowerCase();
+    const senha = document.getElementById("senha").value.trim().toLowerCase();
 
-    if (senhaDigitada === "coracao") {
+    alert("Senha digitada: " + senha);
 
-        alert("Senha correta!");
+}
 
         document.getElementById("login").style.display = "none";
 
