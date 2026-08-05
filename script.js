@@ -315,6 +315,10 @@ function proximaPergunta() {
 
 }
 
+// =========================
+// RESULTADO DO QUIZ
+// =========================
+
 function mostrarResultado() {
 
     let acertos = 0;
@@ -327,28 +331,114 @@ function mostrarResultado() {
 
     });
 
+
     document.getElementById("pergunta").style.display = "none";
+
     document.getElementById("alternativas").style.display = "none";
+
     document.querySelector(".botoesQuiz").style.display = "none";
+
     document.querySelector(".progresso").style.display = "none";
+
 
     const resultado = document.getElementById("resultadoQuiz");
 
+
     resultado.style.display = "block";
+
 
     if (acertos === perguntas.length) {
 
-        resultado.innerHTML =
-            "<h3>🎉 Parabéns!</h3>" +
-            "<p>Você acertou tudo!</p>" +
-            "<p>Contrato de namorado renovado: Aprovado! ✅.</p>" +
-            "<p><strong>Benefício liberado: 1 (um) xero nos zóios.😘 </strong></p>";
+
+        resultado.innerHTML = `
+
+            <h2>🎉 Contrato renovado com sucesso!</h2>
+
+
+            <p>
+                O contratante demonstrou conhecer a nossa história
+                e cumpriu todas as etapas desta renovação.
+            </p>
+
+
+            <h3>📄 RENOVAÇÃO DO CONTRATO</h3>
+
+
+            <p>
+                <strong>Contratantes:</strong><br>
+                ♾️ Lanaj & Nazareno
+            </p>
+
+
+            <p>
+                <strong>Status:</strong> Aprovado ✅
+            </p>
+
+
+            <p>
+                <strong>Validade:</strong> Por tempo indeterminado.
+            </p>
+
+
+            <p>
+                <strong>Cláusula final:</strong><br>
+                O contratante está oficialmente autorizado
+                a continuar vivendo novos capítulos,
+                colecionando novas lembranças e construindo
+                uma linda história ao lado da contratante.
+            </p>
+
+
+            <p>
+                <strong>Benefício liberado:</strong><br>
+                1 (um) xero nos zóios. 😘
+            </p>
+
+
+        `;
+
 
     } else {
 
-        resultado.innerHTML =
-            `<h3>❤️ Você acertou ${acertos} de ${perguntas.length}.</h3>
-             <p>Mesmo errando algumas respostas, você continua sendo o meu acerto favorito.</p>`;
+
+        resultado.innerHTML = `
+
+
+            <h2>❤️ Renovação concluída!</h2>
+
+
+            <p>
+                Você acertou ${acertos} de ${perguntas.length} perguntas.
+            </p>
+
+
+            <h3>📄 RESULTADO DA RENOVAÇÃO</h3>
+
+
+            <p>
+                <strong>Status:</strong> Contrato mantido. ✅
+            </p>
+
+
+            <p>
+                Alguns detalhes passaram despercebidos,
+                mas isso não muda o mais importante.
+            </p>
+
+
+            <p>
+                O maior acerto da nossa história
+                foi ter encontrado um ao outro.
+            </p>
+
+
+            <p>
+                ❤️ O contrato continua válido por tempo indeterminado.
+            </p>
+
+
+        `;
+
 
     }
 
