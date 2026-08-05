@@ -4,19 +4,29 @@
 
 function verificarSenha() {
 
-    const senha = document.getElementById("senha").value.trim().toLowerCase();
+    const senha = document
+        .getElementById("senha")
+        .value
+        .trim()
+        .toLowerCase();
 
-    alert("Senha digitada: " + senha);
 
-}
+    if (senha === "coracao") {
 
         document.getElementById("login").style.display = "none";
 
         document.getElementById("contrato").style.display = "block";
 
+        document.getElementById("contrato").scrollIntoView({
+            behavior: "smooth"
+        });
+
+
     } else {
 
         alert("Senha incorreta.");
+
+        document.getElementById("senha").value = "";
 
     }
 
@@ -110,6 +120,7 @@ atualizarContador();
 // =========================
 
 const perguntas = [
+
 {
 pergunta: "1. Qual foi o dia do nosso primeiro beijo?",
 alternativas: [
@@ -216,51 +227,83 @@ alternativas: [
 ],
 correta: 3
 }
+
 ];
+
 
 let perguntaAtual = 0;
 let respostas = [];
 
+
 function carregarPergunta() {
 
-    const alternativas = document.getElementById("alternativas");
-
-alternativas.innerHTML = "";
-
-pergunta.alternativas.forEach((texto, indice) => {
-
-    const botao = document.createElement("button");
-
-    botao.className = "opcao";
-
-    botao.textContent = texto;
+    const pergunta = perguntas[perguntaAtual];
 
 
-    botao.onclick = function () {
-
-        respostas[perguntaAtual] = indice;
-
-        carregarPergunta();
-
-    };
+    document.getElementById("numeroPergunta").textContent =
+        `Pergunta ${perguntaAtual + 1} de ${perguntas.length}`;
 
 
-    alternativas.appendChild(botao);
+    document.getElementById("barraProgresso").style.width =
+        `${((perguntaAtual + 1) / perguntas.length) * 100}%`;
 
-});
+
+    document.getElementById("pergunta").textContent =
+        pergunta.pergunta;
+
+
+    const alternativas =
+        document.getElementById("alternativas");
+
+
+    alternativas.innerHTML = "";
+
+
+    pergunta.alternativas.forEach((texto, indice) => {
+
+
+        const botao = document.createElement("button");
+
+
+        botao.className = "opcao";
+
+        botao.textContent = texto;
+
+
+        if (respostas[perguntaAtual] === indice) {
+
+            botao.classList.add("selecionada");
+
+        }
+
+
+        botao.onclick = function () {
+
+            respostas[perguntaAtual] = indice;
+
+            carregarPergunta();
+
+        };
+
 
         alternativas.appendChild(botao);
 
+
     });
 
+
     document.getElementById("btnAnterior").style.display =
-    perguntaAtual === 0 ? "none" : "inline-block";
+        perguntaAtual === 0 ? "none" : "inline-block";
+
 
     document.getElementById("btnProximo").textContent =
         perguntaAtual === perguntas.length - 1
-            ? "Finalizar "
-            : "Próxima ➜";
+        ? "Finalizar"
+        : "Próxima ➡";
+
 }
+
+
 
 function anteriorPergunta() {
 
@@ -274,42 +317,55 @@ function anteriorPergunta() {
 
 }
 
+
+
 function proximaPergunta() {
+
 
     if (respostas[perguntaAtual] == null) {
 
-        alert("Escolha uma alternativa antes de continuar. ");
+        alert("Escolha uma alternativa antes de continuar.");
+
         return;
 
     }
 
+
     if (perguntaAtual < perguntas.length - 1) {
+
 
         perguntaAtual++;
 
         carregarPergunta();
 
+
     } else {
 
+
         mostrarResultado();
+
 
     }
 
 }
 
-// =========================
-// RESULTADO DO QUIZ
-// =========================
+
 
 function mostrarResultado() {
 
+
     let acertos = 0;
+
 
     perguntas.forEach((pergunta, indice) => {
 
+
         if (respostas[indice] === pergunta.correta) {
+
             acertos++;
+
         }
+
 
     });
 
@@ -323,108 +379,36 @@ function mostrarResultado() {
     document.querySelector(".progresso").style.display = "none";
 
 
-    const resultado = document.getElementById("resultadoQuiz");
+    const resultado =
+        document.getElementById("resultadoQuiz");
 
 
     resultado.style.display = "block";
 
 
-    if (acertos === perguntas.length) {
+    resultado.innerHTML = `
 
+    <h2>❤️ Renovação concluída!</h2>
 
-        resultado.innerHTML = `
+    <p>
+    Você acertou ${acertos} de ${perguntas.length} perguntas.
+    </p>
 
-            <h2>🎉 Contrato renovado com sucesso!</h2>
+    <p>
+    O contrato continua válido por tempo indeterminado. ♾️
+    </p>
 
+    <p>
+    O maior acerto da nossa história foi ter encontrado um ao outro.
+    ❤️
+    </p>
 
-            <p>
-                O contratante demonstrou conhecer a nossa história
-                e cumpriu todas as etapas desta renovação.
-            </p>
+    `;
 
-
-            <h3>📄 RENOVAÇÃO DO CONTRATO</h3>
-
-
-            <p>
-                <strong>Contratantes:</strong><br>
-                ♾️ Lanaj & Nazareno
-            </p>
-
-
-            <p>
-                <strong>Status:</strong> Aprovado ✅
-            </p>
-
-
-            <p>
-                <strong>Validade:</strong> Por tempo indeterminado.
-            </p>
-
-
-            <p>
-                <strong>Cláusula final:</strong><br>
-                O contratante está oficialmente autorizado
-                a continuar vivendo novos capítulos,
-                colecionando novas lembranças e construindo
-                uma linda história ao lado da contratante.
-            </p>
-
-
-            <p>
-                <strong>Benefício liberado:</strong><br>
-                1 (um) xero nos zóios. 😘
-            </p>
-
-
-        `;
-
-
-    } else {
-
-
-        resultado.innerHTML = `
-
-
-            <h2>❤️ Renovação concluída!</h2>
-
-
-            <p>
-                Você acertou ${acertos} de ${perguntas.length} perguntas.
-            </p>
-
-
-            <h3>📄 RESULTADO DA RENOVAÇÃO</h3>
-
-
-            <p>
-                <strong>Status:</strong> Contrato mantido. ✅
-            </p>
-
-
-            <p>
-                Alguns detalhes passaram despercebidos,
-                mas isso não muda o mais importante.
-            </p>
-
-
-            <p>
-                O maior acerto da nossa história
-                foi ter encontrado um ao outro.
-            </p>
-
-
-            <p>
-                ❤️ O contrato continua válido por tempo indeterminado.
-            </p>
-
-
-        `;
-
-
-    }
 
 }
+
+
 
 carregarPergunta();
 
