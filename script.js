@@ -1,3 +1,40 @@
+// =========================
+// ACESSO COM SENHA
+// =========================
+
+function verificarSenha() {
+
+    const senha = document
+        .getElementById("senha")
+        .value
+        .trim()
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+
+    if (senha === "coracao") {
+
+        document.getElementById("login").style.display = "none";
+
+        document.getElementById("site").style.display = "block";
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    } else {
+
+        alert("❌ Senha incorreta. ❤️");
+
+        document.getElementById("senha").value = "";
+
+        document.getElementById("senha").focus();
+
+    }
+
+}
+
 // ===== CONTADOR =====
 
 function atualizarContador() {
