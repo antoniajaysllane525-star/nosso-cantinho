@@ -30,22 +30,33 @@ function verificarSenha() {
 
 }
 
-function assinarContrato(){
 
-    function assinarContrato(){
 
-    alert("Cheguei na função do contrato!");
+function assinarContrato() {
 
-}
+    const nome = document
+        .getElementById("nomeContrato")
+        .value
+        .trim();
 
-    if(nome === "" || !aceite){
-        alert("Assine o contrato para continuar");
+    const aceite = document
+        .getElementById("aceiteContrato")
+        .checked;
+
+
+    if (nome === "" || !aceite) {
+
+        alert("Preencha seu nome e aceite o contrato.");
+
         return;
+
     }
 
-    document.getElementById("contrato").style.display = "block";
+
+    document.getElementById("contrato").style.display = "none";
 
     document.getElementById("contratoAssinado").style.display = "block";
+
 
     document.getElementById("contratoAssinado").scrollIntoView({
         behavior: "smooth"
@@ -54,13 +65,15 @@ function assinarContrato(){
 }
 
 
-function continuarSite(){
+
+function continuarSite() {
 
     document.getElementById("contratoAssinado").style.display = "none";
 
-    document.getElementById("inicioSite").style.display = "block";
+    document.getElementById("conteudoSite").style.display = "block";
 
-    document.getElementById("inicioSite").scrollIntoView({
+
+    document.getElementById("conteudoSite").scrollIntoView({
         behavior: "smooth"
     });
 
