@@ -1,5 +1,5 @@
 // =========================
-// ACESSO COM SENHA
+// CONTRATO DE ACESSO
 // =========================
 
 function verificarSenha() {
@@ -25,7 +25,7 @@ function verificarSenha() {
 
     } else {
 
-        alert("❌ Senha incorreta. ❤️");
+        alert("Senha incorreta.");
 
         document.getElementById("senha").value = "";
 
