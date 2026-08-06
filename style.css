@@ -260,8 +260,9 @@ button:hover {
     transition:0.3s;
 }
 
-.opcao:hover{
-    transform:scale(1.02);
+.opcao{
+    background:#fffaf7;
+    color:#5a3928;
 }
 
 .opcao.selecionada{
