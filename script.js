@@ -388,9 +388,6 @@ function mostrarResultado() {
 
     resultado.innerHTML = `
 
-// =========================
-// MOSTRAR RESULTADO
-// =========================
 
     <h2>🎉 Renovação concluída!</h2>
 
