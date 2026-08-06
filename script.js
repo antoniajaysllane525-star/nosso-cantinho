@@ -388,28 +388,49 @@ function mostrarResultado() {
 
     resultado.innerHTML = `
 
+resultado.innerHTML = `
 
-    <h2>🎉 Renovação concluída!</h2>
+<h2>⚖️ Renovação concluída</h2>
 
-    <p>
-    Você acertou ${acertos} de ${perguntas.length} perguntas.
-    </p>
+<h3>Sessão de Renovação do Contrato de Amor</h3>
 
-    <p>
-    O contrato continua válido por tempo indeterminado. ♾️
-    </p>
+<p>
+Resultado da avaliação:
+<strong>${acertos} de ${perguntas.length} respostas corretas.</strong>
+</p>
 
-    <p>
-    O maior acerto da nossa história foi ter encontrado um ao outro.
-    
-    </p>
+<p>
+Todos os requisitos para a renovação do contrato foram cumpridos.
+</p>
+
+<p>
+Após a análise das respostas apresentadas e da confirmação do contratante, fica oficialmente reconhecida a continuidade do vínculo afetivo firmado entre:
+</p>
+
+<p><strong>Lanaj ❤️ Nazareno</strong></p>
+
+<h3>DECISÃO</h3>
+
+<p>
+Fica <strong>DEFERIDA</strong> a renovação do <strong>Contrato de Amor Perpétuo</strong>, permanecendo válidas todas as cláusulas anteriormente estabelecidas.
+</p>
+
+<p>
+Como comprovação oficial deste compromisso renovado, fica autorizado o recebimento do <strong>Certificado de Renovação do Contrato de Amor</strong>.
+</p>
+
+<p><strong>Status:</strong> ✅ Renovado com sucesso.</p>
+
+<p><strong>Validade:</strong> ♾️ Por tempo indeterminado.</p>
+
+<p><strong>Publique-se. Registre-se. Cumpra-se. </strong></p>
 
 <button onclick="mostrarCertificado()">
-    Ver certificado 
+    📜 Emitir meu certificado
 </button>
 
-    `;
- 
+`;
+    
 }
 
 function mostrarCertificado() {
