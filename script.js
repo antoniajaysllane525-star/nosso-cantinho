@@ -388,6 +388,9 @@ function mostrarResultado() {
 
     resultado.innerHTML = `
 
+// =========================
+// MOSTRAR RESULTADO
+// =========================
 
     <h2>🎉 Renovação concluída!</h2>
 
@@ -431,24 +434,6 @@ function mostrarCertificado() {
 carregarPergunta();
 
 // =========================
-// BOTÃO ENTRAR
-// =========================
-
-function entrarNoCantinho() {
-
-    const destino = document.querySelectorAll(".card")[1];
-
-    if (destino) {
-
-        destino.scrollIntoView({
-            behavior: "smooth"
-        });
-
-    }
-
-}
-
-// =========================
 // MOSTRAR SURPRESA FINAL
 // =========================
 
@@ -467,7 +452,6 @@ function mostrarSurpresa() {
     }
 
 }
-
 
 // =========================
 // SURPRESA FINAL - VÍDEO
