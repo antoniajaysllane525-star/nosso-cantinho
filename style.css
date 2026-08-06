@@ -255,7 +255,7 @@ button:hover {
 
 .opcao{
     background:#fffaf7;
-    color:#5a3928;
+    color:#5a3928 !important;
     border:2px solid #e6d5c7;
     transition:0.3s;
 }
