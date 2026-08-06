@@ -388,6 +388,7 @@ function mostrarResultado() {
 
     resultado.innerHTML = `
 
+
     <h2>🎉 Renovação concluída!</h2>
 
     <p>
@@ -403,19 +404,29 @@ function mostrarResultado() {
     
     </p>
 
+<button onclick="mostrarCertificado()">
+    Ver certificado 
+</button>
+
     `;
-
- document.getElementById("certificado").style.display = "block";
-
-document.getElementById("surpresaFinal").style.display = "block";
-    
-document.getElementById("certificado").scrollIntoView({
-    behavior: "smooth"
-});
-    
+ 
 }
 
+function mostrarCertificado() {
 
+    const certificado = document.getElementById("certificado");
+
+    if (certificado) {
+
+        certificado.style.display = "block";
+
+        certificado.scrollIntoView({
+            behavior: "smooth"
+        });
+
+    }
+
+}
 
 carregarPergunta();
 
