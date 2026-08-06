@@ -267,7 +267,7 @@ function carregarPergunta() {
 
         botao.className = "opcao";
 
-        botao.textContent = texto;
+        botao.innerHTML = texto;
 
 
         if (respostas[perguntaAtual] === indice) {
