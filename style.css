@@ -288,6 +288,12 @@ button:hover {
     line-height:1.8;
 }
 
+#alternativas button.opcao.selecionada {
+    background:#8b5e3c !important;
+    color:#ffffff !important;
+    border-color:#8b5e3c !important;
+}
+
 /* SURPRESA */
 
 #surpresa {
