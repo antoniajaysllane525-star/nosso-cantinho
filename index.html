@@ -478,20 +478,43 @@ CARTA ABERTA
 
 </section>
 
-      <!-- =========================
+<!-- =========================
 QUIZ - RENOVAÇÃO DE CONTRATO
 ========================= -->
 
 <section class="card">
 
-    <h2>🧩 Renovação de contrato</h2>
+    <h2>⚖️ Renovação do Contrato de Amor</h2>
+
+    <h3>Avaliação Oficial de Conhecimento da Contratante e da Relação Afetiva</h3>
 
     <p>
-        Antes de concluirmos este contrato, falta apenas uma última etapa.
+        Após a assinatura do Contrato do Nosso Cantinho,
+        inicia-se a etapa final do processo de renovação.
     </p>
 
     <p>
-        Responda às perguntas abaixo e prove que você conhece a nossa história. 
+        Para validação deste contrato, o contratante deverá comprovar
+        seus conhecimentos acerca dos fatos, memórias e detalhes
+        que fazem parte da história construída entre as partes.
+    </p>
+
+
+    <p>
+        <strong>Regras da avaliação:</strong>
+    </p>
+
+    <p>
+        ☑️ 10 questões objetivas.<br>
+        ☑️ Apenas uma alternativa correta por questão.<br>
+        ☑️ Pontuação máxima: 10 pontos.<br>
+        ☑️ Nota mínima para aprovação: 7 pontos.<br>
+        ☑️ Caso não seja aprovado, uma nova tentativa será concedida.
+    </p>
+
+
+    <p>
+        Boa sorte, contratante.
     </p>
 
 
@@ -512,7 +535,6 @@ QUIZ - RENOVAÇÃO DE CONTRATO
 
         <div id="pergunta"></div>
 
-
         <div id="alternativas"></div>
 
 
@@ -532,182 +554,398 @@ QUIZ - RENOVAÇÃO DE CONTRATO
 
         <div id="resultadoQuiz" style="display:none;"></div>
 
+
     </div>
 
 </section>
 
+
+
 <!-- =========================
-RENOVAÇÃO CONCLUÍDA
+VALIDAÇÃO FINAL DAS RESPOSTAS
 ========================= -->
 
-<section class="card" id="renovacao" style="display:none;">
-
-    <h2>⚖️ Renovação concluída</h2>
-
-    <h3>Sessão de Renovação do Contrato de Amor</h3>
-
-    <p>
-        Após a análise das respostas apresentadas e da confirmação do contratante,
-        fica oficialmente reconhecida a continuidade do vínculo afetivo firmado entre:
-    </p>
-
-    <h3>
-        Lanaj ❤️ Nazareno
-    </h3>
-
-    <p>
-        Considerando o amor, o respeito, a parceria e todos os momentos compartilhados,
-        declara-se:
-    </p>
+<section class="card" id="assinaturaQuiz" style="display:none;">
 
 
-    <h3>DECISÃO</h3>
-
-    <p>
-        Fica <strong>DEFERIDA</strong> a renovação do
-        <strong>Contrato de Amor Perpétuo</strong>,
-        permanecendo válidas todas as cláusulas anteriormente estabelecidas.
-    </p>
-
-    <p>
-        Como comprovação oficial deste compromisso renovado,
-        é concedido às partes o
-        <strong>Certificado de Renovação do Contrato de Amor.</strong>
-    </p>
-
-    <p>
-        <strong>Status:</strong><br>
-        ✅ Renovado com sucesso.
-    </p>
-
-    <p>
-        <strong>Validade:</strong><br>
-        ♾️ Por tempo indeterminado.
-    </p>
-
-    <p>
-        <strong>Publique-se. Registre-se. Cumpra-se. </strong>
-    </p>
+<h2>✍️ Validação do Contratante</h2>
 
 
-    <button onclick="mostrarCertificado()">
-        📜 Emitir meu certificado
-    </button>
+<p>
+As respostas foram registradas.
+</p>
+
+
+<p>
+Antes da análise final, torna-se necessária
+a confirmação oficial do contratante.
+</p>
+
+
+<p>
+Declaro que respondi ao presente questionário
+de forma consciente e confirmo minha participação
+nesta etapa de renovação.
+</p>
+
+
+<input 
+type="text"
+id="nomeConfirmacao"
+placeholder="Digite seu nome">
+
+
+<br><br>
+
+
+<label>
+
+<input type="checkbox" id="confirmacaoRespostas">
+
+Confirmo minhas respostas e autorizo a análise final.
+
+</label>
+
+
+<br><br>
+
+
+<button onclick="confirmarQuiz()">
+⚖️ Confirmar respostas e enviar para análise
+</button>
 
 
 </section>
+
+
+
+
+<!-- =========================
+ANÁLISE PROCESSUAL
+========================= -->
+
+
+<section class="card" id="analiseProcesso" style="display:none;">
+
+
+<h2>⚖️ Análise Processual</h2>
+
+
+<p>
+Solicitação recebida.
+</p>
+
+
+<p>
+🔎 Conferindo respostas...<br>
+📂 Revisando registros afetivos...<br>
+❤️ Avaliando conhecimento da relação...
+</p>
+
+
+<p>
+Aguarde a decisão final.
+</p>
+
+
+</section>
+
+
+<!-- =========================
+RESULTADO APROVADO
+========================= -->
+
+
+<section class="card" id="renovacao" style="display:none;">
+
+
+<h2>⚖️ Decisão Final</h2>
+
+
+<p>
+Após análise das respostas apresentadas e da confirmação
+da assinatura do contratante, fica comprovado conhecimento
+suficiente acerca dos fatos, memórias e detalhes que fazem
+parte desta relação afetiva.
+</p>
+
+
+<h2>
+✅ Pedido de Renovação Deferido
+</h2>
+
+
+<p>
+Fica oficialmente autorizada a renovação do:
+</p>
+
+
+<h2>
+❤️ Contrato de Amor Perpétuo
+</h2>
+
+
+<p>
+O processo foi concluído com sucesso.
+</p>
+
+
+<button onclick="mostrarCertificado()">
+📜 Emitir meu certificado
+</button>
+
+
+</section>
+
+
+
+
+<!-- =========================
+NOVA TENTATIVA
+========================= -->
+
+
+<section class="card" id="novaTentativa" style="display:none;">
+
+
+<h2>⚠️ Processo em diligência</h2>
+
+
+<p>
+A avaliação não atingiu a pontuação mínima necessária
+para conclusão do processo.
+</p>
+
+
+<p>
+Considerando a importância da relação afetiva entre as partes,
+fica concedido o direito de uma nova tentativa.
+</p>
+
+
+<p>
+<strong>Motivo da diligência:</strong><br>
+
+"Necessidade de atualização dos registros afetivos
+do contratante."
+
+</p>
+
+
+<button onclick="reiniciarQuiz()">
+🔄 Refazer avaliação
+</button>
+
+
+</section>
+
+
+
+
 
 <!-- =========================
 CERTIFICADO
 ========================= -->
 
-<section class="card" id="certificado" style="display: none;">
 
-    <h2>📜 Certificado Oficial</h2>
+<section class="card" id="certificado" style="display:none;">
+
+
+<h2>📜 Certificado Oficial de Renovação</h2>
+
+
+<h3>
+Contrato de Amor Perpétuo
+</h3>
+
 
 <p>
-    O presente documento certifica que a renovação do
-    <strong>Contrato de Amor Perpétuo</strong>
-    foi oficialmente aprovada.
+<strong>Processo nº 09052026-001</strong>
 </p>
+
+
+<p>
+Certifica-se, para os devidos fins de amor e compromisso,
+que:
+</p>
+
+
+<h2>
+ Lanaj ❤️ Nazareno 
+</h2>
+
+
+<p>
+Concluíram todas as etapas previstas no presente processo,
+incluindo assinatura contratual, avaliação de conhecimento
+da relação afetiva e validação final.
+</p>
+
+
+<p>
+Fica oficialmente reconhecida e homologada a renovação do:
+</p>
+
+
+<h3>
+❤️ Contrato de Amor Perpétuo
+</h3>
+
+
+<p>
+Permanecem válidas as cláusulas de:
+</p>
+
+
+<p>
+❤️ Carinho<br>
+❤️ Respeito<br>
+❤️ Parceria<br>
+❤️ Cumplicidade
+</p>
+
+
+<p>
+<strong>
+Validade:
+</strong><br>
+
+♾️ Por tempo indeterminado.
+</p>
+
+
+<p>
+<strong>
+Publique-se.<br>
+Registre-se.<br>
+Cumpra-se. 
+</strong>
+</p>
+
+
+<p>
+Documento emitido e validado pelas partes envolvidas.
+</p>
+
 
 <img
-    src="fotos/imagens/contrato.jpeg"
-    alt="Certificado Oficial"
-    class="imagem-certificado">
+src="fotos/imagens/contrato.jpeg"
+alt="Certificado Oficial"
+class="imagem-certificado">
 
-<p class="download-certificado">
-    📥
-    <a href="fotos/imagens/contrato.jpeg"
-       download="Certificado de Renovação do Contrato de Amor.jpg">
-        Baixar certificado oficial
-    </a>
-</p>
 
-<p>
-    <strong>CERTIFICA-SE</strong>, para os devidos fins de amor e compromisso, que:
-</p>
+<br><br>
 
-<h3>Lanaj ❤️ Nazareno</h3>
 
-<p>
-    Fica oficialmente reconhecida a renovação do compromisso afetivo firmado entre as partes.
-</p>
+<a href="fotos/imagens/contrato.jpeg"
+download="Certificado Renovacao Contrato de Amor.jpg">
 
-<p>
-    Após a renovação deste contrato, permanecem firmados os compromissos de cuidar um do outro, compartilhar momentos, manter o respeito, a parceria e continuar construindo juntos cada capítulo desta história.
-</p>
+📥 Baixar certificado
 
-<p>
-    Que nunca faltem carinho, cumplicidade e motivos para escolher um ao outro todos os dias.
-</p>
+</a>
 
-<p><strong>Certidão emitida e validada pelas partes.</strong></p>
+
+<br><br>
+
 
 <button onclick="mostrarSurpresa()">
-     Continuar
+ Continuar
 </button>
 
+
 </section>
+
+
+
 
 <!-- =========================
 SURPRESA FINAL
 ========================= -->
 
+
 <section class="card" id="surpresaFinal" style="display:none;">
 
-    <h2>🎁</h2>
+
+<h2>🎁</h2>
 
 
-    <p>
-        Achou que acabou, né? Kkkkk 🤭
-    </p>
+<h3>
+Processo concluído...
+</h3>
 
 
-    <p>
-        Mas eu ainda guardei uma surpresinha para você.
-    </p>
+<p>
+Ou será que não? 🤭
+</p>
 
 
-    <p>
-        Descubra o último presente que preparei para você. ❤️
-    </p>
+<p>
+Você passou pela avaliação.<br>
+Assinou e confirmou o contrato.<br>
+Recebeu o certificado.
+</p>
 
 
-    <button onclick="mostrarVideo()">
-         Abrir surpresa
-    </button>
+<p>
+Mas eu ainda guardei uma última surpresa para você.
+</p>
+
+
+<p>
+Depois de tanta burocracia,
+chegou a hora do presente final.
+</p>
+
+
+<button onclick="mostrarVideo()">
+🎥 Abrir surpresa
+</button>
 
 
 </section>
- 
+
+
+
+
 <!-- =========================
 VÍDEO FINAL
 ========================= -->
 
+
 <section class="card" id="videoFinal" style="display:none;">
 
-    <h2>🎥 Para o amor da minha vida</h2>
 
-    <video controls width="100%">
+<h2>
+🎥 Para o amor da minha vida
+</h2>
 
-        <source src="videos/videos/video2.mp4.mp4" type="video/mp4">
 
-        Seu navegador não suporta vídeo.
+<video controls width="100%">
 
-    </video>
+<source src="videos/videos/video2.mp4.mp4" type="video/mp4">
 
-    <p>
-        Cada mês, cada dia, cada hora, cada minuto e cada segundo ao seu lado valem uma vida inteira.
-    </p>
+Seu navegador não suporta vídeo.
 
-    <p>
-         Obrigada por viver tudo isso comigo.
-    </p>
+</video>
 
-    <p>
-        <strong>🫀 Eu te vivo.</strong>
-    </p>
+
+<p>
+Cada mês, cada dia, cada hora, cada minuto e cada segundo
+ao seu lado valem uma vida inteira.
+</p>
+
+
+<p>
+Obrigada por aceitar entrar no meu mundinho,
+embarcar nas minhas ideias malucas
+e ser meu primeiro cobaia nessa aventura.
+</p>
+
+
+<h3>
+🫀 Eu te vivo.
+</h3>
+
 
 </section>
 
