@@ -385,9 +385,6 @@ function mostrarResultado() {
 
     resultado.style.display = "block";
 
-
-    resultado.innerHTML = `
-
 resultado.innerHTML = `
 
 <h2>⚖️ Renovação concluída</h2>
