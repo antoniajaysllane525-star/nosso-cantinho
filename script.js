@@ -454,88 +454,199 @@ mostrarResultado(nome);
 
 }
 
-
-
-
 // =========================
-// RESULTADO
+// RESULTADO DA AVALIAÇÃO
 // =========================
 
 function mostrarResultado(nome){
 
+    let acertos = 0;
 
-let acertos = 0;
+    perguntas.forEach((pergunta, index) => {
+
+        if(respostas[index] === pergunta.correta){
+            acertos++;
+        }
+
+    });
 
 
+    // Esconde a análise processual
+    document.getElementById("analiseProcesso").style.display = "none";
 
-perguntas.forEach((pergunta,index)=>{
+
+    // Mostra o resultado
+    document.getElementById("resultadoFinal").style.display = "block";
 
 
-if(respostas[index] === pergunta.correta){
+    // Mostra a pontuação
+    document.getElementById("pontuacaoFinal").textContent = acertos;
 
-acertos++;
+
+    const decisao = document.getElementById("decisaoFinal");
+
+
+    // =========================
+    // 10/10
+    // =========================
+
+    if(acertos === 10){
+
+        decisao.innerHTML = `
+
+            <h3>🏆 APROVADO COM EXCELÊNCIA</h3>
+
+            <p>
+                Consta nos autos elevado conhecimento acerca
+                dos fatos, memórias e registros desta relação.
+            </p>
+
+            <p>
+                <strong>Decisão:</strong><br>
+                Aprovação integral.
+            </p>
+
+            <p>
+                O contratante demonstrou domínio absoluto
+                do processo afetivo.
+            </p>
+
+        `;
+
+    }
+
+
+    // =========================
+    // 8–9/10
+    // =========================
+
+    else if(acertos >= 8){
+
+        decisao.innerHTML = `
+
+            <h3>❤️ APROVADO</h3>
+
+            <p>
+                Após análise dos autos, verifica-se conhecimento
+                satisfatório da relação e de seus principais registros.
+            </p>
+
+            <p>
+                <strong>Decisão:</strong><br>
+                Pedido deferido.
+            </p>
+
+            <p>
+                O conhecimento afetivo encontra-se
+                devidamente atualizado.
+            </p>
+
+        `;
+
+    }
+
+
+    // =========================
+    // 7/10
+    // =========================
+
+    else if(acertos === 7){
+
+        decisao.innerHTML = `
+
+            <h3>😂 APROVADO POR MARGEM MÍNIMA</h3>
+
+            <p>
+                Verifica-se que o contratante atingiu
+                a pontuação mínima exigida para prosseguimento
+                do processo.
+            </p>
+
+            <p>
+                <strong>Decisão:</strong><br>
+                Pedido deferido.
+            </p>
+
+            <p>
+                Fica registrada, entretanto, a necessidade
+                de maior atenção aos detalhes da relação. 🤨
+            </p>
+
+            <p>
+                <strong>O contrato permanece válido.</strong>
+            </p>
+
+        `;
+
+    }
+
+
+    // =========================
+    // 0–6/10
+    // =========================
+
+    else{
+
+        decisao.innerHTML = `
+
+            <h3>🤨 PROCESSO INCONCLUSIVO</h3>
+
+            <p>
+                Após análise das respostas apresentadas,
+                não foi atingida a pontuação mínima necessária
+                para conclusão do processo.
+            </p>
+
+            <p>
+                <strong>Decisão:</strong><br>
+                Pedido temporariamente indeferido.
+            </p>
+
+            <p>
+                Fica concedido ao contratante o direito
+                de realizar nova avaliação, a fim de sanar
+                as inconsistências identificadas.
+            </p>
+
+            <p>
+                <strong>O contrato permanece em análise.</strong>
+            </p>
+
+        `;
+
+    }
+
+
+    // =========================
+    // APROVADO
+    // =========================
+
+    if(acertos >= 7){
+
+        document.getElementById("renovacao").style.display = "block";
+
+        document.getElementById("renovacao").querySelector(
+            "#dadosContratante"
+        ).textContent = `Contratante: ${nome}`;
+
+        document.getElementById("renovacao").querySelector(
+            "#resultadoContratante"
+        ).textContent = `Resultado da avaliação: ${acertos}/10`;
+
+    }
+
+
+    // =========================
+    // REPROVADO
+    // =========================
+
+    else{
+
+        document.getElementById("novaTentativa").style.display = "block";
+
+    }
 
 }
-
-
-});
-
-
-
-document.getElementById("analiseProcesso").style.display="none";
-
-
-
-if(acertos >= 7){
-
-
-
-document.getElementById("renovacao").style.display="block";
-
-
-
-document.getElementById("renovacao").innerHTML += `
-
-<p>
-<strong>Contratante:</strong><br>
-${nome}
-</p>
-
-<p>
-<strong>Resultado:</strong><br>
-⭐ ${acertos}/10 pontos
-</p>
-
-`;
-
-
-
-}else{
-
-
-
-document.getElementById("novaTentativa").style.display="block";
-
-
-
-document.getElementById("novaTentativa").innerHTML += `
-
-<p>
-<strong>Resultado:</strong><br>
-⭐ ${acertos}/10 pontos
-</p>
-
-`;
-
-
-
-}
-
-
-
-}
-
-
 
 
 // =========================
