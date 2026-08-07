@@ -116,44 +116,24 @@ setInterval(atualizarContador, 1000);
 atualizarContador();
 
 // =========================
-// QUIZ INTERATIVO
+// QUIZ - RENOVAÇÃO DE CONTRATO
 // =========================
 
 const perguntas = [
 
 {
-pergunta: "1. Qual foi o dia do nosso primeiro beijo?",
+pergunta: "Conforme os registros oficiais desta história, qual foi a data do primeiro beijo entre as partes?",
 alternativas: [
-"22 de fevereiro de 2026",
-"01 de março de 2026",
-"11 de abril de 2026",
-"08 de março de 2026"
+"22/02/2026",
+"01/03/2026",
+"11/04/2026",
+"08/03/2026"
 ],
 correta: 1
 },
 
 {
-pergunta: "2. Qual presente se tornou um símbolo da nossa união?",
-alternativas: [
-"Uma pulseira dos 7 nós",
-"Uma camisa de time",
-"Um chaveiro"
-],
-correta: 0
-},
-
-{
-pergunta: "3. Qual time mora no seu coração?",
-alternativas: [
-"Palmeiras",
-"Corinthians",
-"Flamengo"
-],
-correta: 1
-},
-
-{
-pergunta: "4. Qual apelido foi o primeiro que usei para demonstrar que você era especial para mim?",
+pergunta: "Qual foi o primeiro apelido oficialmente registrado pela contratante para se referir ao contratante?",
 alternativas: [
 "Amor",
 "Coração",
@@ -164,7 +144,7 @@ correta: 1
 },
 
 {
-pergunta: "5. Qual é a nossa cor favorita em comum?",
+pergunta: "Qual cor consta como preferência em comum entre as partes?",
 alternativas: [
 "Azul",
 "Preto",
@@ -174,7 +154,7 @@ correta: 1
 },
 
 {
-pergunta: "6. Se fôssemos a um restaurante, qual suco você pediria sem me perguntar?",
+pergunta: "Caso as partes estivessem em um restaurante e o garçom perguntasse o pedido sem apresentar o cardápio, qual suco provavelmente seria escolhido pela contratante?",
 alternativas: [
 "Acerola",
 "Maracujá",
@@ -185,7 +165,7 @@ correta: 2
 },
 
 {
-pergunta: "7. Se fosse para me fazer feliz com um lanchinho, o que você escolheria para mim?",
+pergunta: "Para demonstrar conhecimento acerca dos gostos da contratante, qual escolha teria maior chance de deixá-la feliz?",
 alternativas: [
 "Pipoca",
 "Salgadinho",
@@ -196,36 +176,58 @@ correta: 0
 },
 
 {
-pergunta: "8. Qual foi o primeiro presente que eu te dei?",
+pergunta: "Qual foi o primeiro presente entregue pela contratante ao contratante?",
 alternativas: [
-"Par de meias",
+"Meias",
 "Chaveiro",
-"Pulseira dos 7 nós",
+"Pulseira",
 "Camisa"
 ],
 correta: 1
 },
 
 {
-pergunta: "9. Complete a frase: 'Você é o meu...'",
+pergunta: "Qual característica do contratante costuma ser mencionada primeiro pela contratante?",
 alternativas: [
-"Melhor amigo",
-"Coração fora do meu peito",
-"Maior sonho",
-"Companheiro de aventuras"
+"Seu cheirinho",
+"Seu cabelinho liso",
+"Seus olhinhos puxados",
+"Seu sorriso"
 ],
 correta: 1
 },
 
 {
-pergunta: "10. O que eu sempre digo que amo em você?",
+pergunta: "Qual foi a primeira ideia registrada durante a criação deste espaço virtual?",
 alternativas: [
-"Seu cheirinho",
-"Seu cabelinho liso",
-"Seus olhinhos puxados",
-"Todas as alternativas"
+"O contrato",
+"A carta",
+"O vídeo",
+"O quiz"
 ],
-correta: 3
+correta: 0
+},
+
+{
+pergunta: "Caso alguém perguntasse qual é o personagem favorito da contratante, qual resposta deveria ser apresentada?",
+alternativas: [
+"Mickey",
+"Angel",
+"Stitch",
+"Bob Esponja"
+],
+correta: 2
+},
+
+{
+pergunta: "Após participar dos testes e desenvolvimento deste projeto, qual título foi oficialmente concedido ao contratante?",
+alternativas: [
+"Programador",
+"Inspiração",
+"Primeiro cobaia",
+"Designer"
+],
+correta: 2
 }
 
 ];
@@ -235,255 +237,380 @@ let perguntaAtual = 0;
 let respostas = [];
 
 
-function carregarPergunta() {
 
-    const pergunta = perguntas[perguntaAtual];
+// =========================
+// CARREGAR PERGUNTA
+// =========================
 
+function carregarPergunta(){
 
-    document.getElementById("numeroPergunta").textContent =
-        `Pergunta ${perguntaAtual + 1} de ${perguntas.length}`;
-
-
-    document.getElementById("barraProgresso").style.width =
-        `${((perguntaAtual + 1) / perguntas.length) * 100}%`;
+const pergunta = perguntas[perguntaAtual];
 
 
-    document.getElementById("pergunta").textContent =
-        pergunta.pergunta;
+document.getElementById("numeroPergunta").textContent =
+`Pergunta ${perguntaAtual + 1} de ${perguntas.length}`;
 
 
-    const alternativas =
-        document.getElementById("alternativas");
+document.getElementById("barraProgresso").style.width =
+`${((perguntaAtual + 1) / perguntas.length) * 100}%`;
 
 
-    alternativas.innerHTML = "";
+document.getElementById("pergunta").textContent =
+pergunta.pergunta;
 
 
-    pergunta.alternativas.forEach((texto, indice) => {
+const alternativas =
+document.getElementById("alternativas");
 
 
-        const botao = document.createElement("button");
+alternativas.innerHTML = "";
 
 
-        botao.className = "opcao";
-
-        botao.innerHTML = texto;
+pergunta.alternativas.forEach((texto, indice)=>{
 
 
-        if (respostas[perguntaAtual] === indice) {
-
-            botao.classList.add("selecionada");
-
-        }
+const botao = document.createElement("button");
 
 
-        botao.onclick = function () {
+botao.className = "opcao";
 
-            respostas[perguntaAtual] = indice;
-
-            carregarPergunta();
-
-        };
+botao.textContent = texto;
 
 
-        alternativas.appendChild(botao);
 
+if(respostas[perguntaAtual] === indice){
 
-    });
-
-
-    document.getElementById("btnAnterior").style.display =
-        perguntaAtual === 0 ? "none" : "inline-block";
-
-
-    document.getElementById("btnProximo").textContent =
-        perguntaAtual === perguntas.length - 1
-        ? "Finalizar"
-        : "Próxima ➡";
+botao.classList.add("selecionada");
 
 }
 
 
 
-function anteriorPergunta() {
+botao.onclick = function(){
 
-    if (perguntaAtual > 0) {
-
-        perguntaAtual--;
-
-        carregarPergunta();
-
-    }
-
-}
-
-
-
-function proximaPergunta() {
-
-
-    if (respostas[perguntaAtual] == null) {
-
-        alert("Escolha uma alternativa antes de continuar.");
-
-        return;
-
-    }
-
-
-    if (perguntaAtual < perguntas.length - 1) {
-
-
-        perguntaAtual++;
-
-        carregarPergunta();
-
-
-    } else {
-
-
-        mostrarResultado();
-
-
-    }
-
-}
-
-
-
-function mostrarResultado() {
-
-
-    let acertos = 0;
-
-
-    perguntas.forEach((pergunta, indice) => {
-
-
-        if (respostas[indice] === pergunta.correta) {
-
-            acertos++;
-
-        }
-
-
-    });
-
-
-    document.getElementById("pergunta").style.display = "none";
-
-    document.getElementById("alternativas").style.display = "none";
-
-    document.querySelector(".botoesQuiz").style.display = "none";
-
-    document.querySelector(".progresso").style.display = "none";
-
-
-    const resultado =
-        document.getElementById("resultadoQuiz");
-
-
-    resultado.style.display = "block";
-
-resultado.innerHTML = `
-
-<h2>⚖️ Renovação concluída</h2>
-
-<h3>Sessão de Renovação do Contrato de Amor</h3>
-
-<p>
-Resultado da avaliação:
-<strong>${acertos} de ${perguntas.length} respostas corretas.</strong>
-</p>
-
-<p>
-Todos os requisitos para a renovação do contrato foram cumpridos.
-</p>
-
-<p>
-Após a análise das respostas apresentadas e da confirmação do contratante, fica oficialmente reconhecida a continuidade do vínculo afetivo firmado entre:
-</p>
-
-<p><strong>Lanaj ❤️ Nazareno</strong></p>
-
-<h3>DECISÃO</h3>
-
-<p>
-Fica <strong>DEFERIDA</strong> a renovação do <strong>Contrato de Amor Perpétuo</strong>, permanecendo válidas todas as cláusulas anteriormente estabelecidas.
-</p>
-
-<p>
-Como comprovação oficial deste compromisso renovado, fica autorizado o recebimento do <strong>Certificado de Renovação do Contrato de Amor</strong>.
-</p>
-
-<p><strong>Status:</strong> ✅ Renovado com sucesso.</p>
-
-<p><strong>Validade:</strong> ♾️ Por tempo indeterminado.</p>
-
-<p><strong>Publique-se. Registre-se. Cumpra-se. </strong></p>
-
-<button onclick="mostrarCertificado()">
-    📜 Emitir meu certificado
-</button>
-
-`;
-    
-}
-
-function mostrarCertificado() {
-
-    const certificado = document.getElementById("certificado");
-
-    if (certificado) {
-
-        certificado.style.display = "block";
-
-        certificado.scrollIntoView({
-            behavior: "smooth"
-        });
-
-    }
-
-}
+respostas[perguntaAtual] = indice;
 
 carregarPergunta();
 
+};
+
+
+
+alternativas.appendChild(botao);
+
+
+});
+
+
+
+document.getElementById("btnAnterior").style.display =
+perguntaAtual === 0 ? "none" : "inline-block";
+
+
+
+document.getElementById("btnProximo").textContent =
+perguntaAtual === perguntas.length - 1
+? "Finalizar avaliação"
+: "Próxima ➡";
+
+
+}
+
+
+
 // =========================
-// MOSTRAR SURPRESA FINAL
+// VOLTAR PERGUNTA
 // =========================
 
-function mostrarSurpresa() {
+function anteriorPergunta(){
 
-    const surpresa = document.getElementById("surpresaFinal");
+if(perguntaAtual > 0){
 
-    if (surpresa) {
+perguntaAtual--;
 
-        surpresa.style.display = "block";
-
-        surpresa.scrollIntoView({
-            behavior: "smooth"
-        });
-
-    }
+carregarPergunta();
 
 }
 
+}
+
+
+
 // =========================
-// SURPRESA FINAL - VÍDEO
+// AVANÇAR PERGUNTA
 // =========================
 
-function mostrarVideo() {
+function proximaPergunta(){
 
-    const video = document.getElementById("videoFinal");
 
-    if (video) {
+if(respostas[perguntaAtual] == null){
 
-        video.style.display = "block";
+alert("Escolha uma alternativa antes de continuar.");
 
-        video.scrollIntoView({
-            behavior: "smooth"
-        });
-
-    }
+return;
 
 }
+
+
+
+if(perguntaAtual < perguntas.length - 1){
+
+
+perguntaAtual++;
+
+carregarPergunta();
+
+
+}else{
+
+
+finalizarQuiz();
+
+
+}
+
+
+}
+
+
+
+// =========================
+// FINALIZAR QUIZ
+// =========================
+
+function finalizarQuiz(){
+
+
+document.getElementById("pergunta").style.display="none";
+
+document.getElementById("alternativas").style.display="none";
+
+document.querySelector(".botoesQuiz").style.display="none";
+
+document.querySelector(".progresso").style.display="none";
+
+
+
+document.getElementById("assinaturaQuiz").style.display="block";
+
+
+}
+
+
+
+// =========================
+// CONFIRMAR ASSINATURA
+// =========================
+
+function confirmarQuiz(){
+
+
+const nome =
+document.getElementById("nomeConfirmacao").value;
+
+
+
+const aceite =
+document.getElementById("confirmacaoRespostas").checked;
+
+
+
+if(nome.trim()===""){
+
+alert("Digite seu nome para confirmar.");
+
+return;
+
+}
+
+
+
+if(!aceite){
+
+alert("Confirme suas respostas antes de continuar.");
+
+return;
+
+}
+
+
+
+document.getElementById("assinaturaQuiz").style.display="none";
+
+
+document.getElementById("analiseProcesso").style.display="block";
+
+
+
+setTimeout(()=>{
+
+
+mostrarResultado(nome);
+
+
+},2500);
+
+
+
+}
+
+
+
+
+// =========================
+// RESULTADO
+// =========================
+
+function mostrarResultado(nome){
+
+
+let acertos = 0;
+
+
+
+perguntas.forEach((pergunta,index)=>{
+
+
+if(respostas[index] === pergunta.correta){
+
+acertos++;
+
+}
+
+
+});
+
+
+
+document.getElementById("analiseProcesso").style.display="none";
+
+
+
+if(acertos >= 7){
+
+
+
+document.getElementById("renovacao").style.display="block";
+
+
+
+document.getElementById("renovacao").innerHTML += `
+
+<p>
+<strong>Contratante:</strong><br>
+${nome}
+</p>
+
+<p>
+<strong>Resultado:</strong><br>
+⭐ ${acertos}/10 pontos
+</p>
+
+`;
+
+
+
+}else{
+
+
+
+document.getElementById("novaTentativa").style.display="block";
+
+
+
+document.getElementById("novaTentativa").innerHTML += `
+
+<p>
+<strong>Resultado:</strong><br>
+⭐ ${acertos}/10 pontos
+</p>
+
+`;
+
+
+
+}
+
+
+
+}
+
+
+
+
+// =========================
+// REINICIAR QUIZ
+// =========================
+
+function reiniciarQuiz(){
+
+
+perguntaAtual = 0;
+
+respostas = [];
+
+
+document.getElementById("novaTentativa").style.display="none";
+
+
+document.getElementById("pergunta").style.display="block";
+
+document.getElementById("alternativas").style.display="block";
+
+document.querySelector(".botoesQuiz").style.display="flex";
+
+document.querySelector(".progresso").style.display="block";
+
+
+carregarPergunta();
+
+
+}
+
+
+
+// =========================
+// MOSTRAR CERTIFICADO
+// =========================
+
+function mostrarCertificado(){
+
+document.getElementById("renovacao").style.display="none";
+
+document.getElementById("certificado").style.display="block";
+
+}
+
+
+
+// =========================
+// MOSTRAR SURPRESA
+// =========================
+
+function mostrarSurpresa(){
+
+document.getElementById("certificado").style.display="none";
+
+document.getElementById("surpresaFinal").style.display="block";
+
+}
+
+
+
+// =========================
+// MOSTRAR VÍDEO
+// =========================
+
+function mostrarVideo(){
+
+document.getElementById("surpresaFinal").style.display="none";
+
+document.getElementById("videoFinal").style.display="block";
+
+}
+
+
+
+// INICIAR QUIZ
+
+carregarPergunta();
