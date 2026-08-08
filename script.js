@@ -648,6 +648,40 @@ function mostrarResultado(nome){
 
 }
 
+// =========================
+// CONTINUAR APÓS RESULTADO
+// =========================
+
+function continuarResultado(){
+
+    const resultado =
+        document.getElementById("resultadoFinal");
+
+    resultado.style.display = "none";
+
+
+    let acertos = 0;
+
+    perguntas.forEach((pergunta, index) => {
+
+        if(respostas[index] === pergunta.correta){
+            acertos++;
+        }
+
+    });
+
+
+    if(acertos >= 7){
+
+        document.getElementById("renovacao").style.display = "block";
+
+    }else{
+
+        document.getElementById("novaTentativa").style.display = "block";
+
+    }
+
+}
 
 // =========================
 // REINICIAR QUIZ
@@ -655,30 +689,36 @@ function mostrarResultado(nome){
 
 function reiniciarQuiz(){
 
+    perguntaAtual = 0;
 
-perguntaAtual = 0;
-
-respostas = [];
-
-
-document.getElementById("novaTentativa").style.display="none";
+    respostas = [];
 
 
-document.getElementById("pergunta").style.display="block";
+    // Esconde resultados anteriores
 
-document.getElementById("alternativas").style.display="block";
+    document.getElementById("resultadoFinal").style.display = "none";
 
-document.querySelector(".botoesQuiz").style.display="flex";
+    document.getElementById("novaTentativa").style.display = "none";
 
-document.querySelector(".progresso").style.display="block";
+    document.getElementById("renovacao").style.display = "none";
 
 
-carregarPergunta();
+    // Mostra novamente o quiz
 
+    document.getElementById("pergunta").style.display = "block";
+
+    document.getElementById("alternativas").style.display = "block";
+
+    document.querySelector(".botoesQuiz").style.display = "flex";
+
+    document.querySelector(".progresso").style.display = "block";
+
+
+    // Volta para a primeira pergunta
+
+    carregarPergunta();
 
 }
-
-
 
 // =========================
 // MOSTRAR CERTIFICADO
@@ -686,12 +726,18 @@ carregarPergunta();
 
 function mostrarCertificado(){
 
-document.getElementById("renovacao").style.display="none";
+    // Esconde a decisão de renovação
+    document.getElementById("renovacao").style.display = "none";
 
-document.getElementById("certificado").style.display="block";
+    // Mostra o certificado
+    document.getElementById("certificado").style.display = "block";
+
+    // Garante que a surpresa e o vídeo ainda estejam escondidos
+    document.getElementById("surpresaFinal").style.display = "none";
+
+    document.getElementById("videoFinal").style.display = "none";
 
 }
-
 
 
 // =========================
