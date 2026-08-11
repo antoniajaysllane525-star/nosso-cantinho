@@ -15,70 +15,108 @@
 <body>
 
 <!-- =========================
-TELA DE ACESSO
+SISTEMA DE TITULARIDADE
 ========================= -->
 
 <div id="login">
 
     <section class="card capa">
 
-        <h1>❤️ Nosso Cantinho</h1>
+        <h1>⚖️ Sistema de Titularidade</h1>
 
-        <p><strong>Atenção!</strong></p>
+        <h3>ACESSO RESTRITO AO TITULAR</h3>
 
         <p>
-            Contrato de acesso ao nosso cantinho iniciado.
+            Este acesso encontra-se vinculado ao
+            Cartão de Titularidade Exclusiva apresentado.
         </p>
 
         <p>
-            Para continuar, informe a senha de acesso:
+            <strong>TITULAR:</strong><br>
+            Nazareno Lima
         </p>
 
+        <p>
+            <strong>STATUS:</strong><br>
+            Titularidade reconhecida.
+        </p>
 
-        <input 
-            type="password" 
-            id="senha" 
+        <p>
+            Para prosseguir, informe a senha de acesso:
+        </p>
+
+        <input
+            type="password"
+            id="senha"
             placeholder="Digite a senha">
 
-
         <br><br>
-
 
         <button onclick="verificarSenha()">
             Entrar
         </button>
 
-
     </section>
 
 </div>
 
+    <!-- =========================
+TITULARIDADE VALIDADA
+========================= -->
+
+<section class="card" id="titularidadeValidada" style="display:none;">
+
+    <h2>⚖️ Titularidade Validada</h2>
+
+    <p>
+        <strong>Titular:</strong><br>
+        Nazareno Lima
+    </p>
+
+    <p>
+        O sistema reconheceu a titularidade apresentada.
+    </p>
+
+    <p>
+        O acesso foi autorizado.
+    </p>
+
+    <h3>
+        PRÓXIMA ETAPA
+    </h3>
+
+    <p>
+        <strong>Contrato do Nosso Cantinho</strong>
+    </p>
+
+    <p>
+        Aguarde a abertura do processo.
+    </p>
+
+</section>
+    
 <!-- =========================
 CONTRATO DO NOSSO CANTINHO
 ========================= -->
 
 <section class="card contrato" id="contrato" style="display:none;">
 
-
     <h2>📄 Contrato do Nosso Cantinho</h2>
-
 
     <p>
         <strong>Partes envolvidas:</strong><br>
         ♾️ Lanaj & Nazareno
     </p>
 
-
     <p>
         Pelo presente contrato, fica registrado que este espaço foi criado
-        para guardar momentos, lembranças e pequenos detalhes da nossa história.
+        para guardar momentos, lembranças e pequenos detalhes da história
+        construída entre as partes.
     </p>
-
 
     <p>
         <strong>Termos do contrato:</strong>
     </p>
-
 
     <p>
         ☑️ Reviver nossos momentos juntos.<br>
@@ -87,78 +125,81 @@ CONTRATO DO NOSSO CANTINHO
         ☑️ Continuar fazendo parte dessa história.
     </p>
 
-
     <p>
         <strong>Cláusula principal:</strong><br>
-        Este contrato não possui data de validade e permanece ativo enquanto existirem motivos para sorrir juntos.
+        Este contrato não possui data de validade e permanece ativo enquanto
+        existirem motivos para sorrir juntos.
     </p>
-
 
     <p>
         <strong>Status:</strong><br>
         Aguardando assinatura. ✍️
     </p>
 
-
     <p>
         <strong>Assinatura do contratante:</strong>
     </p>
 
-
-    <input 
-        type="text" 
-        id="nomeContrato" 
+    <input
+        type="text"
+        id="nomeContrato"
         placeholder="Digite seu nome">
-
 
     <br><br>
 
-
     <label>
 
-        <input 
-            type="checkbox" 
+        <input
+            type="checkbox"
             id="aceiteContrato">
 
         Li e aceito os termos deste contrato.
 
     </label>
 
-
     <br><br>
-
 
     <button onclick="assinarContrato()">
         Assinar contrato e continuar
     </button>
 
-
 </section>
-
+    
 <!-- =========================
 CONTRATO ASSINADO
 ========================= -->
 
 <section class="card" id="contratoAssinado" style="display:none;">
 
-   <h2>✅ Contrato assinado com sucesso!</h2>
+    <h2>✅ Assinatura Registrada</h2>
 
-<p>
-O contrato foi oficialmente assinado e a solicitação de renovação foi iniciada.
-</p>
+    <p>
+        O contrato foi oficialmente assinado.
+    </p>
 
-<p>
-A partir deste momento, começa uma nova etapa desta história.
-</p>
+    <p>
+        A solicitação de renovação foi registrada no sistema.
+    </p>
 
-<p>
-Siga em frente e descubra cada detalhe preparado especialmente para você. ❤️
-</p>
+    <p>
+        A partir deste momento, uma nova etapa desta história
+        está oficialmente autorizada.
+    </p>
 
-<button onclick="continuarSite()">
-    Iniciar renovação 
-</button>
-    
+    <p>
+        Mas antes de continuar...
+    </p>
+
+    <p>
+        <strong>
+            há algumas coisas que você precisa descobrir.
+        </strong>
+    </p>
+
+    <button onclick="continuarSite()">
+        Iniciar renovação
+    </button>
+
 </section>
     
 <!-- =========================
@@ -188,7 +229,7 @@ BEM-VINDO AO NOSSO CANTINHO
     </p>
 
     <p>
-        É engraçado pensar que, quando a gente faz algo com amor, acaba encontrando coragem para colocar um pouquinho dos nossos sentimentos em cada detalhe.
+        É engraçado pensar que, quando a gente faz algo com carinho, acaba encontrando coragem para colocar um pouquinho dos nossos sentimentos em cada detalhe.
     </p>
 
     <p>
@@ -196,7 +237,7 @@ BEM-VINDO AO NOSSO CANTINHO
     </p>
 
     <p>
-        Espero que você sinta o carinho que coloquei em cada pedacinho daqui.
+        Espero que você consiga sentir o carinho que coloquei em cada pedacinho daqui.
     </p>
 
     <p>
@@ -210,9 +251,9 @@ UMA TRILHA PARA ESSE MOMENTO
 
 <section class="card">
 
-    <h2> Uma trilha para esse momento</h2>
+    <h2>🎧 Uma trilha para esse momento</h2>
 
-    <h3>🎧 Olhos Castanhos — Luísa Sonza</h3>
+    <h3> Olhos Castanhos — Luísa Sonza</h3>
 
     <audio controls>
         <source src="musicas/olhos-castanhos.mp3" type="audio/mpeg">
@@ -290,7 +331,13 @@ CARTA ABERTA
     <p>
         É uma dádiva sentir o seu cheirinho, fazer cafuné no seu cabelinho liso,
         me perder nos seus olhinhos puxados quando você sorri, receber os seus abraços,
-        ganhar um beijo na testa e sentir o seu corpo junto ao meu.
+        ganhar um beijo na testa, te ouvir e sentir o seu corpo junto ao meu.
+    </p>
+
+    <p>
+        E, entre todas essas preciosidades, ficar de grudinho com você,
+        sentindo seu colo e simplesmente aproveitando a sua presença,
+        é um dos meus lugares favoritos.
     </p>
 
     <p><strong>Eu amo a sua vida.</strong></p>
@@ -326,117 +373,146 @@ CARTA ABERTA
         Lanaj. ❤️
     </p>
 
-    <p>Um xero.</p>
+    <p>
+        Um xero.
+    </p>
+
+</section>
+    
+     <!-- =========================
+SOBRE O NOSSO AMOR
+========================= -->
+
+<section class="card">
+
+    <h2>🎥 Sobre o nosso amor</h2>
+
+    <p>
+        Algumas coisas a gente não aprende sozinho.
+        E eu quero continuar descobrindo o amor ao seu lado.
+    </p>
+
+    <video controls width="100%">
+
+        <source
+            src="videos/videos/ele por ele.mp4.mp4"
+            type="video/mp4">
+
+        Seu navegador não suporta vídeo.
+
+    </video>
+
+</section>
+    
+ <!-- =========================
+NOSSA MÚSICA
+========================= -->
+
+<section class="card">
+
+    <h2>🎵 Nossa música</h2>
+
+    <p>
+        Algumas músicas carregam sentimentos
+        que palavras não conseguem explicar.
+    </p>
+
+    <p>
+        Então dá o play e deixa esse momento
+        ter a nossa trilha sonora.
+    </p>
+
+    <h3>🎧 Outrora — ANAVITÓRIA</h3>
+
+    <audio controls>
+        <source
+            src="musicas/outrora.mp3"
+            type="audio/mpeg">
+
+        Seu navegador não suporta áudio.
+    </audio>
+
+    <h3>🎧 Amor Sem Fim — Grupo Revelação</h3>
+
+    <audio controls>
+        <source
+            src="musicas/amor-sem-fim.mp3"
+            type="audio/mpeg">
+
+        Seu navegador não suporta áudio.
+    </audio>
+
+</section>
+    
+       <!-- =========================
+NOSSO AMULETO
+========================= -->
+
+<section class="card">
+
+    <h2>🪬 Nosso amuleto</h2>
+
+    <img
+        src="fotos/imagens/pulseira.jpg"
+        alt="Nossa pulseira de 7 nós">
+
+    <p>
+        Sete nós, um só propósito: que o nosso amor continue sendo fortalecido,
+        a nossa união protegida e toda inveja e todo mau-olhado sejam afastados
+        da nossa vida.
+    </p>
 
 </section>
 
-    
-       <!-- NOSSOS MOMENTOS -->
-    <section class="card" id="inicio">
+       <!-- =========================
+NOSSO COMPROMISSO
+========================= -->
 
-        <h2>🎥 Sobre o nosso amor</h2>
+<section class="card">
 
-        <p>
-            Algumas coisas a gente não aprende sozinho. E eu quero continuar descobrindo o amor ao seu lado.
-        </p>
+    <h2>💍 Nosso compromisso</h2>
 
-        <video controls width="100%">
+    <img
+        src="fotos/imagens/aliança.jpeg"
+        alt="Nossas alianças">
 
-<source src="videos/videos/ele por ele.mp4.mp4" type="video/mp4">
+    <p>
+        Você foi a melhor escolha que o meu coração já fez.
+    </p>
 
-Seu navegador não suporta vídeo.
+</section>
 
-</video>
-   
-    </section>
-    
- <!-- NOSSA MÚSICA -->
-        <section class="card">
+        <!-- =========================
+NOSSA BÊNÇÃO
+========================= -->
 
-            <h2>🎵 Nossa música</h2>
+<section class="card">
 
-            <p>
-                Algumas músicas carregam sentimentos
-                que palavras não conseguem explicar.
-            </p>
+    <h2>🙏 Nossa bênção</h2>
 
-            <p>
-                Então dá o play e deixa esse momento
-                ter a nossa trilha sonora.
-            </p>
+    <img
+        src="fotos/imagens/bencao.jpg"
+        alt="Nossa bênção">
 
+    <p>
+        Que Deus continue cuidando da nossa história, guiando nossos passos
+        e abençoando tudo aquilo que estamos construindo.
+    </p>
 
-            <h3>🎧 Outrora — ANAVITÓRIA</h3>
+    <p>
+        "Consagre ao Senhor tudo o que você faz,
+        e os seus planos serão bem-sucedidos."
+    </p>
 
-            <audio controls>
-                <source src="musicas/outrora.mp3" type="audio/mp3">
-            </audio>
+    <p>
+        Provérbios 16:3
+    </p>
 
+</section>
 
-            <h3>🎧 Amor Sem Fim — Grupo Revelação</h3>
-
-            <audio controls>
-                <source src="musicas/amor-sem-fim.mp3" type="audio/mp3">
-            </audio>
-
-        </section>
-
-    
-        <!-- AMULETO -->
-        <section class="card">
-
-            <h2>🪬 Nosso amuleto</h2>
-
-            <img src="fotos/imagens/pulseira.jpg" alt="Nossa pulseira de 7 nós">
-
-            <p>
-                Sete nós, um só propósito: que o nosso amor continue sendo fortalecido,
-                a nossa união protegida e toda inveja e todo mau-olhado sejam afastados
-                da nossa vida.
-            </p>
-
-        </section>
-
-
-        <!-- COMPROMISSO -->
-        <section class="card">
-
-            <h2>💍 Nosso compromisso</h2>
-
-            <img src="fotos/imagens/aliança.jpeg" alt="Nossas alianças">
-
-            <p>
-                Você foi a melhor escolha que o meu coração já fez.
-            </p>
-
-        </section>
-
-
-        <!-- BÊNÇÃO -->
-        <section class="card">
-
-            <h2>🙏 Nossa bênção</h2>
-
-            <img src="fotos/imagens/bencao.jpg" alt="Nossa bênção">
-
-            <p>
-                Que Deus continue cuidando da nossa história, guiando nossos passos
-                e abençoando tudo aquilo que estamos construindo.
-            </p>
-
-            <p>
-                "Consagre ao Senhor tudo o que você faz,
-                e os seus planos serão bem-sucedidos."
-            </p>
-
-            <p>
-                Provérbios 16:3
-            </p>
-
-        </section>
-
-
-       <!-- CONTADOR -->
+       <!-- =========================
+CONTADOR
+========================= -->
 <section class="card">
 
     <h2>⏳ 09 de Maio de 2026 </h2>
