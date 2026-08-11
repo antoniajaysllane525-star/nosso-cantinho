@@ -10,6 +10,7 @@ function verificarSenha() {
         .trim()
         .toLowerCase();
 
+
     if (senha === "coracao") {
 
         document.getElementById("login").style.display = "none";
@@ -19,6 +20,7 @@ function verificarSenha() {
         document.getElementById("contrato").scrollIntoView({
             behavior: "smooth"
         });
+
 
     } else {
 
@@ -32,7 +34,7 @@ function verificarSenha() {
 
 
 // =========================
-// ASSINAR CONTRATO
+// ASSINATURA DO CONTRATO
 // =========================
 
 function assinarContrato() {
@@ -46,6 +48,7 @@ function assinarContrato() {
         .getElementById("aceiteContrato")
         .checked;
 
+
     if (nome === "" || !aceite) {
 
         alert("Preencha seu nome e aceite o contrato.");
@@ -54,9 +57,11 @@ function assinarContrato() {
 
     }
 
+
     document.getElementById("contrato").style.display = "none";
 
     document.getElementById("contratoAssinado").style.display = "block";
+
 
     document.getElementById("contratoAssinado").scrollIntoView({
         behavior: "smooth"
@@ -75,6 +80,7 @@ function continuarSite() {
 
     document.getElementById("conteudoSite").style.display = "block";
 
+
     document.getElementById("conteudoSite").scrollIntoView({
         behavior: "smooth"
     });
@@ -89,25 +95,35 @@ function continuarSite() {
 function atualizarContador() {
 
     const inicio = new Date(2026, 4, 9, 0, 0, 0);
+
     const agora = new Date();
 
-    let anos = agora.getFullYear() - inicio.getFullYear();
-    let meses = agora.getMonth() - inicio.getMonth();
-    let dias = agora.getDate() - inicio.getDate();
+
+    let anos =
+        agora.getFullYear() - inicio.getFullYear();
+
+    let meses =
+        agora.getMonth() - inicio.getMonth();
+
+    let dias =
+        agora.getDate() - inicio.getDate();
+
 
     if (dias < 0) {
 
         meses--;
 
-        const ultimoMes = new Date(
-            agora.getFullYear(),
-            agora.getMonth(),
-            0
-        ).getDate();
+        const ultimoMes =
+            new Date(
+                agora.getFullYear(),
+                agora.getMonth(),
+                0
+            ).getDate();
 
         dias += ultimoMes;
 
     }
+
 
     if (meses < 0) {
 
@@ -117,36 +133,49 @@ function atualizarContador() {
 
     }
 
+
     const diferenca = agora - inicio;
 
-    const horas = Math.floor(
-        (diferenca / (1000 * 60 * 60)) % 24
-    );
 
-    const minutos = Math.floor(
-        (diferenca / (1000 * 60)) % 60
-    );
+    const horas =
+        Math.floor(
+            (diferenca / (1000 * 60 * 60)) % 24
+        );
 
-    const segundos = Math.floor(
-        (diferenca / 1000) % 60
-    );
 
-    document.getElementById("meses").innerHTML =
+    const minutos =
+        Math.floor(
+            (diferenca / (1000 * 60)) % 60
+        );
+
+
+    const segundos =
+        Math.floor(
+            (diferenca / 1000) % 60
+        );
+
+
+    document.getElementById("meses").textContent =
         (anos * 12) + meses;
 
-    document.getElementById("dias").innerHTML =
+
+    document.getElementById("dias").textContent =
         dias;
 
-    document.getElementById("horas").innerHTML =
+
+    document.getElementById("horas").textContent =
         horas;
 
-    document.getElementById("minutos").innerHTML =
+
+    document.getElementById("minutos").textContent =
         minutos;
 
-    document.getElementById("segundos").innerHTML =
+
+    document.getElementById("segundos").textContent =
         segundos;
 
 }
+
 
 setInterval(atualizarContador, 1000);
 
@@ -154,13 +183,14 @@ atualizarContador();
 
 
 // =========================
-// QUIZ - RENOVAÇÃO DE CONTRATO
+// QUIZ - RENOVAÇÃO
 // =========================
 
 const perguntas = [
 
     {
-        pergunta: "Conforme os registros oficiais desta história, qual foi a data do primeiro beijo entre as partes?",
+        pergunta:
+            "Conforme os registros oficiais desta história, qual foi a data do primeiro beijo entre as partes?",
 
         alternativas: [
             "22/02/2026",
@@ -174,7 +204,8 @@ const perguntas = [
 
 
     {
-        pergunta: "Qual foi o primeiro apelido oficialmente registrado pela contratante para se referir ao contratante?",
+        pergunta:
+            "Qual foi o primeiro apelido oficialmente registrado pela contratante para se referir ao contratante?",
 
         alternativas: [
             "Amor",
@@ -188,7 +219,8 @@ const perguntas = [
 
 
     {
-        pergunta: "Qual cor consta como preferência em comum entre as partes?",
+        pergunta:
+            "Qual cor consta como preferência em comum entre as partes?",
 
         alternativas: [
             "Azul",
@@ -201,7 +233,8 @@ const perguntas = [
 
 
     {
-        pergunta: "Caso as partes estivessem em um restaurante e o garçom perguntasse o pedido sem apresentar o cardápio, qual suco provavelmente seria escolhido pela contratante?",
+        pergunta:
+            "Caso as partes estivessem em um restaurante e o garçom perguntasse o pedido sem apresentar o cardápio, qual suco provavelmente seria escolhido pela contratante?",
 
         alternativas: [
             "Acerola",
@@ -215,7 +248,8 @@ const perguntas = [
 
 
     {
-        pergunta: "Para demonstrar conhecimento acerca dos gostos da contratante, qual escolha teria maior chance de deixá-la feliz?",
+        pergunta:
+            "Para demonstrar conhecimento acerca dos gostos da contratante, qual escolha teria maior chance de deixá-la feliz?",
 
         alternativas: [
             "Pipoca",
@@ -229,7 +263,8 @@ const perguntas = [
 
 
     {
-        pergunta: "Qual foi o primeiro presente entregue pela contratante ao contratante?",
+        pergunta:
+            "Qual foi o primeiro presente entregue pela contratante ao contratante?",
 
         alternativas: [
             "Meias",
@@ -243,7 +278,8 @@ const perguntas = [
 
 
     {
-        pergunta: "Qual característica do contratante costuma ser mencionada primeiro pela contratante?",
+        pergunta:
+            "Qual característica do contratante costuma ser mencionada primeiro pela contratante?",
 
         alternativas: [
             "Seu cheirinho",
@@ -257,7 +293,8 @@ const perguntas = [
 
 
     {
-        pergunta: "Qual foi a primeira ideia registrada durante a criação deste espaço virtual?",
+        pergunta:
+            "Qual foi a primeira ideia registrada durante a criação deste espaço virtual?",
 
         alternativas: [
             "O contrato",
@@ -271,7 +308,8 @@ const perguntas = [
 
 
     {
-        pergunta: "Caso alguém perguntasse qual é o personagem favorito da contratante, qual resposta deveria ser apresentada?",
+        pergunta:
+            "Caso alguém perguntasse qual é o personagem favorito da contratante, qual resposta deveria ser apresentada?",
 
         alternativas: [
             "Mickey",
@@ -285,7 +323,8 @@ const perguntas = [
 
 
     {
-        pergunta: "Após participar dos testes e desenvolvimento deste projeto, qual título foi oficialmente concedido ao contratante?",
+        pergunta:
+            "Após participar dos testes e desenvolvimento deste projeto, qual título foi oficialmente concedido ao contratante?",
 
         alternativas: [
             "Programador",
@@ -317,7 +356,8 @@ let nomeContratante = "";
 
 function carregarPergunta() {
 
-    const pergunta = perguntas[perguntaAtual];
+    const pergunta =
+        perguntas[perguntaAtual];
 
 
     document.getElementById("numeroPergunta").textContent =
@@ -339,36 +379,41 @@ function carregarPergunta() {
     alternativas.innerHTML = "";
 
 
-    pergunta.alternativas.forEach((texto, indice) => {
+    pergunta.alternativas.forEach(
+        (texto, indice) => {
 
-        const botao =
-            document.createElement("button");
-
-
-        botao.className = "opcao";
-
-        botao.textContent = texto;
+            const botao =
+                document.createElement("button");
 
 
-        if (respostas[perguntaAtual] === indice) {
+            botao.className = "opcao";
 
-            botao.classList.add("selecionada");
+            botao.textContent = texto;
+
+
+            if (
+                respostas[perguntaAtual] === indice
+            ) {
+
+                botao.classList.add("selecionada");
+
+            }
+
+
+            botao.onclick = function () {
+
+                respostas[perguntaAtual] =
+                    indice;
+
+                carregarPergunta();
+
+            };
+
+
+            alternativas.appendChild(botao);
 
         }
-
-
-        botao.onclick = function () {
-
-            respostas[perguntaAtual] = indice;
-
-            carregarPergunta();
-
-        };
-
-
-        alternativas.appendChild(botao);
-
-    });
+    );
 
 
     document.getElementById("btnAnterior").style.display =
@@ -410,14 +455,19 @@ function proximaPergunta() {
 
     if (respostas[perguntaAtual] == null) {
 
-        alert("Escolha uma alternativa antes de continuar.");
+        alert(
+            "Escolha uma alternativa antes de continuar."
+        );
 
         return;
 
     }
 
 
-    if (perguntaAtual < perguntas.length - 1) {
+    if (
+        perguntaAtual <
+        perguntas.length - 1
+    ) {
 
         perguntaAtual++;
 
@@ -441,11 +491,14 @@ function finalizarQuiz() {
     document.getElementById("pergunta").style.display =
         "none";
 
+
     document.getElementById("alternativas").style.display =
         "none";
 
+
     document.querySelector(".botoesQuiz").style.display =
         "none";
+
 
     document.querySelector(".progresso").style.display =
         "none";
@@ -453,6 +506,11 @@ function finalizarQuiz() {
 
     document.getElementById("assinaturaQuiz").style.display =
         "block";
+
+
+    document.getElementById("assinaturaQuiz").scrollIntoView({
+        behavior: "smooth"
+    });
 
 }
 
@@ -466,13 +524,16 @@ function confirmarQuiz() {
     const nome =
         document.getElementById("nomeConfirmacao").value;
 
+
     const aceite =
         document.getElementById("confirmacaoRespostas").checked;
 
 
     if (nome.trim() === "") {
 
-        alert("Digite seu nome para confirmar.");
+        alert(
+            "Digite seu nome para confirmar."
+        );
 
         return;
 
@@ -481,14 +542,17 @@ function confirmarQuiz() {
 
     if (!aceite) {
 
-        alert("Confirme suas respostas antes de continuar.");
+        alert(
+            "Confirme suas respostas antes de continuar."
+        );
 
         return;
 
     }
 
 
-    nomeContratante = nome.trim();
+    nomeContratante =
+        nome.trim();
 
 
     document.getElementById("assinaturaQuiz").style.display =
@@ -514,39 +578,56 @@ function confirmarQuiz() {
 
 
 // =========================
-// RESULTADO DA AVALIAÇÃO
+// CALCULAR NOTA
 // =========================
 
-function mostrarResultado() {
+function calcularNota() {
 
     let acertos = 0;
 
 
-    perguntas.forEach((pergunta, index) => {
+    perguntas.forEach(
+        (pergunta, index) => {
 
-        if (respostas[index] === pergunta.correta) {
+            if (
+                respostas[index] ===
+                pergunta.correta
+            ) {
 
-            acertos++;
+                acertos++;
+
+            }
 
         }
+    );
 
-    });
+
+    return acertos;
+
+}
 
 
-    // Esconde a análise processual
+// =========================
+// MOSTRAR RESULTADO
+// =========================
 
+function mostrarResultado() {
+
+    const acertos =
+        calcularNota();
+
+
+    // Esconde análise
     document.getElementById("analiseProcesso").style.display =
         "none";
 
 
-    // Mostra o resultado
-
+    // Mostra resultado
     document.getElementById("resultadoFinal").style.display =
         "block";
 
 
-    // Mostra a pontuação
-
+    // Mostra nota
     document.getElementById("pontuacaoFinal").textContent =
         acertos;
 
@@ -694,22 +775,16 @@ function mostrarResultado() {
 
 function continuarResultado() {
 
-    document.getElementById("resultadoFinal").style.display =
+    const resultado =
+        document.getElementById("resultadoFinal");
+
+
+    resultado.style.display =
         "none";
 
 
-    let acertos = 0;
-
-
-    perguntas.forEach((pergunta, index) => {
-
-        if (respostas[index] === pergunta.correta) {
-
-            acertos++;
-
-        }
-
-    });
+    const acertos =
+        calcularNota();
 
 
     // =========================
@@ -772,17 +847,35 @@ function reiniciarQuiz() {
     document.getElementById("resultadoFinal").style.display =
         "none";
 
+
     document.getElementById("novaTentativa").style.display =
         "none";
+
 
     document.getElementById("renovacao").style.display =
         "none";
 
-    document.getElementById("assinaturaQuiz").style.display =
+
+    document.getElementById("certificado").style.display =
         "none";
 
-    document.getElementById("analiseProcesso").style.display =
+
+    document.getElementById("surpresaFinal").style.display =
         "none";
+
+
+    document.getElementById("videoFinal").style.display =
+        "none";
+
+
+    // Limpa confirmação anterior
+
+    document.getElementById("nomeConfirmacao").value =
+        "";
+
+
+    document.getElementById("confirmacaoRespostas").checked =
+        false;
 
 
     // Mostra novamente o quiz
@@ -790,11 +883,14 @@ function reiniciarQuiz() {
     document.getElementById("pergunta").style.display =
         "block";
 
+
     document.getElementById("alternativas").style.display =
         "block";
 
+
     document.querySelector(".botoesQuiz").style.display =
         "flex";
+
 
     document.querySelector(".progresso").style.display =
         "block";
@@ -805,7 +901,7 @@ function reiniciarQuiz() {
     carregarPergunta();
 
 
-    // Leva diretamente para o início do quiz
+    // Leva diretamente ao início do quiz
 
     document.getElementById("quiz").scrollIntoView({
         behavior: "smooth"
