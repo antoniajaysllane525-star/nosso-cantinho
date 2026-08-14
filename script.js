@@ -624,18 +624,15 @@ function verificarPistas() {
             document.getElementById("respostaPista1").value
         );
 
-
     const resposta2 =
         normalizarTexto(
             document.getElementById("respostaPista2").value
         );
 
-
     const resposta3 =
         normalizarTexto(
             document.getElementById("respostaPista3").value
         );
-
 
     const resposta4 =
         normalizarTexto(
@@ -643,39 +640,19 @@ function verificarPistas() {
         );
 
 
-    // =========================
-    // PISTA 1
-    // ANTES DE TUDO
-    // =========================
-
     const correta1 =
         resposta1 === "vela" ||
         resposta1 === "velas";
 
 
-    // =========================
-    // PISTA 2
-    // NOSSO AMULETO
-    // =========================
-
     const correta2 =
         resposta2 === "pulseira";
 
-
-    // =========================
-    // PISTA 3
-    // NOSSO COMPROMISSO
-    // =========================
 
     const correta3 =
         resposta3 === "alianca" ||
         resposta3 === "aliancas";
 
-
-    // =========================
-    // PISTA 4
-    // NOSSA BÊNÇÃO
-    // =========================
 
     const correta4 =
         resposta4 === "oracao";
@@ -698,19 +675,18 @@ function verificarPistas() {
 
 }
 
-
 // =========================
 // PROSSEGUIR COM A ANÁLISE
 // =========================
 
 function prosseguirAnalise() {
 
-    const pistas =
-        verificarPistas();
+    const pistas = verificarPistas();
 
 
-    // Se alguma resposta estiver errada,
-    // ele continua na própria etapa.
+    // =========================
+    // VERIFICAR AS 4 PISTAS
+    // =========================
 
     if (!pistas.todasCorretas) {
 
@@ -756,7 +732,7 @@ function prosseguirAnalise() {
 
 
     // =========================
-    // ESCONDER PISTAS
+    // ESCONDER ETAPA DAS PISTAS
     // =========================
 
     document.getElementById("etapaFinalQuiz").style.display =
@@ -771,12 +747,16 @@ function prosseguirAnalise() {
         "block";
 
 
+    // =========================
+    // IR PARA A ASSINATURA
+    // =========================
+
     document.getElementById("assinaturaQuiz").scrollIntoView({
-        behavior: "smooth"
+        behavior: "smooth",
+        block: "start"
     });
 
 }
-
 
 // =========================
 // CONFIRMAR RESPOSTAS
