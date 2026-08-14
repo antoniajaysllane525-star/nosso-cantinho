@@ -224,14 +224,9 @@ function aceitarAditivo() {
     const aceite = document.getElementById("aceiteAditivo");
     const consulta = document.getElementById("consultaAditivo");
 
-    // Verifica se todas as declarações foram aceitas
     if (!ciencia.checked || !aceite.checked || !consulta.checked) {
 
-        alert(
-            "Para prosseguir, é necessário declarar ciência, " +
-            "aceitar os termos e confirmar a possibilidade de " +
-            "consulta posterior do instrumento."
-        );
+        alert("Para prosseguir, é necessário declarar ciência e aceitar integralmente o presente Aditivo.");
 
         return;
     }
@@ -239,23 +234,15 @@ function aceitarAditivo() {
     // Esconde o Aditivo
     document.getElementById("aditivoContrato").style.display = "none";
 
-    // Localiza o quiz
-    const quiz = document.getElementById("quiz");
+    // Libera o Quiz
+    const quiz = document.getElementById("quizContrato");
+    quiz.style.display = "block";
 
-    // Mostra o card que contém o quiz
-    if (quiz) {
-
-        const cardQuiz = quiz.closest(".card");
-
-        if (cardQuiz) {
-            cardQuiz.style.display = "block";
-
-            cardQuiz.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-        }
-    }
+    // Leva o usuário até o Quiz
+    quiz.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
 }
 
 // =========================
