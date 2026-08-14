@@ -215,6 +215,50 @@ setInterval(
 atualizarContador();
 
 // =========================
+// ADITIVO AO CONTRATO
+// =========================
+
+function aceitarAditivo() {
+
+    const ciencia = document.getElementById("cienciaAditivo");
+    const aceite = document.getElementById("aceiteAditivo");
+    const consulta = document.getElementById("consultaAditivo");
+
+    // Verifica se todas as declarações foram aceitas
+    if (!ciencia.checked || !aceite.checked || !consulta.checked) {
+
+        alert(
+            "Para prosseguir, é necessário declarar ciência, " +
+            "aceitar os termos e confirmar a possibilidade de " +
+            "consulta posterior do instrumento."
+        );
+
+        return;
+    }
+
+    // Esconde o Aditivo
+    document.getElementById("aditivoContrato").style.display = "none";
+
+    // Localiza o quiz
+    const quiz = document.getElementById("quiz");
+
+    // Mostra o card que contém o quiz
+    if (quiz) {
+
+        const cardQuiz = quiz.closest(".card");
+
+        if (cardQuiz) {
+            cardQuiz.style.display = "block";
+
+            cardQuiz.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }
+    }
+}
+
+// =========================
 // QUIZ - RENOVAÇÃO DO CONTRATO
 // =========================
 
