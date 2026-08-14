@@ -597,3 +597,936 @@ function finalizarQuiz() {
 // =========================
 
 carregarPergunta();
+
+// =========================
+// NORMALIZAR TEXTO
+// =========================
+
+function normalizarTexto(texto) {
+
+    return texto
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .trim();
+
+}
+
+
+// =========================
+// VERIFICAR PISTAS
+// =========================
+
+function verificarPistas() {
+
+    const resposta1 =
+        normalizarTexto(
+            document.getElementById("respostaPista1").value
+        );
+
+
+    const resposta2 =
+        normalizarTexto(
+            document.getElementById("respostaPista2").value
+        );
+
+
+    const resposta3 =
+        normalizarTexto(
+            document.getElementById("respostaPista3").value
+        );
+
+
+    const resposta4 =
+        normalizarTexto(
+            document.getElementById("respostaPista4").value
+        );
+
+
+    // =========================
+    // PISTA 1
+    // ANTES DE TUDO
+    // =========================
+
+    const correta1 =
+        resposta1 === "vela" ||
+        resposta1 === "velas";
+
+
+    // =========================
+    // PISTA 2
+    // NOSSO AMULETO
+    // =========================
+
+    const correta2 =
+        resposta2 === "pulseira";
+
+
+    // =========================
+    // PISTA 3
+    // NOSSO COMPROMISSO
+    // =========================
+
+    const correta3 =
+        resposta3 === "alianca" ||
+        resposta3 === "aliancas";
+
+
+    // =========================
+    // PISTA 4
+    // NOSSA BÊNÇÃO
+    // =========================
+
+    const correta4 =
+        resposta4 === "oracao";
+
+
+    return {
+
+        correta1,
+        correta2,
+        correta3,
+        correta4,
+
+        todasCorretas:
+            correta1 &&
+            correta2 &&
+            correta3 &&
+            correta4
+
+    };
+
+}
+
+
+// =========================
+// PROSSEGUIR COM A ANÁLISE
+// =========================
+
+function prosseguirAnalise() {
+
+    const pistas =
+        verificarPistas();
+
+
+    // Se alguma resposta estiver errada,
+    // ele continua na própria etapa.
+
+    if (!pistas.todasCorretas) {
+
+        alert(
+            "Existem informações que não correspondem aos registros do sistema. Revise as seções do site e tente novamente."
+        );
+
+        return;
+
+    }
+
+
+    // =========================
+    // GUARDAR RESPOSTAS
+    // =========================
+
+    respostasPistas.pista1 =
+        document
+            .getElementById("respostaPista1")
+            .value
+            .trim();
+
+
+    respostasPistas.pista2 =
+        document
+            .getElementById("respostaPista2")
+            .value
+            .trim();
+
+
+    respostasPistas.pista3 =
+        document
+            .getElementById("respostaPista3")
+            .value
+            .trim();
+
+
+    respostasPistas.pista4 =
+        document
+            .getElementById("respostaPista4")
+            .value
+            .trim();
+
+
+    // =========================
+    // ESCONDER PISTAS
+    // =========================
+
+    document.getElementById("etapaFinalQuiz").style.display =
+        "none";
+
+
+    // =========================
+    // MOSTRAR ASSINATURA
+    // =========================
+
+    document.getElementById("assinaturaQuiz").style.display =
+        "block";
+
+
+    document.getElementById("assinaturaQuiz").scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+
+// =========================
+// CONFIRMAR RESPOSTAS
+// =========================
+
+function confirmarQuiz() {
+
+    const nome =
+        document
+            .getElementById("nomeConfirmacao")
+            .value
+            .trim();
+
+
+    const aceite =
+        document
+            .getElementById("confirmacaoRespostas")
+            .checked;
+
+
+    // =========================
+    // VERIFICAR NOME
+    // =========================
+
+    if (nome === "") {
+
+        alert(
+            "Digite seu nome para confirmar."
+        );
+
+        return;
+
+    }
+
+
+    // =========================
+    // VERIFICAR ACEITE
+    // =========================
+
+    if (!aceite) {
+
+        alert(
+            "Confirme suas respostas antes de continuar."
+        );
+
+        return;
+
+    }
+
+
+    // Guarda o nome utilizado
+    // nesta etapa final
+
+    nomeContratante =
+        nome;
+
+
+    // =========================
+    // ESCONDER CONFIRMAÇÃO
+    // =========================
+
+    document.getElementById("assinaturaQuiz").style.display =
+        "none";
+
+
+    // =========================
+    // MOSTRAR ANÁLISE
+    // =========================
+
+    document.getElementById("analiseProcesso").style.display =
+        "block";
+
+
+    document.getElementById("analiseProcesso").scrollIntoView({
+        behavior: "smooth"
+    });
+
+
+    // Pequena espera para dar
+    // sensação de análise do processo
+
+    setTimeout(() => {
+
+        mostrarResultado();
+
+    }, 2500);
+
+}
+
+// =========================
+// CALCULAR PONTUAÇÃO
+// =========================
+
+function calcularNota() {
+
+    let acertos = 0;
+
+
+    perguntas.forEach(
+        (pergunta, index) => {
+
+            if (
+                respostas[index] ===
+                pergunta.correta
+            ) {
+
+                acertos++;
+
+            }
+
+        }
+    );
+
+
+    return acertos;
+
+}
+
+
+// =========================
+// GERAR CÓDIGO DA SURPRESA
+// =========================
+
+function gerarCodigo() {
+
+    /*
+        O código é formado automaticamente
+        pela quantidade de letras das quatro
+        respostas encontradas no site.
+
+        VELAS       = 5
+        PULSEIRA    = 8
+        ALIANÇAS    = 8
+        ORAÇÃO      = 6
+
+        Resultado: 5886
+    */
+
+
+    const codigo =
+        respostasPistas.pista1.length +
+        "" +
+        respostasPistas.pista2.length +
+        "" +
+        respostasPistas.pista3.length +
+        "" +
+        respostasPistas.pista4.length;
+
+
+    return codigo;
+
+}
+
+
+// =========================
+// MOSTRAR RESULTADO
+// =========================
+
+function mostrarResultado() {
+
+    const acertos =
+        calcularNota();
+
+
+    const pistas =
+        verificarPistas();
+
+
+    // =========================
+    // ESCONDER ANÁLISE
+    // =========================
+
+    document.getElementById("analiseProcesso").style.display =
+        "none";
+
+
+    // =========================
+    // MOSTRAR RESULTADO
+    // =========================
+
+    document.getElementById("resultadoFinal").style.display =
+        "block";
+
+
+    // =========================
+    // MOSTRAR PONTUAÇÃO
+    // =========================
+
+    document.getElementById("pontuacaoFinal").textContent =
+        acertos;
+
+
+    // =========================
+    // STATUS DA AVALIAÇÃO
+    // =========================
+
+    document.getElementById("statusAvaliacao").textContent =
+        acertos >= 7
+            ? "Aprovado"
+            : "Não aprovado";
+
+
+    // =========================
+    // STATUS DAS PISTAS
+    // =========================
+
+    document.getElementById("statusEtapaFinal").textContent =
+        pistas.todasCorretas
+            ? "Concluída"
+            : "Pendente";
+
+
+    // =========================
+    // STATUS DA CONFIRMAÇÃO
+    // =========================
+
+    document.getElementById("statusConfirmacao").textContent =
+        "Confirmada";
+
+
+    const decisao =
+        document.getElementById("decisaoFinal");
+
+
+    // =================================================
+    // APROVADO
+    // MÍNIMO: 7/10
+    // =================================================
+
+    if (
+        acertos >= 7 &&
+        pistas.todasCorretas
+    ) {
+
+
+        // =========================
+        // 10/10
+        // =========================
+
+        if (acertos === 10) {
+
+            decisao.innerHTML = `
+
+                <h3>APROVADO COM EXCELÊNCIA</h3>
+
+                <p>
+                    O contratante demonstrou elevado conhecimento
+                    acerca dos fatos, memórias e registros desta relação.
+                </p>
+
+                <p>
+                    <strong>Decisão:</strong><br>
+                    Aprovação integral.
+                </p>
+
+            `;
+
+        }
+
+
+        // =========================
+        // 8–9/10
+        // =========================
+
+        else if (acertos >= 8) {
+
+            decisao.innerHTML = `
+
+                <h3>APROVADO</h3>
+
+                <p>
+                    Verifica-se conhecimento satisfatório
+                    da relação e de seus principais registros.
+                </p>
+
+                <p>
+                    <strong>Decisão:</strong><br>
+                    Pedido deferido.
+                </p>
+
+            `;
+
+        }
+
+
+        // =========================
+        // 7/10
+        // =========================
+
+        else {
+
+            decisao.innerHTML = `
+
+                <h3>APROVADO POR MARGEM MÍNIMA</h3>
+
+                <p>
+                    O contratante atingiu a pontuação mínima
+                    exigida para prosseguimento do processo.
+                </p>
+
+                <p>
+                    <strong>Decisão:</strong><br>
+                    Pedido deferido.
+                </p>
+
+                <p>
+                    Fica registrada a necessidade de maior atenção
+                    aos detalhes da relação.
+                </p>
+
+            `;
+
+        }
+
+
+        // =========================
+        // GERAR CÓDIGO
+        // =========================
+
+        codigoGerado =
+            gerarCodigo();
+
+
+        document.getElementById("codigoAcesso").textContent =
+            codigoGerado;
+
+
+        document.getElementById("codigoGerado").style.display =
+            "block";
+
+
+        // Libera o botão para continuar
+
+        document.getElementById("btnContinuarResultado").style.display =
+            "inline-block";
+
+    }
+
+
+    // =================================================
+    // NÃO APROVADO
+    // ABAIXO DE 7/10
+    // =================================================
+
+    else {
+
+        decisao.innerHTML = `
+
+            <h3>PROCESSO INCONCLUSIVO</h3>
+
+            <p>
+                Após análise das informações apresentadas,
+                não foi atingida a pontuação mínima necessária
+                para conclusão do processo.
+            </p>
+
+            <p>
+                <strong>Decisão:</strong><br>
+                Pedido temporariamente indeferido.
+            </p>
+
+            <p>
+                Uma nova tentativa será concedida ao contratante.
+            </p>
+
+        `;
+
+
+        // Não mostra código
+
+        document.getElementById("codigoGerado").style.display =
+            "none";
+
+
+        // Não libera continuação
+
+        document.getElementById("btnContinuarResultado").style.display =
+            "none";
+
+
+        // Mostra botão de nova tentativa
+
+        document.getElementById("novaTentativa").style.display =
+            "block";
+
+    }
+
+}
+
+
+// =========================
+// COPIAR CÓDIGO
+// =========================
+
+function copiarCodigo() {
+
+    navigator.clipboard.writeText(
+        codigoGerado
+    );
+
+
+    document.getElementById("mensagemCopiado").style.display =
+        "block";
+
+
+    setTimeout(() => {
+
+        document.getElementById("mensagemCopiado").style.display =
+            "none";
+
+    }, 2500);
+
+}
+
+
+// =========================
+// CONTINUAR APÓS O RESULTADO
+// =========================
+
+function continuarResultado() {
+
+    const resultado =
+        document.getElementById("resultadoFinal");
+
+
+    resultado.style.display =
+        "none";
+
+
+    const acertos =
+        calcularNota();
+
+
+    const pistas =
+        verificarPistas();
+
+
+    // =========================
+    // APROVADO
+    // =========================
+
+    if (
+        acertos >= 7 &&
+        pistas.todasCorretas
+    ) {
+
+        document.getElementById("renovacao").style.display =
+            "block";
+
+
+        document.getElementById("dadosContratante").textContent =
+            `Contratante: ${nomeContratante}`;
+
+
+        document.getElementById("resultadoContratante").textContent =
+            `Resultado da avaliação: ${acertos}/10`;
+
+
+        document.getElementById("renovacao").scrollIntoView({
+            behavior: "smooth"
+        });
+
+    }
+
+}
+
+// =========================
+// NOVA TENTATIVA
+// =========================
+
+function reiniciarQuiz() {
+
+    perguntaAtual = 0;
+
+    respostas = [];
+
+    respostasPistas = {
+
+        pista1: "",
+        pista2: "",
+        pista3: "",
+        pista4: ""
+
+    };
+
+    codigoGerado = "";
+
+
+    // =========================
+    // ESCONDER ETAPAS ANTERIORES
+    // =========================
+
+    document.getElementById("resultadoFinal").style.display =
+        "none";
+
+    document.getElementById("novaTentativa").style.display =
+        "none";
+
+    document.getElementById("renovacao").style.display =
+        "none";
+
+    document.getElementById("certificado").style.display =
+        "none";
+
+    document.getElementById("surpresaFinal").style.display =
+        "none";
+
+    document.getElementById("videoFinal").style.display =
+        "none";
+
+    document.getElementById("etapaFinalQuiz").style.display =
+        "none";
+
+    document.getElementById("assinaturaQuiz").style.display =
+        "none";
+
+
+    // =========================
+    // LIMPAR CAMPOS
+    // =========================
+
+    document.getElementById("respostaPista1").value =
+        "";
+
+    document.getElementById("respostaPista2").value =
+        "";
+
+    document.getElementById("respostaPista3").value =
+        "";
+
+    document.getElementById("respostaPista4").value =
+        "";
+
+    document.getElementById("nomeConfirmacao").value =
+        "";
+
+    document.getElementById("confirmacaoRespostas").checked =
+        false;
+
+
+    // =========================
+    // RESETAR QUIZ
+    // =========================
+
+    document.getElementById("pergunta").style.display =
+        "block";
+
+    document.getElementById("alternativas").style.display =
+        "block";
+
+    document.querySelector(".botoesQuiz").style.display =
+        "flex";
+
+    document.querySelector(".progresso").style.display =
+        "block";
+
+
+    carregarPergunta();
+
+
+    document.getElementById("quiz").scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+
+// =========================
+// MOSTRAR RENOVAÇÃO
+// =========================
+
+function mostrarRenovacao() {
+
+    document.getElementById("resultadoFinal").style.display =
+        "none";
+
+    document.getElementById("renovacao").style.display =
+        "block";
+
+
+    document.getElementById("dadosContratante").textContent =
+        `Contratante: ${nomeContratante}`;
+
+
+    document.getElementById("resultadoContratante").textContent =
+        `Resultado da avaliação: ${calcularNota()}/10`;
+
+
+    document.getElementById("renovacao").scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+
+// =========================
+// MOSTRAR CERTIFICADO
+// =========================
+
+function mostrarCertificado() {
+
+    document.getElementById("renovacao").style.display =
+        "none";
+
+
+    document.getElementById("certificado").style.display =
+        "block";
+
+
+    document.getElementById("surpresaFinal").style.display =
+        "none";
+
+
+    document.getElementById("videoFinal").style.display =
+        "none";
+
+
+    document.getElementById("certificado").scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+
+// =========================
+// MOSTRAR SURPRESA
+// =========================
+
+function mostrarSurpresa() {
+
+    document.getElementById("certificado").style.display =
+        "none";
+
+
+    document.getElementById("surpresaFinal").style.display =
+        "block";
+
+
+    document.getElementById("videoFinal").style.display =
+        "none";
+
+
+    // Limpa mensagens anteriores
+
+    document.getElementById("codigoSurpresa").value =
+        "";
+
+    document.getElementById("acessoAutorizado").style.display =
+        "none";
+
+    document.getElementById("codigoInvalido").style.display =
+        "none";
+
+
+    document.getElementById("surpresaFinal").scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+
+// =========================
+// VALIDAR CÓDIGO DA SURPRESA
+// =========================
+
+function validarCodigoSurpresa() {
+
+    const codigoDigitado =
+        document
+            .getElementById("codigoSurpresa")
+            .value
+            .trim();
+
+
+    const mensagemAcesso =
+        document.getElementById("acessoAutorizado");
+
+
+    const mensagemErro =
+        document.getElementById("codigoInvalido");
+
+
+    // Esconde mensagens anteriores
+
+    mensagemAcesso.style.display =
+        "none";
+
+    mensagemErro.style.display =
+        "none";
+
+
+    // =========================
+    // CÓDIGO CORRETO
+    // =========================
+
+    if (
+        codigoDigitado === codigoGerado &&
+        codigoGerado !== ""
+    ) {
+
+        mensagemAcesso.style.display =
+            "block";
+
+
+        document.getElementById("codigoSurpresa").style.border =
+            "2px solid #8b5e3c";
+
+
+    }
+
+
+    // =========================
+    // CÓDIGO ERRADO
+    // =========================
+
+    else {
+
+        mensagemErro.style.display =
+            "block";
+
+
+        document.getElementById("codigoSurpresa").style.border =
+            "";
+
+    }
+
+}
+
+
+// =========================
+// MOSTRAR VÍDEO FINAL
+// =========================
+
+function mostrarVideo() {
+
+    document.getElementById("surpresaFinal").style.display =
+        "none";
+
+
+    document.getElementById("videoFinal").style.display =
+        "block";
+
+
+    document.getElementById("videoFinal").scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+
+// =========================
+// FINAL DO PROCESSO
+// =========================
