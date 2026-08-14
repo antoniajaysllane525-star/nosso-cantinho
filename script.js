@@ -1286,4 +1286,23 @@ function validarCodigoSurpresa() {
 
 function mostrarVideo() {
 
-    document.getEl
+    document.getElementById("surpresaFinal").style.display =
+        "none";
+
+
+    document.getElementById("videoFinal").style.display =
+        "block";
+
+
+    document.getElementById("videoFinal").scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+
+// =========================
+// INICIAR QUIZ
+// =========================
+
+carregarPergunta();
