@@ -1209,21 +1209,23 @@ function copiarCodigo() {
 
 function continuarResultado() {
 
-    const resultado =
-        document.getElementById("resultadoFinal");
+    const resultado = document.getElementById("resultadoFinal");
+    const renovacao = document.getElementById("renovacao");
 
+    if (resultado) {
+        resultado.style.display = "none";
+    }
 
-    resultado.style.display =
-        "none";
+    if (renovacao) {
+        renovacao.style.display = "block";
 
+        renovacao.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }
 
-    const acertos =
-        calcularNota();
-
-
-    const pistas =
-        verificarPistas();
-
+}
 
     // =========================
     // APROVADO
