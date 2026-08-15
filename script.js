@@ -652,12 +652,17 @@ function finalizarQuiz() {
 
 }
 
-
 // =========================
 // INICIAR QUIZ
 // =========================
 
-carregarPergunta();
+document.addEventListener("DOMContentLoaded", function () {
+
+    if (document.getElementById("quizContrato")) {
+        carregarPergunta();
+    }
+
+});
 
 // =========================
 // NORMALIZAR TEXTO
@@ -680,7 +685,7 @@ function normalizarTexto(texto) {
 
 function verificarPistas() {
 
-    const resposta1 =
+    const respostas1 =
         normalizarTexto(
             document.getElementById("respostaPista1").value
         );
