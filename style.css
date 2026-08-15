@@ -126,6 +126,16 @@ button:hover {
     object-fit: cover;
 }
 
+/* =========================
+   QUEM É MAIS?
+   RESPOSTA SELECIONADA
+========================= */
+
+.pergunta-coracao button.selecionada {
+    background: #5a3928;
+    color: white;
+    border-color: #5a3928;
+}
 
 /* ===== CONTADOR ===== */
 
