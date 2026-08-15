@@ -4,9 +4,9 @@
 
 function verificarSenha() {
 
-    const senha = document
-        .getElementById("senha")
-        .value
+    const campoSenha = document.getElementById("senha");
+
+    const senha = campoSenha.value
         .trim()
         .toLowerCase()
         .normalize("NFD")
@@ -15,27 +15,50 @@ function verificarSenha() {
 
     if (senha === "coracao") {
 
-        document.getElementById("login").style.display =
-            "none";
+        // Esconde o login
+        document.getElementById("login").style.display = "none";
 
-        document.getElementById("contrato").style.display =
-            "block";
 
-        document.getElementById("contrato").scrollIntoView({
+        // Mostra a titularidade validada
+        const titularidade =
+            document.getElementById("titularidadeValidada");
+
+        titularidade.style.display = "block";
+
+        titularidade.scrollIntoView({
             behavior: "smooth"
         });
+
+
+        // Aguarda alguns segundos e abre o contrato
+        setTimeout(function() {
+
+            titularidade.style.display = "none";
+
+
+            const contrato =
+                document.getElementById("contrato");
+
+            contrato.style.display = "block";
+
+            contrato.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }, 2500);
 
 
     } else {
 
         alert("Senha incorreta.");
 
-        document.getElementById("senha").value = "";
+        campoSenha.value = "";
+
+        campoSenha.focus();
 
     }
 
 }
-
 
 // =========================
 // ASSINATURA DO CONTRATO
