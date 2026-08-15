@@ -8,7 +8,9 @@ function verificarSenha() {
 
     const senha = campo.value
         .trim()
-        .toLowerCase();
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
 
     if (senha === "coracao") {
 
