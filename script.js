@@ -2,9 +2,15 @@
 // CONTRATO DE ACESSO
 // =========================
 
+// =========================
+// CONTRATO DE ACESSO
+// =========================
+
 function verificarSenha() {
 
-    const senha = document.getElementById("senha").value
+    const campo = document.getElementById("senha");
+
+    const senha = campo.value
         .trim()
         .toLowerCase();
 
@@ -14,14 +20,11 @@ function verificarSenha() {
 
         document.getElementById("titularidadeValidada").style.display = "block";
 
-        document.getElementById("titularidadeValidada").scrollIntoView({
-            behavior: "smooth"
-        });
-
     } else {
 
         alert("Senha incorreta.");
-        document.getElementById("senha").value = "";
+
+        campo.value = "";
 
     }
 }
