@@ -1,25 +1,32 @@
-// =====================================================
+// =========================================================
 // NOSSO CANTINHO ❤️
 // SCRIPT PRINCIPAL
-// PARTE 1 — ACESSO, CONTRATO INICIAL, QUEM É MAIS E CONTADOR
-// =====================================================
+// PARTE 1 — ACESSO, CONTRATO E ENTRADA NO SITE
+// =========================================================
 
 
-// =====================================================
+// =========================================================
 // VARIÁVEIS GERAIS
-// =====================================================
+// =========================================================
 
 let nomeContratante = "";
 
 
-// =====================================================
+// =========================================================
 // CONTRATO DE ACESSO
-// =====================================================
+// =========================================================
 
 function verificarSenha() {
 
     const campoSenha =
         document.getElementById("senha");
+
+
+    // Verifica se o campo existe
+    if (!campoSenha) {
+        return;
+    }
+
 
     const senha =
         campoSenha.value
@@ -29,32 +36,39 @@ function verificarSenha() {
             .replace(/[\u0300-\u036f]/g, "");
 
 
-    // Senha correta
+    // =====================================================
+    // SENHA CORRETA
+    // =====================================================
+
     if (senha === "coracao") {
 
-        // Esconde a tela de login
+        // Esconde tela de login
         document.getElementById("login").style.display =
             "none";
 
 
-        // Mostra a titularidade validada
-        const titularidade =
-            document.getElementById("titularidadeValidada");
-
-        titularidade.style.display =
+        // Mostra titularidade validada
+        document.getElementById("titularidadeValidada").style.display =
             "block";
 
 
-        // Leva o usuário para a próxima etapa
-        titularidade.scrollIntoView({
+        // Mostra o contrato
+        document.getElementById("contrato").style.display =
+            "block";
+
+
+        // Leva o usuário até a próxima etapa
+        document.getElementById("titularidadeValidada").scrollIntoView({
             behavior: "smooth",
             block: "start"
         });
 
     }
 
+    // =====================================================
+    // SENHA INCORRETA
+    // =====================================================
 
-    // Senha incorreta
     else {
 
         alert("Senha incorreta.");
@@ -68,24 +82,61 @@ function verificarSenha() {
 }
 
 
-// =====================================================
-// ASSINATURA DO CONTRATO DO NOSSO CANTINHO
-// =====================================================
+// =========================================================
+// PERMITIR ENTER NA SENHA
+// =========================================================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const campoSenha =
+        document.getElementById("senha");
+
+
+    if (campoSenha) {
+
+        campoSenha.addEventListener("keydown", function (event) {
+
+            if (event.key === "Enter") {
+
+                verificarSenha();
+
+            }
+
+        });
+
+    }
+
+});
+
+
+// =========================================================
+// ASSINATURA DO CONTRATO
+// =========================================================
 
 function assinarContrato() {
 
     const campoNome =
         document.getElementById("nomeContrato");
 
+
     const aceite =
         document.getElementById("aceiteContrato");
+
+
+    // Verifica se os elementos existem
+    if (!campoNome || !aceite) {
+        return;
+    }
 
 
     const nome =
         campoNome.value.trim();
 
 
-    // Verifica o nome
+    // =====================================================
+    // VALIDAÇÃO
+    // =====================================================
+
     if (nome === "") {
 
         alert(
@@ -99,7 +150,6 @@ function assinarContrato() {
     }
 
 
-    // Verifica o aceite
     if (!aceite.checked) {
 
         alert(
@@ -111,25 +161,31 @@ function assinarContrato() {
     }
 
 
-    // Guarda o nome do contratante
-    nomeContratante =
-        nome;
+    // Guarda o nome
+    nomeContratante = nome;
 
 
-    // Esconde o contrato
+    // =====================================================
+    // ESCONDE CONTRATO
+    // =====================================================
+
     document.getElementById("contrato").style.display =
         "none";
 
 
-    // Mostra a confirmação da assinatura
-    const contratoAssinado =
-        document.getElementById("contratoAssinado");
+    // =====================================================
+    // MOSTRA CONTRATO ASSINADO
+    // =====================================================
 
-    contratoAssinado.style.display =
+    document.getElementById("contratoAssinado").style.display =
         "block";
 
 
-    contratoAssinado.scrollIntoView({
+    // =====================================================
+    // SCROLL
+    // =====================================================
+
+    document.getElementById("contratoAssinado").scrollIntoView({
         behavior: "smooth",
         block: "start"
     });
@@ -137,27 +193,27 @@ function assinarContrato() {
 }
 
 
-// =====================================================
-// CONTINUAR APÓS A ASSINATURA
-// =====================================================
+// =========================================================
+// CONTINUAR PARA O CONTEÚDO DO SITE
+// =========================================================
 
 function continuarSite() {
 
-    // Esconde a confirmação
+    // Esconde confirmação da assinatura
     document.getElementById("contratoAssinado").style.display =
         "none";
 
 
     // Mostra todo o conteúdo
-    const conteudo =
-        document.getElementById("conteudoSite");
-
-    conteudo.style.display =
+    document.getElementById("conteudoSite").style.display =
         "block";
 
 
-    // Vai para o início do conteúdo
-    conteudo.scrollIntoView({
+    // =====================================================
+    // SCROLL PARA O COMEÇO DO SITE
+    // =====================================================
+
+    document.getElementById("conteudoSite").scrollIntoView({
         behavior: "smooth",
         block: "start"
     });
@@ -165,14 +221,13 @@ function continuarSite() {
 }
 
 
-// =====================================================
+// =========================================================
 // QUEM É MAIS?
-// =====================================================
+// =========================================================
 
 function responderCoracao(botao) {
 
-    // Localiza somente a pergunta
-    // em que o botão foi clicado
+    // Identifica a pergunta correspondente
     const pergunta =
         botao.closest(".pergunta-coracao");
 
@@ -182,24 +237,32 @@ function responderCoracao(botao) {
     }
 
 
-    // Localiza os dois botões daquela pergunta
+    // =====================================================
+    // REMOVE SELEÇÃO ANTERIOR
+    // =====================================================
+
     const botoes =
         pergunta.querySelectorAll("button");
 
 
-    // Remove a seleção anterior
-    botoes.forEach(function(btn) {
+    botoes.forEach(function (btn) {
 
         btn.classList.remove("selecionada");
 
     });
 
 
-    // Marca a resposta escolhida
+    // =====================================================
+    // MARCA RESPOSTA
+    // =====================================================
+
     botao.classList.add("selecionada");
 
 
-    // Verifica todas as perguntas
+    // =====================================================
+    // VERIFICA QUANTAS FORAM RESPONDIDAS
+    // =====================================================
+
     const perguntas =
         document.querySelectorAll(".pergunta-coracao");
 
@@ -207,7 +270,7 @@ function responderCoracao(botao) {
     let respondidas = 0;
 
 
-    perguntas.forEach(function(item) {
+    perguntas.forEach(function (item) {
 
         if (
             item.querySelector(".selecionada")
@@ -220,54 +283,52 @@ function responderCoracao(botao) {
     });
 
 
-    // Quando todas forem respondidas,
-    // libera a mensagem final
-    if (
-        respondidas === perguntas.length
-    ) {
+    // =====================================================
+    // TODAS RESPONDIDAS
+    // =====================================================
+
+    if (respondidas === perguntas.length) {
 
         const final =
             document.getElementById("fimQuemEMais");
 
-        final.style.display =
-            "block";
+
+        if (final) {
+
+            final.style.display =
+                "block";
 
 
-        final.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-        });
+            final.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+        }
 
     }
 
 }
 
 
-// =====================================================
-// CONTADOR DO NOSSO RELACIONAMENTO
-// =====================================================
+// =========================================================
+// CONTADOR DO RELACIONAMENTO
+// =========================================================
 
 function atualizarContador() {
 
     // 09 de maio de 2026
     const inicio =
-        new Date(
-            2026,
-            4,
-            9,
-            0,
-            0,
-            0
-        );
+        new Date(2026, 4, 9, 0, 0, 0);
 
 
     const agora =
         new Date();
 
 
-    // ---------------------------------------------
-    // MESES E DIAS
-    // ---------------------------------------------
+    // =====================================================
+    // DIFERENÇA DE MESES E DIAS
+    // =====================================================
 
     let anos =
         agora.getFullYear() -
@@ -284,7 +345,6 @@ function atualizarContador() {
         inicio.getDate();
 
 
-    // Ajuste dos dias
     if (dias < 0) {
 
         meses--;
@@ -304,7 +364,6 @@ function atualizarContador() {
     }
 
 
-    // Ajuste dos meses
     if (meses < 0) {
 
         anos--;
@@ -314,9 +373,9 @@ function atualizarContador() {
     }
 
 
-    // ---------------------------------------------
+    // =====================================================
     // HORAS, MINUTOS E SEGUNDOS
-    // ---------------------------------------------
+    // =====================================================
 
     const diferenca =
         agora - inicio;
@@ -338,96 +397,101 @@ function atualizarContador() {
 
     const segundos =
         Math.floor(
-            (diferenca / 1000) % 60
+            (diferenca /
+                1000) % 60
         );
 
 
-    // ---------------------------------------------
-    // ATUALIZA OS ELEMENTOS DO HTML
-    // ---------------------------------------------
+    // =====================================================
+    // ATUALIZA HTML
+    // =====================================================
 
-    const elementoMeses =
+    const mesesElemento =
         document.getElementById("meses");
 
 
-    const elementoDias =
+    const diasElemento =
         document.getElementById("dias");
 
 
-    const elementoHoras =
+    const horasElemento =
         document.getElementById("horas");
 
 
-    const elementoMinutos =
+    const minutosElemento =
         document.getElementById("minutos");
 
 
-    const elementoSegundos =
+    const segundosElemento =
         document.getElementById("segundos");
 
 
-    if (elementoMeses) {
+    if (mesesElemento) {
 
-        elementoMeses.textContent =
+        mesesElemento.textContent =
             (anos * 12) + meses;
 
     }
 
 
-    if (elementoDias) {
+    if (diasElemento) {
 
-        elementoDias.textContent =
+        diasElemento.textContent =
             dias;
 
     }
 
 
-    if (elementoHoras) {
+    if (horasElemento) {
 
-        elementoHoras.textContent =
-            horas;
-
-    }
-
-
-    if (elementoMinutos) {
-
-        elementoMinutos.textContent =
-            minutos;
+        horasElemento.textContent =
+            String(horas).padStart(2, "0");
 
     }
 
 
-    if (elementoSegundos) {
+    if (minutosElemento) {
 
-        elementoSegundos.textContent =
-            segundos;
+        minutosElemento.textContent =
+            String(minutos).padStart(2, "0");
+
+    }
+
+
+    if (segundosElemento) {
+
+        segundosElemento.textContent =
+            String(segundos).padStart(2, "0");
 
     }
 
 }
 
 
-// =====================================================
-// INICIALIZAÇÃO DO CONTADOR
-// =====================================================
+// =========================================================
+// INICIAR CONTADOR
+// =========================================================
 
-atualizarContador();
+document.addEventListener("DOMContentLoaded", function () {
 
-
-setInterval(
-    atualizarContador,
-    1000
-);
-
-// =====================================================
-// PARTE 2 — ADITIVO E AVALIAÇÃO
-// =====================================================
+    atualizarContador();
 
 
-// =====================================================
+    setInterval(
+        atualizarContador,
+        1000
+    );
+
+});
+
+
+// =========================================================
+// FIM DA PARTE 1
+// =========================================================
+
+// =========================================================
 // ADITIVO AO CONTRATO
-// =====================================================
+// =========================================================
 
 function aceitarAditivo() {
 
@@ -441,7 +505,6 @@ function aceitarAditivo() {
         document.getElementById("consultaAditivo");
 
 
-    // Verifica se as três declarações foram marcadas
     if (
         !ciencia.checked ||
         !aceite.checked ||
@@ -456,35 +519,37 @@ function aceitarAditivo() {
     }
 
 
-    // Esconde o Aditivo
+    // Esconde o aditivo
     document.getElementById("aditivoContrato").style.display =
         "none";
 
 
     // Mostra a avaliação
-    const avaliacao =
-        document.getElementById("interrogatorioContrato");
-
-    avaliacao.style.display =
+    document.getElementById("interrogatorioContrato").style.display =
         "block";
 
 
-    // Vai para a avaliação
-    avaliacao.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-    });
+    // Mostra o quiz
+    document.getElementById("quiz").style.display =
+        "block";
 
 
     // Carrega a primeira pergunta
     carregarPergunta();
 
+
+    // Vai para a avaliação
+    document.getElementById("interrogatorioContrato").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+
 }
 
 
-// =====================================================
-// PERGUNTAS DO QUIZ
-// =====================================================
+// =========================================================
+// QUIZ — RENOVAÇÃO DO CONTRATO
+// =========================================================
 
 const perguntas = [
 
@@ -639,18 +704,27 @@ const perguntas = [
 ];
 
 
-// =====================================================
+// =========================================================
 // VARIÁVEIS DO QUIZ
-// =====================================================
+// =========================================================
 
 let perguntaAtual = 0;
 
 let respostas = [];
 
+let respostasPistas = {
+    pista1: "",
+    pista2: "",
+    pista3: "",
+    pista4: ""
+};
 
-// =====================================================
+let codigoGerado = "";
+
+
+// =========================================================
 // CARREGAR PERGUNTA
-// =====================================================
+// =========================================================
 
 function carregarPergunta() {
 
@@ -658,38 +732,17 @@ function carregarPergunta() {
         perguntas[perguntaAtual];
 
 
-    // ---------------------------------------------
-    // NÚMERO DA PERGUNTA
-    // ---------------------------------------------
-
     document.getElementById("numeroPergunta").textContent =
         `Pergunta ${perguntaAtual + 1} de ${perguntas.length}`;
 
 
-    // ---------------------------------------------
-    // BARRA DE PROGRESSO
-    // ---------------------------------------------
-
-    const porcentagem =
-        ((perguntaAtual + 1) /
-            perguntas.length) * 100;
-
-
     document.getElementById("barraProgresso").style.width =
-        `${porcentagem}%`;
+        `${((perguntaAtual + 1) / perguntas.length) * 100}%`;
 
-
-    // ---------------------------------------------
-    // TEXTO DA PERGUNTA
-    // ---------------------------------------------
 
     document.getElementById("pergunta").textContent =
         pergunta.pergunta;
 
-
-    // ---------------------------------------------
-    // ALTERNATIVAS
-    // ---------------------------------------------
 
     const alternativas =
         document.getElementById("alternativas");
@@ -698,105 +751,64 @@ function carregarPergunta() {
     alternativas.innerHTML = "";
 
 
-    pergunta.alternativas.forEach(
-        function(texto, indice) {
+    pergunta.alternativas.forEach(function (texto, indice) {
 
-            const botao =
-                document.createElement("button");
-
-
-            botao.className =
-                "opcao";
+        const botao =
+            document.createElement("button");
 
 
-            botao.textContent =
-                texto;
+        botao.className =
+            "opcao";
 
 
-            // Se já havia uma resposta,
-            // mantém a seleção
-            if (
-                respostas[perguntaAtual] === indice
-            ) {
-
-                botao.classList.add(
-                    "selecionada"
-                );
-
-            }
+        botao.textContent =
+            texto;
 
 
-            // Ao clicar
-            botao.onclick =
-                function() {
+        if (
+            respostas[perguntaAtual] === indice
+        ) {
 
-                    respostas[perguntaAtual] =
-                        indice;
-
-
-                    carregarPergunta();
-
-                };
-
-
-            alternativas.appendChild(
-                botao
-            );
+            botao.classList.add("selecionada");
 
         }
-    );
 
 
-    // ---------------------------------------------
-    // BOTÃO ANTERIOR
-    // ---------------------------------------------
+        botao.onclick = function () {
 
-    const btnAnterior =
-        document.getElementById("btnAnterior");
+            respostas[perguntaAtual] =
+                indice;
 
 
-    if (perguntaAtual === 0) {
+            carregarPergunta();
 
-        btnAnterior.style.display =
-            "none";
-
-    } else {
-
-        btnAnterior.style.display =
-            "inline-block";
-
-    }
+        };
 
 
-    // ---------------------------------------------
-    // BOTÃO PRÓXIMO
-    // ---------------------------------------------
+        alternativas.appendChild(botao);
 
-    const btnProximo =
-        document.getElementById("btnProximo");
+    });
 
 
-    if (
-        perguntaAtual ===
-        perguntas.length - 1
-    ) {
+    // Botão anterior
+    document.getElementById("btnAnterior").style.display =
+        perguntaAtual === 0
+            ? "none"
+            : "inline-block";
 
-        btnProximo.textContent =
-            "Finalizar avaliação";
 
-    } else {
-
-        btnProximo.textContent =
-            "Próxima ➡";
-
-    }
+    // Botão próximo
+    document.getElementById("btnProximo").textContent =
+        perguntaAtual === perguntas.length - 1
+            ? "Finalizar avaliação"
+            : "Próxima ➡";
 
 }
 
 
-// =====================================================
+// =========================================================
 // PERGUNTA ANTERIOR
-// =====================================================
+// =========================================================
 
 function anteriorPergunta() {
 
@@ -806,28 +818,19 @@ function anteriorPergunta() {
 
         carregarPergunta();
 
-
-        document
-            .getElementById("quiz")
-            .scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-
     }
 
 }
 
 
-// =====================================================
+// =========================================================
 // PRÓXIMA PERGUNTA
-// =====================================================
+// =========================================================
 
 function proximaPergunta() {
 
-    // Não permite avançar sem responder
     if (
-        respostas[perguntaAtual] === undefined
+        respostas[perguntaAtual] == null
     ) {
 
         alert(
@@ -839,7 +842,6 @@ function proximaPergunta() {
     }
 
 
-    // Ainda existem perguntas
     if (
         perguntaAtual <
         perguntas.length - 1
@@ -849,62 +851,44 @@ function proximaPergunta() {
 
         carregarPergunta();
 
-
-        document
-            .getElementById("quiz")
-            .scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-
-
-        return;
-
     }
 
+    else {
 
-    // Última pergunta
-    finalizarQuiz();
+        finalizarQuiz();
+
+    }
 
 }
 
 
-// =====================================================
+// =========================================================
 // FINALIZAR AS 10 QUESTÕES
-// =====================================================
+// =========================================================
 
 function finalizarQuiz() {
 
-    // Esconde a pergunta
     document.getElementById("pergunta").style.display =
         "none";
 
 
-    // Esconde as alternativas
     document.getElementById("alternativas").style.display =
         "none";
 
 
-    // Esconde os botões anterior/próxima
     document.querySelector(".botoesQuiz").style.display =
         "none";
 
 
-    // Esconde a barra de progresso
     document.querySelector(".progresso").style.display =
         "none";
 
 
-    // Mostra a Etapa Final
-    const etapaFinal =
-        document.getElementById("etapaFinalQuiz");
-
-
-    etapaFinal.style.display =
+    document.getElementById("etapaFinalQuiz").style.display =
         "block";
 
 
-    etapaFinal.scrollIntoView({
+    document.getElementById("etapaFinalQuiz").scrollIntoView({
         behavior: "smooth",
         block: "start"
     });
@@ -912,60 +896,9 @@ function finalizarQuiz() {
 }
 
 
-// =====================================================
-// CALCULAR PONTUAÇÃO
-// =====================================================
-
-function calcularNota() {
-
-    let acertos = 0;
-
-
-    perguntas.forEach(
-        function(pergunta, indice) {
-
-            if (
-                respostas[indice] ===
-                pergunta.correta
-            ) {
-
-                acertos++;
-
-            }
-
-        }
-    );
-
-
-    return acertos;
-
-}
-
-// =====================================================
-// PARTE 3 — ETAPA FINAL, CONFIRMAÇÃO E RESULTADO
-// =====================================================
-
-
-// =====================================================
-// VARIÁVEIS DA ETAPA FINAL
-// =====================================================
-
-let respostasPistas = {
-
-    pista1: "",
-    pista2: "",
-    pista3: "",
-    pista4: ""
-
-};
-
-
-let codigoGerado = "";
-
-
-// =====================================================
-// NORMALIZAR TEXTO
-// =====================================================
+// =========================================================
+// VERIFICAR PISTAS
+// =========================================================
 
 function normalizarTexto(texto) {
 
@@ -977,10 +910,6 @@ function normalizarTexto(texto) {
 
 }
 
-
-// =====================================================
-// VERIFICAR AS 4 PISTAS
-// =====================================================
 
 function verificarPistas() {
 
@@ -1008,35 +937,19 @@ function verificarPistas() {
         );
 
 
-    // ---------------------------------------------
-    // PISTA 1 — ANTES DE TUDO
-    // ---------------------------------------------
-
     const correta1 =
         resposta1 === "vela" ||
         resposta1 === "velas";
 
 
-    // ---------------------------------------------
-    // PISTA 2 — NOSSO AMULETO
-    // ---------------------------------------------
-
     const correta2 =
         resposta2 === "pulseira";
 
-
-    // ---------------------------------------------
-    // PISTA 3 — NOSSO COMPROMISSO
-    // ---------------------------------------------
 
     const correta3 =
         resposta3 === "alianca" ||
         resposta3 === "aliancas";
 
-
-    // ---------------------------------------------
-    // PISTA 4 — NOSSA BÊNÇÃO
-    // ---------------------------------------------
 
     const correta4 =
         resposta4 === "oracao";
@@ -1045,11 +958,8 @@ function verificarPistas() {
     return {
 
         correta1: correta1,
-
         correta2: correta2,
-
         correta3: correta3,
-
         correta4: correta4,
 
         todasCorretas:
@@ -1063,19 +973,15 @@ function verificarPistas() {
 }
 
 
-// =====================================================
+// =========================================================
 // PROSSEGUIR COM A ANÁLISE
-// =====================================================
+// =========================================================
 
 function prosseguirAnalise() {
 
     const pistas =
         verificarPistas();
 
-
-    // ---------------------------------------------
-    // VERIFICA AS QUATRO RESPOSTAS
-    // ---------------------------------------------
 
     if (!pistas.todasCorretas) {
 
@@ -1088,59 +994,31 @@ function prosseguirAnalise() {
     }
 
 
-    // ---------------------------------------------
-    // GUARDA AS RESPOSTAS
-    // ---------------------------------------------
-
+    // Guarda respostas
     respostasPistas.pista1 =
-        document
-            .getElementById("respostaPista1")
-            .value
-            .trim();
-
+        document.getElementById("respostaPista1").value.trim();
 
     respostasPistas.pista2 =
-        document
-            .getElementById("respostaPista2")
-            .value
-            .trim();
-
+        document.getElementById("respostaPista2").value.trim();
 
     respostasPistas.pista3 =
-        document
-            .getElementById("respostaPista3")
-            .value
-            .trim();
-
+        document.getElementById("respostaPista3").value.trim();
 
     respostasPistas.pista4 =
-        document
-            .getElementById("respostaPista4")
-            .value
-            .trim();
+        document.getElementById("respostaPista4").value.trim();
 
 
-    // ---------------------------------------------
-    // ESCONDE A ETAPA DAS PISTAS
-    // ---------------------------------------------
-
+    // Esconde pistas
     document.getElementById("etapaFinalQuiz").style.display =
         "none";
 
 
-    // ---------------------------------------------
-    // MOSTRA A CONFIRMAÇÃO
-    // ---------------------------------------------
-
-    const assinatura =
-        document.getElementById("assinaturaQuiz");
-
-
-    assinatura.style.display =
+    // Mostra confirmação
+    document.getElementById("assinaturaQuiz").style.display =
         "block";
 
 
-    assinatura.scrollIntoView({
+    document.getElementById("assinaturaQuiz").scrollIntoView({
         behavior: "smooth",
         block: "start"
     });
@@ -1148,27 +1026,24 @@ function prosseguirAnalise() {
 }
 
 
-// =====================================================
+// =========================================================
 // CONFIRMAR RESPOSTAS
-// =====================================================
+// =========================================================
 
 function confirmarQuiz() {
 
-    const campoNome =
-        document.getElementById("nomeConfirmacao");
+    const nome =
+        document
+            .getElementById("nomeConfirmacao")
+            .value
+            .trim();
 
 
     const aceite =
-        document.getElementById("confirmacaoRespostas");
+        document
+            .getElementById("confirmacaoRespostas")
+            .checked;
 
-
-    const nome =
-        campoNome.value.trim();
-
-
-    // ---------------------------------------------
-    // VERIFICA O NOME
-    // ---------------------------------------------
 
     if (nome === "") {
 
@@ -1176,18 +1051,14 @@ function confirmarQuiz() {
             "Digite seu nome para confirmar."
         );
 
-        campoNome.focus();
+        document.getElementById("nomeConfirmacao").focus();
 
         return;
 
     }
 
 
-    // ---------------------------------------------
-    // VERIFICA O CHECKBOX
-    // ---------------------------------------------
-
-    if (!aceite.checked) {
+    if (!aceite) {
 
         alert(
             "Confirme suas respostas antes de continuar."
@@ -1198,186 +1069,254 @@ function confirmarQuiz() {
     }
 
 
-    // Guarda o nome utilizado na confirmação
     nomeContratante =
         nome;
 
-
-    // ---------------------------------------------
-    // ESCONDE A CONFIRMAÇÃO
-    // ---------------------------------------------
 
     document.getElementById("assinaturaQuiz").style.display =
         "none";
 
 
-    // ---------------------------------------------
-    // MOSTRA A ANÁLISE
-    // ---------------------------------------------
-
-    const analise =
-        document.getElementById("analiseProcesso");
-
-
-    analise.style.display =
+    document.getElementById("analiseProcesso").style.display =
         "block";
 
 
-    analise.scrollIntoView({
+    document.getElementById("analiseProcesso").scrollIntoView({
         behavior: "smooth",
         block: "start"
     });
 
 
-    // ---------------------------------------------
-    // SIMULAÇÃO DE ANÁLISE
-    // ---------------------------------------------
+    setTimeout(function () {
 
-    setTimeout(
-        function() {
+        mostrarResultado();
 
-            mostrarResultado();
-
-        },
-        2500
-    );
+    }, 2500);
 
 }
 
 
-// =====================================================
-// GERAR CÓDIGO DA SURPRESA
-// =====================================================
+// =========================================================
+// FIM DA PARTE 2
+// =========================================================
+
+// =========================
+// ETAPA 5 — PISTAS
+// =========================
+
+function verificarPistas() {
+
+    const resposta1 = normalizarTexto(
+        document.getElementById("respostaPista1").value
+    );
+
+    const resposta2 = normalizarTexto(
+        document.getElementById("respostaPista2").value
+    );
+
+    const resposta3 = normalizarTexto(
+        document.getElementById("respostaPista3").value
+    );
+
+    const resposta4 = normalizarTexto(
+        document.getElementById("respostaPista4").value
+    );
+
+    return {
+        correta1: resposta1 === "vela" || resposta1 === "velas",
+        correta2: resposta2 === "pulseira",
+        correta3: resposta3 === "alianca" || resposta3 === "aliancas",
+        correta4: resposta4 === "oracao",
+
+        todasCorretas:
+            (resposta1 === "vela" || resposta1 === "velas") &&
+            resposta2 === "pulseira" &&
+            (resposta3 === "alianca" || resposta3 === "aliancas") &&
+            resposta4 === "oracao"
+    };
+}
+
+
+// =========================
+// PROSSEGUIR COM A ANÁLISE
+// =========================
+
+function prosseguirAnalise() {
+
+    const pistas = verificarPistas();
+
+    if (!pistas.todasCorretas) {
+
+        alert(
+            "Existem informações que não correspondem aos registros do sistema. Revise as seções do site e tente novamente."
+        );
+
+        return;
+    }
+
+    respostasPistas.pista1 =
+        document.getElementById("respostaPista1").value.trim();
+
+    respostasPistas.pista2 =
+        document.getElementById("respostaPista2").value.trim();
+
+    respostasPistas.pista3 =
+        document.getElementById("respostaPista3").value.trim();
+
+    respostasPistas.pista4 =
+        document.getElementById("respostaPista4").value.trim();
+
+    document.getElementById("etapaFinalQuiz").style.display =
+        "none";
+
+    document.getElementById("assinaturaQuiz").style.display =
+        "block";
+
+    document.getElementById("assinaturaQuiz").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+}
+
+
+// =========================
+// CONFIRMAR RESPOSTAS
+// =========================
+
+function confirmarQuiz() {
+
+    const nome = document
+        .getElementById("nomeConfirmacao")
+        .value
+        .trim();
+
+    const aceite = document
+        .getElementById("confirmacaoRespostas")
+        .checked;
+
+    if (nome === "") {
+
+        alert("Digite seu nome para confirmar.");
+
+        return;
+    }
+
+    if (!aceite) {
+
+        alert(
+            "Confirme suas respostas antes de continuar."
+        );
+
+        return;
+    }
+
+    nomeContratante = nome;
+
+    document.getElementById("assinaturaQuiz").style.display =
+        "none";
+
+    document.getElementById("analiseProcesso").style.display =
+        "block";
+
+    document.getElementById("analiseProcesso").scrollIntoView({
+        behavior: "smooth"
+    });
+
+    setTimeout(function () {
+
+        mostrarResultado();
+
+    }, 2500);
+}
+
+
+// =========================
+// CALCULAR NOTA
+// =========================
+
+function calcularNota() {
+
+    let acertos = 0;
+
+    perguntas.forEach(function (pergunta, index) {
+
+        if (respostas[index] === pergunta.correta) {
+            acertos++;
+        }
+
+    });
+
+    return acertos;
+}
+
+
+// =========================
+// GERAR CÓDIGO
+// =========================
 
 function gerarCodigo() {
 
-    /*
-        O código é formado pela quantidade
-        de letras das quatro respostas.
-
-        VELAS    = 5
-        PULSEIRA = 8
-        ALIANÇAS = 8
-        ORAÇÃO   = 6
-
-        Resultado esperado:
-        5886
-    */
-
-
-    const codigo =
+    return (
         respostasPistas.pista1.length +
         "" +
         respostasPistas.pista2.length +
         "" +
         respostasPistas.pista3.length +
         "" +
-        respostasPistas.pista4.length;
-
-
-    return codigo;
-
+        respostasPistas.pista4.length
+    );
 }
 
 
-// =====================================================
+// =========================
 // MOSTRAR RESULTADO
-// =====================================================
+// =========================
 
 function mostrarResultado() {
 
-    const acertos =
-        calcularNota();
-
-
-    const pistas =
-        verificarPistas();
-
-
-    // ---------------------------------------------
-    // ESCONDE A ANÁLISE
-    // ---------------------------------------------
+    const acertos = calcularNota();
+    const pistas = verificarPistas();
 
     document.getElementById("analiseProcesso").style.display =
         "none";
 
-
-    // ---------------------------------------------
-    // MOSTRA O RESULTADO
-    // ---------------------------------------------
-
-    const resultado =
-        document.getElementById("resultadoFinal");
-
-
-    resultado.style.display =
+    document.getElementById("resultadoFinal").style.display =
         "block";
-
-
-    resultado.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-    });
-
-
-    // ---------------------------------------------
-    // PONTUAÇÃO
-    // ---------------------------------------------
 
     document.getElementById("pontuacaoFinal").textContent =
         acertos;
-
-
-    // ---------------------------------------------
-    // STATUS DA AVALIAÇÃO
-    // ---------------------------------------------
 
     document.getElementById("statusAvaliacao").textContent =
         acertos >= 7
             ? "Aprovado"
             : "Não aprovado";
 
-
-    // ---------------------------------------------
-    // STATUS DAS PISTAS
-    // ---------------------------------------------
-
     document.getElementById("statusEtapaFinal").textContent =
         pistas.todasCorretas
             ? "Concluída"
             : "Pendente";
 
-
-    // ---------------------------------------------
-    // STATUS DA CONFIRMAÇÃO
-    // ---------------------------------------------
-
     document.getElementById("statusConfirmacao").textContent =
         "Confirmada";
-
 
     const decisao =
         document.getElementById("decisaoFinal");
 
+    const codigoArea =
+        document.getElementById("codigoGerado");
 
-    // =================================================
+    const novaTentativa =
+        document.getElementById("novaTentativa");
+
+    // =========================
     // APROVADO
-    // =================================================
+    // =========================
 
-    if (
-        acertos >= 7 &&
-        pistas.todasCorretas
-    ) {
-
-
-        // ---------------------------------------------
-        // 10/10
-        // ---------------------------------------------
+    if (acertos >= 7 && pistas.todasCorretas) {
 
         if (acertos === 10) {
 
             decisao.innerHTML = `
-
                 <h3>APROVADO COM EXCELÊNCIA</h3>
 
                 <p>
@@ -1389,20 +1328,11 @@ function mostrarResultado() {
                     <strong>Decisão:</strong><br>
                     Aprovação integral.
                 </p>
-
             `;
 
-        }
-
-
-        // ---------------------------------------------
-        // 8 OU 9
-        // ---------------------------------------------
-
-        else if (acertos >= 8) {
+        } else if (acertos >= 8) {
 
             decisao.innerHTML = `
-
                 <h3>APROVADO</h3>
 
                 <p>
@@ -1414,20 +1344,11 @@ function mostrarResultado() {
                     <strong>Decisão:</strong><br>
                     Pedido deferido.
                 </p>
-
             `;
 
-        }
-
-
-        // ---------------------------------------------
-        // 7/10
-        // ---------------------------------------------
-
-        else {
+        } else {
 
             decisao.innerHTML = `
-
                 <h3>APROVADO POR MARGEM MÍNIMA</h3>
 
                 <p>
@@ -1444,83 +1365,80 @@ function mostrarResultado() {
                     Fica registrada a necessidade de maior atenção
                     aos detalhes da relação.
                 </p>
-
             `;
-
         }
 
-
-        // ---------------------------------------------
-        // GERA O CÓDIGO
-        // ---------------------------------------------
-
-        codigoGerado =
-            gerarCodigo();
-
+        codigoGerado = gerarCodigo();
 
         document.getElementById("codigoAcesso").textContent =
             codigoGerado;
 
+        codigoArea.style.display = "block";
 
-        document.getElementById("codigoGerado").style.display =
+        novaTentativa.style.display = "none";
+
+        // =========================
+        // RENOVAÇÃO APROVADA
+        // =========================
+
+        document.getElementById("renovacao").style.display =
             "block";
+
+        document.getElementById("dadosContratante").textContent =
+            `Contratante: ${nomeContratante}`;
+
+        document.getElementById("resultadoContratante").textContent =
+            `Resultado da avaliação: ${acertos}/10`;
+
+        document.getElementById("renovacao").scrollIntoView({
+            behavior: "smooth"
+        });
 
     }
 
+    // =========================
+    // NÃO APROVADO
+    // =========================
 
-// =========================================================
-// NÃO APROVADO
-// =========================================================
+    else {
 
-else {
+        decisao.innerHTML = `
+            <h3>PROCESSO INCONCLUSIVO</h3>
 
-    decisao.innerHTML = `
+            <p>
+                Após análise das informações apresentadas,
+                não foi atingida a pontuação mínima necessária
+                para conclusão do processo.
+            </p>
 
-        <h3>PROCESSO INCONCLUSIVO</h3>
+            <p>
+                <strong>Decisão:</strong><br>
+                Pedido temporariamente indeferido.
+            </p>
 
-        <p>
-            Após análise das informações apresentadas,
-            não foi atingida a pontuação mínima necessária
-            para conclusão do processo.
-        </p>
+            <p>
+                Uma nova tentativa será concedida ao contratante.
+            </p>
+        `;
 
-        <p>
-            <strong>Decisão:</strong><br>
-            Pedido temporariamente indeferido.
-        </p>
+        codigoArea.style.display = "none";
 
-        <p>
-            Uma nova tentativa será concedida ao contratante.
-        </p>
+        novaTentativa.style.display = "block";
 
-    `;
-
-
-    // Não mostra o código
-    document.getElementById("codigoGerado").style.display =
-        "none";
-
-
-    // Mostra a opção de nova tentativa
-    document.getElementById("novaTentativa").style.display =
-        "block";
-
-
-    document.getElementById("novaTentativa").scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-    });
-
+        document.getElementById("novaTentativa").scrollIntoView({
+            behavior: "smooth"
+        });
+    }
 }
 
 
-// =========================================================
+// =========================
 // COPIAR CÓDIGO
-// =========================================================
+// =========================
 
 function copiarCodigo() {
 
-    if (codigoGerado === "") {
+    if (!codigoGerado) {
         return;
     }
 
@@ -1541,23 +1459,20 @@ function copiarCodigo() {
         .catch(function () {
 
             alert(
-                "Não foi possível copiar automaticamente. Código: "
-                + codigoGerado
+                "Não foi possível copiar automaticamente. Código: " +
+                codigoGerado
             );
 
         });
-
 }
 
-
-// =========================================================
+// =========================
 // NOVA TENTATIVA
-// =========================================================
+// =========================
 
 function reiniciarQuiz() {
 
     perguntaAtual = 0;
-
     respostas = [];
 
     respostasPistas = {
@@ -1569,8 +1484,9 @@ function reiniciarQuiz() {
 
     codigoGerado = "";
 
-
-    // Esconde etapas anteriores
+    // =========================
+    // ESCONDER ETAPAS
+    // =========================
 
     document.getElementById("resultadoFinal").style.display =
         "none";
@@ -1599,27 +1515,23 @@ function reiniciarQuiz() {
     document.getElementById("analiseProcesso").style.display =
         "none";
 
-
-    // Limpa respostas das pistas
+    // =========================
+    // LIMPAR CAMPOS
+    // =========================
 
     document.getElementById("respostaPista1").value = "";
-
     document.getElementById("respostaPista2").value = "";
-
     document.getElementById("respostaPista3").value = "";
-
     document.getElementById("respostaPista4").value = "";
-
-
-    // Limpa confirmação
 
     document.getElementById("nomeConfirmacao").value = "";
 
     document.getElementById("confirmacaoRespostas").checked =
         false;
 
-
-    // Mostra novamente o quiz
+    // =========================
+    // RESTAURAR QUIZ
+    // =========================
 
     document.getElementById("pergunta").style.display =
         "block";
@@ -1633,21 +1545,43 @@ function reiniciarQuiz() {
     document.querySelector(".progresso").style.display =
         "block";
 
-
     carregarPergunta();
-
 
     document.getElementById("quiz").scrollIntoView({
         behavior: "smooth",
         block: "start"
     });
-
 }
 
 
-// =========================================================
+// =========================
+// MOSTRAR RENOVAÇÃO
+// =========================
+
+function mostrarRenovacao() {
+
+    document.getElementById("resultadoFinal").style.display =
+        "none";
+
+    document.getElementById("renovacao").style.display =
+        "block";
+
+    document.getElementById("dadosContratante").textContent =
+        `Contratante: ${nomeContratante}`;
+
+    document.getElementById("resultadoContratante").textContent =
+        `Resultado da avaliação: ${calcularNota()}/10`;
+
+    document.getElementById("renovacao").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+}
+
+
+// =========================
 // MOSTRAR CERTIFICADO
-// =========================================================
+// =========================
 
 function mostrarCertificado() {
 
@@ -1663,18 +1597,16 @@ function mostrarCertificado() {
     document.getElementById("videoFinal").style.display =
         "none";
 
-
     document.getElementById("certificado").scrollIntoView({
         behavior: "smooth",
         block: "start"
     });
-
 }
 
 
-// =========================================================
+// =========================
 // MOSTRAR SURPRESA
-// =========================================================
+// =========================
 
 function mostrarSurpresa() {
 
@@ -1686,7 +1618,6 @@ function mostrarSurpresa() {
 
     document.getElementById("videoFinal").style.display =
         "none";
-
 
     document.getElementById("codigoSurpresa").value =
         "";
@@ -1700,27 +1631,23 @@ function mostrarSurpresa() {
     document.getElementById("codigoSurpresa").style.border =
         "";
 
-
     document.getElementById("surpresaFinal").scrollIntoView({
         behavior: "smooth",
         block: "start"
     });
-
 }
 
 
-// =========================================================
+// =========================
 // VALIDAR CÓDIGO DA SURPRESA
-// =========================================================
+// =========================
 
 function validarCodigoSurpresa() {
 
     const codigoDigitado =
-        document
-            .getElementById("codigoSurpresa")
-            .value
-            .trim();
-
+        document.getElementById("codigoSurpresa")
+        .value
+        .trim();
 
     const acesso =
         document.getElementById("acessoAutorizado");
@@ -1728,15 +1655,8 @@ function validarCodigoSurpresa() {
     const erro =
         document.getElementById("codigoInvalido");
 
-
-    acesso.style.display =
-        "none";
-
-    erro.style.display =
-        "none";
-
-
-    // Código correto
+    acesso.style.display = "none";
+    erro.style.display = "none";
 
     if (
         codigoDigitado === codigoGerado &&
@@ -1746,38 +1666,23 @@ function validarCodigoSurpresa() {
         acesso.style.display =
             "block";
 
-
         document.getElementById("codigoSurpresa").style.border =
             "2px solid #8b5e3c";
 
-
-        acesso.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-        });
-
-    }
-
-
-    // Código incorreto
-
-    else {
+    } else {
 
         erro.style.display =
             "block";
 
-
         document.getElementById("codigoSurpresa").style.border =
-            "2px solid #a33";
-
+            "";
     }
-
 }
 
 
-// =========================================================
+// =========================
 // MOSTRAR VÍDEO FINAL
-// =========================================================
+// =========================
 
 function mostrarVideo() {
 
@@ -1787,15 +1692,201 @@ function mostrarVideo() {
     document.getElementById("videoFinal").style.display =
         "block";
 
-
     document.getElementById("videoFinal").scrollIntoView({
         behavior: "smooth",
         block: "start"
     });
+}
+
+
+// =========================
+// FINAL DO PROCESSO
+// =========================
+
+function encerrarProcesso() {
+
+    document.getElementById("videoFinal").style.display =
+        "none";
+
+    document.getElementById("disposicaoFinal").style.display =
+        "block";
+
+    document.getElementById("disposicaoFinal").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+}
+
+
+// =========================
+// INICIALIZAÇÃO FINAL
+// =========================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    // Inicializa o contador
+    atualizarContador();
+
+    // Inicializa o quiz
+    if (
+        document.getElementById("quiz") &&
+        document.getElementById("pergunta")
+    ) {
+
+        carregarPergunta();
+
+    }
+
+});
+
+// =========================
+// CONTROLE DE EXIBIÇÃO
+// =========================
+
+function esconderTodasEtapasFinais() {
+
+    const etapas = [
+        "resultadoFinal",
+        "novaTentativa",
+        "renovacao",
+        "certificado",
+        "surpresaFinal",
+        "videoFinal"
+    ];
+
+    etapas.forEach(function (id) {
+
+        const elemento = document.getElementById(id);
+
+        if (elemento) {
+            elemento.style.display = "none";
+        }
+
+    });
+}
+
+
+// =========================
+// FINALIZAR PROCESSO
+// =========================
+
+function finalizarProcesso() {
+
+    const video = document.getElementById("videoFinal");
+
+    const disposicao =
+        document.getElementById("disposicaoFinal");
+
+    if (video) {
+        video.style.display = "none";
+    }
+
+    if (disposicao) {
+
+        disposicao.style.display = "block";
+
+        disposicao.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }
 
 }
 
 
-// =========================================================
-// FIM DO PROCESSO
-// =========================================================
+// =========================
+// GARANTIR ESTADO INICIAL
+// =========================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    // =========================
+    // ELEMENTOS FINAIS
+    // =========================
+
+    const etapasOcultas = [
+        "titularidadeValidada",
+        "contrato",
+        "contratoAssinado",
+        "interrogatorioContrato",
+        "etapaFinalQuiz",
+        "assinaturaQuiz",
+        "analiseProcesso",
+        "resultadoFinal",
+        "novaTentativa",
+        "renovacao",
+        "certificado",
+        "surpresaFinal",
+        "videoFinal"
+    ];
+
+    etapasOcultas.forEach(function (id) {
+
+        const elemento =
+            document.getElementById(id);
+
+        if (elemento) {
+            elemento.style.display = "none";
+        }
+
+    });
+
+
+    // =========================
+    // DISPOSIÇÃO FINAL
+    // =========================
+
+    const disposicao =
+        document.getElementById("disposicaoFinal");
+
+    if (disposicao) {
+        disposicao.style.display = "block";
+    }
+
+
+    // =========================
+    // CONTEÚDO DO SITE
+    // =========================
+
+    const conteudo =
+        document.getElementById("conteudoSite");
+
+    if (conteudo) {
+        conteudo.style.display = "none";
+    }
+
+
+    // =========================
+    // LOGIN
+    // =========================
+
+    const login =
+        document.getElementById("login");
+
+    if (login) {
+        login.style.display = "block";
+    }
+
+
+    // =========================
+    // INICIALIZAR QUIZ
+    // =========================
+
+    if (
+        document.getElementById("quiz") &&
+        document.getElementById("pergunta")
+    ) {
+
+        carregarPergunta();
+
+    }
+
+
+    // =========================
+    // INICIALIZAR CONTADOR
+    // =========================
+
+    atualizarContador();
+
+});
