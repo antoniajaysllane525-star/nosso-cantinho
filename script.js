@@ -1764,36 +1764,6 @@ function esconderTodasEtapasFinais() {
     });
 }
 
-
-// =========================
-// FINALIZAR PROCESSO
-// =========================
-
-function finalizarProcesso() {
-
-    const video = document.getElementById("videoFinal");
-
-    const disposicao =
-        document.getElementById("disposicaoFinal");
-
-    if (video) {
-        video.style.display = "none";
-    }
-
-    if (disposicao) {
-
-        disposicao.style.display = "block";
-
-        disposicao.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
-
-    }
-
-}
-
-
 // =========================
 // GARANTIR ESTADO INICIAL
 // =========================
@@ -1830,19 +1800,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
     });
-
-
-   // =========================
-// DISPOSIÇÃO FINAL
-// =========================
-
-const disposicao =
-    document.getElementById("disposicaoFinal");
-
-if (disposicao) {
-    disposicao.style.display = "none";
-}
-
 
     // =========================
     // CONTEÚDO DO SITE
