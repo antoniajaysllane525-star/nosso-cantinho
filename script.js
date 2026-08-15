@@ -2,10 +2,6 @@
 // CONTRATO DE ACESSO
 // =========================
 
-// =========================
-// CONTRATO DE ACESSO
-// =========================
-
 function verificarSenha() {
 
     const campo = document.getElementById("senha");
