@@ -1286,6 +1286,11 @@ function mostrarResultado() {
     document.getElementById("resultadoFinal").style.display =
         "block";
 
+    document.getElementById("resultadoFinal").scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+});
+
     document.getElementById("pontuacaoFinal").textContent =
         acertos;
 
