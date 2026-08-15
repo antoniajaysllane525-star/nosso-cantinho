@@ -128,13 +128,19 @@ button:hover {
 
 /* =========================
    QUEM É MAIS?
-   RESPOSTA SELECIONADA
 ========================= */
 
+.pergunta-coracao button {
+    background: #fffaf7;
+    color: #5a3928;
+    border: 2px solid #e6d5c7;
+    transition: 0.3s;
+}
+
 .pergunta-coracao button.selecionada {
-    background: #5a3928;
-    color: white;
-    border-color: #5a3928;
+    background: #8b5e3c;
+    color: #fff;
+    border-color: #8b5e3c;
 }
 
 /* ===== CONTADOR ===== */
