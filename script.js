@@ -1286,11 +1286,6 @@ function mostrarResultado() {
     document.getElementById("resultadoFinal").style.display =
         "block";
 
-    document.getElementById("resultadoFinal").scrollIntoView({
-    behavior: "smooth",
-    block: "start"
-});
-
     document.getElementById("pontuacaoFinal").textContent =
         acertos;
 
@@ -1397,10 +1392,6 @@ function mostrarResultado() {
 
         document.getElementById("resultadoContratante").textContent =
             `Resultado da avaliação: ${acertos}/10`;
-
-        document.getElementById("renovacao").scrollIntoView({
-            behavior: "smooth"
-        });
 
     }
 
