@@ -11,7 +11,6 @@
 
 let nomeContratante = "";
 
-
 // =========================================================
 // CONTRATO DE ACESSO
 // =========================================================
@@ -47,23 +46,28 @@ function verificarSenha() {
             "none";
 
 
-        // Mostra titularidade validada
+        // Mostra somente a titularidade validada
         document.getElementById("titularidadeValidada").style.display =
             "block";
 
 
-        // Mostra o contrato
-        document.getElementById("contrato").style.display =
-            "block";
+        // Aguarda antes de revelar o contrato
+        setTimeout(function () {
+
+            document.getElementById("contrato").style.display =
+                "block";
 
 
-        // Leva o usuário até a próxima etapa
-        document.getElementById("titularidadeValidada").scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
+            // Leva até o contrato somente quando ele aparecer
+            document.getElementById("contrato").scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        }, 3000);
 
     }
+
 
     // =====================================================
     // SENHA INCORRETA
@@ -80,7 +84,6 @@ function verificarSenha() {
     }
 
 }
-
 
 // =========================================================
 // PERMITIR ENTER NA SENHA
@@ -1833,16 +1836,16 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    // =========================
-    // DISPOSIÇÃO FINAL
-    // =========================
+   // =========================
+// DISPOSIÇÃO FINAL
+// =========================
 
-    const disposicao =
-        document.getElementById("disposicaoFinal");
+const disposicao =
+    document.getElementById("disposicaoFinal");
 
-    if (disposicao) {
-        disposicao.style.display = "block";
-    }
+if (disposicao) {
+    disposicao.style.display = "none";
+}
 
 
     // =========================
