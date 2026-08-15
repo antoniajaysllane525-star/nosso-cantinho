@@ -92,6 +92,49 @@ function continuarSite() {
 }
 
 // =========================
+// QUEM É MAIS?
+// =========================
+
+function responderCoracao(botao) {
+
+    // Encontra somente a pergunta
+    // onde o botão foi clicado
+    const pergunta = botao.parentElement;
+
+    // Remove a seleção dos dois botões
+    const botoes = pergunta.querySelectorAll("button");
+
+    botoes.forEach(function(btn) {
+        btn.classList.remove("selecionada");
+    });
+
+    // Marca a escolha feita
+    botao.classList.add("selecionada");
+
+    // Verifica quantas perguntas já foram respondidas
+    const perguntas = document.querySelectorAll(".pergunta-coracao");
+
+    let respondidas = 0;
+
+    perguntas.forEach(function(item) {
+
+        if (item.querySelector(".selecionada")) {
+            respondidas++;
+        }
+
+    });
+
+    // Quando todas forem respondidas,
+    // libera a mensagem final
+    if (respondidas === perguntas.length) {
+
+        document.getElementById("fimQuemEMais").style.display = "block";
+
+    }
+
+}
+
+// =========================
 // CONTADOR
 // =========================
 
