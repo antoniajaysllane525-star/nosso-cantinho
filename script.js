@@ -4,60 +4,26 @@
 
 function verificarSenha() {
 
-    const campoSenha = document.getElementById("senha");
-
-    const senha = campoSenha.value
+    const senha = document.getElementById("senha").value
         .trim()
-        .toLowerCase()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "");
-
+        .toLowerCase();
 
     if (senha === "coracao") {
 
-        // Esconde o login
         document.getElementById("login").style.display = "none";
 
+        document.getElementById("titularidadeValidada").style.display = "block";
 
-        // Mostra a titularidade validada
-        const titularidade =
-            document.getElementById("titularidadeValidada");
-
-        titularidade.style.display = "block";
-
-        titularidade.scrollIntoView({
+        document.getElementById("titularidadeValidada").scrollIntoView({
             behavior: "smooth"
         });
-
-
-        // Aguarda alguns segundos e abre o contrato
-        setTimeout(function() {
-
-            titularidade.style.display = "none";
-
-
-            const contrato =
-                document.getElementById("contrato");
-
-            contrato.style.display = "block";
-
-            contrato.scrollIntoView({
-                behavior: "smooth"
-            });
-
-        }, 2500);
-
 
     } else {
 
         alert("Senha incorreta.");
-
-        campoSenha.value = "";
-
-        campoSenha.focus();
+        document.getElementById("senha").value = "";
 
     }
-
 }
 
 // =========================
