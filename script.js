@@ -924,19 +924,25 @@ function verificarPistas() {
 
     const resposta2 =
         normalizarTexto(
-            document.getElementById("respostaPista2").value
+            document.getElementById("respostaPista4").value
         );
 
 
     const resposta3 =
         normalizarTexto(
-            document.getElementById("respostaPista3").value
+            document.getElementById("respostaPista2").value
         );
 
 
     const resposta4 =
         normalizarTexto(
-            document.getElementById("respostaPista4").value
+            document.getElementById("respostaPista3").value
+        );
+
+
+    const resposta5 =
+        normalizarTexto(
+            document.getElementById("respostaPista5").value
         );
 
 
@@ -946,16 +952,20 @@ function verificarPistas() {
 
 
     const correta2 =
-        resposta2 === "pulseira";
+        resposta2 === "coracao";
 
 
     const correta3 =
-        resposta3 === "alianca" ||
-        resposta3 === "aliancas";
+        resposta3 === "pulseira";
 
 
     const correta4 =
-        resposta4 === "oracao";
+        resposta4 === "alianca" ||
+        resposta4 === "aliancas";
+
+
+    const correta5 =
+        resposta5 === "igreja";
 
 
     return {
@@ -964,12 +974,14 @@ function verificarPistas() {
         correta2: correta2,
         correta3: correta3,
         correta4: correta4,
+        correta5: correta5,
 
         todasCorretas:
             correta1 &&
             correta2 &&
             correta3 &&
-            correta4
+            correta4 &&
+            correta5
 
     };
 
@@ -1010,6 +1022,9 @@ function prosseguirAnalise() {
     respostasPistas.pista4 =
         document.getElementById("respostaPista4").value.trim();
 
+    respostasPistas.pista5 =
+        document.getElementById("respostaPista5").value.trim();
+
 
     // Esconde pistas
     document.getElementById("etapaFinalQuiz").style.display =
@@ -1027,7 +1042,6 @@ function prosseguirAnalise() {
     });
 
 }
-
 
 // =========================================================
 // CONFIRMAR RESPOSTAS
@@ -1114,29 +1128,53 @@ function verificarPistas() {
     );
 
     const resposta2 = normalizarTexto(
-        document.getElementById("respostaPista2").value
-    );
-
-    const resposta3 = normalizarTexto(
-        document.getElementById("respostaPista3").value
-    );
-
-    const resposta4 = normalizarTexto(
         document.getElementById("respostaPista4").value
     );
 
+    const resposta3 = normalizarTexto(
+        document.getElementById("respostaPista2").value
+    );
+
+    const resposta4 = normalizarTexto(
+        document.getElementById("respostaPista3").value
+    );
+
+    const resposta5 = normalizarTexto(
+        document.getElementById("respostaPista5").value
+    );
+
+
     return {
-        correta1: resposta1 === "vela" || resposta1 === "velas",
-        correta2: resposta2 === "pulseira",
-        correta3: resposta3 === "alianca" || resposta3 === "aliancas",
-        correta4: resposta4 === "oracao",
+
+        correta1:
+            resposta1 === "vela" ||
+            resposta1 === "velas",
+
+        correta2:
+            resposta2 === "coracao",
+
+        correta3:
+            resposta3 === "pulseira",
+
+        correta4:
+            resposta4 === "alianca" ||
+            resposta4 === "aliancas",
+
+        correta5:
+            resposta5 === "igreja",
+
 
         todasCorretas:
-            (resposta1 === "vela" || resposta1 === "velas") &&
-            resposta2 === "pulseira" &&
-            (resposta3 === "alianca" || resposta3 === "aliancas") &&
-            resposta4 === "oracao"
+            (
+                (resposta1 === "vela" || resposta1 === "velas") &&
+                resposta2 === "coracao" &&
+                resposta3 === "pulseira" &&
+                (resposta4 === "alianca" || resposta4 === "aliancas") &&
+                resposta5 === "igreja"
+            )
+
     };
+
 }
 
 
@@ -1148,6 +1186,7 @@ function prosseguirAnalise() {
 
     const pistas = verificarPistas();
 
+
     if (!pistas.todasCorretas) {
 
         alert(
@@ -1155,32 +1194,40 @@ function prosseguirAnalise() {
         );
 
         return;
+
     }
+
 
     respostasPistas.pista1 =
         document.getElementById("respostaPista1").value.trim();
 
     respostasPistas.pista2 =
-        document.getElementById("respostaPista2").value.trim();
+        document.getElementById("respostaPista4").value.trim();
 
     respostasPistas.pista3 =
-        document.getElementById("respostaPista3").value.trim();
+        document.getElementById("respostaPista2").value.trim();
 
     respostasPistas.pista4 =
-        document.getElementById("respostaPista4").value.trim();
+        document.getElementById("respostaPista3").value.trim();
+
+    respostasPistas.pista5 =
+        document.getElementById("respostaPista5").value.trim();
+
 
     document.getElementById("etapaFinalQuiz").style.display =
         "none";
 
+
     document.getElementById("assinaturaQuiz").style.display =
         "block";
+
 
     document.getElementById("assinaturaQuiz").scrollIntoView({
         behavior: "smooth",
         block: "start"
     });
-}
 
+}
 
 // =========================
 // CONFIRMAR RESPOSTAS
@@ -1266,7 +1313,9 @@ function gerarCodigo() {
         "" +
         respostasPistas.pista3.length +
         "" +
-        respostasPistas.pista4.length
+        respostasPistas.pista4.length +
+        "" +
+        respostasPistas.pista5.length
     );
 }
 
