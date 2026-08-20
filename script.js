@@ -487,20 +487,21 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /* =========================================================
-   🧪 TESTE COMPLETO — O POTE DAS DATAS
+   🫙 O POTE DAS DATAS
+   🧪 MODO TESTE — PARTE 1
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", function () {
 
     /* =====================================================
-       CONFIGURAÇÃO DO TESTE
+       MODO TESTE
     ===================================================== */
 
     const MODO_TESTE = true;
 
 
     /* =====================================================
-       ELEMENTOS
+       ELEMENTOS DO HTML
     ===================================================== */
 
     const pote =
@@ -518,17 +519,25 @@ document.addEventListener("DOMContentLoaded", function () {
     const missao =
         document.querySelector(".missao-pote");
 
-    const roletaContainer =
-        document.querySelector(".roleta-aniversario-container");
+    const botaoConcluir =
+        document.querySelector(".botao-concluir-missao");
 
-    const botaoGirar =
-        document.querySelector(".botao-girar");
+    const roletaContainer =
+        document.querySelector(
+            ".roleta-aniversario-container"
+        );
 
     const roleta =
         document.querySelector(".roleta");
 
+    const botaoGirar =
+        document.querySelector(".botao-girar");
+
     const resultado =
         document.querySelector(".resultado-roleta");
+
+    const botaoEntendi =
+        document.querySelector(".botao-entendi");
 
 
     /* =====================================================
@@ -536,63 +545,26 @@ document.addEventListener("DOMContentLoaded", function () {
     ===================================================== */
 
     const dataTeste = {
-        titulo: "DATA ESPECIAL DETECTADA",
-        data: "20 de agosto de 2026",
-        evento: "🧪 Teste completo do sistema",
-        tipo: "missao"
-    };
 
+        titulo:
+            "DATA ESPECIAL DETECTADA",
 
-    /* =====================================================
-       PRÊMIOS DA ROLETA
-    ===================================================== */
+        data:
+            "20 de agosto de 2026",
 
-    const premios = {
-
-        1: {
-            titulo: "🎬 ESCOLHER O FILME",
-            texto:
-                "Você ganhou o direito de escolher o filme que nós dois vamos assistir juntos."
-        },
-
-        2: {
-            titulo: "📍 ESCOLHER O LUGAR",
-            texto:
-                "Você ganhou o direito de escolher um lugar para nós dois irmos juntos."
-        },
-
-        3: {
-            titulo: "💋 BEIJO",
-            texto:
-                "Você ganhou o direito de escolher onde quer ganhar um beijo da sua aliada."
-        },
-
-        4: {
-            titulo: "🍔 LANCHINHO",
-            texto:
-                "Você ganhou o direito de escolher um lanche para nós dois. A conta fica por conta da sua aliada. 👀"
-        },
-
-        5: {
-            titulo: "🎁 VALE ESCOLHA",
-            texto:
-                "Você ganhou o direito de escolher alguma coisa especial para fazer com sua namorada."
-        },
-
-        6: {
-            titulo: "👀 TENTE NOVAMENTE",
-            texto:
-                "O sistema detectou uma tentativa de escapar dos seus deveres de namorado. Você ganhou uma nova chance. 😂"
-        }
+        evento:
+            "🧪 Teste completo do sistema"
 
     };
 
 
     /* =====================================================
-       ESTADO DA ROLETA
+       ESTADO DO SISTEMA
     ===================================================== */
 
-    let roletaDisponivel = true;
+    let etapaAtual = "pote";
+
+    let roletaDisponivel = false;
 
     let roletaGirando = false;
 
@@ -600,173 +572,67 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       FUNÇÃO — LIBERAR POTE
+       PRÊMIOS
     ===================================================== */
 
-    function liberarPote() {
+    const premios = {
 
-        if (!pote) return;
+        1: {
+            titulo:
+                "🎬 ESCOLHER O FILME",
 
-        pote.dataset.status =
-            "desbloqueado";
+            texto:
+                "Você ganhou o direito de escolher o filme que nós dois vamos assistir juntos."
+        },
 
-        if (statusPote) {
-            statusPote.textContent =
-                "🔓";
+        2: {
+            titulo:
+                "📍 ESCOLHER O LUGAR",
+
+            texto:
+                "Você ganhou o direito de escolher um lugar para nós dois irmos juntos."
+        },
+
+        3: {
+            titulo:
+                "💋 ESCOLHER O BEIJO",
+
+            texto:
+                "Você ganhou o direito de escolher onde quer ganhar um beijo da sua aliada."
+        },
+
+        4: {
+            titulo:
+                "🍔 ESCOLHER O LANCHINHO",
+
+            texto:
+                "Você ganhou o direito de escolher um lanche para nós dois."
+        },
+
+        5: {
+            titulo:
+                "🎁 ESCOLHA ESPECIAL",
+
+            texto:
+                "Você ganhou o direito de escolher alguma coisa especial para fazer com sua namorada."
+        },
+
+        6: {
+            titulo:
+                "👀 TENTE NOVAMENTE",
+
+            texto:
+                "O sistema decidiu que você merece uma segunda tentativa."
         }
 
-        if (botaoPote) {
-            botaoPote.disabled = false;
-            botaoPote.style.display =
-                "inline-block";
-        }
-
-    }
+    };
 
 
     /* =====================================================
-       FUNÇÃO — ABRIR POTE
+       FUNÇÃO — ESCONDER TODAS AS ETAPAS
     ===================================================== */
 
-    function abrirPote() {
-
-        if (!pote) return;
-
-        pote.classList.remove("abrindo");
-
-        void pote.offsetWidth;
-
-        pote.classList.add("abrindo");
-
-
-        /* ================================================
-           MOSTRA DATA
-        ================================================ */
-
-        if (papel) {
-
-            papel.style.display =
-                "block";
-
-            const titulo =
-                papel.querySelector(
-                    ".titulo-papel"
-                );
-
-            const h3 =
-                papel.querySelector("h3");
-
-            const frase =
-                papel.querySelector(
-                    ".frase-papel"
-                );
-
-            const conteudo =
-                papel.querySelector(
-                    ".conteudo-bilhete"
-                );
-
-
-            if (titulo) {
-                titulo.textContent =
-                    dataTeste.titulo;
-            }
-
-            if (h3) {
-                h3.textContent =
-                    dataTeste.data;
-            }
-
-            if (frase) {
-                frase.textContent =
-                    dataTeste.evento;
-            }
-
-            if (conteudo) {
-                conteudo.textContent =
-                    "Existe uma missão especial esperando por você.";
-            }
-        }
-
-
-        /* ================================================
-           MOSTRA MISSÃO
-        ================================================ */
-
-        if (missao) {
-
-            missao.style.display =
-                "block";
-
-            const tituloMissao =
-                missao.querySelector(
-                    ".titulo-papel"
-                );
-
-            const fraseMissao =
-                missao.querySelector(
-                    ".frase-papel"
-                );
-
-            const conteudoMissao =
-                missao.querySelector(
-                    ".conteudo-bilhete"
-                );
-
-
-            if (tituloMissao) {
-                tituloMissao.textContent =
-                    "MISSÃO DO TESTE";
-            }
-
-            if (fraseMissao) {
-                fraseMissao.textContent =
-                    "Preparado para descobrir o que o sistema preparou?";
-            }
-
-            if (conteudoMissao) {
-                conteudoMissao.textContent =
-                    "Depois de concluir a missão, a roleta ficará disponível.";
-            }
-
-        }
-
-
-        /* ================================================
-           MOSTRA ROLETA
-        ================================================ */
-
-        if (roletaContainer) {
-
-            roletaContainer.style.display =
-                "block";
-
-        }
-
-    }
-
-
-    /* =====================================================
-       CLIQUE NO POTE
-    ===================================================== */
-
-    if (botaoPote) {
-
-        botaoPote.addEventListener(
-            "click",
-            abrirPote
-        );
-
-    }
-
-
-    /* =====================================================
-       INICIA O TESTE
-    ===================================================== */
-
-    if (MODO_TESTE) {
-
-        liberarPote();
+    function esconderTudo() {
 
         if (papel) {
             papel.style.display =
@@ -790,146 +656,507 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-});
-/* =========================================================
-   🎡 PARTE 2 — ROLETA E PRÊMIOS
+
+    /* =====================================================
+       FUNÇÃO — PREPARAR POTE
+    ===================================================== */
+
+    function prepararPote() {
+
+        if (!pote) return;
+
+        pote.dataset.status =
+            "desbloqueado";
+
+        if (statusPote) {
+
+            statusPote.textContent =
+                "🔓";
+
+        }
+
+        if (botaoPote) {
+
+            botaoPote.disabled =
+                false;
+
+            botaoPote.style.display =
+                "inline-block";
+
+        }
+
+    }
+
+
+    /* =====================================================
+       FUNÇÃO — MOSTRAR DATA
+    ===================================================== */
+
+    function mostrarData() {
+
+        etapaAtual =
+            "data";
+
+
+        /* Garante que somente
+           a etapa da data apareça */
+
+        esconderTudo();
+
+
+        if (!papel) return;
+
+
+        papel.style.display =
+            "block";
+
+
+        const titulo =
+            papel.querySelector(
+                ".titulo-papel"
+            );
+
+        const h3 =
+            papel.querySelector("h3");
+
+        const frase =
+            papel.querySelector(
+                ".frase-papel"
+            );
+
+        const conteudo =
+            papel.querySelector(
+                ".conteudo-bilhete"
+            );
+
+        const botao =
+            papel.querySelector(
+                ".botao-acao-bilhete"
+            );
+
+
+        if (titulo) {
+
+            titulo.textContent =
+                dataTeste.titulo;
+
+        }
+
+
+        if (h3) {
+
+            h3.textContent =
+                dataTeste.data;
+
+        }
+
+
+        if (frase) {
+
+            frase.textContent =
+                dataTeste.evento;
+
+        }
+
+
+        if (conteudo) {
+
+            conteudo.textContent =
+                "Existe uma pequena missão esperando por você.";
+
+        }
+
+
+        /*
+         * O botão da data NÃO conclui
+         * a missão ainda.
+         *
+         * Ele apenas avança
+         * para a próxima etapa.
+         */
+
+        if (botao) {
+
+            botao.textContent =
+                "CONTINUAR";
+
+            botao.style.display =
+                "inline-block";
+
+        }
+
+    }
+
+
+    /* =====================================================
+       🫙 PRIMEIRO CLIQUE — ABRIR O POTE
+    ===================================================== */
+
+    if (botaoPote) {
+
+        botaoPote.addEventListener(
+            "click",
+            function () {
+
+                if (
+                    etapaAtual !==
+                    "pote"
+                ) {
+                    return;
+                }
+
+
+                if (pote) {
+
+                    pote.classList.remove(
+                        "abrindo"
+                    );
+
+                    void pote.offsetWidth;
+
+                    pote.classList.add(
+                        "abrindo"
+                    );
+
+                }
+
+
+                mostrarData();
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       INICIALIZAÇÃO DO TESTE
+    ===================================================== */
+
+    if (MODO_TESTE) {
+
+        esconderTudo();
+
+        prepararPote();
+
+    }
+    /* =========================================================
+   🫙 O POTE DAS DATAS
+   🧪 MODO TESTE — PARTE 2
 ========================================================= */
 
 
 /* =========================================================
-   FUNÇÃO — MOSTRAR ROLETA
+   🎯 MOSTRAR MISSÃO
 ========================================================= */
 
-function prepararRoleta() {
+function mostrarMissao() {
 
-    if (!roletaContainer) return;
+    etapaAtual =
+        "missao";
 
-    roletaContainer.style.display =
-        "block";
+
+    /*
+     * Esconde todas as outras etapas.
+     */
+
+    if (papel) {
+        papel.style.display =
+            "none";
+    }
+
+    if (roletaContainer) {
+        roletaContainer.style.display =
+            "none";
+    }
 
     if (resultado) {
         resultado.style.display =
             "none";
     }
 
-    roletaDisponivel = true;
 
-    roletaGirando = false;
+    /*
+     * Mostra somente a missão.
+     */
 
-    if (botaoGirar) {
-        botaoGirar.disabled = false;
-        botaoGirar.style.display =
+    if (!missao) return;
+
+    missao.style.display =
+        "block";
+
+
+    const titulo =
+        missao.querySelector(
+            ".titulo-papel"
+        );
+
+    const frase =
+        missao.querySelector(
+            ".frase-papel"
+        );
+
+    const conteudo =
+        missao.querySelector(
+            ".conteudo-bilhete"
+        );
+
+
+    if (titulo) {
+
+        titulo.textContent =
+            "MISSÃO DO DIA";
+
+    }
+
+
+    if (frase) {
+
+        frase.textContent =
+            "Preparado para cumprir sua missão?";
+
+    }
+
+
+    if (conteudo) {
+
+        conteudo.textContent =
+            "Depois de concluir esta etapa, a roleta será liberada.";
+
+    }
+
+
+    /*
+     * Garante que o botão de concluir
+     * esteja disponível.
+     */
+
+    if (botaoConcluir) {
+
+        botaoConcluir.disabled =
+            false;
+
+        botaoConcluir.style.display =
             "inline-block";
-        botaoGirar.textContent =
-            "GIRAR ROLETA";
+
+        botaoConcluir.textContent =
+            "MISSÃO CONCLUÍDA";
+
     }
 
 }
 
 
 /* =========================================================
-   FUNÇÃO — GIRAR ROLETA
+   📜 BOTÃO CONTINUAR DA DATA
 ========================================================= */
 
-function girarRoleta() {
+if (papel) {
 
-    if (!roleta) return;
+    const botaoContinuar =
+        papel.querySelector(
+            ".botao-acao-bilhete"
+        );
 
-    /* Não permite dois cliques durante o giro */
 
-    if (roletaGirando) {
-        return;
+    if (botaoContinuar) {
+
+        botaoContinuar.addEventListener(
+            "click",
+            function () {
+
+                /*
+                 * Só funciona quando
+                 * estamos na etapa da data.
+                 */
+
+                if (
+                    etapaAtual !==
+                    "data"
+                ) {
+                    return;
+                }
+
+
+                mostrarMissao();
+
+            }
+        );
+
     }
-
-
-    /* Depois de ganhar um prêmio,
-       não pode girar novamente */
-
-    if (!roletaDisponivel) {
-        return;
-    }
-
-
-    roletaGirando = true;
-
-
-    if (botaoGirar) {
-        botaoGirar.disabled = true;
-    }
-
-
-    /* =====================================================
-       SORTEIO
-    ===================================================== */
-
-    const numero =
-        Math.floor(
-            Math.random() * 6
-        ) + 1;
-
-
-    /* =====================================================
-       CADA NÚMERO OCUPA 60°
-    ===================================================== */
-
-    const grausPorNumero = 60;
-
-
-    /*
-       Faz a roleta dar várias voltas
-       antes de parar.
-    */
-
-    const voltas =
-        5 * 360;
-
-
-    /*
-       Pequena variação para o centro
-       do número sorteado ficar
-       alinhado com a seta.
-    */
-
-    const ajuste =
-        (numero - 1) *
-        grausPorNumero;
-
-
-    rotacaoAtual +=
-        voltas +
-        (360 - ajuste);
-
-
-    roleta.style.transform =
-        `translateX(-50%) rotate(${rotacaoAtual}deg)`;
-
-
-    /* =====================================================
-       ESPERA A ANIMAÇÃO TERMINAR
-    ===================================================== */
-
-    setTimeout(function () {
-
-        mostrarResultadoRoleta(numero);
-
-    }, 5100);
 
 }
 
 
 /* =========================================================
-   RESULTADO DO SORTEIO
+   🎯 BOTÃO — MISSÃO CONCLUÍDA
 ========================================================= */
 
-function mostrarResultadoRoleta(numero) {
+if (botaoConcluir) {
 
-    roletaGirando = false;
+    botaoConcluir.addEventListener(
+        "click",
+        function () {
+
+            /*
+             * Só permite avançar
+             * se estivermos na missão.
+             */
+
+            if (
+                etapaAtual !==
+                "missao"
+            ) {
+                return;
+            }
+
+
+            etapaAtual =
+                "roleta";
+
+
+            /*
+             * Esconde a missão.
+             */
+
+            if (missao) {
+
+                missao.style.display =
+                    "none";
+
+            }
+
+
+            /*
+             * Esconde qualquer
+             * resultado anterior.
+             */
+
+            if (resultado) {
+
+                resultado.style.display =
+                    "none";
+
+            }
+
+
+            /*
+             * Mostra a roleta.
+             */
+
+            if (roletaContainer) {
+
+                roletaContainer.style.display =
+                    "block";
+
+            }
+
+
+            /*
+             * Libera o primeiro giro.
+             */
+
+            roletaDisponivel =
+                true;
+
+            roletaGirando =
+                false;
+
+
+            if (botaoGirar) {
+
+                botaoGirar.disabled =
+                    false;
+
+                botaoGirar.style.display =
+                    "inline-block";
+
+                botaoGirar.textContent =
+                    "GIRAR ROLETA";
+
+            }
+
+
+            /*
+             * Leva o usuário
+             * até a roleta.
+             */
+
+            if (roletaContainer) {
+
+                setTimeout(
+                    function () {
+
+                        roletaContainer.scrollIntoView({
+                            behavior:
+                                "smooth",
+
+                            block:
+                                "center"
+                        });
+
+                    },
+                    150
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   🎡 PREPARAR ROLETA
+========================================================= */
+
+function prepararRoleta() {
+
+    if (!roletaContainer) {
+        return;
+    }
+
+
+    roletaContainer.style.display =
+        "block";
+
+
+    if (resultado
+        /* =========================================================
+   🫙 O POTE DAS DATAS
+   🧪 MODO TESTE — PARTE 3
+========================================================= */
+
+
+/* =========================================================
+   🎁 MOSTRAR RESULTADO DA ROLETA
+========================================================= */
+
+function mostrarResultado(numero) {
+
+    roletaGirando =
+        false;
 
 
     if (!resultado) {
         return;
     }
 
+
+    const premio =
+        premios[numero];
+
+
+    if (!premio) {
+        return;
+    }
+
+
+    /*
+     * Mostra o resultado somente
+     * depois que a roleta parar.
+     */
 
     resultado.style.display =
         "block";
@@ -945,9 +1172,14 @@ function mostrarResultadoRoleta(numero) {
             "h3"
         );
 
-    const descricao =
+    const descricaoResultado =
         resultado.querySelector(
             ".descricao-premio"
+        );
+
+    const avisoPrint =
+        resultado.querySelector(
+            ".aviso-print"
         );
 
 
@@ -964,17 +1196,8 @@ function mostrarResultadoRoleta(numero) {
 
 
     /* =====================================================
-       PEGA O PRÊMIO
+       TÍTULO DO PRÊMIO
     ===================================================== */
-
-    const premio =
-        premios[numero];
-
-
-    if (!premio) {
-        return;
-    }
-
 
     if (tituloResultado) {
 
@@ -984,21 +1207,34 @@ function mostrarResultadoRoleta(numero) {
     }
 
 
-    if (descricao) {
+    /* =====================================================
+       DESCRIÇÃO
+    ===================================================== */
 
-        descricao.textContent =
+    if (descricaoResultado) {
+
+        descricaoResultado.textContent =
             premio.texto;
 
     }
 
 
     /* =====================================================
-       SE CAIU NO 6
+       👀 NÚMERO 6
+       TENTE NOVAMENTE
     ===================================================== */
 
     if (numero === 6) {
 
-        roletaDisponivel = true;
+        /*
+         * O número 6 NÃO é um prêmio.
+         *
+         * Portanto o usuário pode
+         * girar novamente.
+         */
+
+        roletaDisponivel =
+            true;
 
 
         if (botaoGirar) {
@@ -1015,37 +1251,39 @@ function mostrarResultadoRoleta(numero) {
         }
 
 
-        /* Atualiza o aviso */
+        if (avisoPrint) {
 
-        const aviso =
-            resultado.querySelector(
-                ".aviso-print"
-            );
+            avisoPrint.innerHTML = `
+                <p>
+                    👀 O sistema mandou tentar novamente.
+                </p>
 
-        if (aviso) {
-
-            aviso.innerHTML =
-                `
-                <p>👀 Você não ganhou um prêmio dessa vez.</p>
                 <small>
-                    O número 6 permite uma nova tentativa.
+                    O número 6 não conta como prêmio.
                 </small>
-                `;
+            `;
 
         }
+
 
         return;
     }
 
 
     /* =====================================================
-       SE CAIU DE 1 A 5
+       🏆 NÚMEROS 1 A 5
+       PRÊMIO DEFINITIVO
     ===================================================== */
 
-    roletaDisponivel = false;
+    roletaDisponivel =
+        false;
 
 
     if (botaoGirar) {
+
+        /*
+         * Bloqueia novos giros.
+         */
 
         botaoGirar.disabled =
             true;
@@ -1056,195 +1294,17 @@ function mostrarResultadoRoleta(numero) {
     }
 
 
-    /* =====================================================
-       AVISO PARA ENVIAR PRINT
-    ===================================================== */
+    if (avisoPrint) {
 
-    const aviso =
-        resultado.querySelector(
-            ".aviso-print"
-        );
-
-
-    if (aviso) {
-
-        aviso.innerHTML =
-            `
-            <p>📸 Agora envie um print deste resultado para sua aliada.</p>
+        avisoPrint.innerHTML = `
+            <p>
+                📸 Agora envie um print deste resultado para sua aliada.
+            </p>
 
             <small>
-                O sistema registrou oficialmente o prêmio sorteado.
-            </small>
-            `;
+                O resultado foi registrado pelo sistema
 
-    }
-
-}
-
-
-/* =========================================================
-   BOTÃO GIRAR
-========================================================= */
-
-if (botaoGirar) {
-
-    botaoGirar.addEventListener(
-        "click",
-        girarRoleta
-    );
-
-}
-/* =========================================================
-   🫙 PARTE 3 — FINALIZAÇÃO DO POTE
-========================================================= */
-
-
-/* =========================================================
-   BOTÃO — CONCLUIR MISSÃO
-========================================================= */
-
-const botaoConcluir =
-    document.querySelector(
-        ".botao-concluir-missao"
-    );
-
-
-if (botaoConcluir) {
-
-    botaoConcluir.addEventListener(
-        "click",
-        function () {
-
-            /*
-             * A missão foi concluída.
-             * Agora a roleta fica disponível.
-             */
-
-            if (missao) {
-
-                missao.style.display =
-                    "none";
-
-            }
-
-
-            prepararRoleta();
-
-
-            /*
-             * Rola suavemente até a roleta.
-             */
-
-            if (roletaContainer) {
-
-                setTimeout(function () {
-
-                    roletaContainer.scrollIntoView({
-                        behavior: "smooth",
-                        block: "center"
-                    });
-
-                }, 150);
-
-            }
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   BOTÃO — ENTENDI O PRÊMIO
-========================================================= */
-
-const botaoEntendi =
-    document.querySelector(
-        ".botao-entendi"
-    );
-
-
-if (botaoEntendi) {
-
-    botaoEntendi.addEventListener(
-        "click",
-        function () {
-
-            /*
-             * O resultado continua registrado,
-             * mas o botão não permite novo sorteio.
-             */
-
-            botaoEntendi.disabled =
-                true;
-
-            botaoEntendi.textContent =
-                "RESULTADO REGISTRADO";
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   SEGURANÇA — ESCONDER RESULTADOS NO INÍCIO
-========================================================= */
-
-if (MODO_TESTE) {
-
-    if (resultado) {
-
-        resultado.style.display =
-            "none";
-
-    }
-
-    if (roletaContainer) {
-
-        roletaContainer.style.display =
-            "none";
-
-    }
-
-    if (missao) {
-
-        missao.style.display =
-            "none";
-
-    }
-
-}
-
-
-/* =========================================================
-   🧪 CONFIRMAÇÃO DO TESTE
-========================================================= */
-
-console.log(
-    "🫙 POTE DAS DATAS: MODO TESTE ATIVADO"
-);
-
-console.log(
-    "📅 Data de teste: 20/08/2026"
-);
-
-console.log(
-    "🎡 Roleta: 6 opções"
-);
-
-console.log(
-    "🔄 Número 6: pode tentar novamente"
-);
-
-console.log(
-    "🏆 Números 1–5: prêmio definitivo"
-);
-
-
-/* =========================================================
-   FIM DO SCRIPT DE TESTE
-========================================================= */
+   
 
 // =========================================================
 // FIM DA PARTE 1
