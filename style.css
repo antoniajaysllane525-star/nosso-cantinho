@@ -253,7 +253,6 @@ POTINHO DE VIDRO
     transform: rotate(2deg);
 }
 
-
 /* =========================
 PAPÉIS DENTRO DO POTE
 ========================= */
@@ -262,78 +261,120 @@ PAPÉIS DENTRO DO POTE
     position: absolute;
 
     left: 42px;
-    top: 80px;
+    top: 72px;
 
-    width: 110px;
-    height: 100px;
+    width: 108px;
+    height: 110px;
 
-    z-index: 2;
+    z-index: 4;
 }
 
 
-/* Cada papel */
+/* Cada bilhetinho */
 
 .papelzinhos span {
     position: absolute;
 
-    width: 45px;
-    height: 30px;
+    display: block;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 34px;
+    height: 48px;
 
-    background: #f5eadb;
+    background: #eee1cf;
 
-    border: 1px solid #d8c2aa;
-
-    color: #8b5e3c;
-
-    font-size: 15px;
+    border: 1px solid #d3bda4;
 
     box-shadow:
-        0 2px 5px rgba(0,0,0,0.10);
+        0 2px 4px rgba(0,0,0,0.08);
+
+    border-radius: 2px;
 }
 
 
-/* Posições */
+/* Papéis dobrados / desalinhados */
 
 .papelzinhos span:nth-child(1) {
-    left: 4px;
-    top: 25px;
-    transform: rotate(-14deg);
+    left: 8px;
+    top: 38px;
+
+    transform:
+        rotate(-18deg)
+        skewY(3deg);
 }
 
 .papelzinhos span:nth-child(2) {
-    left: 34px;
-    top: 15px;
-    transform: rotate(8deg);
+    left: 31px;
+    top: 23px;
+
+    width: 38px;
+    height: 52px;
+
+    transform:
+        rotate(9deg);
 }
 
 .papelzinhos span:nth-child(3) {
-    left: 65px;
-    top: 25px;
-    transform: rotate(-5deg);
+    left: 58px;
+    top: 40px;
+
+    width: 32px;
+    height: 45px;
+
+    transform:
+        rotate(-7deg);
 }
 
 .papelzinhos span:nth-child(4) {
-    left: 13px;
-    top: 52px;
-    transform: rotate(7deg);
+    left: 17px;
+    top: 65px;
+
+    width: 36px;
+    height: 46px;
+
+    transform:
+        rotate(8deg);
 }
 
 .papelzinhos span:nth-child(5) {
-    left: 44px;
-    top: 48px;
-    transform: rotate(-9deg);
+    left: 42px;
+    top: 66px;
+
+    width: 39px;
+    height: 49px;
+
+    transform:
+        rotate(-13deg);
 }
 
 .papelzinhos span:nth-child(6) {
-    left: 72px;
-    top: 55px;
-    transform: rotate(11deg);
+    left: 67px;
+    top: 68px;
+
+    width: 32px;
+    height: 43px;
+
+    transform:
+        rotate(14deg);
 }
 
+
+/* Pequenas dobras nos papéis */
+
+.papelzinhos span::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    width: 9px;
+    height: 9px;
+
+    background: #dfccb4;
+
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+}
 
 /* =========================
 TAMPA DO POTE
