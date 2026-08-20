@@ -487,904 +487,443 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /* =========================================================
-   🫙 O POTE DAS DATAS — PARTE 1
+   🧪 TESTE COMPLETO — O POTE DAS DATAS
 ========================================================= */
 
-/* =========================================================
-   📅 DATAS ESPECIAIS
-========================================================= */
+document.addEventListener("DOMContentLoaded", function () {
 
-const datasPote = [
+    /* =====================================================
+       CONFIGURAÇÃO DO TESTE
+    ===================================================== */
 
-    {
-        mes: 2,
-        dia: 7,
-
-        titulo: "🎂 Aniversário da Lana",
-
-        frase:
-            "Hoje é o aniversário da sua aliada.",
-
-        tipo: "missao",
-
-        missaoTitulo:
-            "🎂 MISSÃO DO DIA",
-
-        missaoFrase:
-            "Hoje a missão é fazer sua aliada sorrir.",
-
-        missaoConteudo:
-            "Parabenize sua aliada de um jeito que ela não esqueça."
-    },
-
-
-    {
-        mes: 3,
-        dia: 1,
-
-        titulo: "💋 Aniversário do primeiro beijo",
-
-        frase:
-            "O dia em que aconteceu aquele primeiro beijo.",
-
-        tipo: "missao",
-
-        missaoTitulo:
-            "💋 MISSÃO DO DIA",
-
-        missaoFrase:
-            "Hoje merece um beijo especial.",
-
-        missaoConteudo:
-            "Dê um beijo na sua aliada e aproveitem o momento juntos."
-    },
-
-
-    {
-        mes: 5,
-        dia: 9,
-
-        titulo: "❤️ Aniversário de namoro",
-
-        frase:
-            "Mais um ano desde que oficialmente viramos nós.",
-
-        tipo: "missao",
-
-        missaoTitulo:
-            "❤️ MISSÃO OBRIGATÓRIA",
-
-        missaoFrase:
-            "Essa data não pode passar em branco.",
-
-        missaoConteudo:
-            "Faça alguma coisa especial com sua namorada para comemorar vocês."
-    },
-
-
-    {
-        mes: 6,
-        dia: 12,
-
-        titulo: "💘 Dia dos Namorados",
-
-        frase:
-            "Hoje é oficialmente dia de vocês.",
-
-        tipo: "missao",
-
-        missaoTitulo:
-            "💘 MISSÃO DO DIA",
-
-        missaoFrase:
-            "Hoje vocês têm um encontro marcado.",
-
-        missaoConteudo:
-            "Escolham alguma coisa para fazer juntos."
-    },
-
-
-    {
-        mes: 7,
-        dia: 26,
-
-        titulo: "💍 Aniversário da aliança",
-
-        frase:
-            "O dia em que nosso compromisso ganhou um símbolo.",
-
-        tipo: "missao",
-
-        missaoTitulo:
-            "💍 MISSÃO DO DIA",
-
-        missaoFrase:
-            "Hoje é dia de lembrar desse compromisso.",
-
-        missaoConteudo:
-            "Tire uma foto das alianças de vocês juntos e envie para sua aliada."
-    },
-
-
-    {
-        mes: 9,
-        dia: 8,
-
-        titulo: "🎂 Aniversário do Nazareno",
-
-        frase:
-            "Hoje é o aniversário do dono deste sistema. 👀",
-
-        tipo: "roleta"
-    },
-
-
-    {
-        mes: 4,
-        dia: 13,
-
-        titulo: "💋 Dia do Beijo",
-
-        frase:
-            "Essa data praticamente se explica sozinha.",
-
-        tipo: "missao",
-
-        missaoTitulo:
-            "💋 MISSÃO DO DIA",
-
-        missaoFrase:
-            "Sua missão é dar um beijo na sua aliada.",
-
-        missaoConteudo:
-            "A quantidade fica por sua conta. 👀"
-    },
-
-
-    {
-        mes: 7,
-        dia: 20,
-
-        titulo: "🫂 Dia do Amigo",
-
-        frase:
-            "Antes de tudo, vocês também são amigos.",
-
-        tipo: "missao",
-
-        missaoTitulo:
-            "🫂 MISSÃO DO DIA",
-
-        missaoFrase:
-            "Hoje é dia de lembrar a amizade entre vocês.",
-
-        missaoConteudo:
-            "Dê um abraço demorado na sua aliada."
-    },
-
-
-    {
-        mes: 9,
-        dia: 30,
-
-        titulo: "💑 Dia do Casal",
-
-        frase:
-            "Uma data perfeitamente conveniente para vocês.",
-
-        tipo: "missao",
-
-        missaoTitulo:
-            "💑 MISSÃO DO DIA",
-
-        missaoFrase:
-            "Hoje vocês precisam fazer alguma coisa juntos.",
-
-        missaoConteudo:
-            "Escolham alguma coisa simples para fazerem só vocês dois."
-    },
-
-
-    {
-        mes: 10,
-        dia: 31,
-
-        titulo: "🎃 Halloween",
-
-        frase:
-            "Hoje a programação pode ficar um pouco suspeita. 👀",
-
-        tipo: "missao",
-
-        missaoTitulo:
-            "🎃 DOCES OU TRAVESSURAS?",
-
-        missaoFrase:
-            "Escolha seu destino.",
-
-        missaoConteudo:
-            "🍬 DOCES — compre um doce e dê para sua aliada.\n\n" +
-            "👻 TRAVESSURAS — dê um susto na sua aliada."
-    }
-
-];
-
-
-/* =========================================================
-   ❤️ MÊS-VERSÁRIO
-   Todo dia 09
-========================================================= */
-
-function obterMesVersario(data) {
-
-    const anoInicio = 2026;
-    const mesInicio = 5;
-    const diaInicio = 9;
-
-
-    if (
-        data.getFullYear() < anoInicio
-    ) {
-        return null;
-    }
-
-
-    if (
-        data.getDate() !== diaInicio
-    ) {
-        return null;
-    }
-
-
-    const meses =
-        (data.getFullYear() - anoInicio) * 12 +
-        (
-            data.getMonth() + 1 -
-            mesInicio
-        );
-
-
-    if (meses < 1) {
-        return null;
-    }
-
-
-    return meses;
-
-}
-
-
-/* =========================================================
-   🔎 VERIFICAR DATA DE HOJE
-========================================================= */
-
-function obterDataEspecial() {
-
-    const hoje = new Date();
+    const MODO_TESTE = true;
 
 
     /* =====================================================
-       ❤️ MÊS-VERSÁRIO
-    ====================================================== */
-
-    const meses =
-        obterMesVersario(hoje);
-
-
-    if (meses) {
-
-        return {
-
-            mes:
-                hoje.getMonth() + 1,
-
-            dia:
-                hoje.getDate(),
-
-            titulo:
-                "❤️ Mês-versário",
-
-            frase:
-                `Hoje completamos ${meses} ${
-                    meses === 1
-                        ? "mês"
-                        : "meses"
-                } de nós.`,
-
-            tipo:
-                "mesversario",
-
-            missaoTitulo:
-                "❤️ MISSÃO DO MÊS",
-
-            missaoFrase:
-                "Mais um mês de nós.",
-
-            missaoConteudo:
-                "Faça alguma coisa especial com sua aliada para comemorar esse mês."
-
-        };
-
-    }
-
-
-    /* =====================================================
-       📅 DATAS FIXAS
-    ====================================================== */
-
-    const mes =
-        hoje.getMonth() + 1;
-
-    const dia =
-        hoje.getDate();
-
-
-    return datasPote.find(
-        data =>
-            data.mes === mes &&
-            data.dia === dia
-    ) || null;
-
-}
-/* =========================================================
-   🫙 O POTE DAS DATAS — PARTE 2
-========================================================= */
-
-
-/* =========================================================
-   🔓 ATUALIZAR ESTADO DO POTE
-========================================================= */
-
-function atualizarPote() {
+       ELEMENTOS
+    ===================================================== */
 
     const pote =
-        document.getElementById("potinhoDatas");
+        document.querySelector(".potinho");
 
-    const status =
-        document.getElementById("statusPote");
+    const botaoPote =
+        document.querySelector(".botao-papel");
 
-    const botao =
-        document.getElementById("botaoConsultarPote");
+    const statusPote =
+        document.querySelector(".status-pote");
+
+    const papel =
+        document.querySelector(".papel-revelado");
+
+    const missao =
+        document.querySelector(".missao-pote");
+
+    const roletaContainer =
+        document.querySelector(".roleta-aniversario-container");
+
+    const botaoGirar =
+        document.querySelector(".botao-girar");
+
+    const roleta =
+        document.querySelector(".roleta");
+
+    const resultado =
+        document.querySelector(".resultado-roleta");
 
 
-    if (!pote || !status || !botao) {
-        return;
-    }
+    /* =====================================================
+       DATA DE TESTE
+    ===================================================== */
+
+    const dataTeste = {
+        titulo: "DATA ESPECIAL DETECTADA",
+        data: "20 de agosto de 2026",
+        evento: "🧪 Teste completo do sistema",
+        tipo: "missao"
+    };
 
 
-    const dataEspecial =
-        obterDataEspecial();
+    /* =====================================================
+       PRÊMIOS DA ROLETA
+    ===================================================== */
+
+    const premios = {
+
+        1: {
+            titulo: "🎬 ESCOLHER O FILME",
+            texto:
+                "Você ganhou o direito de escolher o filme que nós dois vamos assistir juntos."
+        },
+
+        2: {
+            titulo: "📍 ESCOLHER O LUGAR",
+            texto:
+                "Você ganhou o direito de escolher um lugar para nós dois irmos juntos."
+        },
+
+        3: {
+            titulo: "💋 BEIJO",
+            texto:
+                "Você ganhou o direito de escolher onde quer ganhar um beijo da sua aliada."
+        },
+
+        4: {
+            titulo: "🍔 LANCHINHO",
+            texto:
+                "Você ganhou o direito de escolher um lanche para nós dois. A conta fica por conta da sua aliada. 👀"
+        },
+
+        5: {
+            titulo: "🎁 VALE ESCOLHA",
+            texto:
+                "Você ganhou o direito de escolher alguma coisa especial para fazer com sua namorada."
+        },
+
+        6: {
+            titulo: "👀 TENTE NOVAMENTE",
+            texto:
+                "O sistema detectou uma tentativa de escapar dos seus deveres de namorado. Você ganhou uma nova chance. 😂"
+        }
+
+    };
 
 
-    if (dataEspecial) {
+    /* =====================================================
+       ESTADO DA ROLETA
+    ===================================================== */
+
+    let roletaDisponivel = true;
+
+    let roletaGirando = false;
+
+    let rotacaoAtual = 0;
+
+
+    /* =====================================================
+       FUNÇÃO — LIBERAR POTE
+    ===================================================== */
+
+    function liberarPote() {
+
+        if (!pote) return;
 
         pote.dataset.status =
             "desbloqueado";
 
-        status.textContent =
-            "🔓";
+        if (statusPote) {
+            statusPote.textContent =
+                "🔓";
+        }
 
-        botao.disabled =
-            false;
-
-    } else {
-
-        pote.dataset.status =
-            "bloqueado";
-
-        status.textContent =
-            "🔒";
-
-        botao.disabled =
-            true;
+        if (botaoPote) {
+            botaoPote.disabled = false;
+            botaoPote.style.display =
+                "inline-block";
+        }
 
     }
-
-}
-
-
-/* =========================================================
-   🫙 CONSULTAR O POTE
-========================================================= */
-
-function consultarPote() {
-
-    const dataEspecial =
-        obterDataEspecial();
-
-
-    if (!dataEspecial) {
-        return;
-    }
-
-
-    const pote =
-        document.getElementById(
-            "potinhoDatas"
-        );
-
-    const papel =
-        document.getElementById(
-            "papelRevelado"
-        );
-
-    const titulo =
-        document.getElementById(
-            "tituloDataPote"
-        );
-
-    const frase =
-        document.getElementById(
-            "fraseDataPote"
-        );
-
-    const conteudo =
-        document.getElementById(
-            "conteudoDataPote"
-        );
-
-    const botao =
-        document.getElementById(
-            "botaoAcaoPote"
-        );
-
-    const roleta =
-        document.getElementById(
-            "roletaAniversarioContainer"
-        );
 
 
     /* =====================================================
-       ✨ ANIMAÇÃO DO POTE
-    ====================================================== */
+       FUNÇÃO — ABRIR POTE
+    ===================================================== */
 
-    if (pote) {
+    function abrirPote() {
 
-        pote.classList.remove(
-            "abrindo"
-        );
+        if (!pote) return;
+
+        pote.classList.remove("abrindo");
 
         void pote.offsetWidth;
 
-        pote.classList.add(
-            "abrindo"
+        pote.classList.add("abrindo");
+
+
+        /* ================================================
+           MOSTRA DATA
+        ================================================ */
+
+        if (papel) {
+
+            papel.style.display =
+                "block";
+
+            const titulo =
+                papel.querySelector(
+                    ".titulo-papel"
+                );
+
+            const h3 =
+                papel.querySelector("h3");
+
+            const frase =
+                papel.querySelector(
+                    ".frase-papel"
+                );
+
+            const conteudo =
+                papel.querySelector(
+                    ".conteudo-bilhete"
+                );
+
+
+            if (titulo) {
+                titulo.textContent =
+                    dataTeste.titulo;
+            }
+
+            if (h3) {
+                h3.textContent =
+                    dataTeste.data;
+            }
+
+            if (frase) {
+                frase.textContent =
+                    dataTeste.evento;
+            }
+
+            if (conteudo) {
+                conteudo.textContent =
+                    "Existe uma missão especial esperando por você.";
+            }
+        }
+
+
+        /* ================================================
+           MOSTRA MISSÃO
+        ================================================ */
+
+        if (missao) {
+
+            missao.style.display =
+                "block";
+
+            const tituloMissao =
+                missao.querySelector(
+                    ".titulo-papel"
+                );
+
+            const fraseMissao =
+                missao.querySelector(
+                    ".frase-papel"
+                );
+
+            const conteudoMissao =
+                missao.querySelector(
+                    ".conteudo-bilhete"
+                );
+
+
+            if (tituloMissao) {
+                tituloMissao.textContent =
+                    "MISSÃO DO TESTE";
+            }
+
+            if (fraseMissao) {
+                fraseMissao.textContent =
+                    "Preparado para descobrir o que o sistema preparou?";
+            }
+
+            if (conteudoMissao) {
+                conteudoMissao.textContent =
+                    "Depois de concluir a missão, a roleta ficará disponível.";
+            }
+
+        }
+
+
+        /* ================================================
+           MOSTRA ROLETA
+        ================================================ */
+
+        if (roletaContainer) {
+
+            roletaContainer.style.display =
+                "block";
+
+        }
+
+    }
+
+
+    /* =====================================================
+       CLIQUE NO POTE
+    ===================================================== */
+
+    if (botaoPote) {
+
+        botaoPote.addEventListener(
+            "click",
+            abrirPote
         );
 
     }
 
 
     /* =====================================================
-       🎂 ANIVERSÁRIO DO NAZARENO
-    ====================================================== */
+       INICIA O TESTE
+    ===================================================== */
 
-    if (
-        dataEspecial.tipo ===
-        "roleta"
-    ) {
+    if (MODO_TESTE) {
+
+        liberarPote();
 
         if (papel) {
             papel.style.display =
                 "none";
         }
 
-
-        if (roleta) {
-
-            roleta.style.display =
-                "block";
-
-            roleta.scrollIntoView({
-                behavior: "smooth",
-                block: "center"
-            });
-
+        if (missao) {
+            missao.style.display =
+                "none";
         }
 
-        return;
-    }
+        if (roletaContainer) {
+            roletaContainer.style.display =
+                "none";
+        }
 
-
-    /* =====================================================
-       📅 DATA NORMAL
-    ====================================================== */
-
-    if (roleta) {
-
-        roleta.style.display =
-            "none";
+        if (resultado) {
+            resultado.style.display =
+                "none";
+        }
 
     }
 
-
-    if (papel) {
-
-        papel.style.display =
-            "block";
-
-    }
-
-
-    if (titulo) {
-
-        titulo.textContent =
-            dataEspecial.titulo;
-
-    }
-
-
-    if (frase) {
-
-        frase.textContent =
-            dataEspecial.frase;
-
-    }
-
-
-    if (conteudo) {
-
-        conteudo.textContent =
-            "Existe uma pequena missão esperando por você.";
-
-    }
-
-
-    if (botao) {
-
-        botao.textContent =
-            "ABRIR";
-
-    }
-
-
-    if (papel) {
-
-        papel.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-        });
-
-    }
-
-}
+});
+/* =========================================================
+   🎡 PARTE 2 — ROLETA E PRÊMIOS
+========================================================= */
 
 
 /* =========================================================
-   🎯 ABRIR MISSÃO
+   FUNÇÃO — MOSTRAR ROLETA
 ========================================================= */
 
-function abrirMissaoPote() {
+function prepararRoleta() {
 
-    const dataEspecial =
-        obterDataEspecial();
+    if (!roletaContainer) return;
 
-
-    if (!dataEspecial) {
-        return;
-    }
-
-
-    const missao =
-        document.getElementById(
-            "missaoPote"
-        );
-
-    const titulo =
-        document.getElementById(
-            "tituloMissaoPote"
-        );
-
-    const frase =
-        document.getElementById(
-            "fraseMissaoPote"
-        );
-
-    const conteudo =
-        document.getElementById(
-            "conteudoMissaoPote"
-        );
-
-
-    if (!missao) {
-        return;
-    }
-
-
-    titulo.textContent =
-        dataEspecial.missaoTitulo ||
-        "MISSÃO DO DIA";
-
-
-    frase.textContent =
-        dataEspecial.missaoFrase ||
-        "";
-
-
-    conteudo.textContent =
-        dataEspecial.missaoConteudo ||
-        "";
-
-
-    missao.style.display =
+    roletaContainer.style.display =
         "block";
 
-
-    missao.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-    });
-
-}
-
-
-/* =========================================================
-   ✅ CONCLUIR MISSÃO
-========================================================= */
-
-function concluirMissaoPote() {
-
-    const missao =
-        document.getElementById(
-            "missaoPote"
-        );
-
-    const pote =
-        document.getElementById(
-            "potinhoDatas"
-        );
-
-
-    if (missao) {
-
-        missao.style.display =
+    if (resultado) {
+        resultado.style.display =
             "none";
-
     }
 
+    roletaDisponivel = true;
 
-    if (pote) {
+    roletaGirando = false;
 
-        pote.dataset.status =
-            "concluido";
-
+    if (botaoGirar) {
+        botaoGirar.disabled = false;
+        botaoGirar.style.display =
+            "inline-block";
+        botaoGirar.textContent =
+            "GIRAR ROLETA";
     }
 
 }
 
 
 /* =========================================================
-   🚀 INICIAR O POTE
-========================================================= */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
-
-        atualizarPote();
-
-    }
-);
-/* =========================================================
-   🎡 O POTE DAS DATAS — PARTE 3
-   ROLETA DO ANIVERSÁRIO
-========================================================= */
-
-
-/* =========================================================
-   🎁 PRÊMIOS
-========================================================= */
-
-const premiosRoleta = {
-
-    1: {
-        titulo: "🎬 ESCOLHER O FILME",
-
-        descricao:
-            "Você escolhe o filme que nós dois vamos assistir."
-    },
-
-
-    2: {
-        titulo: "👫 ESCOLHER O LUGAR",
-
-        descricao:
-            "Você escolhe um lugar para nós dois irmos juntos."
-    },
-
-
-    3: {
-        titulo: "💋 BEIJO À SUA ESCOLHA",
-
-        descricao:
-            "Você escolhe onde quer me beijar. 👀"
-    },
-
-
-    4: {
-        titulo: "🍔 ESCOLHER O LANCHE",
-
-        descricao:
-            "Você escolhe o lanche. Eu pago."
-    },
-
-
-    5: {
-        titulo: "🎁 VOCÊ ESCOLHE O MIMO",
-
-        descricao:
-            "Você escolhe alguma coisa que gostaria de ganhar da sua aliada."
-    }
-
-};
-
-
-/* =========================================================
-   🎡 CONTROLE
-========================================================= */
-
-let roletaGirando = false;
-
-let rotacaoAtual = 0;
-
-
-/* =========================================================
-   🔒 VERIFICAR SE JÁ FOI FINALIZADA
-========================================================= */
-
-function roletaJaFinalizada() {
-
-    return (
-        localStorage.getItem(
-            "roletaAniversario2026"
-        ) !== null
-    );
-
-}
-
-
-/* =========================================================
-   🎡 GIRAR ROLETA
+   FUNÇÃO — GIRAR ROLETA
 ========================================================= */
 
 function girarRoleta() {
+
+    if (!roleta) return;
+
+    /* Não permite dois cliques durante o giro */
 
     if (roletaGirando) {
         return;
     }
 
 
-    /* Se já ganhou um prêmio, encerra */
+    /* Depois de ganhar um prêmio,
+       não pode girar novamente */
 
-    if (roletaJaFinalizada()) {
-
-        alert(
-            "Essa roleta já foi concluída. 👀"
-        );
-
-        return;
-    }
-
-
-    const roleta =
-        document.getElementById(
-            "roletaAniversario"
-        );
-
-    const botao =
-        document.getElementById(
-            "botaoGirarRoleta"
-        );
-
-    const resultado =
-        document.getElementById(
-            "resultadoRoleta"
-        );
-
-
-    if (
-        !roleta ||
-        !botao ||
-        !resultado
-    ) {
+    if (!roletaDisponivel) {
         return;
     }
 
 
     roletaGirando = true;
 
-    botao.disabled = true;
 
-    resultado.style.display = "none";
+    if (botaoGirar) {
+        botaoGirar.disabled = true;
+    }
 
 
     /* =====================================================
-       🎲 SORTEAR NÚMERO
-    ====================================================== */
+       SORTEIO
+    ===================================================== */
 
-    const numeroSorteado =
+    const numero =
         Math.floor(
             Math.random() * 6
         ) + 1;
 
 
+    /* =====================================================
+       CADA NÚMERO OCUPA 60°
+    ===================================================== */
+
     const grausPorNumero = 60;
 
-    const voltas = 5;
+
+    /*
+       Faz a roleta dar várias voltas
+       antes de parar.
+    */
+
+    const voltas =
+        5 * 360;
 
 
-    const destino =
-        (numeroSorteado - 1) *
+    /*
+       Pequena variação para o centro
+       do número sorteado ficar
+       alinhado com a seta.
+    */
+
+    const ajuste =
+        (numero - 1) *
         grausPorNumero;
 
 
-    const novaRotacao =
-        rotacaoAtual +
-        (voltas * 360) +
-        (360 - destino);
-
-
-    rotacaoAtual =
-        novaRotacao;
+    rotacaoAtual +=
+        voltas +
+        (360 - ajuste);
 
 
     roleta.style.transform =
-        `rotate(${novaRotacao}deg)`;
+        `translateX(-50%) rotate(${rotacaoAtual}deg)`;
 
 
     /* =====================================================
-       ⏳ ESPERAR A ROLETA PARAR
-    ====================================================== */
+       ESPERA A ANIMAÇÃO TERMINAR
+    ===================================================== */
 
-    setTimeout(
-        function () {
+    setTimeout(function () {
 
-            roletaGirando = false;
+        mostrarResultadoRoleta(numero);
 
-            mostrarResultadoRoleta(
-                numeroSorteado
-            );
-
-        },
-        5000
-    );
+    }, 5100);
 
 }
 
 
 /* =========================================================
-   🎁 MOSTRAR RESULTADO
+   RESULTADO DO SORTEIO
 ========================================================= */
 
 function mostrarResultadoRoleta(numero) {
 
-    const resultado =
-        document.getElementById(
-            "resultadoRoleta"
-        );
-
-    const numeroElemento =
-        document.getElementById(
-            "numeroSorteado"
-        );
-
-    const titulo =
-        document.getElementById(
-            "tituloPremio"
-        );
-
-    const descricao =
-        document.getElementById(
-            "descricaoPremio"
-        );
-
-    const avisoPrint =
-        document.getElementById(
-            "avisoPrint"
-        );
-
-    const botao =
-        document.getElementById(
-            "botaoResultado"
-        );
+    roletaGirando = false;
 
 
     if (!resultado) {
@@ -1392,130 +931,267 @@ function mostrarResultadoRoleta(numero) {
     }
 
 
-    numeroElemento.textContent =
-        numero;
-
-
-    /* =====================================================
-       👀 Nº 6 — PEGADINHA
-    ====================================================== */
-
-    if (numero === 6) {
-
-        titulo.textContent =
-            "👀 TENTE NOVAMENTE";
-
-
-        descricao.textContent =
-            "A sorte resolveu brincar com você. 😂";
-
-
-        avisoPrint.style.display =
-            "none";
-
-
-        botao.textContent =
-            "🎡 TENTAR NOVAMENTE";
-
-
-        botao.onclick =
-            function () {
-
-                resultado.style.display =
-                    "none";
-
-
-                const botaoGirar =
-                    document.getElementById(
-                        "botaoGirarRoleta"
-                    );
-
-
-                if (botaoGirar) {
-
-                    botaoGirar.disabled =
-                        false;
-
-                }
-
-
-                girarRoleta();
-
-            };
-
-    }
-
-
-    /* =====================================================
-       🏆 Nº 1–5 — PRÊMIO DEFINITIVO
-    ====================================================== */
-
-    else {
-
-        const premio =
-            premiosRoleta[numero];
-
-
-        titulo.textContent =
-            premio.titulo;
-
-
-        descricao.textContent =
-            premio.descricao;
-
-
-        avisoPrint.style.display =
-            "block";
-
-
-        /*
-           Só os números 1–5
-           encerram a roleta.
-        */
-
-        localStorage.setItem(
-            "roletaAniversario2026",
-            numero
-        );
-
-
-        botao.textContent =
-            "ENTENDI";
-
-
-        botao.onclick =
-            function () {
-
-                fecharResultadoRoleta();
-
-            };
-
-    }
-
-
     resultado.style.display =
         "block";
 
 
-    resultado.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-    });
+    const numeroResultado =
+        resultado.querySelector(
+            ".numero-sorteado span"
+        );
+
+    const tituloResultado =
+        resultado.querySelector(
+            "h3"
+        );
+
+    const descricao =
+        resultado.querySelector(
+            ".descricao-premio"
+        );
+
+
+    /* =====================================================
+       NÚMERO SORTEADO
+    ===================================================== */
+
+    if (numeroResultado) {
+
+        numeroResultado.textContent =
+            numero;
+
+    }
+
+
+    /* =====================================================
+       PEGA O PRÊMIO
+    ===================================================== */
+
+    const premio =
+        premios[numero];
+
+
+    if (!premio) {
+        return;
+    }
+
+
+    if (tituloResultado) {
+
+        tituloResultado.textContent =
+            premio.titulo;
+
+    }
+
+
+    if (descricao) {
+
+        descricao.textContent =
+            premio.texto;
+
+    }
+
+
+    /* =====================================================
+       SE CAIU NO 6
+    ===================================================== */
+
+    if (numero === 6) {
+
+        roletaDisponivel = true;
+
+
+        if (botaoGirar) {
+
+            botaoGirar.disabled =
+                false;
+
+            botaoGirar.style.display =
+                "inline-block";
+
+            botaoGirar.textContent =
+                "TENTAR NOVAMENTE";
+
+        }
+
+
+        /* Atualiza o aviso */
+
+        const aviso =
+            resultado.querySelector(
+                ".aviso-print"
+            );
+
+        if (aviso) {
+
+            aviso.innerHTML =
+                `
+                <p>👀 Você não ganhou um prêmio dessa vez.</p>
+                <small>
+                    O número 6 permite uma nova tentativa.
+                </small>
+                `;
+
+        }
+
+        return;
+    }
+
+
+    /* =====================================================
+       SE CAIU DE 1 A 5
+    ===================================================== */
+
+    roletaDisponivel = false;
+
+
+    if (botaoGirar) {
+
+        botaoGirar.disabled =
+            true;
+
+        botaoGirar.textContent =
+            "PRÊMIO SORTEADO";
+
+    }
+
+
+    /* =====================================================
+       AVISO PARA ENVIAR PRINT
+    ===================================================== */
+
+    const aviso =
+        resultado.querySelector(
+            ".aviso-print"
+        );
+
+
+    if (aviso) {
+
+        aviso.innerHTML =
+            `
+            <p>📸 Agora envie um print deste resultado para sua aliada.</p>
+
+            <small>
+                O sistema registrou oficialmente o prêmio sorteado.
+            </small>
+            `;
+
+    }
 
 }
 
 
 /* =========================================================
-   ❌ FECHAR RESULTADO
+   BOTÃO GIRAR
 ========================================================= */
 
-function fecharResultadoRoleta() {
+if (botaoGirar) {
 
-    const resultado =
-        document.getElementById(
-            "resultadoRoleta"
-        );
+    botaoGirar.addEventListener(
+        "click",
+        girarRoleta
+    );
 
+}
+/* =========================================================
+   🫙 PARTE 3 — FINALIZAÇÃO DO POTE
+========================================================= */
+
+
+/* =========================================================
+   BOTÃO — CONCLUIR MISSÃO
+========================================================= */
+
+const botaoConcluir =
+    document.querySelector(
+        ".botao-concluir-missao"
+    );
+
+
+if (botaoConcluir) {
+
+    botaoConcluir.addEventListener(
+        "click",
+        function () {
+
+            /*
+             * A missão foi concluída.
+             * Agora a roleta fica disponível.
+             */
+
+            if (missao) {
+
+                missao.style.display =
+                    "none";
+
+            }
+
+
+            prepararRoleta();
+
+
+            /*
+             * Rola suavemente até a roleta.
+             */
+
+            if (roletaContainer) {
+
+                setTimeout(function () {
+
+                    roletaContainer.scrollIntoView({
+                        behavior: "smooth",
+                        block: "center"
+                    });
+
+                }, 150);
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   BOTÃO — ENTENDI O PRÊMIO
+========================================================= */
+
+const botaoEntendi =
+    document.querySelector(
+        ".botao-entendi"
+    );
+
+
+if (botaoEntendi) {
+
+    botaoEntendi.addEventListener(
+        "click",
+        function () {
+
+            /*
+             * O resultado continua registrado,
+             * mas o botão não permite novo sorteio.
+             */
+
+            botaoEntendi.disabled =
+                true;
+
+            botaoEntendi.textContent =
+                "RESULTADO REGISTRADO";
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   SEGURANÇA — ESCONDER RESULTADOS NO INÍCIO
+========================================================= */
+
+if (MODO_TESTE) {
 
     if (resultado) {
 
@@ -1524,7 +1200,51 @@ function fecharResultadoRoleta() {
 
     }
 
+    if (roletaContainer) {
+
+        roletaContainer.style.display =
+            "none";
+
+    }
+
+    if (missao) {
+
+        missao.style.display =
+            "none";
+
+    }
+
 }
+
+
+/* =========================================================
+   🧪 CONFIRMAÇÃO DO TESTE
+========================================================= */
+
+console.log(
+    "🫙 POTE DAS DATAS: MODO TESTE ATIVADO"
+);
+
+console.log(
+    "📅 Data de teste: 20/08/2026"
+);
+
+console.log(
+    "🎡 Roleta: 6 opções"
+);
+
+console.log(
+    "🔄 Número 6: pode tentar novamente"
+);
+
+console.log(
+    "🏆 Números 1–5: prêmio definitivo"
+);
+
+
+/* =========================================================
+   FIM DO SCRIPT DE TESTE
+========================================================= */
 
 // =========================================================
 // FIM DA PARTE 1
