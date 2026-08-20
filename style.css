@@ -143,6 +143,463 @@ button:hover {
     border-color: #8b5e3c;
 }
 
+/* =========================
+365 MOTIVOS — POTINHO
+========================= */
+
+.potinho-aniversario {
+    text-align: center;
+    overflow: hidden;
+}
+
+.potinho-aniversario h2 {
+    margin-bottom: 6px;
+}
+
+.potinho-aniversario h3 {
+    color: #8b5e3c;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+POTINHO DE VIDRO
+========================= */
+
+.potinho {
+    position: relative;
+    width: 190px;
+    height: 225px;
+    margin: 35px auto 25px;
+}
+
+
+/* Tampa / borda superior */
+
+.potinho::before {
+    content: "";
+    position: absolute;
+
+    top: 25px;
+    left: 25px;
+
+    width: 140px;
+    height: 18px;
+
+    border: 2px solid #8b5e3c;
+    border-radius: 10px;
+
+    background: rgba(255,255,255,0.65);
+
+    z-index: 5;
+}
+
+
+/* Corpo de vidro */
+
+.pote-corpo {
+    position: absolute;
+
+    left: 27px;
+    top: 35px;
+
+    width: 136px;
+    height: 165px;
+
+    border: 2px solid rgba(139,94,60,0.65);
+    border-top: none;
+
+    border-radius:
+        10px
+        10px
+        35px
+        35px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.65),
+            rgba(255,255,255,0.18),
+            rgba(255,255,255,0.55)
+        );
+
+    box-shadow:
+        inset 8px 0 15px rgba(255,255,255,0.5),
+        inset -8px 0 15px rgba(139,94,60,0.05),
+        0 10px 20px rgba(0,0,0,0.10);
+
+    z-index: 3;
+}
+
+
+/* Brilho do vidro */
+
+.pote-corpo::before {
+    content: "";
+
+    position: absolute;
+
+    left: 14px;
+    top: 15px;
+
+    width: 9px;
+    height: 105px;
+
+    border-radius: 10px;
+
+    background: rgba(255,255,255,0.7);
+
+    transform: rotate(2deg);
+}
+
+
+/* =========================
+PAPÉIS DENTRO DO POTE
+========================= */
+
+.papelzinhos {
+    position: absolute;
+
+    left: 42px;
+    top: 80px;
+
+    width: 110px;
+    height: 100px;
+
+    z-index: 2;
+}
+
+
+/* Cada papel */
+
+.papelzinhos span {
+    position: absolute;
+
+    width: 45px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f5eadb;
+
+    border: 1px solid #d8c2aa;
+
+    color: #8b5e3c;
+
+    font-size: 15px;
+
+    box-shadow:
+        0 2px 5px rgba(0,0,0,0.10);
+}
+
+
+/* Posições */
+
+.papelzinhos span:nth-child(1) {
+    left: 4px;
+    top: 25px;
+    transform: rotate(-14deg);
+}
+
+.papelzinhos span:nth-child(2) {
+    left: 34px;
+    top: 15px;
+    transform: rotate(8deg);
+}
+
+.papelzinhos span:nth-child(3) {
+    left: 65px;
+    top: 25px;
+    transform: rotate(-5deg);
+}
+
+.papelzinhos span:nth-child(4) {
+    left: 13px;
+    top: 52px;
+    transform: rotate(7deg);
+}
+
+.papelzinhos span:nth-child(5) {
+    left: 44px;
+    top: 48px;
+    transform: rotate(-9deg);
+}
+
+.papelzinhos span:nth-child(6) {
+    left: 72px;
+    top: 55px;
+    transform: rotate(11deg);
+}
+
+
+/* =========================
+TAMPA DO POTE
+========================= */
+
+.pote-corpo::after {
+    content: "";
+
+    position: absolute;
+
+    top: -13px;
+    left: 5px;
+
+    width: 126px;
+    height: 18px;
+
+    border: 2px solid #8b5e3c;
+
+    border-radius: 10px;
+
+    background: rgba(255,255,255,0.55);
+}
+
+
+/* =========================
+PEQUENA ETIQUETA
+========================= */
+
+.potinho::after {
+    content: "NAZARENO";
+
+    position: absolute;
+
+    left: 48px;
+    top: 128px;
+
+    width: 94px;
+    padding: 5px 0;
+
+    background: #f5eadb;
+
+    border: 1px solid #d8c2aa;
+
+    color: #8b5e3c;
+
+    font-family: Georgia, serif;
+
+    font-size: 10px;
+    letter-spacing: 2px;
+
+    z-index: 6;
+
+    box-shadow:
+        0 2px 5px rgba(0,0,0,0.08);
+}
+
+
+/* =========================
+BOTÃO
+========================= */
+
+.botao-papel {
+    margin-top: 5px;
+
+    padding: 12px 23px;
+
+    border: 1px solid #8b5e3c;
+    border-radius: 25px;
+
+    background: transparent;
+
+    color: #8b5e3c;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.2s ease;
+}
+
+.botao-papel:hover {
+    background: #8b5e3c;
+    color: white;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+PAPEL REVELADO
+========================= */
+
+.papel-revelado {
+    position: relative;
+
+    max-width: 430px;
+
+    margin: 32px auto 15px;
+
+    padding: 30px 24px;
+
+    background: #f5eadb;
+
+    border: 1px solid #d8c2aa;
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.10);
+
+    animation:
+        abrirPapel
+        0.55s
+        ease;
+}
+
+
+/* Efeito de papel */
+
+.papel-revelado::before {
+    content: "";
+
+    position: absolute;
+
+    top: -5px;
+    left: 8px;
+    right: 8px;
+
+    height: 8px;
+
+    background: #f5eadb;
+
+    transform: rotate(-0.5deg);
+}
+
+
+.titulo-papel {
+    margin-bottom: 15px;
+
+    color: #8b5e3c;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+}
+
+
+.frase-papel {
+    margin: 0 auto 22px;
+
+    color: #4b3628;
+
+    font-family: Georgia, serif;
+
+    font-size: 19px;
+
+    line-height: 1.7;
+}
+
+
+/* Botão outro papel */
+
+.papel-revelado button {
+    padding: 9px 19px;
+
+    border: none;
+    border-radius: 20px;
+
+    background: #8b5e3c;
+
+    color: white;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease;
+}
+
+.papel-revelado button:hover {
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+FRASE FINAL
+========================= */
+
+.frase-final-potinho {
+    max-width: 430px;
+
+    margin: 30px auto 5px;
+
+    color: #777;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    font-style: italic;
+}
+
+
+/* =========================
+ANIMAÇÃO DO PAPEL
+========================= */
+
+@keyframes abrirPapel {
+
+    0% {
+        opacity: 0;
+        transform:
+            translateY(25px)
+            rotate(-4deg)
+            scale(0.96);
+    }
+
+    60% {
+        opacity: 1;
+        transform:
+            translateY(-4px)
+            rotate(1deg)
+            scale(1.01);
+    }
+
+    100% {
+        opacity: 1;
+        transform:
+            translateY(0)
+            rotate(0)
+            scale(1);
+    }
+
+}
+
+
+/* =========================
+CELULAR
+========================= */
+
+@media (max-width: 600px) {
+
+    .potinho {
+        transform: scale(0.9);
+        margin-top: 25px;
+        margin-bottom: 15px;
+    }
+
+    .papel-revelado {
+        margin-left: 8px;
+        margin-right: 8px;
+
+        padding: 25px 18px;
+    }
+
+    .frase-papel {
+        font-size: 17px;
+    }
+
+}
+
 /* ===== CONTADOR ===== */
 
 .texto-contador{
