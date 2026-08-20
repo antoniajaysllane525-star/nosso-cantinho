@@ -714,6 +714,356 @@ CELULAR
 
 }
 
+/* =========================================================
+   🫙 POTE DAS DATAS
+========================================================= */
+
+.pote-datas {
+    width: 100%;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.pote-box {
+    max-width: 850px;
+    margin: auto;
+}
+
+.pote-subtitulo {
+    display: block;
+    margin-bottom: 10px;
+
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+
+    color: #8b5e3c;
+}
+
+.pote-box h2 {
+    margin: 0 0 45px;
+
+    font-family: "Playfair Display", serif;
+    font-size: 38px;
+    font-weight: 500;
+
+    color: #3f3025;
+}
+
+
+/* =========================================================
+   ÁREA DO POTE
+========================================================= */
+
+.pote-area {
+    position: relative;
+
+    width: 270px;
+    height: 350px;
+
+    margin: 0 auto 30px;
+}
+
+
+/* =========================================================
+   TAMPA
+========================================================= */
+
+.pote-tampa {
+    position: absolute;
+
+    z-index: 5;
+
+    top: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 205px;
+    height: 45px;
+
+    border-radius: 9px 9px 5px 5px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #9a6946,
+            #70482e
+        );
+
+    border: 2px solid #5d3b27;
+
+    box-shadow:
+        0 7px 10px rgba(0, 0, 0, .20);
+
+    transition:
+        transform .6s ease,
+        top .6s ease;
+}
+
+
+/* =========================================================
+   POTE DE VIDRO
+========================================================= */
+
+.pote-vidro {
+    position: absolute;
+
+    bottom: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 235px;
+    height: 315px;
+
+    overflow: hidden;
+
+    border: 3px solid rgba(139, 94, 60, .55);
+
+    border-radius:
+        28px
+        28px
+        45px
+        45px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, .28),
+            rgba(255, 255, 255, .06) 25%,
+            rgba(139, 94, 60, .07) 70%,
+            rgba(255, 255, 255, .22)
+        );
+
+    box-shadow:
+        inset 15px 0 25px rgba(255, 255, 255, .22),
+        inset -15px 0 25px rgba(139, 94, 60, .08),
+        0 20px 35px rgba(50, 30, 15, .18);
+}
+
+
+/* =========================================================
+   ✨ BRILHO DO VIDRO
+========================================================= */
+
+.brilho-vidro {
+    position: absolute;
+
+    z-index: 6;
+
+    top: 15px;
+    left: 18px;
+
+    width: 25px;
+    height: 220px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, .45),
+            rgba(255, 255, 255, 0)
+        );
+
+    opacity: .55;
+
+    transform: rotate(4deg);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   📝 BILHETINHOS
+========================================================= */
+
+.bilhete {
+    position: absolute;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 60px;
+    height: 48px;
+
+    background: #e8d3b9;
+
+    color: #8b5e3c;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 10px;
+
+    letter-spacing: .5px;
+
+    box-shadow:
+        0 4px 7px rgba(50, 30, 15, .18);
+
+    transition:
+        transform .5s ease,
+        box-shadow .5s ease;
+}
+
+
+/* =========================================================
+   POSIÇÕES DOS BILHETINHOS
+========================================================= */
+
+.b1 {
+    left: 20px;
+    bottom: 35px;
+
+    transform: rotate(-17deg);
+}
+
+.b2 {
+    left: 72px;
+    bottom: 25px;
+
+    transform: rotate(8deg);
+}
+
+.b3 {
+    left: 125px;
+    bottom: 32px;
+
+    transform: rotate(-5deg);
+}
+
+.b4 {
+    right: 15px;
+    bottom: 42px;
+
+    transform: rotate(15deg);
+}
+
+.b5 {
+    left: 38px;
+    bottom: 88px;
+
+    transform: rotate(12deg);
+}
+
+.b6 {
+    left: 100px;
+    bottom: 78px;
+
+    transform: rotate(-14deg);
+}
+
+.b7 {
+    right: 30px;
+    bottom: 95px;
+
+    transform: rotate(7deg);
+}
+
+.b8 {
+    left: 72px;
+    bottom: 125px;
+
+    transform: rotate(-8deg);
+}
+
+
+/* =========================================================
+   💌 BILHETE ESPECIAL
+========================================================= */
+
+.bilhete-especial {
+    position: absolute;
+
+    z-index: 4;
+
+    left: 50%;
+    top: 58px;
+
+    transform:
+        translateX(-50%)
+        rotate(-4deg);
+
+    width: 110px;
+    min-height: 75px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px;
+
+    box-sizing: border-box;
+
+    background: #f0dfc8;
+
+    color: #70482e;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+
+    box-shadow:
+        0 6px 12px rgba(50, 30, 15, .20);
+
+    transition:
+        top .7s ease,
+        transform .7s ease,
+        opacity .4s ease,
+        box-shadow .7s ease;
+}
+
+
+/* =========================================================
+   🔒 STATUS
+========================================================= */
+
+.pote-status {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 9px 20px;
+
+    border-radius: 30px;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   🔒 BLOQUEADO
+========================================================= */
+
+.pote-status.bloqueado {
+    color: #777;
+
+    background:
+        rgba(0, 0, 0, .04);
+
+    border:
+        1px solid rgba(0, 0, 0, .12);
+}
+
+
+/* =========================================================
+   🔓 DESBLOQUEADO
+========================================================= */
+
+.pote-status.desbloqueado {
+    color: #8
+
 /* =========================
    QUIZ INTERATIVO
 ========================= */
