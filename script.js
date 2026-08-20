@@ -916,6 +916,431 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+// =========================================================
+// 🫙 POTE DAS DATAS
+// =========================================================
+
+const DATA_INICIO_NAMORO = new Date("2026-05-09T00:00:00");
+
+// =========================================================
+// 📅 DATAS ESPECIAIS ANUAIS
+// =========================================================
+
+const datasEspeciais = {
+
+    "01/03": {
+        tipo: "DATA ESPECIAL",
+        titulo: "ANIVERSÁRIO DO NOSSO PRIMEIRO BEIJO",
+        missao: "Hoje é dia de lembrar do começo de uma das partes mais bonitas da nossa história."
+    },
+
+    "07/02": {
+        tipo: "ANIVERSÁRIO",
+        titulo: "ANIVERSÁRIO DELA",
+        missao: "Hoje não existe desculpa: faça alguma coisa que deixe o dia dela mais especial."
+    },
+
+    "08/09": {
+        tipo: "ANIVERSÁRIO",
+        titulo: "SEU ANIVERSÁRIO",
+        missao: "O sistema identificou uma data de prioridade máxima. Providências imediatas são recomendadas."
+    },
+
+    "26/07": {
+        tipo: "DATA ESPECIAL",
+        titulo: "ANIVERSÁRIO DA NOSSA ALIANÇA",
+        missao: "Olhe para a sua aliança e lembre do dia em que esse símbolo passou a fazer parte da nossa história."
+    },
+
+    "12/06": {
+        tipo: "DATA COMEMORATIVA",
+        titulo: "DIA DOS NAMORADOS",
+        missao: "Hoje é uma ótima oportunidade para fazer alguma coisa especial pela sua namorada."
+    },
+
+    "25/12": {
+        tipo: "DATA COMEMORATIVA",
+        titulo: "NATAL",
+        missao: "Uma data especial merece um gesto especial. Escolha uma forma de tornar o dia mais bonito."
+    },
+
+    "31/12": {
+        tipo: "DATA COMEMORATIVA",
+        titulo: "ÚLTIMO DIA DO ANO",
+        missao: "Antes de terminar o ano, escolha uma memória nossa que você gostaria de levar para o próximo."
+    },
+
+    "01/01": {
+        tipo: "DATA COMEMORATIVA",
+        titulo: "PRIMEIRO DIA DO ANO",
+        missao: "Comece o ano fazendo alguma coisa que você queira repetir muitas vezes comigo."
+    }
+
+};
+
+
+// =========================================================
+// ❤️ MÊS-VERSÁRIO
+// Todo dia 9 recebe prioridade sobre as datas comuns
+// =========================================================
+
+function obterMesversario(data) {
+
+    const anoInicio = DATA_INICIO_NAMORO.getFullYear();
+    const mesInicio = DATA_INICIO_NAMORO.getMonth();
+
+    const anoAtual = data.getFullYear();
+    const mesAtual = data.getMonth();
+
+    let meses =
+        (anoAtual - anoInicio) * 12 +
+        (mesAtual - mesInicio);
+
+    // Só considera mês-versário a partir do dia 9
+    if (data.getDate() !== 9 || meses < 1) {
+        return null;
+    }
+
+    return meses;
+}
+
+
+// =========================================================
+// 📅 FORMATAR DATA
+// =========================================================
+
+function formatarData(data) {
+
+    return data.toLocaleDateString("pt-BR", {
+        day: "2-digit",
+        month: "long"
+    }).toUpperCase();
+
+}
+
+
+// =========================================================
+// 🔎 IDENTIFICAR A DATA DE HOJE
+// =========================================================
+
+function identificarDataEspecial() {
+
+    const hoje = new Date();
+
+    const dia = String(hoje.getDate()).padStart(2, "0");
+    const mes = String(hoje.getMonth() + 1).padStart(2, "0");
+
+    const chave = `${dia}/${mes}`;
+
+    // -----------------------------------------------------
+    // ❤️ MÊS-VERSÁRIO TEM PRIORIDADE
+    // -----------------------------------------------------
+
+    const mesversario = obterMesversario(hoje);
+
+    if (mesversario) {
+
+        return {
+
+            tipo: "MÊS-VERSÁRIO",
+            titulo: `${mesversario} ${mesversario === 1 ? "MÊS" : "MESES"} DE NÓS`,
+            missao:
+                `Hoje completamos ${mesversario} ${mesversario === 1 ? "mês" : "meses"} juntos. ` +
+                `Essa data merece ser lembrada.`
+
+        };
+
+    }
+
+
+    // -----------------------------------------------------
+    // 📅 DATA CADASTRADA
+    // -----------------------------------------------------
+
+    if (datasEspeciais[chave]) {
+
+        return datasEspeciais[chave];
+
+    }
+
+
+    // -----------------------------------------------------
+    // NENHUMA DATA
+    // -----------------------------------------------------
+
+    return null;
+}
+
+
+// =========================================================
+// 🫙 ELEMENTOS DO POTE
+// =========================================================
+
+const poteBloqueado =
+    document.getElementById("poteBloqueado");
+
+const poteDesbloqueado =
+    document.getElementById("poteDesbloqueado");
+
+const abrirPote =
+    document.getElementById("abrirPote");
+
+const dataEspecial =
+    document.getElementById("dataEspecial");
+
+const tipoData =
+    document.getElementById("tipoData");
+
+const dataAtual =
+    document.getElementById("dataAtual");
+
+const tituloData =
+    document.getElementById("tituloData");
+
+const textoMissao =
+    document.getElementById("textoMissao");
+
+const missao =
+    document.getElementById("missao");
+
+const concluirMissao =
+    document.getElementById("concluirMissao");
+
+
+// =========================================================
+// 🔒 BLOQUEAR POTE
+// =========================================================
+
+function bloquearPote() {
+
+    if (!poteBloqueado) return;
+
+    poteBloqueado.classList.remove("hidden");
+
+    if (poteDesbloqueado) {
+        poteDesbloqueado.classList.add("hidden");
+    }
+
+    if (abrirPote) {
+        abrirPote.disabled = true;
+    }
+
+}
+
+
+// =========================================================
+// 🔓 DESBLOQUEAR POTE
+// =========================================================
+
+function desbloquearPote() {
+
+    if (!poteDesbloqueado) return;
+
+    poteDesbloqueado.classList.remove("hidden");
+
+    if (poteBloqueado) {
+        poteBloqueado.classList.add("hidden");
+    }
+
+    if (abrirPote) {
+        abrirPote.disabled = false;
+    }
+
+}
+
+
+// =========================================================
+// 🫙 ABRIR O POTE
+// =========================================================
+
+function abrirDataDoPote() {
+
+    const data = identificarDataEspecial();
+
+    if (!data) return;
+
+    const hoje = new Date();
+
+    if (tipoData) {
+        tipoData.textContent = data.tipo;
+    }
+
+    if (dataAtual) {
+        dataAtual.textContent = formatarData(hoje);
+    }
+
+    if (tituloData) {
+        tituloData.textContent = data.titulo;
+    }
+
+    if (textoMissao) {
+        textoMissao.textContent = data.missao;
+    }
+
+    if (dataEspecial) {
+        dataEspecial.classList.remove("hidden");
+    }
+
+    if (missao) {
+        missao.classList.remove("hidden");
+    }
+
+}
+
+
+// =========================================================
+// ✅ CONCLUIR MISSÃO
+// =========================================================
+
+function concluirMissaoDoDia() {
+
+    const hoje = new Date();
+
+    const chaveConclusao =
+        `poteConcluido_${hoje.getFullYear()}_${hoje.getMonth() + 1}_${hoje.getDate()}`;
+
+    localStorage.setItem(chaveConclusao, "true");
+
+    if (dataEspecial) {
+        dataEspecial.classList.add("hidden");
+    }
+
+    bloquearPote();
+
+}
+
+
+// =========================================================
+// 🔎 VERIFICAR SE JÁ FOI CONCLUÍDO HOJE
+// =========================================================
+
+function missaoJaConcluidaHoje() {
+
+    const hoje = new Date();
+
+    const chave =
+        `poteConcluido_${hoje.getFullYear()}_${hoje.getMonth() + 1}_${hoje.getDate()}`;
+
+    return localStorage.getItem(chave) === "true";
+
+}
+
+
+// =========================================================
+// 🚀 INICIALIZAR POTE
+// =========================================================
+
+function inicializarPote() {
+
+    const data = identificarDataEspecial();
+
+    if (!data) {
+
+        bloquearPote();
+        return;
+
+    }
+
+    if (missaoJaConcluidaHoje()) {
+
+        bloquearPote();
+        return;
+
+    }
+
+    desbloquearPote();
+
+}
+
+
+// =========================================================
+// 🖱️ EVENTOS
+// =========================================================
+
+if (abrirPote) {
+
+    abrirPote.addEventListener("click", () => {
+
+        abrirDataDoPote();
+
+    });
+
+}
+
+
+if (concluirMissao) {
+
+    concluirMissao.addEventListener("click", () => {
+
+        concluirMissaoDoDia();
+
+    });
+
+}
+
+
+// =========================================================
+// 🔔 NOTIFICAÇÕES
+// =========================================================
+
+const ativarNotificacoes =
+    document.getElementById("ativarNotificacoes");
+
+const statusNotificacoes =
+    document.getElementById("statusNotificacoes");
+
+
+if (ativarNotificacoes) {
+
+    ativarNotificacoes.addEventListener("click", async () => {
+
+        if (!("Notification" in window)) {
+
+            if (statusNotificacoes) {
+                statusNotificacoes.textContent =
+                    "Este navegador não oferece suporte a notificações.";
+            }
+
+            return;
+        }
+
+        const permissao =
+            await Notification.requestPermission();
+
+        if (permissao === "granted") {
+
+            if (statusNotificacoes) {
+                statusNotificacoes.textContent =
+                    "Notificações ativadas ✓";
+            }
+
+            new Notification("🫙 Pote das Datas", {
+                body: "O sistema está autorizado a lembrar você das datas importantes."
+            });
+
+        } else {
+
+            if (statusNotificacoes) {
+                statusNotificacoes.textContent =
+                    "As notificações permanecem desativadas.";
+            }
+
+        }
+
+    });
+
+}
+
+
+// =========================================================
+// INICIAR
+// =========================================================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    inicializarPote();
+
+});
 
 // =========================================================
 // FIM DA PARTE 1
