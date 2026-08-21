@@ -820,7 +820,735 @@ CONTADOR
 
 </section>
 
+<!-- =====================================================
+     🧪 PAINEL DE TESTE
+====================================================== -->
 
+<section class="painel-teste">
+
+    <strong>🧪 MODO DE TESTE</strong>
+
+    <p>
+        Esta área serve somente para testar
+        o funcionamento do sistema.
+    </p>
+
+    <div class="botoes-teste">
+
+        <button
+            id="teste-normal"
+            type="button"
+        >
+            🎂 Testar data
+        </button>
+
+        <button
+            id="teste-final"
+            type="button"
+        >
+            🔑 Testar final
+        </button>
+
+        <button
+            id="teste-reset"
+            type="button"
+        >
+            🔄 Reiniciar teste
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     🫙 POTE DAS DATAS
+====================================================== -->
+
+<section
+    id="pote-section"
+    class="pote-section"
+>
+
+    <div class="titulo-pote">
+
+        <div class="icone-pote">
+            🫙
+        </div>
+
+        <h1>
+            O Pote das Datas
+        </h1>
+
+        <p>
+            Um bilhete por vez.
+            Uma descoberta por vez.
+        </p>
+
+    </div>
+
+
+    <div class="pote-area">
+
+        <div class="pote">
+
+            <div class="pote-tampa"></div>
+
+            <div class="bilhetes-pote">
+
+                <span>💌</span>
+                <span>💌</span>
+                <span>💌</span>
+                <span>💌</span>
+                <span>💌</span>
+                <span>💌</span>
+
+            </div>
+
+            <div class="pote-corpo"></div>
+
+        </div>
+
+
+        <p
+            id="status-pote"
+            class="status-pote"
+        >
+            Pote aguardando...
+        </p>
+
+
+        <button
+            id="btn-abrir-pote"
+            class="botao-principal"
+            type="button"
+        >
+            ABRIR POTE
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     💌 BILHETE 1
+====================================================== -->
+
+<section
+    id="bilhete-1"
+    class="bilhete-container oculto"
+>
+
+    <article class="bilhete">
+
+        <div
+            id="bilhete-emoji"
+            class="bilhete-emoji"
+        >
+            🎂
+        </div>
+
+
+        <div
+            id="bilhete-data"
+            class="bilhete-data"
+        >
+            08/09
+        </div>
+
+
+        <h2 id="bilhete-titulo">
+            Aniversário dele
+        </h2>
+
+
+        <p
+            id="bilhete-frase"
+            class="bilhete-frase"
+        >
+            Hoje o sistema é todo seu.
+        </p>
+
+
+        <div class="missao-box">
+
+            <span class="missao-titulo">
+                🎯 MISSÃO
+            </span>
+
+            <p id="bilhete-missao">
+                Fica determinada a missão especial
+                de aniversário.
+            </p>
+
+        </div>
+
+
+        <div
+            id="elemento-especial"
+            class="elemento-especial"
+        >
+        </div>
+
+
+        <button
+            id="btn-descobrir"
+            class="botao-principal"
+            type="button"
+        >
+            DESCOBRIR
+        </button>
+
+    </article>
+
+</section>
+
+
+<!-- =====================================================
+     💌 BILHETE 2
+====================================================== -->
+
+<section
+    id="bilhete-2"
+    class="bilhete-container oculto"
+>
+
+    <article class="bilhete">
+
+        <div class="bilhete-emoji">
+            ✉️
+        </div>
+
+
+        <div
+            id="acao-conteudo"
+            class="acao-conteudo"
+        >
+        </div>
+
+
+        <div
+            id="area-escolha"
+            class="area-escolha"
+        >
+
+            <label>
+                SUA ESCOLHA
+            </label>
+
+            <input
+                id="campo-escolha"
+                type="text"
+                placeholder="Escreva aqui..."
+            >
+
+        </div>
+
+
+        <button
+            id="btn-confirmar"
+            class="botao-principal"
+            type="button"
+        >
+            CONFIRMAR
+        </button>
+
+
+        <div
+            id="conclusao"
+            class="conclusao oculto"
+        >
+
+            <div class="conclusao-icone">
+                ✓
+            </div>
+
+            <h3>
+                MISSÃO CONCLUÍDA
+            </h3>
+
+            <p>
+                Registro devidamente realizado.
+            </p>
+
+        </div>
+
+
+        <button
+            id="btn-seguir-caminho"
+            class="botao-principal oculto"
+            type="button"
+        >
+            SEGUIR O CAMINHO
+        </button>
+
+    </article>
+
+</section>
+
+
+<!-- =====================================================
+     🌌 GALÁXIA / CAMINHO
+====================================================== -->
+
+<section
+    id="mapa-section"
+    class="mapa-section oculto"
+>
+
+    <div class="mapa-titulo">
+
+        <span class="icone-universo">
+            🌌
+        </span>
+
+        <h2>
+            O Caminho
+        </h2>
+
+        <p>
+            Algumas coisas só aparecem
+            quando chega a hora.
+        </p>
+
+    </div>
+
+
+    <!-- =================================================
+         ❤️ CORAÇÃO
+    ================================================== -->
+
+    <div class="coracao-area">
+
+        <div class="coracao">
+
+            <svg
+                class="coracao-svg"
+                viewBox="0 0 200 180"
+            >
+
+                <defs>
+
+                    <clipPath id="clip-coracao">
+
+                        <path
+                            d="
+                            M100 170
+                            C85 155 20 112 20 58
+                            C20 25 42 8 68 8
+                            C84 8 96 17 100 32
+                            C104 17 116 8 132 8
+                            C158 8 180 25 180 58
+                            C180 112 115 155 100 170
+                            Z
+                            "
+                        />
+
+                    </clipPath>
+
+                </defs>
+
+
+                <!-- coração vazio -->
+
+                <path
+                    class="coracao-vazio"
+                    d="
+                    M100 170
+                    C85 155 20 112 20 58
+                    C20 25 42 8 68 8
+                    C84 8 96 17 100 32
+                    C104 17 116 8 132 8
+                    C158 8 180 25 180 58
+                    C180 112 115 155 100 170
+                    Z
+                    "
+                />
+
+
+                <!-- preenchimento do coração -->
+
+                <rect
+                    id="preenchimento-coracao"
+                    class="preenchimento-coracao"
+                    x="0"
+                    y="180"
+                    width="200"
+                    height="180"
+                    clip-path="url(#clip-coracao)"
+                />
+
+            </svg>
+
+
+            <div class="porcentagem">
+
+                <strong id="porcentagem">
+                    0%
+                </strong>
+
+                <span>
+                    do caminho
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <p class="frase-coracao">
+
+            Quero continuar amando você
+            a cada batida do meu coração.
+
+        </p>
+
+    </div>
+
+
+    <!-- =================================================
+         🌌 UNIVERSO
+    ================================================== -->
+
+    <div
+        id="universo"
+        class="universo"
+    >
+
+        <!-- estrelas decorativas -->
+
+        <div
+            class="estrelas-decorativas"
+            aria-hidden="true"
+        >
+
+            <span>·</span>
+            <span>✦</span>
+            <span>·</span>
+            <span>✧</span>
+            <span>·</span>
+            <span>✦</span>
+            <span>·</span>
+            <span>·</span>
+            <span>✧</span>
+            <span>·</span>
+            <span>✦</span>
+            <span>·</span>
+            <span>✧</span>
+            <span>·</span>
+            <span>✦</span>
+            <span>·</span>
+
+        </div>
+
+
+        <!-- estrelas criadas pelo JavaScript -->
+
+        <div
+            id="estrelas-mapa"
+            class="estrelas-mapa"
+        >
+        </div>
+
+
+        <!-- chave escondida -->
+
+        <div
+            id="chave-final"
+            class="chave-final oculto"
+        >
+            🔑
+        </div>
+
+
+        <!-- cadeado escondido -->
+
+        <div
+            id="cadeado-final"
+            class="cadeado-final oculto"
+        >
+            🔒
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         🎂 FINAL
+    ================================================== -->
+
+    <section
+        id="final-aniversario"
+        class="final-aniversario oculto"
+    >
+
+        <div class="final-icone">
+            ✨
+        </div>
+
+
+        <div class="final-porcentagem">
+            100%
+        </div>
+
+
+        <h2>
+            A DÁDIVA FOI ALCANÇADA
+        </h2>
+
+
+        <p>
+            A chave encontrou o seu cadeado.
+        </p>
+
+
+        <button
+            id="btn-dadiva"
+            class="botao-principal"
+            type="button"
+        >
+            🎁 ABRIR DÁDIVA
+        </button>
+
+    </section>
+
+
+    <!-- =================================================
+         🎁 DÁDIVA
+    ================================================== -->
+
+    <section
+        id="dadiva"
+        class="dadiva oculto"
+    >
+
+        <div class="dadiva-box">
+
+            <div class="dadiva-icone">
+                🎁
+            </div>
+
+            <h2>
+                Uma surpresa para você.
+            </h2>
+
+            <p>
+                O caminho terminou.
+                A história, não.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         🎡 ROLETA
+    ================================================== -->
+
+    <section
+        id="roleta"
+        class="roleta oculto"
+    >
+
+        <div class="roleta-topo">
+
+            <span>
+                🎡
+            </span>
+
+            <h2>
+                MISSÃO ESPECIAL
+            </h2>
+
+            <p>
+                Hoje o sistema é todo seu.
+            </p>
+
+        </div>
+
+
+        <!-- =================================================
+             ROLETA VISUAL
+        ================================================== -->
+
+        <div class="roleta-container">
+
+            <!-- SETA -->
+
+            <div class="seta-roleta">
+                ▼
+            </div>
+
+
+            <!-- CÍRCULO DA ROLETA -->
+
+            <div
+                id="roleta-circulo"
+                class="roleta-circulo"
+            >
+
+                <div
+                    class="numero-roleta numero-1"
+                >
+                    1
+                </div>
+
+                <div
+                    class="numero-roleta numero-2"
+                >
+                    2
+                </div>
+
+                <div
+                    class="numero-roleta numero-3"
+                >
+                    3
+                </div>
+
+                <div
+                    class="numero-roleta numero-4"
+                >
+                    4
+                </div>
+
+                <div
+                    class="numero-roleta numero-5"
+                >
+                    5
+                </div>
+
+                <div
+                    class="numero-roleta numero-6"
+                >
+                    6
+                </div>
+
+                <div class="centro-roleta">
+                    ❤️
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             BOTÃO GIRAR
+        ================================================== -->
+
+        <button
+            id="btn-girar-roleta"
+            class="botao-principal"
+            type="button"
+        >
+            🎡 GIRAR ROLETA
+        </button>
+
+
+        <!-- =================================================
+             RESULTADO SÓ APARECE DEPOIS QUE PARAR
+        ================================================== -->
+
+        <button
+            id="btn-mostrar-resultado"
+            class="botao-principal oculto"
+            type="button"
+        >
+            ✨ MOSTRAR RESULTADO
+        </button>
+
+
+        <!-- =================================================
+             RESULTADO DA PREMIAÇÃO
+        ================================================== -->
+
+        <div
+            id="resultado-roleta"
+            class="resultado-roleta oculto"
+        >
+
+            <div class="resultado-icone">
+                🎁
+            </div>
+
+
+            <h2>
+                RESULTADO DA PREMIAÇÃO
+            </h2>
+
+
+            <p>
+                A roleta parou no número:
+            </p>
+
+
+            <div
+                id="numero-premio"
+                class="numero-premio"
+            >
+                —
+            </div>
+
+
+            <h3 id="nome-premio">
+                —
+            </h3>
+
+
+            <p id="descricao-premio">
+                —
+            </p>
+
+
+            <!-- =================================================
+                 PRINT
+            ================================================== -->
+
+            <div class="print-premio">
+
+                <strong>
+                    📸 REGISTRO DA PREMIAÇÃO
+                </strong>
+
+                <p>
+                    Você ganhou esse prêmio.
+                </p>
+
+                <p>
+                    Agora tire um print desta tela
+                    e me envie para eu liberar
+                    a sua premiação na vida real. ❤️
+                </p>
+
+                <p>
+                    <strong>
+                        O print é a comprovação oficial
+                        da vitória.
+                    </strong>
+                </p>
+
+            </div>
+
+
+            <!-- =================================================
+                 TENTE NOVAMENTE
+            ================================================== -->
+
+            <button
+                id="btn-tentar-novamente"
+                class="botao-principal oculto"
+                type="button"
+            >
+                🔄 TENTAR NOVAMENTE
+            </button>
+
+        </div>
+
+    </section>
+
+</section>
 
   <!-- =========================
 ADITIVO AO CONTRATO DE NAMORO
