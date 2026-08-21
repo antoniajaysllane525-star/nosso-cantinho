@@ -487,961 +487,1860 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /* =====================================================
-   🫙 POTE DAS DATAS
+   🧪 MODO DE TESTE
 ===================================================== */
 
-document.addEventListener("DOMContentLoaded", () => {
+let modoTeste = false;
+let testeFinal = false;
 
-    /* =================================================
-       ELEMENTOS
-    ================================================= */
 
-    const poteSection = document.getElementById("pote-section");
-    const btnAbrirPote = document.getElementById("btn-abrir-pote");
-    const statusPote = document.getElementById("status-pote");
+/* =====================================================
+   🫙 ELEMENTOS DO POTE
+===================================================== */
 
-    const bilhete1 = document.getElementById("bilhete-1");
-    const bilhete2 = document.getElementById("bilhete-2");
+const pote =
+    document.querySelector(".pote");
 
-    const btnDescobrir = document.getElementById("btn-descobrir");
-    const btnConfirmar = document.getElementById("btn-confirmar");
-    const btnSeguir = document.getElementById("btn-seguir-caminho");
+const statusPote =
+    document.getElementById("status-pote");
 
-    const conclusao = document.getElementById("conclusao");
+const btnAbrirPote =
+    document.getElementById("btn-abrir-pote");
 
-    const mapa = document.getElementById("mapa-section");
+const bilhete1 =
+    document.getElementById("bilhete-1");
 
-    const porcentagem = document.getElementById("porcentagem");
-    const preenchimento = document.getElementById("preenchimento-coracao");
+const bilhete2 =
+    document.getElementById("bilhete-2");
 
-    const estrelasMapa = document.getElementById("estrelas-mapa");
+const mapaSection =
+    document.getElementById("mapa-section");
 
-    const chaveFinal = document.getElementById("chave-final");
-    const cadeadoFinal = document.getElementById("cadeado-final");
 
-    const finalAniversario =
-        document.getElementById("final-aniversario");
+/* =====================================================
+   ❤️ ELEMENTOS DO CORAÇÃO
+===================================================== */
 
-    const btnDadiva =
-        document.getElementById("btn-dadiva");
+const preenchimentoCoracao =
+    document.getElementById("preenchimento-coracao");
 
-    const dadiva =
-        document.getElementById("dadiva");
+const porcentagem =
+    document.getElementById("porcentagem");
 
-    const roleta =
-        document.getElementById("roleta");
 
+/* =====================================================
+   🌌 ELEMENTOS DO UNIVERSO
+===================================================== */
 
-    /* =================================================
-       ELEMENTOS DOS BILHETES
-    ================================================= */
+const estrelasMapa =
+    document.getElementById("estrelas-mapa");
 
-    const bilheteEmoji =
-        document.getElementById("bilhete-emoji");
+const chaveFinal =
+    document.getElementById("chave-final");
 
-    const bilheteData =
-        document.getElementById("bilhete-data");
+const cadeadoFinal =
+    document.getElementById("cadeado-final");
 
-    const bilheteTitulo =
-        document.getElementById("bilhete-titulo");
 
-    const bilheteFrase =
-        document.getElementById("bilhete-frase");
+/* =====================================================
+   🎁 ELEMENTOS DO FINAL
+===================================================== */
 
-    const bilheteMissao =
-        document.getElementById("bilhete-missao");
+const finalAniversario =
+    document.getElementById("final-aniversario");
 
-    const elementoEspecial =
-        document.getElementById("elemento-especial");
+const dadiva =
+    document.getElementById("dadiva");
 
-    const acaoConteudo =
-        document.getElementById("acao-conteudo");
+const roleta =
+    document.getElementById("roleta");
 
-    const areaEscolha =
-        document.getElementById("area-escolha");
 
-    const campoEscolha =
-        document.getElementById("campo-escolha");
+/* =====================================================
+   🫙 ESTADO DO POTE
+===================================================== */
 
+let poteAberto = false;
+let bilheteAtual = 0;
 
-    /* =================================================
-       🎡 ELEMENTOS DA ROLETA
-    ================================================= */
 
-    const roletaCirculo =
-        document.getElementById("roleta-circulo");
+/* =====================================================
+   ❤️ ESTADO DO CAMINHO
+===================================================== */
 
-    const btnGirar =
-        document.getElementById("btn-girar-roleta");
+let caminhoIniciado = false;
+let finalDesbloqueado = false;
 
-    const btnMostrarResultado =
-        document.getElementById("btn-mostrar-resultado");
 
-    const resultadoRoleta =
-        document.getElementById("resultado-roleta");
+/* =====================================================
+   🎡 ESTADO DA ROLETA
+===================================================== */
 
-    const numeroPremio =
-        document.getElementById("numero-premio");
+let roletaGirou = false;
+let podeGirarNovamente = false;
+let numeroResultado = null;
+let grausRoleta = 0;
 
-    const nomePremio =
-        document.getElementById("nome-premio");
 
-    const descricaoPremio =
-        document.getElementById("descricao-premio");
+/* =====================================================
+   🎁 PREMIAÇÕES DA ROLETA
+===================================================== */
 
-    const btnTentarNovamente =
-        document.getElementById("btn-tentar-novamente");
+const premios = {
 
-
-    /* =================================================
-       🧪 TESTES
-    ================================================= */
-
-    const testeNormal =
-        document.getElementById("teste-normal");
-
-    const testeFinal =
-        document.getElementById("teste-final");
-
-    const testeReset =
-        document.getElementById("teste-reset");
-
-
-    /* =================================================
-       📌 ESTADO DO SISTEMA
-    ================================================= */
-
-    let progressoAtual = 0;
-
-    let roletaGirando = false;
-
-    let numeroSorteado = null;
-
-    let roletaRotacao = 0;
-
-
-    /* =================================================
-       💌 CONFIGURAÇÃO DOS BILHETES
-    ================================================= */
-
-    const bilhetes = [
-
-        {
-            emoji: "🎂",
-            data: "08/09",
-            titulo: "Aniversário dele",
-
-            frase:
-                "Hoje o sistema é todo seu.",
-
-            missao:
-                "Fica determinada a missão especial de aniversário.",
-
-            especial:
-                "Hoje começa um caminho diferente. Cada etapa vai aproximar você da sua surpresa."
-        },
-
-
-        {
-            emoji: "💌",
-            data: "ETAPA 02",
-
-            titulo:
-                "Uma escolha sua",
-
-            frase:
-                "Agora é você quem decide.",
-
-            missao:
-                "Escolha alguma coisa que você gostaria de fazer comigo.",
-
-            especial:
-                "Pode ser um filme, um lugar, um lanche ou qualquer outra coisa que faça você sorrir."
-        }
-
-    ];
-
-
-    /* =================================================
-       🫙 ABRIR POTE
-    ================================================= */
-
-    if (btnAbrirPote) {
-
-        btnAbrirPote.addEventListener("click", () => {
-
-            poteSection.classList.add("aberto");
-
-            statusPote.textContent =
-                "Um bilhete foi liberado.";
-
-            mostrarBilhete1();
-
-        });
-
+    1: {
+        emoji: "🎬",
+        titulo: "Escolher o filme",
+        descricao:
+            "Hoje quem escolhe o filme é você."
+    },
+
+    2: {
+        emoji: "📍",
+        titulo: "Escolher o lugar",
+        descricao:
+            "Hoje você escolhe para onde vamos."
+    },
+
+    3: {
+        emoji: "💋",
+        titulo: "Escolher o beijo",
+        descricao:
+            "Você ganhou o direito de escolher o beijo."
+    },
+
+    4: {
+        emoji: "🍫",
+        titulo: "Escolher o lanche",
+        descricao:
+            "Hoje você escolhe o nosso lanchinho."
+    },
+
+    5: {
+        emoji: "👀",
+        titulo: "Escolha peculiar",
+        descricao:
+            "Você ganhou uma escolha peculiar. Agora quero ver o que vai inventar."
+    },
+
+    6: {
+        emoji: "🔄",
+        titulo: "TENTE NOVAMENTE",
+        descricao:
+            "A roleta decidiu que você merece mais uma chance."
     }
 
-
-    /* =================================================
-       💌 MOSTRAR BILHETE 1
-    ================================================= */
-
-    function mostrarBilhete1() {
-
-        if (!bilhete1) return;
-
-        bilhete1.classList.remove("oculto");
-
-        const b = bilhetes[0];
-
-        if (bilheteEmoji)
-            bilheteEmoji.textContent = b.emoji;
-
-        if (bilheteData)
-            bilheteData.textContent = b.data;
-
-        if (bilheteTitulo)
-            bilheteTitulo.textContent = b.titulo;
-
-        if (bilheteFrase)
-            bilheteFrase.textContent = b.frase;
-
-        if (bilheteMissao)
-            bilheteMissao.textContent = b.missao;
-
-        if (elementoEspecial)
-            elementoEspecial.textContent = b.especial;
-
-        bilhete1.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-        });
-
-    }
+};
 
 
-    /* =================================================
-       💌 DESCOBRIR BILHETE 1
-    ================================================= */
+/* =====================================================
+   🫙 ABRIR POTE
+===================================================== */
 
-    if (btnDescobrir) {
+if (btnAbrirPote) {
 
-        btnDescobrir.addEventListener("click", () => {
+    btnAbrirPote.addEventListener(
+        "click",
+        () => {
 
-            btnDescobrir.style.display = "none";
-
-            if (elementoEspecial) {
-
-                elementoEspecial.innerHTML = `
-                    <strong>✨ ETAPA LIBERADA</strong>
-                    <p>
-                        O primeiro registro foi concluído.
-                    </p>
-                `;
-
-            }
-
-            if (bilhete2) {
-
-                setTimeout(() => {
-
-                    bilhete2.classList.remove("oculto");
-
-                    bilhete2.scrollIntoView({
-                        behavior: "smooth",
-                        block: "center"
-                    });
-
-                    prepararBilhete2();
-
-                }, 700);
-
-            }
-
-        });
-
-    }
-
-
-    /* =================================================
-       💌 PREPARAR BILHETE 2
-    ================================================= */
-
-    function prepararBilhete2() {
-
-        if (acaoConteudo) {
-
-            acaoConteudo.innerHTML = `
-                <h3>🎯 SEGUNDA ETAPA</h3>
-
-                <p>
-                    Agora deixe registrado aqui
-                    algo que você escolheria para nós dois.
-                </p>
-            `;
-
-        }
-
-    }
-
-
-    /* =================================================
-       💌 CONFIRMAR BILHETE 2
-    ================================================= */
-
-    if (btnConfirmar) {
-
-        btnConfirmar.addEventListener("click", () => {
-
-            const escolha =
-                campoEscolha ?
-                campoEscolha.value.trim() :
-                "";
-
-            if (!escolha) {
-
-                alert(
-                    "Antes de continuar, faça a sua escolha. ❤️"
-                );
-
+            if (poteAberto) {
                 return;
             }
 
-
-            if (areaEscolha)
-                areaEscolha.style.display = "none";
-
-            btnConfirmar.style.display = "none";
+            poteAberto = true;
 
 
-            if (conclusao)
-                conclusao.classList.remove("oculto");
+            if (pote) {
+
+                pote.classList.add(
+                    "aberto"
+                );
+
+            }
 
 
-            setTimeout(() => {
+            statusPote.textContent =
+                "O pote foi aberto. Existe um bilhete esperando por você.";
 
-                if (btnSeguir)
-                    btnSeguir.classList.remove("oculto");
 
-            }, 600);
+            btnAbrirPote.textContent =
+                "VER BILHETE";
 
-        });
+
+            btnAbrirPote.onclick =
+                mostrarBilhete1;
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   💌 MOSTRAR BILHETE 1
+===================================================== */
+
+function mostrarBilhete1() {
+
+    bilhete1.classList.remove(
+        "oculto"
+    );
+
+
+    bilhete1.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+
+
+    preencherBilheteDoDia();
+
+}
+
+
+/* =====================================================
+   📅 PREENCHER BILHETE DE ACORDO COM A DATA
+===================================================== */
+
+function preencherBilheteDoDia() {
+
+    const agora =
+        new Date();
+
+
+    let mes =
+        agora.getMonth() + 1;
+
+    let dia =
+        agora.getDate();
+
+
+    /*
+       🧪 MODO TESTE
+    */
+
+    if (modoTeste) {
+
+        mes = 8;
+        dia = 8;
+
+    }
+
+
+    const emoji =
+        document.getElementById(
+            "bilhete-emoji"
+        );
+
+    const data =
+        document.getElementById(
+            "bilhete-data"
+        );
+
+    const titulo =
+        document.getElementById(
+            "bilhete-titulo"
+        );
+
+    const frase =
+        document.getElementById(
+            "bilhete-frase"
+        );
+
+    const missao =
+        document.getElementById(
+            "bilhete-missao"
+        );
+
+
+    /* =================================================
+       🎂 ANIVERSÁRIO DO NAZARENO
+    ================================================= */
+
+    if (
+        mes === 8 &&
+        dia === 8
+    ) {
+
+        emoji.textContent =
+            "🎂";
+
+        data.textContent =
+            "08/09";
+
+        titulo.textContent =
+            "Aniversário dele";
+
+        frase.textContent =
+            "Hoje o sistema é todo seu.";
+
+        missao.textContent =
+            "A missão de hoje começa aqui. Existe um caminho esperando para ser descoberto.";
+
+        return;
 
     }
 
 
     /* =================================================
-       🌌 SEGUIR PARA O CAMINHO
+       ❤️ NOSSO ANIVERSÁRIO
     ================================================= */
 
-    if (btnSeguir) {
+    if (
+        mes === 5 &&
+        dia === 9
+    ) {
 
-        btnSeguir.addEventListener("click", () => {
+        emoji.textContent =
+            "❤️";
 
-            if (bilhete2)
-                bilhete2.classList.add("oculto");
+        data.textContent =
+            "09/05";
 
-            if (mapa)
-                mapa.classList.remove("oculto");
+        titulo.textContent =
+            "Nosso aniversário";
+
+        frase.textContent =
+            "Mais um capítulo da nossa história.";
+
+        missao.textContent =
+            "Hoje é dia de continuar escrevendo a nossa história.";
+
+        return;
+
+    }
 
 
-            criarEstrelas();
+    /* =================================================
+       💌 DATA COMUM
+    ================================================= */
+
+    emoji.textContent =
+        "💌";
+
+    data.textContent =
+        String(dia).padStart(2, "0") +
+        "/" +
+        String(mes).padStart(2, "0");
+
+    titulo.textContent =
+        "Um bilhete para você";
+
+    frase.textContent =
+        "Algumas coisas só aparecem quando chega a hora.";
+
+    missao.textContent =
+        "Hoje existe uma pequena descoberta esperando por você.";
+
+}
+/* =====================================================
+   💌 BOTÃO DESCOBRIR — BILHETE 1
+===================================================== */
+
+const btnDescobrir =
+    document.getElementById("btn-descobrir");
 
 
-            mapa.scrollIntoView({
+if (btnDescobrir) {
+
+    btnDescobrir.addEventListener(
+        "click",
+        () => {
+
+            bilhete2.classList.remove(
+                "oculto"
+            );
+
+
+            bilhete2.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+
+            carregarBilhete2();
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   💌 CONTEÚDO DO BILHETE 2
+===================================================== */
+
+function carregarBilhete2() {
+
+    const conteudo =
+        document.getElementById(
+            "acao-conteudo"
+        );
+
+
+    if (!conteudo) {
+        return;
+    }
+
+
+    conteudo.innerHTML = `
+
+        <h3>
+            Uma pequena escolha.
+        </h3>
+
+        <p>
+            Antes de continuar, existe uma decisão
+            que precisa ser registrada.
+        </p>
+
+        <p>
+            Escreva abaixo aquilo que o sistema
+            está pedindo.
+        </p>
+
+    `;
+
+}
+
+
+/* =====================================================
+   💌 CONFIRMAR ESCOLHA
+===================================================== */
+
+const btnConfirmar =
+    document.getElementById("btn-confirmar");
+
+
+if (btnConfirmar) {
+
+    btnConfirmar.addEventListener(
+        "click",
+        () => {
+
+            const campo =
+                document.getElementById(
+                    "campo-escolha"
+                );
+
+
+            if (
+                !campo ||
+                campo.value.trim() === ""
+            ) {
+
+                alert(
+                    "Preencha a sua escolha antes de continuar."
+                );
+
+                return;
+
+            }
+
+
+            const conclusao =
+                document.getElementById(
+                    "conclusao"
+                );
+
+
+            conclusao.classList.remove(
+                "oculto"
+            );
+
+
+            btnConfirmar.style.display =
+                "none";
+
+
+            const btnSeguir =
+                document.getElementById(
+                    "btn-seguir-caminho"
+                );
+
+
+            btnSeguir.classList.remove(
+                "oculto"
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   🌌 SEGUIR O CAMINHO
+===================================================== */
+
+const btnSeguir =
+    document.getElementById(
+        "btn-seguir-caminho"
+    );
+
+
+if (btnSeguir) {
+
+    btnSeguir.addEventListener(
+        "click",
+        () => {
+
+            mapaSection.classList.remove(
+                "oculto"
+            );
+
+
+            mapaSection.scrollIntoView({
                 behavior: "smooth",
                 block: "start"
             });
 
 
-            iniciarProgresso();
-
-        });
-
-    }
-
-
-    /* =================================================
-       🌌 CRIAR ESTRELAS
-    ================================================= */
-
-    function criarEstrelas() {
-
-        if (!estrelasMapa) return;
-
-        estrelasMapa.innerHTML = "";
-
-        for (let i = 0; i < 18; i++) {
-
-            const estrela =
-                document.createElement("span");
-
-            estrela.className = "estrela-real";
-
-            estrela.textContent =
-                Math.random() > 0.5 ? "✦" : "✧";
-
-            estrela.style.left =
-                Math.random() * 90 + "%";
-
-            estrela.style.top =
-                Math.random() * 85 + "%";
-
-            estrela.style.animationDelay =
-                Math.random() * 2 + "s";
-
-            estrelasMapa.appendChild(estrela);
+            iniciarCaminho();
 
         }
+    );
 
+}
+
+
+/* =====================================================
+   🌌 INICIAR CAMINHO
+===================================================== */
+
+function iniciarCaminho() {
+
+    if (caminhoIniciado) {
+        return;
     }
 
 
-    /* =================================================
-       ❤️ PROGRESSO DO CORAÇÃO
-    ================================================= */
+    caminhoIniciado = true;
 
-    function atualizarCoracao(valor) {
 
-        progressoAtual = Math.max(
-            0,
-            Math.min(100, valor)
+    criarEstrelas();
+
+
+    atualizarCoracao();
+
+}
+
+
+/* =====================================================
+   ✦ CRIAR ESTRELAS
+===================================================== */
+
+function criarEstrelas() {
+
+    if (!estrelasMapa) {
+        return;
+    }
+
+
+    estrelasMapa.innerHTML = "";
+
+
+    for (
+        let i = 0;
+        i < 30;
+        i++
+    ) {
+
+        const estrela =
+            document.createElement(
+                "span"
+            );
+
+
+        estrela.className =
+            "estrela-real";
+
+
+        estrela.textContent =
+            Math.random() > 0.5
+                ? "✦"
+                : "·";
+
+
+        estrela.style.left =
+            Math.random() * 95 + "%";
+
+
+        estrela.style.top =
+            Math.random() * 90 + "%";
+
+
+        estrela.style.animationDelay =
+            Math.random() * 2 + "s";
+
+
+        estrelasMapa.appendChild(
+            estrela
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   ❤️ CALCULAR PORCENTAGEM DO CORAÇÃO
+===================================================== */
+
+function calcularProgresso() {
+
+    /*
+       🧪 TESTE FINAL
+       Força o coração para 100%.
+    */
+
+    if (testeFinal) {
+        return 100;
+    }
+
+
+    /*
+       📅 INÍCIO DO RELACIONAMENTO
+    */
+
+    const inicio =
+        new Date(
+            2026,
+            4,
+            9
         );
 
 
-        if (porcentagem)
-            porcentagem.textContent =
-                progressoAtual + "%";
+    const agora =
+        new Date();
 
 
-        if (preenchimento) {
+    /*
+       🎂 ANIVERSÁRIO DO NAZARENO
+       08/09/2026
+    */
+
+    const aniversario =
+        new Date(
+            agora.getFullYear(),
+            8,
+            8
+        );
+
+
+    /*
+       Se já chegou ao aniversário,
+       o coração fica completo.
+    */
+
+    if (
+        agora >= aniversario
+    ) {
+
+        return 100;
+
+    }
+
+
+    const total =
+        aniversario.getTime() -
+        inicio.getTime();
+
+
+    const passado =
+        agora.getTime() -
+        inicio.getTime();
+
+
+    let valor =
+        (passado / total) * 100;
+
+
+    valor =
+        Math.max(
+            0,
+            Math.min(
+                100,
+                valor
+            )
+        );
+
+
+    return valor;
+
+}
+
+
+/* =====================================================
+   ❤️ ATUALIZAR CORAÇÃO
+===================================================== */
+
+function atualizarCoracao() {
+
+    let valor =
+        calcularProgresso();
+
+
+    valor =
+        Math.round(valor);
+
+
+    /*
+       PORCENTAGEM
+    */
+
+    if (porcentagem) {
+
+        porcentagem.innerHTML = `
+
+            <strong>
+                ${valor}%
+            </strong>
+
+            <span>
+                do caminho
+            </span>
+
+        `;
+
+    }
+
+
+    /*
+       PREENCHIMENTO DO SANGUE
+    */
+
+    if (preenchimentoCoracao) {
+
+        const altura =
+            180 * (valor / 100);
+
+
+        const y =
+            180 - altura;
+
+
+        preenchimentoCoracao.setAttribute(
+            "y",
+            y
+        );
+
+
+        preenchimentoCoracao.setAttribute(
+            "height",
+            altura
+        );
+
+    }
+
+
+    /*
+       ❤️ CHEGOU A 100%
+    */
+
+    if (
+        valor >= 100
+    ) {
+
+        desbloquearFinal();
+
+    }
+
+}
+/* =====================================================
+   🔑 DESBLOQUEAR CHAVE + CADEADO
+===================================================== */
+
+function desbloquearFinal() {
+
+    /*
+       Evita executar essa função várias vezes.
+    */
+
+    if (finalDesbloqueado) {
+        return;
+    }
+
+
+    finalDesbloqueado = true;
+
+
+    /*
+       🔑 A CHAVE APARECE
+    */
+
+    if (chaveFinal) {
+
+        chaveFinal.classList.remove(
+            "oculto"
+        );
+
+    }
+
+
+    /*
+       🔒 O CADEADO APARECE
+    */
+
+    if (cadeadoFinal) {
+
+        cadeadoFinal.classList.remove(
+            "oculto"
+        );
+
+    }
+
+
+    /*
+       ⚠️ IMPORTANTE
+
+       O coração chegou a 100%, mas NÃO abre
+       a Dádiva automaticamente.
+
+       Ele precisa deslizar a tela e encontrar
+       a chave + o cadeado.
+    */
+
+    if (finalAniversario) {
+
+        finalAniversario.classList.add(
+            "oculto"
+        );
+
+    }
+
+
+    /*
+       Leva suavemente até o universo,
+       onde estão a chave e o cadeado.
+    */
+
+    setTimeout(
+        () => {
+
+            const universo =
+                document.getElementById(
+                    "universo"
+                );
+
+
+            if (universo) {
+
+                universo.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+
+            }
+
+        },
+        700
+    );
+
+}
+
+
+/* =====================================================
+   🔑 CLICAR NA CHAVE
+===================================================== */
+
+if (chaveFinal) {
+
+    chaveFinal.addEventListener(
+        "click",
+        () => {
 
             /*
-             * O coração é preenchido de baixo
-             * para cima.
-             */
+               A chave não abre nada sozinha.
+               Ela apenas registra que foi encontrada.
+            */
 
-            const altura =
-                180 * (progressoAtual / 100);
-
-            const y =
-                180 - altura;
-
-            preenchimento.setAttribute(
-                "y",
-                y
+            chaveFinal.classList.add(
+                "usando-chave"
             );
 
-            preenchimento.setAttribute(
-                "height",
-                altura
+
+            alert(
+                "🔑 Chave encontrada. Agora descubra onde ela deve ser usada."
             );
 
         }
+    );
 
-    }
-
-
-    /* =================================================
-       ❤️ PROGRESSO AUTOMÁTICO
-    ================================================= */
-
-    function iniciarProgresso() {
-
-        atualizarCoracao(0);
-
-        /*
-         * Para o teste, o coração avança
-         * gradualmente.
-         */
-
-        let valor = 0;
-
-        const intervalo =
-            setInterval(() => {
-
-                valor += 10;
-
-                atualizarCoracao(valor);
+}
 
 
-                if (valor >= 100) {
+/* =====================================================
+   🔒 CLICAR NO CADEADO
+===================================================== */
 
-                    clearInterval(intervalo);
+if (cadeadoFinal) {
 
-                    liberarFinal();
+    cadeadoFinal.addEventListener(
+        "click",
+        () => {
 
-                }
+            /*
+               O cadeado só funciona depois
+               que o caminho chegou a 100%.
+            */
 
-            }, 450);
-
-    }
-
-
-    /* =================================================
-       🔑 FINAL DO CAMINHO
-    ================================================= */
-
-    function liberarFinal() {
-
-        if (chaveFinal)
-            chaveFinal.classList.remove("oculto");
+            if (!finalDesbloqueado) {
+                return;
+            }
 
 
-        if (cadeadoFinal)
-            cadeadoFinal.classList.remove("oculto");
+            cadeadoFinal.classList.add(
+                "cadeado-aberto"
+            );
 
 
-        if (finalAniversario)
-            finalAniversario.classList.remove("oculto");
+            /*
+               Só depois de usar o cadeado
+               aparece a parte final.
+            */
+
+            setTimeout(
+                () => {
+
+                    if (finalAniversario) {
+
+                        finalAniversario.classList.remove(
+                            "oculto"
+                        );
 
 
-        if (finalAniversario) {
+                        finalAniversario.scrollIntoView({
+                            behavior: "smooth",
+                            block: "center"
+                        });
 
-            finalAniversario.scrollIntoView({
+                    }
+
+                },
+                700
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   🎁 ABRIR DÁDIVA
+===================================================== */
+
+const btnDadiva =
+    document.getElementById(
+        "btn-dadiva"
+    );
+
+
+if (btnDadiva) {
+
+    btnDadiva.addEventListener(
+        "click",
+        () => {
+
+            if (!dadiva) {
+                return;
+            }
+
+
+            dadiva.classList.remove(
+                "oculto"
+            );
+
+
+            dadiva.scrollIntoView({
                 behavior: "smooth",
                 block: "center"
             });
 
         }
+    );
+
+}
+
+
+/* =====================================================
+   🎡 PREPARAR ROLETA
+===================================================== */
+
+function prepararRoleta() {
+
+    if (!roleta) {
+        return;
+    }
+
+
+    const opcoes =
+        roleta.querySelector(
+            ".opcoes-roleta"
+        );
+
+
+    if (!opcoes) {
+        return;
+    }
+
+
+    /*
+       Limpa os botões antigos
+       para criar a roleta verdadeira.
+    */
+
+    opcoes.innerHTML = "";
+
+
+    /*
+       CONTAINER
+    */
+
+    const container =
+        document.createElement(
+            "div"
+        );
+
+
+    container.className =
+        "roleta-container";
+
+
+    /*
+       SETA
+    */
+
+    const seta =
+        document.createElement(
+            "div"
+        );
+
+
+    seta.className =
+        "seta-roleta";
+
+
+    seta.textContent =
+        "▼";
+
+
+    /*
+       CÍRCULO
+    */
+
+    const circulo =
+        document.createElement(
+            "div"
+        );
+
+
+    circulo.className =
+        "roleta-circulo";
+
+
+    circulo.id =
+        "roleta-circulo";
+
+
+    /*
+       NÚMEROS 1 A 6
+    */
+
+    for (
+        let i = 1;
+        i <= 6;
+        i++
+    ) {
+
+        const numero =
+            document.createElement(
+                "div"
+            );
+
+
+        numero.className =
+            `numero-roleta numero-${i}`;
+
+
+        numero.textContent =
+            i;
+
+
+        circulo.appendChild(
+            numero
+        );
 
     }
 
 
-    /* =================================================
-       🎁 ABRIR DÁDIVA
-    ================================================= */
+    /*
+       CENTRO
+    */
 
-    if (btnDadiva) {
-
-        btnDadiva.addEventListener("click", () => {
-
-            if (finalAniversario)
-                finalAniversario.classList.add("oculto");
+    const centro =
+        document.createElement(
+            "div"
+        );
 
 
-            if (dadiva)
-                dadiva.classList.remove("oculto");
+    centro.className =
+        "centro-roleta";
 
 
-            if (dadiva) {
-
-                dadiva.scrollIntoView({
-                    behavior: "smooth",
-                    block: "center"
-                });
-
-            }
+    centro.textContent =
+        "❤️";
 
 
-            /*
-             * Depois da Dádiva, libera a roleta.
-             */
-
-            setTimeout(() => {
-
-                if (roleta)
-                    roleta.classList.remove("oculto");
+    circulo.appendChild(
+        centro
+    );
 
 
-                if (roleta) {
+    /*
+       MONTA A ROLETA
+    */
 
-                    roleta.scrollIntoView({
-                        behavior: "smooth",
-                        block: "center"
-                    });
+    container.appendChild(
+        seta
+    );
 
-                }
 
-            }, 1200);
+    container.appendChild(
+        circulo
+    );
 
-        });
+
+    opcoes.appendChild(
+        container
+    );
+
+
+    /*
+       BOTÃO GIRAR
+    */
+
+    const btnGirar =
+        document.createElement(
+            "button"
+        );
+
+
+    btnGirar.type =
+        "button";
+
+
+    btnGirar.className =
+        "botao-principal";
+
+
+    btnGirar.id =
+        "btn-girar-roleta";
+
+
+    btnGirar.textContent =
+        "🎡 GIRAR ROLETA";
+
+
+    opcoes.appendChild(
+        btnGirar
+    );
+
+
+    /*
+       ÁREA DO RESULTADO
+    */
+
+    const resultado =
+        document.createElement(
+            "div"
+        );
+
+
+    resultado.id =
+        "resultado-roleta";
+
+
+    resultado.className =
+        "resultado-roleta oculto";
+
+
+    opcoes.appendChild(
+        resultado
+    );
+
+
+    /*
+       CLIQUE PARA GIRAR
+    */
+
+    btnGirar.addEventListener(
+        "click",
+        girarRoleta
+    );
+
+}
+
+
+/* =====================================================
+   🎡 GIRAR ROLETA
+===================================================== */
+
+function girarRoleta() {
+
+    /*
+       Não deixa girar várias vezes.
+
+       A única exceção é quando o resultado
+       anterior foi o número 6.
+    */
+
+    if (
+        roletaGirou &&
+        !podeGirarNovamente
+    ) {
+
+        return;
 
     }
 
 
-    /* =====================================================
-       🎡 PREMIAÇÕES
-    ====================================================== */
+    /*
+       Se foi liberada uma nova tentativa,
+       consome essa tentativa agora.
+    */
 
-    const premios = {
+    if (podeGirarNovamente) {
 
-        1: {
+        podeGirarNovamente = false;
 
-            nome:
-                "ESCOLHA O FILME",
+    } else {
 
-            descricao:
-                "Hoje você escolhe o filme que nós vamos assistir juntos. 🎬"
+        roletaGirou = true;
+
+    }
+
+
+    const circulo =
+        document.getElementById(
+            "roleta-circulo"
+        );
+
+
+    const btn =
+        document.getElementById(
+            "btn-girar-roleta"
+        );
+
+
+    if (
+        !circulo ||
+        !btn
+    ) {
+
+        return;
+
+    }
+
+
+    /*
+       Bloqueia o botão enquanto gira.
+    */
+
+    btn.disabled =
+        true;
+
+
+    /*
+       🎲 SORTEIA 1 A 6
+    */
+
+    numeroResultado =
+        Math.floor(
+            Math.random() * 6
+        ) + 1;
+
+
+    /*
+       Cada número ocupa 60°.
+
+       A seta fica no topo.
+    */
+
+    const centroNumero =
+        (numeroResultado - 1) *
+        60 +
+        30;
+
+
+    /*
+       Várias voltas antes de parar.
+    */
+
+    const voltas =
+        5 * 360;
+
+
+    const destino =
+        grausRoleta +
+        voltas +
+        (360 - centroNumero);
+
+
+    grausRoleta =
+        destino;
+
+
+    /*
+       ANIMAÇÃO
+    */
+
+    circulo.style.transform =
+        `rotate(${destino}deg)`;
+
+
+    /*
+       Só depois que a roleta parar
+       aparece o botão para revelar.
+    */
+
+    setTimeout(
+        () => {
+
+            mostrarBotaoResultado();
 
         },
+        4700
+    );
+
+}
 
 
-        2: {
+/* =====================================================
+   🎁 BOTÃO "MOSTRAR RESULTADO"
+===================================================== */
 
-            nome:
-                "ESCOLHA O LUGAR",
+function mostrarBotaoResultado() {
 
-            descricao:
-                "Hoje você escolhe para onde nós vamos juntos. 📍"
+    const btnGirar =
+        document.getElementById(
+            "btn-girar-roleta"
+        );
 
-        },
-
-
-        3: {
-
-            nome:
-                "ESCOLHA O BEIJO",
-
-            descricao:
-                "Você ganhou o direito de escolher o beijo. 💋"
-
-        },
-
-
-        4: {
-
-            nome:
-                "ESCOLHA O LANCHE",
-
-            descricao:
-                "Hoje o lanche fica por sua conta. Você escolhe. 🍫"
-
-        },
-
-
-        5: {
-
-            nome:
-                "ESCOLHA PECULIAR",
-
-            descricao:
-                "Você ganhou uma escolha peculiar. Use esse poder com responsabilidade. 👀"
-
-        },
-
-
-        6: {
-
-            nome:
-                "TENTE NOVAMENTE",
-
-            descricao:
-                "KKKKKKK a sorte resolveu brincar com você. Gire novamente. 🔄"
-
-        }
-
-    };
-
-
-    /* =================================================
-       🎡 GIRAR ROLETA
-    ================================================= */
 
     if (btnGirar) {
 
-        btnGirar.addEventListener("click", girarRoleta);
+        btnGirar.style.display =
+            "none";
 
     }
 
 
-    function girarRoleta() {
+    const resultado =
+        document.getElementById(
+            "resultado-roleta"
+        );
 
-        if (roletaGirando)
-            return;
+
+    if (!resultado) {
+        return;
+    }
 
 
-        roletaGirando = true;
+    resultado.classList.remove(
+        "oculto"
+    );
 
-        numeroSorteado = null;
+
+    resultado.innerHTML = `
+
+        <button
+            id="btn-mostrar-premio"
+            class="botao-principal"
+            type="button"
+        >
+            🎁 MOSTRAR RESULTADO
+        </button>
+
+    `;
+
+
+    document
+        .getElementById(
+            "btn-mostrar-premio"
+        )
+        .addEventListener(
+            "click",
+            mostrarResultadoRoleta
+        );
+
+}
+/* =====================================================
+   🎁 MOSTRAR RESULTADO DA ROLETA
+===================================================== */
+
+function mostrarResultadoRoleta() {
+
+    const resultado =
+        document.getElementById(
+            "resultado-roleta"
+        );
+
+
+    if (!resultado) {
+        return;
+    }
+
+
+    const premio =
+        premios[numeroResultado];
+
+
+    /*
+       ==================================================
+       🎁 RESULTADOS 1 A 5
+       ==================================================
+    */
+
+    if (
+        numeroResultado >= 1 &&
+        numeroResultado <= 5
+    ) {
+
+        resultado.innerHTML = `
+
+            <div class="resultado-icone">
+                ${premio.emoji}
+            </div>
+
+
+            <h2>
+                RESULTADO DA ROLETA
+            </h2>
+
+
+            <div class="numero-premio">
+                ${numeroResultado}
+            </div>
+
+
+            <h3 class="nome-premio">
+                ${premio.titulo}
+            </h3>
+
+
+            <p>
+                ${premio.descricao}
+            </p>
+
+
+            <div class="print-premio">
+
+                <strong>
+                    📸 REGISTRO DO PRÊMIO
+                </strong>
+
+                <p>
+                    Tire um print desta tela
+                    e me envie.
+                </p>
+
+                <p>
+                    Quero saber qual presente
+                    a roleta escolheu para você. 🤭
+                </p>
+
+            </div>
+
+        `;
 
 
         /*
-         * Esconde resultado anterior.
-         */
+           🚫 NÃO EXISTE OUTRA TENTATIVA
+           DEPOIS DE UM PRÊMIO.
+        */
 
-        if (resultadoRoleta)
-            resultadoRoleta.classList.add("oculto");
+        roletaGirou = true;
 
-
-        if (btnMostrarResultado)
-            btnMostrarResultado.classList.add("oculto");
+        podeGirarNovamente = false;
 
 
-        if (btnTentarNovamente)
-            btnTentarNovamente.classList.add("oculto");
+        return;
+    }
+
+
+    /*
+       ==================================================
+       🔄 RESULTADO 6
+       ==================================================
+    */
+
+    if (
+        numeroResultado === 6
+    ) {
+
+        resultado.innerHTML = `
+
+            <div class="resultado-icone">
+                🔄
+            </div>
+
+
+            <h2>
+                TENTE NOVAMENTE
+            </h2>
+
+
+            <p>
+                A roleta decidiu que você
+                merece mais uma chance.
+            </p>
+
+
+            <p>
+                Dessa vez o sistema não
+                entregou um prêmio.
+            </p>
+
+
+            <button
+                id="btn-tentar-novamente"
+                class="botao-principal"
+                type="button"
+            >
+                🔄 GIRAR NOVAMENTE
+            </button>
+
+        `;
 
 
         /*
-         * Bloqueia botão enquanto gira.
-         */
+           O número 6 é a ÚNICA situação
+           que permite uma nova rodada.
+        */
 
-        btnGirar.disabled = true;
-
-
-        /*
-         * Sorteia número de 1 a 6.
-         */
-
-        numeroSorteado =
-            Math.floor(Math.random() * 6) + 1;
+        podeGirarNovamente = true;
 
 
-        /*
-         * Cada número ocupa aproximadamente
-         * 60 graus.
-         *
-         * A seta fica no topo.
-         */
-
-        const grausPorNumero = 60;
+        const btnTentarNovamente =
+            document.getElementById(
+                "btn-tentar-novamente"
+            );
 
 
-        /*
-         * Faz várias voltas antes de parar.
-         */
+        if (btnTentarNovamente) {
 
-        const voltas =
-            5 + Math.floor(Math.random() * 3);
+            btnTentarNovamente.addEventListener(
+                "click",
+                () => {
 
+                    /*
+                       Esconde o resultado do 6.
+                    */
 
-        /*
-         * Pequena variação para posicionar
-         * o número sorteado na seta.
-         */
-
-        const ajuste =
-            (numeroSorteado - 1) *
-            grausPorNumero;
+                    resultado.classList.add(
+                        "oculto"
+                    );
 
 
-        roletaRotacao +=
-            voltas * 360 +
-            (360 - ajuste);
+                    /*
+                       Libera o botão da roleta.
+                    */
+
+                    const btnGirar =
+                        document.getElementById(
+                            "btn-girar-roleta"
+                        );
 
 
-        if (roletaCirculo) {
+                    if (btnGirar) {
 
-            roletaCirculo.style.transform =
-                `rotate(${roletaRotacao}deg)`;
+                        btnGirar.style.display =
+                            "inline-block";
+
+
+                        btnGirar.disabled =
+                            false;
+
+                    }
+
+                }
+            );
 
         }
 
+    }
 
-        /*
-         * Aguarda a animação terminar.
-         */
+}
 
-        setTimeout(() => {
 
-            roletaGirando = false;
+/* =====================================================
+   🎡 ABRIR ROLETA
+===================================================== */
 
-            btnGirar.disabled = false;
+function abrirRoleta() {
+
+    if (!roleta) {
+        return;
+    }
+
+
+    roleta.classList.remove(
+        "oculto"
+    );
+
+
+    /*
+       Cria a roleta somente
+       quando ela for aberta.
+    */
+
+    prepararRoleta();
+
+
+    roleta.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+
+}
+
+
+/* =====================================================
+   🧪 TESTE NORMAL
+===================================================== */
+
+const testeNormal =
+    document.getElementById(
+        "teste-normal"
+    );
+
+
+if (testeNormal) {
+
+    testeNormal.addEventListener(
+        "click",
+        () => {
+
+            modoTeste = true;
+
+            testeFinal = false;
 
 
             /*
-             * Só agora aparece:
-             * MOSTRAR RESULTADO
-             */
+               Reseta estados.
+            */
 
-            if (btnMostrarResultado)
-                btnMostrarResultado.classList.remove("oculto");
+            poteAberto = false;
 
+            caminhoIniciado = false;
 
-        }, 4500);
-
-    }
+            finalDesbloqueado = false;
 
 
-    /* =================================================
-       🎡 MOSTRAR RESULTADO
-    ================================================= */
+            /*
+               Esconde etapas anteriores.
+            */
 
-    if (btnMostrarResultado) {
+            if (bilhete1) {
 
-        btnMostrarResultado.addEventListener(
-            "click",
-            mostrarResultado
-        );
-
-    }
-
-
-    function mostrarResultado() {
-
-        if (!numeroSorteado)
-            return;
-
-
-        const premio =
-            premios[numeroSorteado];
-
-
-        if (numeroPremio)
-            numeroPremio.textContent =
-                numeroSorteado;
-
-
-        if (nomePremio)
-            nomePremio.textContent =
-                premio.nome;
-
-
-        if (descricaoPremio)
-            descricaoPremio.textContent =
-                premio.descricao;
-
-
-        if (resultadoRoleta)
-            resultadoRoleta.classList.remove("oculto");
-
-
-        btnMostrarResultado.classList.add(
-            "oculto"
-        );
-
-
-        /*
-         * Número 6 não é prêmio.
-         * Libera uma nova tentativa.
-         */
-
-        if (numeroSorteado === 6) {
-
-            if (btnTentarNovamente)
-                btnTentarNovamente.classList.remove(
+                bilhete1.classList.add(
                     "oculto"
                 );
 
-        }
+            }
 
 
-        resultadoRoleta.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-        });
+            if (bilhete2) {
 
-    }
-
-
-    /* =================================================
-       🔄 TENTAR NOVAMENTE
-    ================================================= */
-
-    if (btnTentarNovamente) {
-
-        btnTentarNovamente.addEventListener(
-            "click",
-            () => {
-
-                resultadoRoleta.classList.add(
+                bilhete2.classList.add(
                     "oculto"
                 );
 
-                btnTentarNovamente.classList.add(
+            }
+
+
+            if (mapaSection) {
+
+                mapaSection.classList.add(
                     "oculto"
                 );
 
-                numeroSorteado = null;
+            }
 
-                /*
-                 * Ele volta a poder girar.
-                 */
 
-                btnGirar.disabled = false;
+            /*
+               Volta o pote ao estado inicial.
+            */
 
-                roleta.scrollIntoView({
+            if (pote) {
+
+                pote.classList.remove(
+                    "aberto"
+                );
+
+            }
+
+
+            if (statusPote) {
+
+                statusPote.textContent =
+                    "TESTE: data especial detectada.";
+
+            }
+
+
+            if (btnAbrirPote) {
+
+                btnAbrirPote.textContent =
+                    "ABRIR POTE";
+
+
+                btnAbrirPote.onclick =
+                    () => {
+
+                        poteAberto = true;
+
+
+                        if (pote) {
+
+                            pote.classList.add(
+                                "aberto"
+                            );
+
+                        }
+
+
+                        mostrarBilhete1();
+
+                    };
+
+            }
+
+
+            /*
+               Leva o usuário até o pote.
+            */
+
+            if (statusPote) {
+
+                statusPote.scrollIntoView({
                     behavior: "smooth",
                     block: "center"
                 });
 
             }
-        );
 
-    }
+        }
+    );
+
+}
 
 
-    /* =====================================================
-       🧪 TESTE NORMAL
-    ====================================================== */
+/* =====================================================
+   🧪 TESTE FINAL — 100%
+===================================================== */
 
-    if (testeNormal) {
+const testeFinalBtn =
+    document.getElementById(
+        "teste-final"
+    );
 
-        testeNormal.addEventListener(
-            "click",
-            () => {
 
-                mostrarBilhete1();
+if (testeFinalBtn) {
 
-                if (statusPote)
-                    statusPote.textContent =
-                        "🧪 MODO DE TESTE — data liberada.";
+    testeFinalBtn.addEventListener(
+        "click",
+        () => {
+
+            modoTeste = true;
+
+            testeFinal = true;
+
+
+            /*
+               Mostra o caminho.
+            */
+
+            if (mapaSection) {
+
+                mapaSection.classList.remove(
+                    "oculto"
+                );
 
             }
-        );
-
-    }
 
 
-    /* =====================================================
-       🧪 TESTE FINAL
-    ====================================================== */
-
-    if (testeFinal) {
-
-        testeFinal.addEventListener(
-            "click",
-            () => {
-
-                if (mapa)
-                    mapa.classList.remove("oculto");
+            criarEstrelas();
 
 
-                criarEstrelas();
+            /*
+               Força o coração a 100%.
+            */
+
+            atualizarCoracao();
 
 
-                atualizarCoracao(100);
+            /*
+               Leva diretamente para
+               o coração/universo.
+            */
 
+            if (mapaSection) {
 
-                liberarFinal();
-
-
-                mapa.scrollIntoView({
+                mapaSection.scrollIntoView({
                     behavior: "smooth",
                     block: "start"
                 });
 
             }
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   🔄 REINICIAR TESTE
+===================================================== */
+
+const testeReset =
+    document.getElementById(
+        "teste-reset"
+    );
+
+
+if (testeReset) {
+
+    testeReset.addEventListener(
+        "click",
+        () => {
+
+            location.reload();
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   🎡 INICIALIZAÇÃO
+===================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        console.log(
+            "🫙 Pote das Datas carregado."
         );
 
     }
-
-
-    /* =====================================================
-       🔄 RESET DO TESTE
-    ====================================================== */
-
-    if (testeReset) {
-
-        testeReset.addEventListener(
-            "click",
-            () => {
-
-                location.reload();
-
-            }
-        );
-
-    }
-
-
-    /* =====================================================
-       ESTADO INICIAL
-    ====================================================== */
-
-    atualizarCoracao(0);
-
-});
+);
+   
 
 // =========================================================
 // ADITIVO AO CONTRATO
