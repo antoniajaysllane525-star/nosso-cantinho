@@ -216,6 +216,1174 @@ button:hover {
 
 }
 
+/* =====================================================
+   🧪 PAINEL DE TESTE
+===================================================== */
+
+.painel-teste {
+    width: 90%;
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 22px;
+    text-align: center;
+
+    border: 1px dashed #8b5e3c;
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.75);
+
+    box-sizing: border-box;
+}
+
+.painel-teste strong {
+    display: block;
+    margin-bottom: 10px;
+
+    color: #8b5e3c;
+    letter-spacing: 1px;
+}
+
+.painel-teste p {
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+
+.botoes-teste {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.botoes-teste button {
+    border: none;
+    border-radius: 12px;
+
+    padding: 10px 15px;
+
+    background: #8b5e3c;
+    color: white;
+
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   🫙 POTE DAS DATAS
+===================================================== */
+
+.pote-section {
+    width: 100%;
+    padding: 60px 20px;
+
+    text-align: center;
+
+    box-sizing: border-box;
+}
+
+.titulo-pote {
+    margin-bottom: 35px;
+}
+
+.icone-pote {
+    font-size: 65px;
+    margin-bottom: 10px;
+}
+
+.titulo-pote h1 {
+    margin: 0;
+
+    font-family: "DM Serif Display", serif;
+
+    color: #8b5e3c;
+}
+
+.titulo-pote p {
+    margin-top: 10px;
+    opacity: 0.75;
+}
+
+
+/* =====================================================
+   🫙 ÁREA DO POTE
+===================================================== */
+
+.pote-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pote {
+    position: relative;
+
+    width: 210px;
+    height: 270px;
+
+    margin: 20px auto;
+
+    filter: drop-shadow(
+        0 15px 20px rgba(0, 0, 0, 0.15)
+    );
+}
+
+
+/* tampa */
+
+.pote-tampa {
+    position: absolute;
+
+    top: 0;
+    left: 18px;
+
+    width: 174px;
+    height: 35px;
+
+    border-radius: 10px 10px 5px 5px;
+
+    background: #c9a47b;
+
+    z-index: 5;
+
+    box-shadow:
+        inset 0 -5px rgba(0, 0, 0, 0.08);
+}
+
+
+/* corpo */
+
+.pote-corpo {
+    position: absolute;
+
+    left: 10px;
+    bottom: 0;
+
+    width: 190px;
+    height: 235px;
+
+    border-radius:
+        20px 20px 38px 38px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.55),
+            rgba(255,255,255,.15),
+            rgba(255,255,255,.55)
+        );
+
+    border: 4px solid rgba(139, 94, 60, 0.35);
+
+    backdrop-filter: blur(4px);
+
+    z-index: 2;
+}
+
+
+/* brilho do vidro */
+
+.pote-corpo::before {
+    content: "";
+
+    position: absolute;
+
+    top: 20px;
+    left: 25px;
+
+    width: 18px;
+    height: 170px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.45);
+
+    transform: rotate(5deg);
+}
+
+
+/* =====================================================
+   💌 BILHETES DENTRO DO POTE
+===================================================== */
+
+.bilhetes-pote {
+    position: absolute;
+
+    left: 28px;
+    bottom: 25px;
+
+    width: 155px;
+    height: 170px;
+
+    z-index: 3;
+}
+
+.bilhetes-pote span {
+    position: absolute;
+
+    font-size: 38px;
+
+    transition:
+        transform .5s ease,
+        opacity .5s ease;
+}
+
+.bilhetes-pote span:nth-child(1) {
+    left: 10px;
+    bottom: 10px;
+    transform: rotate(-12deg);
+}
+
+.bilhetes-pote span:nth-child(2) {
+    left: 55px;
+    bottom: 8px;
+    transform: rotate(9deg);
+}
+
+.bilhetes-pote span:nth-child(3) {
+    left: 100px;
+    bottom: 20px;
+    transform: rotate(-8deg);
+}
+
+.bilhetes-pote span:nth-child(4) {
+    left: 25px;
+    bottom: 55px;
+    transform: rotate(14deg);
+}
+
+.bilhetes-pote span:nth-child(5) {
+    left: 75px;
+    bottom: 58px;
+    transform: rotate(-15deg);
+}
+
+.bilhetes-pote span:nth-child(6) {
+    left: 48px;
+    bottom: 105px;
+    transform: rotate(4deg);
+}
+
+
+/* animação quando abre */
+
+.pote.aberto .bilhetes-pote span:nth-child(1) {
+    transform:
+        translate(-25px, -35px)
+        rotate(-20deg);
+}
+
+.pote.aberto .bilhetes-pote span:nth-child(2) {
+    transform:
+        translate(20px, -55px)
+        rotate(15deg);
+}
+
+.pote.aberto .bilhetes-pote span:nth-child(3) {
+    transform:
+        translate(40px, -20px)
+        rotate(-12deg);
+}
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+.status-pote {
+    margin: 15px 0;
+
+    color: #8b5e3c;
+
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   🔘 BOTÃO PRINCIPAL
+===================================================== */
+
+.botao-principal {
+    border: none;
+
+    padding: 13px 24px;
+
+    border-radius: 30px;
+
+    background: #8b5e3c;
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.botao-principal:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 18px rgba(139,94,60,.25);
+}
+
+.botao-principal:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+
+/* =====================================================
+   💌 BILHETES
+===================================================== */
+
+.bilhete-container {
+    width: 100%;
+    padding: 20px;
+
+    box-sizing: border-box;
+}
+
+.bilhete {
+    width: 90%;
+    max-width: 600px;
+
+    margin: 30px auto;
+    padding: 30px;
+
+    box-sizing: border-box;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffdf8,
+            #f8f0df
+        );
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.12);
+
+    text-align: center;
+
+    position: relative;
+}
+
+.bilhete::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 10px;
+
+    border: 1px solid rgba(139,94,60,.2);
+
+    pointer-events: none;
+}
+
+.bilhete-emoji {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.bilhete-data {
+    font-size: 13px;
+
+    color: #8b5e3c;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+.bilhete h2 {
+    font-family: "DM Serif Display", serif;
+}
+
+.bilhete-frase {
+    font-size: 18px;
+}
+
+.missao-box {
+    margin: 25px 0;
+    padding: 18px;
+
+    border-radius: 14px;
+
+    background: rgba(139,94,60,.08);
+}
+
+.missao-titulo {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #8b5e3c;
+
+    font-weight: bold;
+}
+
+.elemento-especial {
+    margin: 20px 0;
+    line-height: 1.6;
+}
+
+.area-escolha {
+    margin: 25px 0;
+}
+
+.area-escolha label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-weight: bold;
+
+    color: #8b5e3c;
+}
+
+.area-escolha input {
+    width: 100%;
+
+    padding: 13px;
+
+    box-sizing: border-box;
+
+    border: 1px solid rgba(139,94,60,.3);
+
+    border-radius: 10px;
+
+    outline: none;
+}
+
+.conclusao {
+    margin: 25px 0;
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    background: rgba(139,94,60,.08);
+}
+
+.conclusao-icone {
+    font-size: 40px;
+
+    color: #8b5e3c;
+}
+
+
+/* =====================================================
+   🌌 MAPA
+===================================================== */
+
+.mapa-section {
+    width: 100%;
+
+    padding: 60px 20px;
+
+    box-sizing: border-box;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(139,94,60,.08),
+            transparent 70%
+        );
+}
+
+.mapa-titulo {
+    text-align: center;
+
+    margin-bottom: 40px;
+}
+
+.icone-universo {
+    font-size: 55px;
+}
+
+.mapa-titulo h2 {
+    font-family: "DM Serif Display", serif;
+
+    color: #8b5e3c;
+}
+
+
+/* =====================================================
+   ❤️ CORAÇÃO
+===================================================== */
+
+.coracao-area {
+    text-align: center;
+
+    margin-bottom: 50px;
+}
+
+.coracao {
+    position: relative;
+
+    width: 240px;
+    height: 220px;
+
+    margin: auto;
+}
+
+.coracao-svg {
+    width: 100%;
+    height: 100%;
+
+    overflow: visible;
+}
+
+.coracao-vazio {
+    fill: none;
+
+    stroke: #d7b8a1;
+    stroke-width: 5;
+}
+
+.preenchimento-coracao {
+    fill: #8b5e3c;
+
+    transition:
+        y 1s ease,
+        height 1s ease;
+}
+
+.porcentagem {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    pointer-events: none;
+}
+
+.porcentagem strong {
+    font-family: "DM Serif Display", serif;
+
+    font-size: 30px;
+
+    color: #8b5e3c;
+}
+
+.porcentagem span {
+    font-size: 12px;
+}
+
+.frase-coracao {
+    max-width: 400px;
+
+    margin: 20px auto;
+
+    font-style: italic;
+
+    opacity: .8;
+}
+
+
+/* =====================================================
+   🌌 UNIVERSO
+===================================================== */
+
+.universo {
+    position: relative;
+
+    width: 100%;
+    max-width: 800px;
+
+    height: 430px;
+
+    margin: auto;
+
+    overflow: hidden;
+
+    border-radius: 25px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #251b2e,
+            #0c0910 70%
+        );
+
+    box-shadow:
+        inset 0 0 50px rgba(0,0,0,.7),
+        0 20px 40px rgba(0,0,0,.2);
+}
+
+.estrelas-decorativas,
+.estrelas-mapa {
+    position: absolute;
+
+    inset: 0;
+}
+
+.estrelas-decorativas span {
+    position: absolute;
+
+    color: white;
+
+    opacity: .7;
+}
+
+.estrelas-decorativas span:nth-child(1) {
+    left: 8%;
+    top: 15%;
+}
+
+.estrelas-decorativas span:nth-child(2) {
+    left: 20%;
+    top: 35%;
+}
+
+.estrelas-decorativas span:nth-child(3) {
+    left: 35%;
+    top: 18%;
+}
+
+.estrelas-decorativas span:nth-child(4) {
+    left: 50%;
+    top: 30%;
+}
+
+.estrelas-decorativas span:nth-child(5) {
+    left: 70%;
+    top: 15%;
+}
+
+.estrelas-decorativas span:nth-child(6) {
+    left: 85%;
+    top: 40%;
+}
+
+.estrelas-decorativas span:nth-child(7) {
+    left: 12%;
+    top: 70%;
+}
+
+.estrelas-decorativas span:nth-child(8) {
+    left: 28%;
+    top: 80%;
+}
+
+.estrelas-decorativas span:nth-child(9) {
+    left: 45%;
+    top: 65%;
+}
+
+.estrelas-decorativas span:nth-child(10) {
+    left: 60%;
+    top: 82%;
+}
+
+.estrelas-decorativas span:nth-child(11) {
+    left: 75%;
+    top: 68%;
+}
+
+.estrelas-decorativas span:nth-child(12) {
+    left: 90%;
+    top: 75%;
+}
+
+.estrela-real {
+    position: absolute;
+
+    color: white;
+
+    font-size: 15px;
+
+    animation:
+        brilhoEstrela 2s infinite alternate;
+}
+
+@keyframes brilhoEstrela {
+
+    from {
+        opacity: .2;
+        transform: scale(.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.3);
+    }
+
+}
+
+
+/* =====================================================
+   🔑 CHAVE E CADEADO
+===================================================== */
+
+.chave-final,
+.cadeado-final {
+    position: absolute;
+
+    z-index: 10;
+
+    font-size: 50px;
+
+    filter:
+        drop-shadow(
+            0 0 15px rgba(255,255,255,.4)
+        );
+
+    animation:
+        aparecerFinal .8s ease;
+}
+
+.chave-final {
+    left: 35%;
+    top: 45%;
+}
+
+.cadeado-final {
+    right: 30%;
+    top: 45%;
+}
+
+@keyframes aparecerFinal {
+
+    from {
+        opacity: 0;
+        transform: scale(.4);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+
+/* =====================================================
+   🎂 FINAL
+===================================================== */
+
+.final-aniversario {
+    max-width: 600px;
+
+    margin: 40px auto;
+
+    padding: 35px;
+
+    text-align: center;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffdf8,
+            #f5eadb
+        );
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.12);
+}
+
+.final-icone {
+    font-size: 55px;
+}
+
+.final-porcentagem {
+    font-family: "DM Serif Display", serif;
+
+    font-size: 45px;
+
+    color: #8b5e3c;
+}
+
+.final-aniversario h2 {
+    color: #8b5e3c;
+}
+
+
+/* =====================================================
+   🎁 DÁDIVA
+===================================================== */
+
+.dadiva {
+    padding: 40px 20px;
+
+    text-align: center;
+}
+
+.dadiva-box {
+    max-width: 500px;
+
+    margin: auto;
+
+    padding: 35px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffdf8,
+            #f5eadb
+        );
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,.12);
+}
+
+.dadiva-icone {
+    font-size: 65px;
+
+    margin-bottom: 15px;
+}
+
+.dadiva-box h2 {
+    color: #8b5e3c;
+}
+
+
+/* =====================================================
+   🎡 ROLETA
+===================================================== */
+
+.roleta {
+    max-width: 700px;
+
+    margin: 50px auto;
+
+    padding: 35px 20px;
+
+    text-align: center;
+}
+
+.roleta-topo span {
+    display: block;
+
+    font-size: 55px;
+}
+
+.roleta-topo h2 {
+    color: #8b5e3c;
+
+    font-family: "DM Serif Display", serif;
+}
+
+.roleta-topo p {
+    opacity: .75;
+}
+
+
+/* =====================================================
+   🎡 CÍRCULO
+===================================================== */
+
+.roleta-container {
+    position: relative;
+
+    width: 310px;
+    height: 310px;
+
+    margin: 40px auto;
+}
+
+.roleta-circulo {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+
+    border: 7px solid #8b5e3c;
+
+    background:
+        conic-gradient(
+            #f5dfc8 0deg 60deg,
+            #fff8ef 60deg 120deg,
+            #f5dfc8 120deg 180deg,
+            #fff8ef 180deg 240deg,
+            #f5dfc8 240deg 300deg,
+            #fff8ef 300deg 360deg
+        );
+
+    box-shadow:
+        0 15px 30px rgba(0,0,0,.18);
+
+    transition:
+        transform 4.5s
+        cubic-bezier(.15,.8,.15,1);
+}
+
+
+/* =====================================================
+   🔢 NÚMEROS
+===================================================== */
+
+.numero-roleta {
+    position: absolute;
+
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.75);
+
+    color: #8b5e3c;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    box-shadow:
+        0 4px 10px rgba(0,0,0,.12);
+}
+
+.numero-1 {
+    top: 18px;
+    left: 130px;
+}
+
+.numero-2 {
+    top: 65px;
+    right: 38px;
+}
+
+.numero-3 {
+    bottom: 65px;
+    right: 38px;
+}
+
+.numero-4 {
+    bottom: 18px;
+    left: 130px;
+}
+
+.numero-5 {
+    bottom: 65px;
+    left: 38px;
+}
+
+.numero-6 {
+    top: 65px;
+    left: 38px;
+}
+
+
+/* =====================================================
+   ❤️ CENTRO
+===================================================== */
+
+.centro-roleta {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 65px;
+    height: 65px;
+
+    transform:
+        translate(-50%, -50%);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: white;
+
+    border: 4px solid #8b5e3c;
+
+    font-size: 28px;
+
+    z-index: 5;
+}
+
+
+/* =====================================================
+   🔻 SETA
+===================================================== */
+
+.seta-roleta {
+    position: absolute;
+
+    z-index: 20;
+
+    top: -18px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    font-size: 35px;
+
+    color: #8b5e3c;
+
+    filter:
+        drop-shadow(
+            0 3px 4px rgba(0,0,0,.2)
+        );
+}
+
+
+/* =====================================================
+   🎁 RESULTADO
+===================================================== */
+
+.resultado-roleta {
+    max-width: 520px;
+
+    margin: 30px auto;
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffdf8,
+            #f5eadb
+        );
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.12);
+}
+
+.resultado-icone {
+    font-size: 55px;
+}
+
+.resultado-roleta h2 {
+    color: #8b5e3c;
+}
+
+.numero-premio {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 75px;
+    height: 75px;
+
+    margin: 15px auto;
+
+    border-radius: 50%;
+
+    background: #8b5e3c;
+
+    color: white;
+
+    font-size: 30px;
+
+    font-weight: bold;
+}
+
+.nome-premio {
+    font-family: "DM Serif Display", serif;
+}
+
+
+/* =====================================================
+   📸 REGISTRO DO PRÊMIO
+===================================================== */
+
+.print-premio {
+    margin-top: 25px;
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    background: rgba(139,94,60,.08);
+
+    border: 1px dashed rgba(139,94,60,.45);
+}
+
+.print-premio strong {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #8b5e3c;
+}
+
+.print-premio p {
+    margin: 8px 0;
+}
+
+
+/* =====================================================
+   🔄 OCULTAR ELEMENTOS
+===================================================== */
+
+.oculto {
+    display: none !important;
+}
+
+
+/* =====================================================
+   📱 RESPONSIVO
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .pote {
+        transform: scale(.9);
+    }
+
+    .universo {
+        height: 360px;
+    }
+
+    .roleta-container {
+        width: 270px;
+        height: 270px;
+    }
+
+    .numero-1 {
+        left: 110px;
+    }
+
+    .numero-4 {
+        left: 110px;
+    }
+
+    .numero-2,
+    .numero-3 {
+        right: 25px;
+    }
+
+    .numero-5,
+    .numero-6 {
+        left: 25px;
+    }
+
+    .bilhete {
+        padding: 25px 18px;
+    }
+
+}
 
 /* =========================
    QUIZ INTERATIVO
