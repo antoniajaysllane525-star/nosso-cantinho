@@ -1427,9 +1427,19 @@ function liberarFinal() {
      * O coração chegou a 100%.
      *
      * A chave e o cadeado aparecem
-     * na própria Galáxia.
+     * na Galáxia.
      *
-     * NÃO abrir a Dádiva automaticamente.
+     * A Dádiva Alcançada NÃO aparece ainda.
+     */
+
+    if (finalAniversario)
+        finalAniversario.classList.add("oculto");
+
+
+    /*
+     * Continua na Galáxia para que ele
+     * possa deslizar a tela e encontrar
+     * a chave e o cadeado.
      */
 
     if (mapa) {
