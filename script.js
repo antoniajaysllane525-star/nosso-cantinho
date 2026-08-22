@@ -486,6 +486,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+
 /* =====================================================
    🫙 POTE DAS DATAS
 ===================================================== */
@@ -916,11 +917,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (preenchimento) {
 
-            /*
-             * O coração é preenchido de baixo
-             * para cima.
-             */
-
             const altura =
                 180 * (progressoAtual / 100);
 
@@ -949,11 +945,6 @@ document.addEventListener("DOMContentLoaded", () => {
     function iniciarProgresso() {
 
         atualizarCoracao(0);
-
-        /*
-         * Para o teste, o coração avança
-         * gradualmente.
-         */
 
         let valor = 0;
 
@@ -993,12 +984,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         /*
-         * IMPORTANTE:
-         * Ao completar 100%, o sistema NÃO abre
-         * automaticamente a Dádiva.
-         *
-         * O usuário permanece na galáxia,
-         * onde verá a chave e o cadeado.
+         * Ao completar 100%, permanece na Galáxia.
+         * Não abre a Dádiva automaticamente.
          */
 
         if (mapa) {
@@ -1039,10 +1026,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
 
-            /*
-             * Depois da Dádiva, libera a roleta.
-             */
-
             setTimeout(() => {
 
                 if (roleta)
@@ -1072,68 +1055,56 @@ document.addEventListener("DOMContentLoaded", () => {
     const premios = {
 
         1: {
-
             nome:
                 "ESCOLHA O FILME",
 
             descricao:
                 "Hoje você escolhe o filme que nós vamos assistir juntos. 🎬"
-
         },
 
 
         2: {
-
             nome:
                 "ESCOLHA O LUGAR",
 
             descricao:
                 "Hoje você escolhe para onde nós vamos juntos. 📍"
-
         },
 
 
         3: {
-
             nome:
                 "ESCOLHA O BEIJO",
 
             descricao:
                 "Você ganhou o direito de escolher o beijo. 💋"
-
         },
 
 
         4: {
-
             nome:
                 "ESCOLHA O LANCHE",
 
             descricao:
                 "Hoje o lanche fica por sua conta. Você escolhe. 🍫"
-
         },
 
 
         5: {
-
             nome:
                 "ESCOLHA PECULIAR",
 
             descricao:
                 "Você ganhou uma escolha peculiar. Use esse poder com responsabilidade. 👀"
-
         },
 
 
         6: {
-
             nome:
                 "TENTE NOVAMENTE",
 
             descricao:
                 "KKKKKKK a sorte resolveu brincar com você. Gire novamente. 🔄"
-
         }
 
     };
@@ -1164,10 +1135,6 @@ document.addEventListener("DOMContentLoaded", () => {
         numeroSorteado = null;
 
 
-        /*
-         * Esconde resultado anterior.
-         */
-
         if (resultadoRoleta)
             resultadoRoleta.classList.add("oculto");
 
@@ -1180,32 +1147,15 @@ document.addEventListener("DOMContentLoaded", () => {
             btnTentarNovamente.classList.add("oculto");
 
 
-        /*
-         * Bloqueia botão enquanto gira.
-         */
-
         btnGirar.disabled = true;
 
-
-        /*
-         * Sorteia número de 1 a 6.
-         */
 
         numeroSorteado =
             Math.floor(Math.random() * 6) + 1;
 
 
-        /*
-         * Cada número ocupa aproximadamente
-         * 60 graus.
-         */
-
         const grausPorNumero = 60;
 
-
-        /*
-         * Faz várias voltas antes de parar.
-         */
 
         const voltas =
             5 + Math.floor(Math.random() * 3);
@@ -1229,23 +1179,16 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
 
-        /*
-         * Aguarda a roleta parar.
-         */
-
         setTimeout(() => {
 
             roletaGirando = false;
 
-            /*
-             * Só agora aparece:
-             * MOSTRAR RESULTADO
-             */
 
             if (btnMostrarResultado)
                 btnMostrarResultado.classList.remove(
                     "oculto"
                 );
+
 
         }, 4500);
 
@@ -1301,12 +1244,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         /*
-         * =================================================
-         * 🎁 PRÊMIOS 1 A 5
-         * =================================================
-         *
-         * Se cair de 1 a 5,
-         * o prêmio é definitivo.
+         * 1 A 5 = PRÊMIO DEFINITIVO
          */
 
         if (
@@ -1323,13 +1261,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         /*
-         * =================================================
-         * 🔄 NÚMERO 6
-         * =================================================
+         * 6 = PODE GIRAR NOVAMENTE
          *
-         * O número 6 permite uma nova tentativa.
-         *
-         * Pode acontecer quantas vezes forem necessárias.
+         * Sem limite de tentativas.
          */
 
         if (numeroSorteado === 6) {
@@ -1360,18 +1294,9 @@ document.addEventListener("DOMContentLoaded", () => {
             "click",
             () => {
 
-                /*
-                 * Só permite tentar novamente
-                 * se o resultado anterior foi 6.
-                 */
-
                 if (numeroSorteado !== 6)
                     return;
 
-
-                /*
-                 * Esconde o resultado anterior.
-                 */
 
                 if (resultadoRoleta)
                     resultadoRoleta.classList.add(
@@ -1379,26 +1304,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     );
 
 
-                /*
-                 * Esconde o botão enquanto
-                 * a nova rodada acontece.
-                 */
-
                 btnTentarNovamente.classList.add(
                     "oculto"
                 );
 
 
-                /*
-                 * Limpa o resultado anterior.
-                 */
-
                 numeroSorteado = null;
 
-
-                /*
-                 * Libera a roleta novamente.
-                 */
 
                 btnGirar.disabled = false;
 
@@ -1431,7 +1343,12 @@ document.addEventListener("DOMContentLoaded", () => {
                         "🧪 MODO DE TESTE — data liberada.";
 
             }
-            /* =====================================================
+        );
+
+    }
+
+
+    /* =====================================================
        🧪 TESTE FINAL
     ====================================================== */
 
@@ -1490,6 +1407,39 @@ document.addEventListener("DOMContentLoaded", () => {
     atualizarCoracao(0);
 
 });
+/* =================================================
+   🔑 FINAL DO CAMINHO
+================================================= */
+
+function liberarFinal() {
+
+    if (chaveFinal)
+        chaveFinal.classList.remove("oculto");
+
+
+    if (cadeadoFinal)
+        cadeadoFinal.classList.remove("oculto");
+
+
+    /*
+     * O coração chegou a 100%.
+     *
+     * A chave e o cadeado aparecem
+     * na própria Galáxia.
+     *
+     * NÃO abrir a Dádiva automaticamente.
+     */
+
+    if (mapa) {
+
+        mapa.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }
+
+}
 
 // =========================================================
 // ADITIVO AO CONTRATO
