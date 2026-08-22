@@ -999,55 +999,57 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
+/* =================================================
+   🎁 ABRIR DÁDIVA
+================================================= */
 
-    /* =================================================
-       🎁 ABRIR DÁDIVA
-    ================================================= */
+if (btnDadiva) {
 
-    if (btnDadiva) {
+    btnDadiva.addEventListener("click", () => {
 
-        btnDadiva.addEventListener("click", () => {
-
-            if (finalAniversario)
-                finalAniversario.classList.add("oculto");
-
-
-            if (dadiva)
-                dadiva.classList.remove("oculto");
+        if (finalAniversario)
+            finalAniversario.classList.add("oculto");
 
 
-            if (dadiva) {
+        if (dadiva)
+            dadiva.classList.remove("oculto");
 
-                dadiva.scrollIntoView({
+
+        if (dadiva) {
+
+            dadiva.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+        }
+
+
+        /*
+         * Depois da Dádiva, libera a roleta.
+         */
+
+        setTimeout(() => {
+
+            if (roleta)
+                roleta.classList.remove("oculto");
+
+
+            if (roleta) {
+
+                roleta.scrollIntoView({
                     behavior: "smooth",
                     block: "center"
                 });
 
             }
 
+        }, 1200);
 
-            setTimeout(() => {
+    });
 
-                if (roleta)
-                    roleta.classList.remove("oculto");
-
-
-                if (roleta) {
-
-                    roleta.scrollIntoView({
-                        behavior: "smooth",
-                        block: "center"
-                    });
-
-                }
-
-            }, 1200);
-
-        });
-
-    }
-
-
+}
+    
     /* =====================================================
        🎡 PREMIAÇÕES
     ====================================================== */
