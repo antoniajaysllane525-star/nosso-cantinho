@@ -893,95 +893,52 @@ function finalizarQuiz() {
 
 }
 
-
 // =========================================================
-// VERIFICAR PISTAS
+// DECLARAÇÕES DO CONTRATANTE — ETAPA FINAL
 // =========================================================
-
-function normalizarTexto(texto) {
-
-    return texto
-        .toLowerCase()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .trim();
-
-}
-
 
 function verificarPistas() {
 
     const resposta1 =
-        normalizarTexto(
-            document.getElementById("respostaPista1").value
-        );
-
+        document.getElementById("respostaPista1").value.trim();
 
     const resposta2 =
-        normalizarTexto(
-            document.getElementById("respostaPista4").value
-        );
-
+        document.getElementById("respostaPista4").value.trim();
 
     const resposta3 =
-        normalizarTexto(
-            document.getElementById("respostaPista2").value
-        );
-
+        document.getElementById("respostaPista2").value.trim();
 
     const resposta4 =
-        normalizarTexto(
-            document.getElementById("respostaPista3").value
-        );
-
+        document.getElementById("respostaPista3").value.trim();
 
     const resposta5 =
-        normalizarTexto(
-            document.getElementById("respostaPista5").value
-        );
+        document.getElementById("respostaPista5").value.trim();
 
 
-    const correta1 =
-        resposta1 === "vela" ||
-        resposta1 === "velas";
+    // Nenhuma resposta possui gabarito.
+    // A função verifica apenas se todas as declarações foram preenchidas.
 
-
-    const correta2 =
-        resposta2 === "coracao";
-
-
-    const correta3 =
-        resposta3 === "pulseira";
-
-
-    const correta4 =
-        resposta4 === "alianca" ||
-        resposta4 === "aliancas";
-
-
-    const correta5 =
-        resposta5 === "igreja";
+    const todasPreenchidas =
+        resposta1 !== "" &&
+        resposta2 !== "" &&
+        resposta3 !== "" &&
+        resposta4 !== "" &&
+        resposta5 !== "";
 
 
     return {
 
-        correta1: correta1,
-        correta2: correta2,
-        correta3: correta3,
-        correta4: correta4,
-        correta5: correta5,
+        resposta1: resposta1,
+        resposta2: resposta2,
+        resposta3: resposta3,
+        resposta4: resposta4,
+        resposta5: resposta5,
 
-        todasCorretas:
-            correta1 &&
-            correta2 &&
-            correta3 &&
-            correta4 &&
-            correta5
+        todasPreenchidas: todasPreenchidas
 
     };
 
 }
-
 
 // =========================================================
 // PROSSEGUIR COM A ANÁLISE
