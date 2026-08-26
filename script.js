@@ -1381,15 +1381,11 @@ function reiniciarQuiz() {
     respostas = [];
 
 
-    respostasPistas = {
-
-        pista1: "",
-        pista2: "",
-        pista3: "",
-        pista4: "",
-        pista5: ""
-
-    };
+   respostasPistas = {
+    pista1: "",
+    pista2: "",
+    pista3: ""
+};
 
 
     codigoGerado = "";
