@@ -895,45 +895,31 @@ function finalizarQuiz() {
 
 }
 
-
 // =========================================================
 // DECLARAÇÕES DO CONTRATANTE — ETAPA FINAL
+// 3 PERGUNTAS ABERTAS
 // =========================================================
 
 function verificarPistas() {
 
     const resposta1 =
-        document.getElementById("respostaPista1").value.trim();
-
+        document.getElementById("respostaSentimento1").value.trim();
 
     const resposta2 =
-        document.getElementById("respostaPista4").value.trim();
-
+        document.getElementById("respostaSentimento2").value.trim();
 
     const resposta3 =
-        document.getElementById("respostaPista2").value.trim();
-
-
-    const resposta4 =
-        document.getElementById("respostaPista3").value.trim();
-
-
-    const resposta5 =
-        document.getElementById("respostaPista5").value.trim();
+        document.getElementById("respostaSentimento3").value.trim();
 
 
     // =====================================================
-    // NÃO EXISTE GABARITO
+    // VERIFICA SE AS 3 DECLARAÇÕES FORAM PREENCHIDAS
     // =====================================================
-    // As cinco perguntas são abertas.
-    // O sistema verifica apenas se foram respondidas.
 
     const todasPreenchidas =
         resposta1 !== "" &&
         resposta2 !== "" &&
-        resposta3 !== "" &&
-        resposta4 !== "" &&
-        resposta5 !== "";
+        resposta3 !== "";
 
 
     return {
@@ -941,8 +927,6 @@ function verificarPistas() {
         resposta1: resposta1,
         resposta2: resposta2,
         resposta3: resposta3,
-        resposta4: resposta4,
-        resposta5: resposta5,
 
         todasPreenchidas: todasPreenchidas
 
@@ -964,7 +948,7 @@ function prosseguirAnalise() {
     if (!pistas.todasPreenchidas) {
 
         alert(
-            "Para prosseguir com a análise, responda todas as declarações."
+            "Para prosseguir com a análise, responda as 3 declarações."
         );
 
         return;
@@ -973,27 +957,25 @@ function prosseguirAnalise() {
 
 
     // =====================================================
-    // GUARDA AS RESPOSTAS
+    // GUARDA AS 3 RESPOSTAS
     // =====================================================
 
     respostasPistas.pista1 =
         pistas.resposta1;
 
-
     respostasPistas.pista2 =
+        pistas.resposta2;
+
+    respostasPistas.pista3 =
         pistas.resposta3;
 
 
-    respostasPistas.pista3 =
-        pistas.resposta4;
+    // =====================================================
+    // LIMPA AS PISTAS ANTIGAS
+    // =====================================================
 
-
-    respostasPistas.pista4 =
-        pistas.resposta2;
-
-
-    respostasPistas.pista5 =
-        pistas.resposta5;
+    respostasPistas.pista4 = "";
+    respostasPistas.pista5 = "";
 
 
     // =====================================================
@@ -1018,7 +1000,6 @@ function prosseguirAnalise() {
     });
 
 }
-
 
 // =========================================================
 // CONFIRMAR RESPOSTAS
