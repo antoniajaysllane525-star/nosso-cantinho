@@ -1111,11 +1111,7 @@ function gerarCodigo() {
         "" +
         respostasPistas.pista2.length +
         "" +
-        respostasPistas.pista3.length +
-        "" +
-        respostasPistas.pista4.length +
-        "" +
-        respostasPistas.pista5.length
+        respostasPistas.pista3.length
     );
 
 }
