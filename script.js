@@ -712,9 +712,7 @@ let respostas = [];
 let respostasPistas = {
     pista1: "",
     pista2: "",
-    pista3: "",
-    pista4: "",
-    pista5: ""
+    pista3: ""
 };
 
 let codigoGerado = "";
