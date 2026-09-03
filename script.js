@@ -61,7 +61,6 @@ function continuarSite() {
 
 }
 
-
 // =========================================================
 // PERMITIR ENTER NA SENHA
 // =========================================================
@@ -84,19 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-}
-
-    // =====================================================
-    // SCROLL PARA O COMEÇO DO SITE
-    // =====================================================
-
-    document.getElementById("conteudoSite").scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-    });
-
-}
-
+});
 
 // =========================================================
 // QUEM É MAIS?
