@@ -31,7 +31,7 @@ function verificarSenha() {
 
             document.getElementById("bemVindo").style.display = "block";
 
-        }, 3000);
+        }, 9000);
 
     } else {
 
