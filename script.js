@@ -16,22 +16,23 @@ function verificarSenha() {
 
     if (senhaNormalizada === "coracao") {
 
-        // Esconde a tela de login
+        // Esconde a tela de senha
         document.getElementById("login").style.display = "none";
 
-        // Mostra a titularidade validada
+        // Mostra "Titularidade Validada"
         const titularidade = document.getElementById("titularidadeValidada");
         titularidade.style.display = "block";
 
-        // Após 5 segundos, esconde a titularidade
-        // e inicia o site pelo Bem-vindo
+        // Depois de 8 segundos...
         setTimeout(function() {
 
+            // Esconde completamente a Titularidade
             titularidade.style.display = "none";
 
-            document.getElementById("bemVindo").style.display = "block";
+            // Libera todo o restante do site
+            document.getElementById("conteudoSite").style.display = "block";
 
-        }, 5000);
+        }, 8000);
 
     } else {
 
@@ -39,7 +40,6 @@ function verificarSenha() {
 
         document.getElementById("senha").value = "";
         document.getElementById("senha").focus();
-
     }
 }
 
