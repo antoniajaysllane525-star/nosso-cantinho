@@ -111,22 +111,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
  
-// =========================================================
-// CONTINUAR PARA O CONTEÚDO DO SITE
-// =========================================================
-
-function continuarSite() {
-
-    // Esconde confirmação da assinatura
-    document.getElementById("contratoAssinado").style.display =
-        "none";
-
-
-    // Mostra todo o conteúdo
-    document.getElementById("conteudoSite").style.display =
-        "block";
-
-
     // =====================================================
     // SCROLL PARA O COMEÇO DO SITE
     // =====================================================
