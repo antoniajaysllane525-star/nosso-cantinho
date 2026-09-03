@@ -4,6 +4,25 @@
 // PARTE 1 — ACESSO E ENTRADA NO SITE
 // =========================================================
 
+function confirmarTermos() {
+
+    const aceite = document.getElementById("aceiteTermos");
+
+    if (!aceite.checked) {
+
+        alert("Para prosseguir, é necessário ler e aceitar os termos de uso.");
+
+        return;
+    }
+
+    // Libera o Sistema de Titularidade
+    document.getElementById("sistemaTitularidade").style.display = "block";
+
+    // Esconde o botão de confirmação dos termos
+    document.getElementById("btnTermos").style.display = "none";
+}
+
+
 function verificarSenha() {
 
     const senhaDigitada = document.getElementById("senha").value;
@@ -16,24 +35,25 @@ function verificarSenha() {
 
     if (senhaNormalizada === "coracao") {
 
-        // Esconde a tela de senha
+        // Esconde a tela de acesso
         document.getElementById("login").style.display = "none";
 
         // Mostra "Titularidade Validada"
-        const titularidade = document.getElementById("titularidadeValidada");
+        const titularidade =
+            document.getElementById("titularidadeValidada");
+
         titularidade.style.display = "block";
 
-        // Depois de 7 segundos...
+        // Depois de 5 segundos...
         setTimeout(function() {
 
             // Esconde completamente a Titularidade
             titularidade.style.display = "none";
 
-            // Libera todo o restante do site
+            // Libera o restante do site
             document.getElementById("conteudoSite").style.display = "block";
-            document.getElementById("conteudoSite").style.visibility = "visible";
 
-        }, 7000);
+        }, 5000);
 
     } else {
 
