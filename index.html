@@ -14,6 +14,88 @@
 
 <body>
 
+    <!-- =========================
+SISTEMA DE TITULARIDADE
+========================= -->
+
+    <div id="login">
+
+        <section class="card capa">
+
+            <h1>⚖️ Sistema de Titularidade</h1>
+
+            <h3>ACESSO RESTRITO AO TITULAR</h3>
+
+            <p>
+                Este acesso encontra-se vinculado ao
+                Cartão de Titularidade Exclusiva apresentado.
+            </p>
+
+            <p>
+                <strong>TITULAR:</strong><br>
+                Nazareno Lima
+            </p>
+
+            <p>
+                <strong>STATUS:</strong><br>
+                Titularidade reconhecida.
+            </p>
+
+            <p>
+                Para prosseguir, informe a senha de acesso:
+            </p>
+
+            <input
+                type="password"
+                id="senha"
+                placeholder="Digite a senha">
+
+            <br><br>
+
+            <button onclick="verificarSenha()">
+                Entrar
+            </button>
+
+        </section>
+
+    </div>
+
+
+    <!-- =========================
+    TITULARIDADE VALIDADA
+    ========================= -->
+
+    <section class="card" id="titularidadeValidada" style="display:none;">
+
+        <h2>⚖️ Titularidade Validada</h2>
+
+        <p>
+            <strong>Titular:</strong><br>
+            Nazareno Lima
+        </p>
+
+        <p>
+            O sistema reconheceu a titularidade apresentada.
+        </p>
+
+        <p>
+            O acesso foi autorizado.
+        </p>
+
+        <h3>
+            PRÓXIMA ETAPA
+        </h3>
+
+        <p>
+            <strong>Bem Vindo ao Nosso Cantinho</strong>
+        </p>
+
+        <p>
+            Aguarde a abertura do processo.
+        </p>
+
+    </section>
+
    <!-- =========================
 BEM-VINDO AO NOSSO CANTINHO
 ========================= -->
