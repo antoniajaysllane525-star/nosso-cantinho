@@ -23,7 +23,7 @@ function verificarSenha() {
         const titularidade = document.getElementById("titularidadeValidada");
         titularidade.style.display = "block";
 
-        // Depois de 8 segundos...
+        // Depois de 7 segundos...
         setTimeout(function() {
 
             // Esconde completamente a Titularidade
@@ -33,7 +33,7 @@ function verificarSenha() {
             document.getElementById("conteudoSite").style.display = "block";
             document.getElementById("conteudoSite").style.visibility = "visible";
 
-        }, 8000);
+        }, 7000);
 
     } else {
 
