@@ -4,6 +4,44 @@
 // PARTE 1 — ACESSO E ENTRADA NO SITE
 // =========================================================
 
+function verificarSenha() {
+
+    const senhaDigitada = document.getElementById("senha").value;
+
+    // Aceita "coração" e "coracao",
+    // independente de maiúsculas, minúsculas ou acento
+    const senhaNormalizada = senhaDigitada
+        .trim()
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+
+    if (senhaNormalizada === "coracao") {
+
+        // Esconde a tela de login
+        document.getElementById("login").style.display = "none";
+
+        // Mostra "Titularidade Validada"
+        document.getElementById("titularidadeValidada").style.display = "block";
+
+        // Após 3 segundos, mostra o "Bem-vindo"
+        setTimeout(function() {
+
+            document.getElementById("titularidadeValidada").style.display = "none";
+
+            document.getElementById("bemVindo").style.display = "block";
+
+        }, 3000);
+
+    } else {
+
+        alert("Senha incorreta. Tente novamente.");
+
+        document.getElementById("senha").value = "";
+        document.getElementById("senha").focus();
+    }
+}
+
 // =========================================================
 // QUEM É MAIS?
 // =========================================================
