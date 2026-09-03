@@ -12,27 +12,23 @@
 let nomeContratante = "";
 
 // =========================================================
-// CONTRATO DE ACESSO
+// SISTEMA DE TITULARIDADE
 // =========================================================
 
 function verificarSenha() {
 
-    const campoSenha =
-        document.getElementById("senha");
-
+    const campoSenha = document.getElementById("senha");
 
     // Verifica se o campo existe
     if (!campoSenha) {
         return;
     }
 
-
-    const senha =
-        campoSenha.value
-            .trim()
-            .toLowerCase()
-            .normalize("NFD")
-            .replace(/[\u0300-\u036f]/g, "");
+    const senha = campoSenha.value
+        .trim()
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
 
 
     // =====================================================
@@ -41,30 +37,11 @@ function verificarSenha() {
 
     if (senha === "coracao") {
 
-        // Esconde tela de login
-        document.getElementById("login").style.display =
-            "none";
+        // Esconde o Sistema de Titularidade
+        document.getElementById("login").style.display = "none";
 
-
-        // Mostra somente a titularidade validada
-        document.getElementById("titularidadeValidada").style.display =
-            "block";
-
-
-        // Aguarda antes de revelar o contrato
-        setTimeout(function () {
-
-            document.getElementById("contrato").style.display =
-                "block";
-
-
-            // Leva até o contrato somente quando ele aparecer
-            document.getElementById("contrato").scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-
-        }, 3000);
+        // Mostra a Titularidade Validada
+        document.getElementById("titularidadeValidada").style.display = "block";
 
     }
 
@@ -78,12 +55,33 @@ function verificarSenha() {
         alert("Senha incorreta.");
 
         campoSenha.value = "";
-
         campoSenha.focus();
 
     }
 
 }
+
+
+// =========================================================
+// BOTÃO CONTINUAR
+// =========================================================
+
+function continuarSite() {
+
+    // Esconde a Titularidade Validada
+    document.getElementById("titularidadeValidada").style.display = "none";
+
+    // Mostra o conteúdo do site
+    document.getElementById("conteudoSite").style.display = "block";
+
+    // Leva para o começo do Nosso Cantinho
+    document.getElementById("conteudoSite").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+
+}
+
 
 // =========================================================
 // PERMITIR ENTER NA SENHA
@@ -91,9 +89,7 @@ function verificarSenha() {
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    const campoSenha =
-        document.getElementById("senha");
-
+    const campoSenha = document.getElementById("senha");
 
     if (campoSenha) {
 
