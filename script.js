@@ -8,6 +8,8 @@ function verificarSenha() {
 
     const senhaDigitada = document.getElementById("senha").value;
 
+    // Aceita "coração" e "coracao",
+    // independente de maiúsculas, minúsculas ou acento
     const senhaNormalizada = senhaDigitada
         .trim()
         .toLowerCase()
@@ -16,19 +18,18 @@ function verificarSenha() {
 
     if (senhaNormalizada === "coracao") {
 
-        // Esconde a tela da senha
+        // Esconde a tela de login
         document.getElementById("login").style.display = "none";
 
-        // Mostra a Titularidade Validada
-        const titularidade = document.getElementById("titularidadeValidada");
-        titularidade.style.display = "block";
+        // Mostra "Titularidade Validada"
+        document.getElementById("titularidadeValidada").style.display = "block";
 
-        // Depois de 9 segundos, libera TODO o site
+        // Após 9 segundos, mostra o "Bem-vindo"
         setTimeout(function() {
 
-            titularidade.style.display = "none";
+            document.getElementById("titularidadeValidada").style.display = "none";
 
-            document.getElementById("conteudoSite").style.display = "block";
+            document.getElementById("bemVindo").style.display = "block";
 
         }, 9000);
 
