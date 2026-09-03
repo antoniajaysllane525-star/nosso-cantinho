@@ -31,6 +31,7 @@ function verificarSenha() {
 
             // Libera todo o restante do site
             document.getElementById("conteudoSite").style.display = "block";
+document.getElementById("conteudoSite").style.visibility = "visible";
 
         }, 8000);
 
