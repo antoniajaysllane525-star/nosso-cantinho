@@ -14,32 +14,85 @@
 
 <body>
 
-    <!-- =========================
-SISTEMA DE TITULARIDADE
+   <!-- =========================
+TERMOS DE USO + SISTEMA DE TITULARIDADE
 ========================= -->
 
-    <div id="login">
+<div id="login">
 
-        <section class="card capa">
+    <section class="card capa">
 
-            <h1>⚖️ Sistema de Titularidade</h1>
+        <p>
+            <strong>Prezado Titular: Nazareno Lima</strong>
+        </p>
+
+        <h2>🧾 TERMOS DE USO E ACESSO</h2>
+
+        <p>
+            O presente termo estabelece as condições para utilização
+            deste acesso, sendo de responsabilidade do titular observar
+            e respeitar as condições aqui apresentadas.
+        </p>
+
+        <p>
+            <strong>Condições de uso:</strong>
+        </p>
+
+        <p>
+            1. O acesso é de caráter pessoal e intransferível.
+        </p>
+
+        <p>
+            2. O titular declara estar ciente de que o acesso é protegido
+            por senha e que esta deverá ser utilizada exclusivamente por ele.
+        </p>
+
+        <p>
+            3. O titular compromete-se a não compartilhar, divulgar ou
+            disponibilizar seus dados de acesso a terceiros.
+        </p>
+
+        <p>
+            4. A utilização deste acesso implica a concordância integral
+            com os termos aqui estabelecidos.
+        </p>
+
+        <p>
+            5. O acesso deverá ser utilizado de forma consciente e responsável.
+        </p>
+
+        <p>
+            <strong>Declaração de ciência</strong>
+        </p>
+
+        <p>
+            Ao prosseguir, o titular declara que leu, compreendeu e está
+            de acordo com os presentes termos de uso.
+        </p>
+
+        <label>
+            <input type="checkbox" id="aceiteTermos">
+            Li, compreendi e estou de acordo com os termos de uso.
+        </label>
+
+        <br><br>
+
+        <button id="btnTermos" onclick="confirmarTermos()">
+            Confirmar termos
+        </button>
+
+
+        <!-- =========================
+        SISTEMA DE TITULARIDADE
+        ========================= -->
+
+        <div id="sistemaTitularidade" style="display:none;">
+
+            <hr>
+
+            <h2>⚖️ SISTEMA DE TITULARIDADE</h2>
 
             <h3>ACESSO RESTRITO AO TITULAR</h3>
-
-            <p>
-                Este acesso encontra-se vinculado ao
-                Cartão de Titularidade Exclusiva apresentado.
-            </p>
-
-            <p>
-                <strong>TITULAR:</strong><br>
-                Nazareno Lima
-            </p>
-
-            <p>
-                <strong>STATUS:</strong><br>
-                Titularidade reconhecida.
-            </p>
 
             <p>
                 Para prosseguir, informe a senha de acesso:
@@ -53,13 +106,14 @@ SISTEMA DE TITULARIDADE
             <br><br>
 
             <button onclick="verificarSenha()">
-                Entrar
+                CONFIRMAR ACESSO
             </button>
 
-        </section>
+        </div>
 
-    </div>
+    </section>
 
+</div>
 
     <!-- =========================
     TITULARIDADE VALIDADA
@@ -731,7 +785,7 @@ ADITIVO AO CONTRATO DE NAMORO
 
     <p>
         Pelo presente instrumento particular, de um lado,
-        <strong>LANaj</strong>, doravante denominada
+        <strong>LANAJ</strong>, doravante denominada
         <strong>CONTRATANTE</strong>, e, de outro,
         <strong>NAZARENO LIMA</strong>, doravante denominado
         <strong>CONTRATADO</strong>, resolvem celebrar o presente
