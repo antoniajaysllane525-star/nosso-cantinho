@@ -19,38 +19,20 @@ function verificarSenha() {
 
     const campoSenha = document.getElementById("senha");
 
-    // Verifica se o campo existe
     if (!campoSenha) {
         return;
     }
 
-    const senha = campoSenha.value
-        .trim()
-        .toLowerCase()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "");
+    const senha = campoSenha.value.trim().toLowerCase();
 
+    // Aceita coração e coracao
+    if (senha === "coração" || senha === "coracao") {
 
-    // =====================================================
-    // SENHA CORRETA
-    // =====================================================
-
-    if (senha === "coracao") {
-
-        // Esconde o Sistema de Titularidade
         document.getElementById("login").style.display = "none";
 
-        // Mostra a Titularidade Validada
         document.getElementById("titularidadeValidada").style.display = "block";
 
-    }
-
-
-    // =====================================================
-    // SENHA INCORRETA
-    // =====================================================
-
-    else {
+    } else {
 
         alert("Senha incorreta.");
 
@@ -63,21 +45,18 @@ function verificarSenha() {
 
 
 // =========================================================
-// BOTÃO CONTINUAR
+// CONTINUAR PARA O NOSSO CANTINHO
 // =========================================================
 
 function continuarSite() {
 
-    // Esconde a Titularidade Validada
     document.getElementById("titularidadeValidada").style.display = "none";
 
-    // Mostra o conteúdo do site
     document.getElementById("conteudoSite").style.display = "block";
 
-    // Leva para o começo do Nosso Cantinho
-    document.getElementById("conteudoSite").scrollIntoView({
-        behavior: "smooth",
-        block: "start"
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
     });
 
 }
@@ -105,8 +84,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-});
- 
+}
+
     // =====================================================
     // SCROLL PARA O COMEÇO DO SITE
     // =====================================================
