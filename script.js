@@ -23,10 +23,13 @@ function verificarSenha() {
         return;
     }
 
-    const senha = campoSenha.value.trim().toLowerCase();
+    const senha = campoSenha.value
+        .trim()
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
 
-    // Aceita coração e coracao
-    if (senha === "coração" || senha === "coracao") {
+    if (senha === "coracao") {
 
         document.getElementById("login").style.display = "none";
 
@@ -60,6 +63,7 @@ function continuarSite() {
     });
 
 }
+
 
 // =========================================================
 // PERMITIR ENTER NA SENHA
