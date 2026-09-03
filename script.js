@@ -11,6 +11,8 @@
 
 let nomeContratante = "";
 
+<script>
+
 // =========================================================
 // SISTEMA DE TITULARIDADE
 // =========================================================
@@ -18,10 +20,8 @@ let nomeContratante = "";
 function verificarSenha() {
 
     const campoSenha = document.getElementById("senha");
-
-    if (!campoSenha) {
-        return;
-    }
+    const login = document.getElementById("login");
+    const titularidade = document.getElementById("titularidadeValidada");
 
     const senha = campoSenha.value
         .trim()
@@ -29,33 +29,34 @@ function verificarSenha() {
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "");
 
+    // Aceita "coração" ou "coracao"
+    // em qualquer combinação de maiúsculas/minúsculas
     if (senha === "coracao") {
 
-        document.getElementById("login").style.display = "none";
-
-        document.getElementById("titularidadeValidada").style.display = "block";
+        login.style.display = "none";
+        titularidade.style.display = "block";
 
     } else {
 
         alert("Senha incorreta.");
-
         campoSenha.value = "";
         campoSenha.focus();
 
     }
-
 }
 
 
 // =========================================================
-// CONTINUAR PARA O NOSSO CANTINHO
+// BOTÃO CONTINUAR
 // =========================================================
 
 function continuarSite() {
 
-    document.getElementById("titularidadeValidada").style.display = "none";
+    const titularidade = document.getElementById("titularidadeValidada");
+    const conteudoSite = document.getElementById("conteudoSite");
 
-    document.getElementById("conteudoSite").style.display = "block";
+    titularidade.style.display = "none";
+    conteudoSite.style.display = "block";
 
     window.scrollTo({
         top: 0,
@@ -66,28 +67,24 @@ function continuarSite() {
 
 
 // =========================================================
-// PERMITIR ENTER NA SENHA
+// ENTER NO CAMPO DE SENHA
 // =========================================================
 
 document.addEventListener("DOMContentLoaded", function () {
 
     const campoSenha = document.getElementById("senha");
 
-    if (campoSenha) {
+    campoSenha.addEventListener("keydown", function (event) {
 
-        campoSenha.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+            verificarSenha();
+        }
 
-            if (event.key === "Enter") {
-
-                verificarSenha();
-
-            }
-
-        });
-
-    }
+    });
 
 });
+
+</script>
 
 // =========================================================
 // QUEM É MAIS?
