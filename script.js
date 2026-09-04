@@ -4,24 +4,24 @@
 // PARTE 1 — ACESSO E ENTRADA NO SITE
 // =========================================================
 
-// =========================
-// INICIALIZAÇÃO DO ACESSO
-// =========================
+function confirmarTermos() {
 
-document.addEventListener("DOMContentLoaded", function () {
+    const aceite = document.getElementById("aceiteTermos");
 
-    // Mostra primeiro o Sistema de Titularidade
+    if (!aceite.checked) {
+
+        alert("Para prosseguir, é necessário ler e aceitar os termos de uso.");
+
+        return;
+    }
+
+    // Libera o Sistema de Titularidade
     document.getElementById("sistemaTitularidade").style.display = "block";
 
-    // Esconde os Termos inicialmente
-    document.querySelector("#login .card.capa").style.display = "none";
+    // Esconde o botão de confirmação dos termos
+    document.getElementById("btnTermos").style.display = "none";
+}
 
-});
-
-
-// =========================
-// VERIFICAÇÃO DA SENHA
-// =========================
 
 function verificarSenha() {
 
@@ -35,11 +35,25 @@ function verificarSenha() {
 
     if (senhaNormalizada === "coracao") {
 
-        // Esconde o Sistema de Titularidade
-        document.getElementById("sistemaTitularidade").style.display = "none";
+        // Esconde a tela de acesso
+        document.getElementById("login").style.display = "none";
 
-        // Mostra os Termos
-        document.querySelector("#login .card.capa").style.display = "block";
+        // Mostra "Titularidade Validada"
+        const titularidade =
+            document.getElementById("titularidadeValidada");
+
+        titularidade.style.display = "block";
+
+        // Depois de 8 segundos...
+        setTimeout(function() {
+
+            // Esconde completamente a Titularidade
+            titularidade.style.display = "none";
+
+            // Libera o restante do site
+            document.getElementById("conteudoSite").style.display = "block";
+
+        }, 8000);
 
     } else {
 
@@ -49,7 +63,6 @@ function verificarSenha() {
         document.getElementById("senha").focus();
     }
 }
-
 
 // =========================
 // CONFIRMAÇÃO DOS TERMOS
