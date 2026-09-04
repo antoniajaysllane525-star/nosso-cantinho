@@ -5,21 +5,21 @@
 // =========================================================
 
 /* =========================
-   ABERTURA INICIAL
+   CONTROLE DAS ETAPAS
    ========================= */
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    // PRIMEIRA ETAPA: SENHA
+    // 1️⃣ MOSTRA SOMENTE A SENHA
     document.getElementById("sistemaTitularidade").style.display = "block";
 
-    // SEGUNDA ETAPA: TERMOS
+    // 2️⃣ ESCONDE OS TERMOS
     document.getElementById("login").style.display = "none";
 
-    // TERCEIRA ETAPA: TITULARIDADE
+    // 3️⃣ ESCONDE A TITULARIDADE VALIDADA
     document.getElementById("titularidadeValidada").style.display = "none";
 
-    // CONTEÚDO FINAL
+    // 4️⃣ ESCONDE O CONTEÚDO DO SITE
     document.getElementById("conteudoSite").style.display = "none";
 
 });
@@ -42,14 +42,11 @@ function verificarSenha() {
 
     if (senhaNormalizada === "coracao") {
 
-        // A SENHA SOME
+        // 🔐 SENHA DESAPARECE
         document.getElementById("sistemaTitularidade").style.display = "none";
 
-        // OS TERMOS APARECEM
+        // 🧾 AGORA APARECEM SOMENTE OS TERMOS
         document.getElementById("login").style.display = "block";
-
-        // Coloca o cursor no checkbox
-        document.getElementById("aceiteTermos").focus();
 
     } else {
 
@@ -80,23 +77,23 @@ function confirmarTermos() {
         return;
     }
 
-    // TERMOS SOMEM
+    // 🧾 TERMOS DESAPARECEM
     document.getElementById("login").style.display = "none";
 
-    // TITULARIDADE APARECE
+    // ⚖️ AGORA APARECE SOMENTE A TITULARIDADE
     document.getElementById("titularidadeValidada").style.display = "block";
 
-    // SITE CONTINUA ESCONDIDO
+    // 🌹 CONTEÚDO CONTINUA ESCONDIDO
     document.getElementById("conteudoSite").style.display = "none";
 
 
-    // AGUARDA 8 SEGUNDOS
+    // ⏱️ AGUARDA 8 SEGUNDOS
     setTimeout(function () {
 
-        // TITULARIDADE SOME
+        // ⚖️ TITULARIDADE DESAPARECE
         document.getElementById("titularidadeValidada").style.display = "none";
 
-        // SITE APARECE
+        // ❤️ AGORA APARECE SOMENTE O SITE
         document.getElementById("conteudoSite").style.display = "block";
 
     }, 8000);
