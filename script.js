@@ -10,17 +10,11 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    // 1️⃣ MOSTRA SOMENTE A SENHA
+    // MOSTRA SOMENTE A TELA DE SENHA
     document.getElementById("sistemaTitularidade").style.display = "block";
 
-    // 2️⃣ ESCONDE OS TERMOS
+    // ESCONDE OS TERMOS
     document.getElementById("login").style.display = "none";
-
-    // 3️⃣ ESCONDE A TITULARIDADE VALIDADA
-    document.getElementById("titularidadeValidada").style.display = "none";
-
-    // 4️⃣ ESCONDE O CONTEÚDO DO SITE
-    document.getElementById("conteudoSite").style.display = "none";
 
 });
 
@@ -42,11 +36,13 @@ function verificarSenha() {
 
     if (senhaNormalizada === "coracao") {
 
-        // 🔐 SENHA DESAPARECE
-        document.getElementById("sistemaTitularidade").style.display = "none";
+    // ESCONDE O SISTEMA DE SENHA
+    document.getElementById("sistemaTitularidade").style.display = "none";
 
-        // 🧾 AGORA APARECEM SOMENTE OS TERMOS
-        document.getElementById("login").style.display = "block";
+    // MOSTRA OS TERMOS
+    document.getElementById("login").style.display = "block";
+
+}
 
     } else {
 
