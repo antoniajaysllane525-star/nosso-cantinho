@@ -4,25 +4,6 @@
 // PARTE 1 — ACESSO E ENTRADA NO SITE
 // =========================================================
 
-function confirmarTermos() {
-
-    const aceite = document.getElementById("aceiteTermos");
-
-    if (!aceite.checked) {
-
-        alert("Para prosseguir, é necessário ler e aceitar os termos de uso.");
-
-        return;
-    }
-
-    // Libera o Sistema de Titularidade
-    document.getElementById("sistemaTitularidade").style.display = "block";
-
-    // Esconde o botão de confirmação dos termos
-    document.getElementById("btnTermos").style.display = "none";
-}
-
-
 function verificarSenha() {
 
     const senhaDigitada = document.getElementById("senha").value;
@@ -38,22 +19,8 @@ function verificarSenha() {
         // Esconde a tela de acesso
         document.getElementById("login").style.display = "none";
 
-        // Mostra "Titularidade Validada"
-        const titularidade =
-            document.getElementById("titularidadeValidada");
-
-        titularidade.style.display = "block";
-
-        // Depois de 5 segundos...
-        setTimeout(function() {
-
-            // Esconde completamente a Titularidade
-            titularidade.style.display = "none";
-
-            // Libera o restante do site
-            document.getElementById("conteudoSite").style.display = "block";
-
-        }, 5000);
+        // Mostra os Termos
+        document.getElementById("termosUso").style.display = "block";
 
     } else {
 
@@ -62,6 +29,28 @@ function verificarSenha() {
         document.getElementById("senha").value = "";
         document.getElementById("senha").focus();
     }
+}
+
+
+function confirmarTermos() {
+
+    const aceite = document.getElementById("aceiteTermos");
+
+    if (!aceite.checked) {
+
+        alert("Para prosseguir, é necessário ler e aceitar os termos de uso.");
+
+        return;
+    }
+
+    // Libera o conteúdo do site
+    document.getElementById("conteudoSite").style.display = "block";
+
+    // Esconde os termos
+    document.getElementById("termosUso").style.display = "none";
+
+    // Esconde o botão de confirmação dos termos
+    document.getElementById("btnTermos").style.display = "none";
 }
 
 // =========================================================
