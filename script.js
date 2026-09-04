@@ -5,12 +5,34 @@
 // =========================================================
 
 /* =========================
-SISTEMA DE TITULARIDADE
-========================= */
+   ABERTURA INICIAL
+   ========================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    // PRIMEIRA ETAPA: SENHA
+    document.getElementById("sistemaTitularidade").style.display = "block";
+
+    // SEGUNDA ETAPA: TERMOS
+    document.getElementById("login").style.display = "none";
+
+    // TERCEIRA ETAPA: TITULARIDADE
+    document.getElementById("titularidadeValidada").style.display = "none";
+
+    // CONTEÚDO FINAL
+    document.getElementById("conteudoSite").style.display = "none";
+
+});
+
+
+/* =========================
+   VERIFICAR SENHA
+   ========================= */
 
 function verificarSenha() {
 
-    const senhaDigitada = document.getElementById("senha").value;
+    const senhaDigitada =
+        document.getElementById("senha").value;
 
     const senhaNormalizada = senhaDigitada
         .trim()
@@ -20,78 +42,65 @@ function verificarSenha() {
 
     if (senhaNormalizada === "coracao") {
 
-        // Esconde a senha
+        // A SENHA SOME
         document.getElementById("sistemaTitularidade").style.display = "none";
 
-        // Mostra os termos
+        // OS TERMOS APARECEM
         document.getElementById("login").style.display = "block";
+
+        // Coloca o cursor no checkbox
+        document.getElementById("aceiteTermos").focus();
 
     } else {
 
         alert("❌ Senha incorreta. Acesso não autorizado.");
 
         document.getElementById("senha").value = "";
+
         document.getElementById("senha").focus();
     }
 }
 
 
 /* =========================
-CONFIRMAÇÃO DOS TERMOS
-========================= */
+   CONFIRMAR TERMOS
+   ========================= */
 
 function confirmarTermos() {
 
-    const aceite = document.getElementById("aceiteTermos");
+    const aceite =
+        document.getElementById("aceiteTermos");
 
     if (!aceite.checked) {
 
-        alert("⚠️ É necessário ler e aceitar os termos de uso para prosseguir.");
+        alert(
+            "⚠️ É necessário ler e aceitar os termos de uso para prosseguir."
+        );
 
         return;
     }
 
-    // Esconde os termos
+    // TERMOS SOMEM
     document.getElementById("login").style.display = "none";
 
-    // Mostra a titularidade
+    // TITULARIDADE APARECE
     document.getElementById("titularidadeValidada").style.display = "block";
 
-    // Mantém o restante do site escondido
+    // SITE CONTINUA ESCONDIDO
     document.getElementById("conteudoSite").style.display = "none";
 
-    // Aguarda exatamente 8 segundos
+
+    // AGUARDA 8 SEGUNDOS
     setTimeout(function () {
 
-        // Esconde a titularidade
+        // TITULARIDADE SOME
         document.getElementById("titularidadeValidada").style.display = "none";
 
-        // Abre o restante do site
+        // SITE APARECE
         document.getElementById("conteudoSite").style.display = "block";
 
     }, 8000);
 }
-
-
-/* =========================
-ABERTURA INICIAL
-========================= */
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    // Primeiro: senha
-    document.getElementById("sistemaTitularidade").style.display = "block";
-
-    // Depois: termos
-    document.getElementById("login").style.display = "none";
-
-    // Titularidade escondida
-    document.getElementById("titularidadeValidada").style.display = "none";
-
-    // Site escondido
-    document.getElementById("conteudoSite").style.display = "none";
-
-});
 
 // =========================================================
 // QUEM É MAIS?
