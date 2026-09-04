@@ -14,32 +14,35 @@
 
 <body>
 
-   <!-- =========================
+<!-- =========================
 SISTEMA DE TITULARIDADE
 ========================= -->
 
 <div id="sistemaTitularidade" style="display:none;">
 
-    <hr>
+    <section class="card capa">
 
-    <h2>⚖️ SISTEMA DE TITULARIDADE</h2>
+        <h2>⚖️ SISTEMA DE TITULARIDADE</h2>
 
-    <h3>ACESSO RESTRITO AO TITULAR</h3>
+        <h3>ACESSO RESTRITO AO TITULAR</h3>
 
-    <p>
-        Para prosseguir, informe a senha de acesso:
-    </p>
+        <p>
+            Para prosseguir, informe a senha de acesso:
+        </p>
 
-    <input
-        type="password"
-        id="senha"
-        placeholder="Digite a senha">
+        <input
+            type="password"
+            id="senha"
+            placeholder="Digite a senha"
+        >
 
-    <br><br>
+        <br><br>
 
-    <button onclick="verificarSenha()">
-        CONFIRMAR ACESSO
-    </button>
+        <button onclick="verificarSenha()">
+            CONFIRMAR ACESSO
+        </button>
+
+    </section>
 
 </div>
 
@@ -120,40 +123,41 @@ TERMOS DE USO
 TITULARIDADE VALIDADA
 ========================= -->
 
-<section
-    class="card"
-    id="titularidadeValidada"
-    style="display:none;"
->
+<div id="titularidadeValidada" style="display:none;">
 
-    <h2>⚖️ Titularidade Validada</h2>
+    <section class="card">
 
-    <p>
-        <strong>Titular:</strong><br>
-        Nazareno Lima
-    </p>
+        <h2>⚖️ Titularidade Validada</h2>
 
-    <p>
-        O sistema reconheceu a titularidade apresentada.
-    </p>
+        <p>
+            <strong>Titular:</strong><br>
+            Nazareno Lima
+        </p>
 
-    <p>
-        O acesso foi autorizado.
-    </p>
+        <p>
+            O sistema reconheceu a titularidade apresentada.
+        </p>
 
-    <h3>
-        PRÓXIMA ETAPA
-    </h3>
+        <p>
+            O acesso foi autorizado.
+        </p>
 
-    <p>
-        <strong>Nosso Cantinho</strong>
-    </p>
+        <h3>
+            PRÓXIMA ETAPA
+        </h3>
 
-    <p>
-        Aguarde a abertura do processo.
-    </p>
+        <p>
+            <strong>Nosso Cantinho</strong>
+        </p>
 
-</section>
+        <p>
+            Aguarde a abertura do processo.
+        </p>
+
+    </section>
+
+</div>
+
 
 <!-- =========================
 CONTEÚDO DO SITE
