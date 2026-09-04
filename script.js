@@ -31,8 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function verificarSenha() {
 
-    const senhaDigitada =
-        document.getElementById("senha").value;
+    const senhaDigitada = document.getElementById("senha").value;
 
     const senhaNormalizada = senhaDigitada
         .trim()
@@ -42,25 +41,20 @@ function verificarSenha() {
 
     if (senhaNormalizada === "coracao") {
 
-        // A SENHA SOME
+        // Remove completamente a etapa da senha
         document.getElementById("sistemaTitularidade").style.display = "none";
 
-        // OS TERMOS APARECEM
+        // Só agora os termos aparecem
         document.getElementById("login").style.display = "block";
-
-        // Coloca o cursor no checkbox
-        document.getElementById("aceiteTermos").focus();
 
     } else {
 
         alert("❌ Senha incorreta. Acesso não autorizado.");
 
         document.getElementById("senha").value = "";
-
         document.getElementById("senha").focus();
     }
 }
-
 
 /* =========================
    CONFIRMAR TERMOS
