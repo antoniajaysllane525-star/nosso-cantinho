@@ -64,42 +64,6 @@ function verificarSenha() {
     }
 }
 
-// =========================
-// CONFIRMAÇÃO DOS TERMOS
-// =========================
-
-function confirmarTermos() {
-
-    const aceite = document.getElementById("aceiteTermos");
-
-    if (!aceite.checked) {
-
-        alert("Para prosseguir, é necessário ler e aceitar os termos de uso.");
-
-        return;
-    }
-
-    // Esconde os Termos
-    document.querySelector("#login .card.capa").style.display = "none";
-
-    // Mostra "Titularidade Validada"
-    const titularidade =
-        document.getElementById("titularidadeValidada");
-
-    titularidade.style.display = "block";
-
-    // Depois de 8 segundos...
-    setTimeout(function () {
-
-        // Esconde completamente a Titularidade
-        titularidade.style.display = "none";
-
-        // Libera o restante do site
-        document.getElementById("conteudoSite").style.display = "block";
-
-    }, 8000);
-}
-
 // =========================================================
 // QUEM É MAIS?
 // =========================================================
