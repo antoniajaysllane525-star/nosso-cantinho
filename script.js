@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
    VERIFICAR SENHA
    ========================= */
 
-unction verificarSenha() {
+function verificarSenha() {
 
     const senhaDigitada =
         document.getElementById("senha").value;
@@ -60,6 +60,7 @@ unction verificarSenha() {
         document.getElementById("senha").focus();
     }
 }
+
 
 /* =========================
    CONFIRMAR TERMOS
