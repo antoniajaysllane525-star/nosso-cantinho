@@ -4,24 +4,9 @@
 // PARTE 1 — ACESSO E ENTRADA NO SITE
 // =========================================================
 
-function confirmarTermos() {
-
-    const aceite = document.getElementById("aceiteTermos");
-
-    if (!aceite.checked) {
-
-        alert("Para prosseguir, é necessário ler e aceitar os termos de uso.");
-
-        return;
-    }
-
-    // Libera o Sistema de Titularidade
-    document.getElementById("sistemaTitularidade").style.display = "block";
-
-    // Esconde o botão de confirmação dos termos
-    document.getElementById("btnTermos").style.display = "none";
-}
-
+/* =========================
+SISTEMA DE TITULARIDADE
+========================= */
 
 function verificarSenha() {
 
@@ -35,34 +20,78 @@ function verificarSenha() {
 
     if (senhaNormalizada === "coracao") {
 
-        // Esconde a tela de acesso
-        document.getElementById("login").style.display = "none";
+        // Esconde a senha
+        document.getElementById("sistemaTitularidade").style.display = "none";
 
-        // Mostra "Titularidade Validada"
-        const titularidade =
-            document.getElementById("titularidadeValidada");
-
-        titularidade.style.display = "block";
-
-        // Depois de 8 segundos...
-        setTimeout(function() {
-
-            // Esconde completamente a Titularidade
-            titularidade.style.display = "none";
-
-            // Libera o restante do site
-            document.getElementById("conteudoSite").style.display = "block";
-
-        }, 8000);
+        // Mostra os termos
+        document.getElementById("login").style.display = "block";
 
     } else {
 
-        alert("Senha incorreta. Tente novamente.");
+        alert("❌ Senha incorreta. Acesso não autorizado.");
 
         document.getElementById("senha").value = "";
         document.getElementById("senha").focus();
     }
 }
+
+
+/* =========================
+CONFIRMAÇÃO DOS TERMOS
+========================= */
+
+function confirmarTermos() {
+
+    const aceite = document.getElementById("aceiteTermos");
+
+    if (!aceite.checked) {
+
+        alert("⚠️ É necessário ler e aceitar os termos de uso para prosseguir.");
+
+        return;
+    }
+
+    // Esconde os termos
+    document.getElementById("login").style.display = "none";
+
+    // Mostra a titularidade
+    document.getElementById("titularidadeValidada").style.display = "block";
+
+    // Mantém o restante do site escondido
+    document.getElementById("conteudoSite").style.display = "none";
+
+    // Aguarda exatamente 8 segundos
+    setTimeout(function () {
+
+        // Esconde a titularidade
+        document.getElementById("titularidadeValidada").style.display = "none";
+
+        // Abre o restante do site
+        document.getElementById("conteudoSite").style.display = "block";
+
+    }, 8000);
+}
+
+
+/* =========================
+ABERTURA INICIAL
+========================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    // Primeiro: senha
+    document.getElementById("sistemaTitularidade").style.display = "block";
+
+    // Depois: termos
+    document.getElementById("login").style.display = "none";
+
+    // Titularidade escondida
+    document.getElementById("titularidadeValidada").style.display = "none";
+
+    // Site escondido
+    document.getElementById("conteudoSite").style.display = "none";
+
+});
 
 // =========================================================
 // QUEM É MAIS?
