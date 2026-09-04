@@ -14,44 +14,41 @@
 
 <body>
 
-    <!-- =========================
-        SISTEMA DE TITULARIDADE
-        ========================= -->
+   <!-- =========================
+SISTEMA DE TITULARIDADE
+========================= -->
 
-        <div id="sistemaTitularidade" style="display:none;">
+<div id="sistemaTitularidade" style="display:none;">
 
-            <hr>
+    <hr>
 
-            <h2>⚖️ SISTEMA DE TITULARIDADE</h2>
+    <h2>⚖️ SISTEMA DE TITULARIDADE</h2>
 
-            <h3>ACESSO RESTRITO AO TITULAR</h3>
+    <h3>ACESSO RESTRITO AO TITULAR</h3>
 
-            <p>
-                Para prosseguir, informe a senha de acesso:
-            </p>
+    <p>
+        Para prosseguir, informe a senha de acesso:
+    </p>
 
-            <input
-                type="password"
-                id="senha"
-                placeholder="Digite a senha">
+    <input
+        type="password"
+        id="senha"
+        placeholder="Digite a senha">
 
-            <br><br>
+    <br><br>
 
-            <button onclick="verificarSenha()">
-                CONFIRMAR ACESSO
-            </button>
-
-        </div>
-
-    </section>
+    <button onclick="verificarSenha()">
+        CONFIRMAR ACESSO
+    </button>
 
 </div>
 
-   <!-- =========================
-TERMOS DE USO + SISTEMA DE TITULARIDADE
+
+<!-- =========================
+TERMOS DE USO
 ========================= -->
 
-<div id="login">
+<div id="login" style="display:none;">
 
     <section class="card capa">
 
@@ -114,42 +111,55 @@ TERMOS DE USO + SISTEMA DE TITULARIDADE
             Confirmar termos
         </button>
 
-    <!-- =========================
-    TITULARIDADE VALIDADA
-    ========================= -->
-
-    <section class="card" id="titularidadeValidada" style="display:none;">
-
-        <h2>⚖️ Titularidade Validada</h2>
-
-        <p>
-            <strong>Titular:</strong><br>
-            Nazareno Lima
-        </p>
-
-        <p>
-            O sistema reconheceu a titularidade apresentada.
-        </p>
-
-        <p>
-            O acesso foi autorizado.
-        </p>
-
-        <h3>
-            PRÓXIMA ETAPA
-        </h3>
-
-        <p>
-            <strong>Nosso Cantinho</strong>
-        </p>
-
-        <p>
-            Aguarde a abertura do processo.
-        </p>
-
     </section>
 
-    <div id="conteudoSite" style="display: none;">
+</div>
+
+
+<!-- =========================
+TITULARIDADE VALIDADA
+========================= -->
+
+<section
+    class="card"
+    id="titularidadeValidada"
+    style="display:none;"
+>
+
+    <h2>⚖️ Titularidade Validada</h2>
+
+    <p>
+        <strong>Titular:</strong><br>
+        Nazareno Lima
+    </p>
+
+    <p>
+        O sistema reconheceu a titularidade apresentada.
+    </p>
+
+    <p>
+        O acesso foi autorizado.
+    </p>
+
+    <h3>
+        PRÓXIMA ETAPA
+    </h3>
+
+    <p>
+        <strong>Nosso Cantinho</strong>
+    </p>
+
+    <p>
+        Aguarde a abertura do processo.
+    </p>
+
+</section>
+
+<!-- =========================
+CONTEÚDO DO SITE
+========================= -->
+
+<div id="conteudoSite" style="display:none;">
 
    <!-- =========================
 BEM-VINDO AO NOSSO CANTINHO
