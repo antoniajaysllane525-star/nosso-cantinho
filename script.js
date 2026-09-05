@@ -437,7 +437,7 @@ const perguntas = [
 
     {
         pergunta:
-            "Conforme os registros oficiais desta história, qual foi a data do primeiro beijo entre as partes?",
+            "Conforme os registros desta história, qual foi a data do primeiro beijo entre as partes?",
 
         alternativas: [
             "22/02/2026",
@@ -452,7 +452,7 @@ const perguntas = [
 
     {
         pergunta:
-            "Qual foi o primeiro apelido oficialmente registrado pela contratante para se referir ao contratante?",
+            "Qual foi o primeiro apelido registrado pela contratante para se referir ao contratante?",
 
         alternativas: [
             "Amor",
@@ -481,7 +481,7 @@ const perguntas = [
 
     {
         pergunta:
-            "Caso as partes estivessem em um restaurante e o garçom perguntasse o pedido sem apresentar o cardápio, qual suco provavelmente seria escolhido pela contratante?",
+            "Se estivessem em um restaurante e o garçom perguntasse o pedido sem apresentar o cardápio, qual suco provavelmente seria escolhido pela contratante?",
 
         alternativas: [
             "Acerola",
@@ -496,7 +496,7 @@ const perguntas = [
 
     {
         pergunta:
-            "Para demonstrar conhecimento acerca dos gostos da contratante, qual escolha teria maior chance de deixá-la feliz?",
+            "Qual escolha teria maior chance de deixar a contratante feliz?",
 
         alternativas: [
             "Pipoca",
@@ -556,7 +556,7 @@ const perguntas = [
 
     {
         pergunta:
-            "Caso alguém perguntasse qual é o personagem favorito da contratante, qual resposta deveria ser apresentada?",
+            "Qual é o personagem favorito da contratante?",
 
         alternativas: [
             "Mickey",
@@ -571,7 +571,7 @@ const perguntas = [
 
     {
         pergunta:
-            "Após participar dos testes e desenvolvimento deste projeto, qual título foi oficialmente concedido ao contratante?",
+            "Após participar dos testes e desenvolvimento deste projeto, qual título foi concedido ao contratante?",
 
         alternativas: [
             "Programador",
