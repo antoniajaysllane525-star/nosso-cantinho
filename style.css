@@ -314,6 +314,14 @@ button:hover {
     visibility:visible !important;
 }
 
+/* BOTÃO COPIAR CÓDIGO */
+
+button[onclick="copiarCodigo()"] {
+    background: #7b5038;
+    color: #ffffff;
+    border: none;
+}
+
 /* CERTIFICADO */
 
 .imagem-certificado {
