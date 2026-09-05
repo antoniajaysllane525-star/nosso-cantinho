@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("sistemaTitularidade").style.display = "block";
 
     // ESCONDE OS TERMOS
-    document.getElementById("login").style.display = "block";
+    document.getElementById("login").style.display = "none";
 
     // ESCONDE TITULARIDADE VALIDADA
     document.getElementById("titularidadeValidada").style.display = "none";
