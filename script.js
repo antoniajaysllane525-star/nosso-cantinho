@@ -5,18 +5,6 @@
 // =========================================================
 
 /* =========================
-   CONTROLE DAS ETAPAS
-   ========================= */
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    // PRIMEIRA ETAPA: SOMENTE SENHA
-    document.getElementById("sistemaTitularidade").style.display = "block";
-
-});
-
-
-/* =========================
    VERIFICAR SENHA
    ========================= */
 
