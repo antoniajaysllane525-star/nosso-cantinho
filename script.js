@@ -13,15 +13,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // PRIMEIRA ETAPA: SOMENTE SENHA
     document.getElementById("sistemaTitularidade").style.display = "block";
 
-    // ESCONDE OS TERMOS
-    document.getElementById("login").style.display = "none";
-
-    // ESCONDE TITULARIDADE VALIDADA
-    document.getElementById("titularidadeValidada").style.display = "none";
-
-    // ESCONDE O CONTEÚDO DO SITE
-    document.getElementById("conteudoSite").style.display = "none";
-
 });
 
 
