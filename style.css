@@ -358,27 +358,6 @@ button[onclick="copiarCodigo()"] {
 }
 
 
-/* ACEITE DOS TERMOS */
-
-#aceiteTermos {
-    accent-color: #7b5038;
-    width: 17px;
-    height: 17px;
-    vertical-align: middle;
-    margin-right: 6px;
-}
-
-/* TEXTO DO ACEITE */
-
-#login label {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 15px;
-    color: #5a3928;
-    line-height: 1.5;
-}
-
 /* ANIMAÇÃO SUAVE DOS CARDS */
 
 .card {
