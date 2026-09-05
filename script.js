@@ -6,19 +6,28 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
+    // =========================
+    // ESTADO INICIAL
+    // =========================
+
+    // Mostra SOMENTE a senha
     document.getElementById("sistemaTitularidade")
         .style.setProperty("display", "block", "important");
 
+    // Esconde os termos
     document.getElementById("login")
         .style.setProperty("display", "none", "important");
 
+    // Esconde titularidade validada
     document.getElementById("titularidadeValidada")
         .style.setProperty("display", "none", "important");
 
+    // Esconde conteúdo do site
     document.getElementById("conteudoSite")
         .style.setProperty("display", "none", "important");
 
 });
+
 
 /* =========================
    VERIFICAR SENHA
@@ -26,7 +35,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function verificarSenha() {
 
-    const senhaDigitada = document.getElementById("senha").value;
+    const senhaDigitada =
+        document.getElementById("senha").value;
 
     const senhaNormalizada = senhaDigitada
         .trim()
@@ -36,21 +46,23 @@ function verificarSenha() {
 
     if (senhaNormalizada === "coracao") {
 
-       document.getElementById("sistemaTitularidade")
-    .style.setProperty("display", "none", "important");
+        // ESCONDE A SENHA
+        document.getElementById("sistemaTitularidade")
+            .style.setProperty("display", "none", "important");
 
-       document.getElementById("login")
-    .style.setProperty("display", "block", "important");
-       
+        // MOSTRA OS TERMOS
+        document.getElementById("login")
+            .style.setProperty("display", "block", "important");
+
     } else {
 
         alert("❌ Senha incorreta. Acesso não autorizado.");
 
-        // Continua na tela da senha
         document.getElementById("senha").value = "";
         document.getElementById("senha").focus();
     }
 }
+
 
 /* =========================
    CONFIRMAR TERMOS
@@ -71,23 +83,28 @@ function confirmarTermos() {
     }
 
     // ESCONDE OS TERMOS
-    document.getElementById("login").style.display = "none";
+    document.getElementById("login")
+        .style.setProperty("display", "none", "important");
 
-    // MOSTRA A TITULARIDADE VALIDADA
-    document.getElementById("titularidadeValidada").style.display = "block";
+    // MOSTRA TITULARIDADE VALIDADA
+    document.getElementById("titularidadeValidada")
+        .style.setProperty("display", "block", "important");
 
     // MANTÉM O SITE ESCONDIDO
-    document.getElementById("conteudoSite").style.display = "none";
+    document.getElementById("conteudoSite")
+        .style.setProperty("display", "none", "important");
 
 
     // AGUARDA 8 SEGUNDOS
     setTimeout(function () {
 
-        // ESCONDE A TITULARIDADE
-        document.getElementById("titularidadeValidada").style.display = "none";
+        // ESCONDE TITULARIDADE
+        document.getElementById("titularidadeValidada")
+            .style.setProperty("display", "none", "important");
 
         // MOSTRA O CONTEÚDO DO SITE
-        document.getElementById("conteudoSite").style.display = "block";
+        document.getElementById("conteudoSite")
+            .style.setProperty("display", "block", "important");
 
     }, 8000);
 }
