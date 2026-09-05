@@ -10,11 +10,17 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    // MOSTRA SOMENTE A TELA DE SENHA
+    // PRIMEIRA ETAPA: SOMENTE SENHA
     document.getElementById("sistemaTitularidade").style.display = "block";
 
     // ESCONDE OS TERMOS
     document.getElementById("login").style.display = "none";
+
+    // ESCONDE TITULARIDADE VALIDADA
+    document.getElementById("titularidadeValidada").style.display = "none";
+
+    // ESCONDE O CONTEÚDO DO SITE
+    document.getElementById("conteudoSite").style.display = "none";
 
 });
 
@@ -36,13 +42,11 @@ function verificarSenha() {
 
     if (senhaNormalizada === "coracao") {
 
-    // ESCONDE O SISTEMA DE SENHA
-    document.getElementById("sistemaTitularidade").style.display = "none";
+        // ESCONDE O SISTEMA DE SENHA
+        document.getElementById("sistemaTitularidade").style.display = "none";
 
-    // MOSTRA OS TERMOS
-    document.getElementById("login").style.display = "block";
-
-}
+        // SÓ AGORA MOSTRA OS TERMOS
+        document.getElementById("login").style.display = "block";
 
     } else {
 
@@ -73,23 +77,23 @@ function confirmarTermos() {
         return;
     }
 
-    // 🧾 TERMOS DESAPARECEM
+    // ESCONDE OS TERMOS
     document.getElementById("login").style.display = "none";
 
-    // ⚖️ AGORA APARECE SOMENTE A TITULARIDADE
+    // MOSTRA A TITULARIDADE VALIDADA
     document.getElementById("titularidadeValidada").style.display = "block";
 
-    // 🌹 CONTEÚDO CONTINUA ESCONDIDO
+    // MANTÉM O SITE ESCONDIDO
     document.getElementById("conteudoSite").style.display = "none";
 
 
-    // ⏱️ AGUARDA 8 SEGUNDOS
+    // AGUARDA 8 SEGUNDOS
     setTimeout(function () {
 
-        // ⚖️ TITULARIDADE DESAPARECE
+        // ESCONDE A TITULARIDADE
         document.getElementById("titularidadeValidada").style.display = "none";
 
-        // ❤️ AGORA APARECE SOMENTE O SITE
+        // MOSTRA O CONTEÚDO DO SITE
         document.getElementById("conteudoSite").style.display = "block";
 
     }, 8000);
