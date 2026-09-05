@@ -314,6 +314,10 @@ button:hover {
     visibility:visible !important;
 }
 
+#alternativas .opcao.selecionada {
+    color: white !important;
+}
+
 /* BOTÃO COPIAR CÓDIGO */
 
 button[onclick="copiarCodigo()"] {
