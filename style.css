@@ -357,6 +357,45 @@ button[onclick="copiarCodigo()"] {
     color: #5a3928;
 }
 
+/* CAMPO DE SENHA */
+
+#senha {
+    width: 100%;
+    max-width: 350px;
+    padding: 14px 18px;
+    border: 2px solid #e6d5c7;
+    border-radius: 30px;
+    background: #fffaf7;
+    color: #5a3928;
+    font-size: 16px;
+    text-align: center;
+    outline: none;
+}
+
+#senha:focus {
+    border-color: #7b5038;
+}
+
+/* ACEITE DOS TERMOS */
+
+#aceiteTermos {
+    accent-color: #7b5038;
+    width: 17px;
+    height: 17px;
+    vertical-align: middle;
+    margin-right: 6px;
+}
+
+/* TEXTO DO ACEITE */
+
+#login label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    color: #5a3928;
+    line-height: 1.5;
+}
 
 /* ANIMAÇÃO SUAVE DOS CARDS */
 
