@@ -31,8 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function verificarSenha() {
 
-    const senhaDigitada =
-        document.getElementById("senha").value;
+    const senhaDigitada = document.getElementById("senha").value;
 
     const senhaNormalizada = senhaDigitada
         .trim()
@@ -42,22 +41,21 @@ function verificarSenha() {
 
     if (senhaNormalizada === "coracao") {
 
-        // ESCONDE O SISTEMA DE SENHA
+        // Esconde a tela da senha
         document.getElementById("sistemaTitularidade").style.display = "none";
 
-        // SÓ AGORA MOSTRA OS TERMOS
+        // Mostra os termos
         document.getElementById("login").style.display = "block";
 
     } else {
 
         alert("❌ Senha incorreta. Acesso não autorizado.");
 
+        // Continua na tela da senha
         document.getElementById("senha").value = "";
-
         document.getElementById("senha").focus();
     }
 }
-
 
 /* =========================
    CONFIRMAR TERMOS
