@@ -4,6 +4,22 @@
 // PARTE 1 — ACESSO E ENTRADA NO SITE
 // =========================================================
 
+document.addEventListener("DOMContentLoaded", function () {
+
+    document.getElementById("sistemaTitularidade")
+        .style.setProperty("display", "block", "important");
+
+    document.getElementById("login")
+        .style.setProperty("display", "none", "important");
+
+    document.getElementById("titularidadeValidada")
+        .style.setProperty("display", "none", "important");
+
+    document.getElementById("conteudoSite")
+        .style.setProperty("display", "none", "important");
+
+});
+
 /* =========================
    VERIFICAR SENHA
    ========================= */
@@ -20,12 +36,12 @@ function verificarSenha() {
 
     if (senhaNormalizada === "coracao") {
 
-        // Esconde a tela da senha
-        document.getElementById("sistemaTitularidade").style.display = "none";
+       document.getElementById("sistemaTitularidade")
+    .style.setProperty("display", "none", "important");
 
-        // Mostra os termos
-        document.getElementById("login").style.display = "block";
-
+       document.getElementById("login")
+    .style.setProperty("display", "block", "important");
+       
     } else {
 
         alert("❌ Senha incorreta. Acesso não autorizado.");
