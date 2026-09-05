@@ -357,24 +357,6 @@ button[onclick="copiarCodigo()"] {
     color: #5a3928;
 }
 
-/* CAMPO DE SENHA */
-
-#senha {
-    width: 100%;
-    max-width: 350px;
-    padding: 14px 18px;
-    border: 2px solid #e6d5c7;
-    border-radius: 30px;
-    background: #fffaf7;
-    color: #5a3928;
-    font-size: 16px;
-    text-align: center;
-    outline: none;
-}
-
-#senha:focus {
-    border-color: #7b5038;
-}
 
 /* ACEITE DOS TERMOS */
 
