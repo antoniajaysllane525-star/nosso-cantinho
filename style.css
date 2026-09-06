@@ -428,3 +428,69 @@ button[onclick="copiarCodigo()"] {
     opacity: 0;
     pointer-events: none;
 }
+
+/* =========================
+   TITULARIDADE VALIDADA
+   ========================= */
+
+#titularidadeValidada {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99998;
+    overflow: hidden;
+    background: #000;
+}
+
+
+/* VÍDEO EM TELA CHEIA */
+
+#videoTitularidade {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* MENSAGEM SOBRE O VÍDEO */
+
+#titularidadeValidada .mensagemTitularidade {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: min(88%, 430px);
+    max-height: 85vh;
+    overflow-y: auto;
+
+    z-index: 2;
+
+    /* Fundo integrado ao vídeo */
+    background: rgba(20, 15, 12, 0.55);
+
+    /* Efeito de vidro */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.35);
+
+    color: white;
+}
+
+
+/* TEXTO */
+
+#titularidadeValidada .mensagemTitularidade h2,
+#titularidadeValidada .mensagemTitularidade h3,
+#titularidadeValidada .mensagemTitularidade p {
+    text-shadow:
+        0 2px 5px rgba(0, 0, 0, 0.8);
+}
