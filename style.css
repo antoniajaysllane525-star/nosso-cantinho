@@ -499,13 +499,6 @@ button[onclick="copiarCodigo()"] {
    TEXTO DA TITULARIDADE VALIDADA
    ========================= */
 
-#titularidadeValidada .mensagemTitularidade,
-#titularidadeValidada .mensagemTitularidade h1,
-#titularidadeValidada .mensagemTitularidade h2,
-#titularidadeValidada .mensagemTitularidade h3,
-#titularidadeValidada .mensagemTitularidade h4,
-#titularidadeValidada .mensagemTitularidade p,
-#titularidadeValidada .mensagemTitularidade strong,
-#titularidadeValidada .mensagemTitularidade span {
+#titularidadeValidada .mensagemTitularidade * {
     color: #ffffff !important;
 }
