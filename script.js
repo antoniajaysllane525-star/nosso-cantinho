@@ -11,6 +11,17 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("sistemaTitularidade");
 
     // =========================
+    // INICIAR VÍDEO AUTOMATICAMENTE
+    // =========================
+
+    video.muted = true;
+video.playsInline = true;
+
+video.play().catch(function () {
+    console.log("O navegador bloqueou o autoplay.");
+});
+
+    // =========================
     // ESTADO INICIAL
     // =========================
 
