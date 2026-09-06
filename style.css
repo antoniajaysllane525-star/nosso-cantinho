@@ -494,3 +494,18 @@ button[onclick="copiarCodigo()"] {
     text-shadow:
         0 2px 5px rgba(0, 0, 0, 0.8);
 }
+
+/* =========================
+   TEXTO DA TITULARIDADE VALIDADA
+   ========================= */
+
+#titularidadeValidada .mensagemTitularidade,
+#titularidadeValidada .mensagemTitularidade h1,
+#titularidadeValidada .mensagemTitularidade h2,
+#titularidadeValidada .mensagemTitularidade h3,
+#titularidadeValidada .mensagemTitularidade h4,
+#titularidadeValidada .mensagemTitularidade p,
+#titularidadeValidada .mensagemTitularidade strong,
+#titularidadeValidada .mensagemTitularidade span {
+    color: #ffffff !important;
+}
