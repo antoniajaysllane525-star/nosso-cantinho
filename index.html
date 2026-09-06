@@ -15,34 +15,42 @@
 <body>
 
 <!-- =========================
-SISTEMA DE TITULARIDADE
+ABERTURA DO SITE
 ========================= -->
 
-<div id="sistemaTitularidade" style="display:block;">
+<div id="aberturaSite">
 
-    <section class="card capa">
+    <video id="videoAbertura" autoplay muted playsinline>
+        <source src="abertura%20do%20site.mp4" type="video/mp4">
+    </video>
 
-        <h2>⚖️ SISTEMA DE TITULARIDADE</h2>
+    <div id="sistemaTitularidade">
 
-        <h3>ACESSO RESTRITO AO TITULAR</h3>
+        <section class="card capa">
 
-        <p>
-            Informe a senha de acesso:
-        </p>
+            <h2>⚖️ SISTEMA DE TITULARIDADE</h2>
 
-        <input
-            type="password"
-            id="senha"
-            placeholder="Digite a senha"
-        >
+            <h3>ACESSO RESTRITO AO TITULAR</h3>
 
-        <br><br>
+            <p>
+                Informe a senha de acesso:
+            </p>
 
-        <button onclick="verificarSenha()">
-            CONFIRMAR ACESSO
-        </button>
+            <input
+                type="password"
+                id="senha"
+                placeholder="Digite a senha"
+            >
 
-    </section>
+            <br><br>
+
+            <button onclick="verificarSenha()">
+                CONFIRMAR ACESSO
+            </button>
+
+        </section>
+
+    </div>
 
 </div>
 
