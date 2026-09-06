@@ -1,18 +1,22 @@
 // =========================================================
 // NOSSO CANTINHO ❤️
 // SCRIPT PRINCIPAL
-// PARTE 1 — ACESSO E ENTRADA NO SITE
+// PARTE 1 — ABERTURA E ACESSO
 // =========================================================
 
 document.addEventListener("DOMContentLoaded", function () {
+
+    const video = document.getElementById("videoAbertura");
+    const sistemaTitularidade =
+        document.getElementById("sistemaTitularidade");
 
     // =========================
     // ESTADO INICIAL
     // =========================
 
-    // Mostra SOMENTE a senha
-    document.getElementById("sistemaTitularidade")
-        .style.setProperty("display", "block", "important");
+    // Esconde a senha enquanto o vídeo estiver passando
+    sistemaTitularidade
+        .style.setProperty("display", "none", "important");
 
     // Esconde os termos
     document.getElementById("login")
@@ -25,6 +29,22 @@ document.addEventListener("DOMContentLoaded", function () {
     // Esconde conteúdo do site
     document.getElementById("conteudoSite")
         .style.setProperty("display", "none", "important");
+
+
+    // =========================
+    // VÍDEO TERMINOU
+    // =========================
+
+    video.addEventListener("ended", function () {
+
+        // Mantém o último frame congelado
+        video.pause();
+
+        // Agora libera a caixa de senha
+        sistemaTitularidade
+            .style.setProperty("display", "block", "important");
+
+    });
 
 });
 
@@ -46,13 +66,26 @@ function verificarSenha() {
 
     if (senhaNormalizada === "coracao") {
 
-        // ESCONDE A SENHA
-        document.getElementById("sistemaTitularidade")
-            .style.setProperty("display", "none", "important");
+        // =========================
+        // ACESSO AUTORIZADO
+        // =========================
 
-        // MOSTRA OS TERMOS
-        document.getElementById("login")
-            .style.setProperty("display", "block", "important");
+        const abertura =
+            document.getElementById("aberturaSite");
+
+        // Faz vídeo + senha desaparecerem juntos
+        abertura.classList.add("aberturaSaindo");
+
+        setTimeout(function () {
+
+            // Esconde completamente a abertura
+            abertura.style.display = "none";
+
+            // Mostra os termos
+            document.getElementById("login")
+                .style.setProperty("display", "block", "important");
+
+        }, 800);
 
     } else {
 
@@ -62,7 +95,6 @@ function verificarSenha() {
         document.getElementById("senha").focus();
     }
 }
-
 
 /* =========================
    CONFIRMAR TERMOS
