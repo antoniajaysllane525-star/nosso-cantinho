@@ -130,7 +130,10 @@ function confirmarTermos() {
         .style.setProperty("display", "none", "important");
 
     // MOSTRA TITULARIDADE VALIDADA
-    document.getElementById("titularidadeValidada")
+    const titularidade =
+        document.getElementById("titularidadeValidada");
+
+    titularidade
         .style.setProperty("display", "block", "important");
 
     // MANTÉM O SITE ESCONDIDO
@@ -138,12 +141,38 @@ function confirmarTermos() {
         .style.setProperty("display", "none", "important");
 
 
+    // =========================
+    // INICIA O VÍDEO JUNTO COM A MENSAGEM
+    // =========================
+
+    const video =
+        document.getElementById("videoTitularidade");
+
+    if (video) {
+
+        video.currentTime = 0;
+
+        video.play().catch(function (erro) {
+            console.log("Não foi possível iniciar o vídeo automaticamente:", erro);
+        });
+    }
+
+
+    // =========================
     // AGUARDA 8 SEGUNDOS
+    // =========================
+
     setTimeout(function () {
 
         // ESCONDE TITULARIDADE
-        document.getElementById("titularidadeValidada")
+        titularidade
             .style.setProperty("display", "none", "important");
+
+        // PARA O VÍDEO
+        if (video) {
+            video.pause();
+            video.currentTime = 0;
+        }
 
         // MOSTRA O CONTEÚDO DO SITE
         document.getElementById("conteudoSite")
